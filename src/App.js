@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Main from "./components/Main/Main";
@@ -6,17 +6,24 @@ import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import ShoppingDetail from "./components/ShoppingDetail/ShoppingDetail";
 import PageService from "./components/PageService/PageService";
 import Payment from "./components/Payment/Payment";
+import Register from "./components/Register/Register"
 
 
 
 import "./App.css";
 
 function App() {
+
+
   return (
+    
     <Router>
       <Switch>
         <Route exact path="/">
           <Login />
+        </Route>
+        <Route  path="/">
+          <Register />
         </Route>
         <Route path="/main">
           <Main />
@@ -35,6 +42,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+    
   );
 }
 
