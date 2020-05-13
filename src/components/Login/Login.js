@@ -5,7 +5,7 @@ import Sidebar from "./Sidebar";
 import Register from "../Register/Register";
 
 // estilos del componente
-import "../styles/Login.css"
+import "./styles.css"
 
 const Login = () => {
   const [login, setLogin] = useState(true);
