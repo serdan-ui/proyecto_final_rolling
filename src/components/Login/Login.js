@@ -4,12 +4,15 @@ import LoginContainer from "./LoginContainer";
 import Sidebar from "./Sidebar";
 import Register from "../Register/Register";
 
+// estilos del componente
+import "../styles/Login.css"
+
 const Login = () => {
   const [login, setLogin] = useState(true);
 
   return (
     <>
-      <Container>
+      <Container className="container_log">
         <Row>
           <Col xs={4}>
             <Sidebar />
