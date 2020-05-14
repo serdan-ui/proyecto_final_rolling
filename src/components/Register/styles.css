@@ -1,10 +1,9 @@
 /* SUFIJOS A ESTA CLASE ES : REG */
-
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 .container_reg{
  justify-content: center;
  padding: 15px;
- border: 1px solid black;
+ border: 0px solid black;
  width: 330px;
  height: 350px;
  position: relative;
@@ -18,9 +17,12 @@ text-align: start;
     justify-content: center;
     display: flex;
 }
-.btn-lg{
+.btn-redes{
     border-radius: 10px;
+    font-size: inherit !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center !important;
 }
-.btn-redess{
-    font-size: x-small;
-}
+
