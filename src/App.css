@@ -1,24 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-.container_registro{
- justify-content: center;
- padding: 15px;
- border: 1px solid black;
- width: 330px;
- height: 350px;
- position: relative;
- margin: 6% auto;
- padding: 5px;
-text-align: start;
- font-family: 'Muli', serif;
-    
-}
-.container_titulo{
-    justify-content: center;
-    display: flex;
-}
-.btn-lg{
-    border-radius: 10px;
-}
-.btn-redess{
-    font-size: x-small;
-}
+
+
+

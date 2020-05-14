@@ -7,9 +7,11 @@ import ShoppingDetail from "./components/ShoppingDetail/ShoppingDetail";
 import PageService from "./components/PageService/PageService";
 import Payment from "./components/Payment/Payment";
 import Register from "./components/Register/Register"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import "./App.css";
+
 
 function App() {
 
@@ -21,7 +23,7 @@ function App() {
         <Route exact path="/">
           <Login />
         </Route>
-        <Route  path="/">
+        <Route  path="/register">
           <Register />
         </Route>
         <Route path="/main">
