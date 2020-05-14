@@ -15,8 +15,8 @@
 }
 .contenedor-inicio{
     padding: 40px !important;
-    height: 600px !important;
-    width: 800px !important;
+    /* height: 600px !important;
+    width: 800px !important; */
     background-color: #283747;
     font-family: 'Muli', serif;    
 }
@@ -42,3 +42,10 @@
      outline:none!important;
      
  }
+ @media (max-width: 664px) {
+    .sidebar-contenedor {
+      display: none;
+    
+    }
+  
+  }

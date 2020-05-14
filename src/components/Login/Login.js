@@ -23,12 +23,12 @@ const register =() =>{
 
   return (
     <div>
-      <Container className="contenedor-inicio">
-        <Row >
+      <Container className="contenedor-inicio xs={10} md={10} lg={10}">
+        <Row className="xs={10} md={10} lg={10}" >
           <Col xs={6} className="sidebar-contenedor">
             <Sidebar />
           </Col>
-          <Col xs={6} className="login-contenedor">
+          <Col  className="login-contenedor">
           <div className="botones">
                 <Button type="button" className="toggle" onClick={register}> {login ? 'Registrarse' : 'Inicio'} </Button> 
                 
