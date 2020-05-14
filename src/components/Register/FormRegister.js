@@ -93,7 +93,7 @@ const FormRegister = () => {
                             placeholder="Contraseña"
                             label="Contraseña"
                             type="password"
-                            pattern="/[^A-Za-z0-9]+/"
+                            
                             className="form-control"
                             name="Password"
                             ref={
@@ -110,9 +110,7 @@ const FormRegister = () => {
                                         value: 5,
                                         message: ' Contraseña con mínimo 5 carácteres. '
                                     },
-                                    pattern: {     
-                                           message: "Contraseña invalida " }
-
+                                    
                                 })}
 
                         />
@@ -127,7 +125,7 @@ const FormRegister = () => {
 
                         <OverlayTrigger
 
-                            key='bottom'
+                           
                             placement='bottom'
                             overlay={
                                 <Tooltip id={`tooltip-$'bottom'`}>
@@ -142,7 +140,7 @@ const FormRegister = () => {
                         </OverlayTrigger>{' '}
                         <OverlayTrigger
 
-                            key='bottom'
+                            
                             placement='bottom'
                             overlay={
                                 <Tooltip id={`tooltip-$'bottom'`}>
