@@ -1,7 +1,8 @@
 import React from 'react';
+import Carrousel from './Carrousel';
 
 const Container = () => {
-    return ( <h1>hola</h1> );
+    return ( <Carrousel/> );
 }
- 
+  
 export default Container;

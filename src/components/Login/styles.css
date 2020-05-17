@@ -42,3 +42,31 @@
      outline:none!important;
      
  }
+
+ @media only screen and (max-width: 600px) { 
+    .sidebar-contenedor{
+        display: none;
+        
+    }
+    .contenedor-inicio{
+        padding: 40px !important;
+        height: 600px !important;
+        width: 500px !important;
+        
+        background-color: #283747;
+        font-family: 'Muli', serif;    
+    }
+    .login-contenedor{
+        background-color: #34495E;
+        height: 500px !important;
+        width: 500px !important;
+        color: lightcyan;
+    
+    }
+    .botones{
+        margin-top: 20px;
+        margin: auto;
+        
+     }
+
+  }
