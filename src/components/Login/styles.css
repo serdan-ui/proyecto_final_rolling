@@ -1,7 +1,47 @@
 /* SUFIJOS A ESTA CLASE ES : LOG */
-
-
-
-.container_log{
-    background-color: red;
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+.sidebar-contenedor{
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/7/75/Information-Technology.jpg);
+    height: 400;
+    width: 600px;
+    
 }
+.login-contenedor{
+    background-color: #34495E;
+    height: 500px !important;
+    width: 600px !important;
+    color: lightcyan;
+
+}
+.contenedor-inicio{
+    padding: 40px !important;
+    height: 600px !important;
+    width: 800px !important;
+    background-color: #283747;
+    font-family: 'Muli', serif;    
+}
+.form-login{
+    margin-top: 35px;
+}
+.botones{
+    margin-top: 20px;
+    margin-left: 200px;
+    
+ }
+ .toggle{
+     text-decoration-style: none;
+     border-radius: 20px;
+     background-color: rgb(241, 87, 31) !important;
+     border: none !important;
+     color: white;
+     outline:none!important;
+ }
+ .toggle:hover{
+     color: white;
+     background-color:  rgb(233, 135, 55) !important;
+     outline:none!important;
+     
+ }
+
+
+
