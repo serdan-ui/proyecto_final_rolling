@@ -11,8 +11,8 @@ const Header = () => {
           logo
         </Col>
         <Col xs={9} className="login_registro_header">
-          <Button className="btnLogin_header"> Iniciar sesion</Button>
-          <Button className="btnCart_header"> Carrito</Button>
+          <Button className="btnLogin_header mr-3" href="http://localhost:3000/">Iniciar sesion</Button>
+          <Button className="btnCart_header mr-3" href="http://localhost:3000/shopping-cart">Carrito</Button>
         </Col>
       </Row>
       <Nav className="justify-content-center nav_header" >
