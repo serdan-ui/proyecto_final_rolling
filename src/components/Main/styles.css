@@ -1,0 +1,22 @@
+.columnitax{
+    background-color:#283747;
+}
+.card-articulo{
+    max-height: 350px;
+}
+.carrito-xs{
+    background-color:#283747;
+
+}
+.mercadito-card{
+    margin-left: 50px;
+}
+.titulo_product_main{
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.829);
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
