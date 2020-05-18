@@ -8,6 +8,7 @@ import Register from "../Register/Register";
 import './styles.css';
 
 const Login = () => {
+
   const [login, setLogin] = useState(true);
  
 const register =() =>{
@@ -30,7 +31,7 @@ const register =() =>{
           </Col>
           <Col  className="login-contenedor">
           <div className="botones">
-                <Button type="button" className="toggle" onClick={register}> {login ? 'Registrarse' : 'Inicio'} </Button> 
+                <Button type="button" className="toggle" onClick={register}>{login ? "Registrarse" : "Iniciar Sesion"}</Button> 
                 
                 
             </div>
