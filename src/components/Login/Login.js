@@ -23,7 +23,7 @@ const register =() =>{
 
 
   return (
-    <div>
+    <div className="bodylogin">
       <Container className="contenedor-inicio xs={10} md={10} lg={10}">
         <Row className="xs={10} md={10} lg={10}" >
           <Col xs={6} className="sidebar-contenedor">

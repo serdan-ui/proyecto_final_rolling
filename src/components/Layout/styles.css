@@ -1,5 +1,5 @@
 .Container_Header {
-  background: #333;
+  background: #283747;
   padding: 0 !important;
 }
 .container_logo {
@@ -11,10 +11,11 @@
 .logo {
   font-size: 2rem;
   text-align: center;
-  height: 70px;
+  height: 70px !important;
   line-height: 70px;
   color: white;
   font-weight: bold;
+  width: 80px !important;
 }
 .login_registro_header {
   display: flex;
@@ -27,8 +28,8 @@
   height: 40px;
 }
 .btnLogin_header {
-  background: rgb(234, 234, 235) !important;
-  color: black !important;
+  background: #FC893E !important;
+  color: rgb(247, 243, 243) !important;
   border: black !important;
   font-weight: bold !important;
 }
@@ -36,19 +37,19 @@
     background: rgb(4, 4, 68)  ;
 }
 .btnCart_header {
-  background: rgb(15, 15, 143) !important;
+  background: #28a745 !important;
   border: none !important;
-  width: 80px;
+  width: 100px;
   font-weight:bold !important ;
 }
 
 .nav_header {
-    border-top: 1px solid white;
+    border-top: 0px solid #34495E;
   list-style-type: none;
   margin: 0 ;
   padding: 0 ;
   overflow: hidden;
-  background-color: #333;
+  background-color: #283747;
 
 }
 
@@ -58,13 +59,32 @@
   text-align: center;
   padding: 6px 30px;
   text-decoration: none !important;
-  border-left:0.8px solid white ;
-  border-right: 0.8px solid white;
+  border-left:0.8px solid #34495E ;
+  border-right: 0.8px solid #34495E;
   border-top: none;
 }
 .btnNav_header:hover {
-  background-color: #111 !important;
+  background-color: #34495E !important;
   color: white;
   font-weight: bold;
   
+}
+.redesociales{
+   color: aliceblue;
+}
+
+.font-small{
+  background-color:#34495E ;
+  color: aliceblue;
+  margin-top: 0px !important;
+  overflow: hidden;
+}
+.footer-copyright{
+  background-color: #283747 !important;
+}
+.columna-info{
+  padding-left: 30px !important;
+}
+.mt-4, .my-4 {
+  margin-top: 1.5rem!important; 
 }
