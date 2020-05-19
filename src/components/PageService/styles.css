@@ -1,9 +1,11 @@
-.NuestrosServ, .somosServ{
-  background-color: aquamarine;
+.somos{
+  margin: 15px;
   height: 200px;
+  border: white solid 1px;
 }
 
-.servuno, .servdos, .servtres, .servcua{
-  background-color: bisque;
-  height: 150px;
+.uno{
+  border: solid 1px white;
+  margin: 15px;
+  height: 200px;
 }
