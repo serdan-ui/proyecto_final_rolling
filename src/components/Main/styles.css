@@ -13,10 +13,26 @@
 }
 .titulo_product_main{
     margin: 0;
-    background-color: rgba(0, 0, 0, 0.829);
+    background-color: #34495E;
     color: white;
     padding: 5px;
     text-align: center;
     font-weight: bold;
     font-size: 30px;
+}
+.btnIrcarrito{
+    background-color: #FC893E !important;
+    border: #FC893E !important;
+    outline: none;
+}
+.cardArticulos{
+    border-color: #FC893E !important;
+}
+.carrousel-container{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.container-fluid{
+    padding-right: 0% !important;
+    padding-left: 0% !important;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button, ButtonGroup } from "react-bootstrap";
+import { Container, Row, Col,  Button} from "react-bootstrap";
 import LoginContainer from "./LoginContainer";
 import Sidebar from "./Sidebar";
 import Register from "../Register/Register";
@@ -23,7 +23,7 @@ const register =() =>{
 
 
   return (
-    <div>
+    <div className="bodylogin">
       <Container className="contenedor-inicio xs={10} md={10} lg={10}">
         <Row className="xs={10} md={10} lg={10}" >
           <Col xs={6} className="sidebar-contenedor">
