@@ -45,7 +45,9 @@
  @media (max-width: 664px) {
     .sidebar-contenedor {
       display: none;
-    
+      
     }
-  
+    .contenedor-inicio{
+        height: 100vh;
+    }
   }
