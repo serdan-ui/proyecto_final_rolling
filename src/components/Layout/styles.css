@@ -1,0 +1,120 @@
+.Container_Header {
+  background: #283747;
+  padding: 0 !important;
+}
+.container_logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
+}
+.logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center !important;
+  font-size: 2rem;
+  text-align: center;
+  height: 70px !important;
+  line-height: 70px;
+  color: white;
+  font-weight: bold;
+  width: 100px !important;
+}
+.logo_imagen_header {
+  margin-left: 20px;
+  width: 30vw;
+}
+.login_registro_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.login_registro_header button {
+  height: 40px;
+}
+.btnLogin_header {
+  background: #fc893e !important;
+  color: rgb(247, 243, 243) !important;
+  border: black !important;
+  font-weight: bold !important;
+}
+.btnLogin_header:hover {
+  background: rgb(4, 4, 68);
+}
+.btnCart_header {
+  background: #28a745 !important;
+  border: none !important;
+  width: 100px;
+  font-weight: bold !important ;
+}
+
+.nav_header {
+  border-top: 0px solid #34495e;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #283747;
+}
+
+.btnNav_header {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 6px 30px;
+  text-decoration: none !important;
+  border-left: 0.8px solid #34495e;
+  border-right: 0.8px solid #34495e;
+  border-top: none;
+}
+.btnNav_header:hover {
+  background-color: #34495e !important;
+  color: white;
+  font-weight: bold;
+}
+.redesociales {
+  color: aliceblue;
+}
+
+.font-small {
+  background-color: #34495e;
+  color: aliceblue;
+  margin-top: 0px !important;
+  overflow: hidden;
+}
+.footer-copyright {
+  background-color: #283747 !important;
+}
+.columna-info {
+  padding-left: 30px !important;
+}
+
+/* Media para 600px */
+@media (max-width: 600px) {
+  .btnLogin_header {
+    width: 130px;
+    font-size: 13px !important;
+  }
+  .btnCart_header {
+    line-height: 15px !important;
+    width: 70px;
+    height: 30px;
+    font-size: 14px !important;
+  }
+  .icons_header {
+    display: none;
+  }
+}
+
+@media (max-width: 340px) {
+  .btnLogin_header {
+    width: 130px;
+    font-size: 11px !important;
+  }
+  .btnCart_header {
+    width: 60px;
+    height: 30px;
+    font-size: 11px !important;
+  }
+}
