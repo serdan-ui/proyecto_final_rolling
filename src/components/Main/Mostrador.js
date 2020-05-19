@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import productos from "./basedatos";
 import {
   Row,
   Col,
@@ -15,30 +16,44 @@ import mousered from "../Images/mousered.png";
 import { CardText } from "react-bootstrap/Card";
 import Swal from "sweetalert2";
 const Mostrador = () => {
-  const [smShow, setSmShow] = useState(false);
+  // Estados
+  const [smShow, setSmShow] = useState(false); //Modal
+  const [mostImg, setMostImg] = useState(false) // Img derecha
+  const [modal , setModal ] = useState({
 
-  const enviarDato =(name)=>{
-    console.log(name)
-  };
+  })
+
+
+ 
+// Funcion mostrar Imagen derecha
+const mostrarImg = ({nombre,id,precio}) => {
+  
+  if(mostImg===false){
+    setMostImg(true); 
+  } 
+  setModal({nombre,id,precio})
+}
+
 
 
   return (
     <>
       <h3>Productos</h3>
       <Container fluid>
-        <Row>
+        <Row style={{background:"#283747"}}>
           <Col sm={8} className="columnitax">
             <CardColumns>
-              <Card>
+             {productos.map((producto) =>(
+                <Card key={producto.id} >
                 <Card.Img variant="top" src={mousered} rounded />
                 <Card.Body>
-                  <Card.Title>Mouse ReaDragon</Card.Title>
-                  <Card.Text>$567</Card.Text>
+             <Card.Title>{producto.nombre}</Card.Title>
+                  <Card.Text>${producto.precio}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
                   <Row>
                     <Col>
-                      <Button variant="info" onClick={() => setSmShow(true)}>
+                      <Button variant="info" onClick={() => mostrarImg(producto)}>
                         Ver mas
                       </Button>
                       <Modal
@@ -65,7 +80,7 @@ const Mostrador = () => {
                       </Modal>
                     </Col>
                     <Col>
-                      <Button variant="success" onClick={enviarDato}>
+                      <Button variant="success">
                         <FaCartPlus />
                         Agregar
                       </Button>
@@ -73,6 +88,7 @@ const Mostrador = () => {
                   </Row>
                 </Card.Footer>
               </Card>
+             ))}
 
               <Card>
                 <Card.Img variant="top" src={mousered} rounded />
@@ -83,7 +99,7 @@ const Mostrador = () => {
                 <Card.Footer>
                   <Row>
                     <Col>
-                      <Button variant="info">Ver mas</Button>
+                      <Button variant="info" onClick={mostrarImg}>Ver mas</Button>
                     </Col>
                     <Col>
                       <Button variant="success">
@@ -104,7 +120,7 @@ const Mostrador = () => {
                 <Card.Footer>
                   <Row>
                     <Col>
-                      <Button variant="info">Ver mas</Button>
+                      <Button variant="info" onClick={mostrarImg}>Ver mas</Button>
                     </Col>
                     <Col>
                       <Button variant="success">
@@ -157,24 +173,25 @@ const Mostrador = () => {
               </Card>
             </CardColumns>
           </Col>
-
-          <Col sm={4} className="carrito-xs">
+            {mostImg ? (<Col sm={4} className="carrito-xs">
             <Card style={{ width: "18rem" }} className="mercadito-card">
               <Card.Header>Articulos seleccionados</Card.Header>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  aca va el nombre y precio del producto
+                 <p>{modal.nombre}</p>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  aca va el nombre y precio del producto
+                <p>{modal.precio}</p>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   aca va el nombre y precio del producto
                 </ListGroup.Item>
               </ListGroup>
               <Button variant="info">Ir al carrito</Button>
+              <Button variant="danger" onClick={() => setMostImg(false)} >X</Button>
             </Card>
-          </Col>
+          </Col>) : null}
+          
         </Row>
       </Container>
     </>
