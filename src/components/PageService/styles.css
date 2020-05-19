@@ -1,0 +1,9 @@
+.NuestrosServ, .somosServ{
+  background-color: aquamarine;
+  height: 200px;
+}
+
+.servuno, .servdos, .servtres, .servcua{
+  background-color: bisque;
+  height: 150px;
+}
