@@ -6,7 +6,8 @@ import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
 import ShoppingDetail from "./components/ShoppingDetail/ShoppingDetail";
 import PageService from "./components/PageService/PageService";
 import Payment from "./components/Payment/Payment";
-import Register from "./components/Register/Register"
+import Register from "./components/Register/Register";
+import Error404 from "./components/Error404/Error404"
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <Route path="/payment">
           <Payment />
+        </Route>
+        <Route path="/error404">
+          <Error404 />
         </Route>
       </Switch>
     </Router>

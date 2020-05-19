@@ -10,10 +10,15 @@ import {
   CardColumns,
   Modal,
 } from "react-bootstrap";
-import { FaCartPlus } from "react-icons/fa";
+import { FaCartPlus, FaWindowClose } from "react-icons/fa";
 import mousered from "../Images/mousered.png";
+import Teclado from "../Images/teclado.png"
+import Tecladouna from "../Images/tecladounamano.png"
+import Auris from "../Images/auriii.png"
+import Tecladocheto from "../Images/tecladocheto.png"
+import Silla from "../Images/silla.png"
 import { CardText } from "react-bootstrap/Card";
-import Swal from "sweetalert2";
+
 const Mostrador = () => {
   const [smShow, setSmShow] = useState(false);
 
@@ -75,9 +80,9 @@ const Mostrador = () => {
               </Card>
 
               <Card>
-                <Card.Img variant="top" src={mousered} rounded />
+                <Card.Img variant="top" src={Auris} rounded />
                 <Card.Body>
-                  <Card.Title>Mouse ReaDragon</Card.Title>
+                  <Card.Title>Auriculares ReaDragon</Card.Title>
                   <Card.Text>$567</Card.Text>
                 </Card.Body>
                 <Card.Footer>
@@ -96,9 +101,9 @@ const Mostrador = () => {
               </Card>
 
               <Card>
-                <Card.Img variant="top" src={mousered} rounded />
+                <Card.Img variant="top" src={Tecladouna} rounded />
                 <Card.Body>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>Teclado una mano</Card.Title>
                   <Card.Text>$678</Card.Text>
                 </Card.Body>
                 <Card.Footer>
@@ -116,9 +121,9 @@ const Mostrador = () => {
                 </Card.Footer>
               </Card>
               <Card>
-                <Card.Img variant="top" src={mousered} rounded />{" "}
+                <Card.Img variant="top" src={Tecladocheto} rounded />{" "}
                 <Card.Body>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>Teclado Gammer cheto</Card.Title>
                   <Card.Text>$890</Card.Text>
                 </Card.Body>
                 <Card.Footer>
@@ -136,9 +141,29 @@ const Mostrador = () => {
                 </Card.Footer>
               </Card>
               <Card>
-                <Card.Img variant="top" src={mousered} rounded />
+                <Card.Img variant="top" src={Teclado} rounded />
                 <Card.Body>
-                  <Card.Title>Card title</Card.Title>
+                  <Card.Title>Teclado Gammer</Card.Title>
+                  <Card.Text>$400</Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                  <Row>
+                    <Col>
+                      <Button variant="info">Ver mas</Button>
+                    </Col>
+                    <Col>
+                      <Button variant="success">
+                        <FaCartPlus />
+                        Agregar
+                      </Button>
+                    </Col>
+                  </Row>
+                </Card.Footer>
+              </Card>
+              <Card>
+                <Card.Img variant="top" src={Silla} rounded />
+                <Card.Body>
+                  <Card.Title>Teclado Gammer</Card.Title>
                   <Card.Text>$400</Card.Text>
                 </Card.Body>
                 <Card.Footer>
@@ -160,19 +185,18 @@ const Mostrador = () => {
 
           <Col sm={4} className="carrito-xs">
             <Card style={{ width: "18rem" }} className="mercadito-card">
-              <Card.Header>Articulos seleccionados</Card.Header>
+              <Card.Header className="cardArticulos">Articulos seleccionados</Card.Header>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  aca va el nombre y precio del producto
+                  <Col>Mouse ReaDragon  <Button variant="danger" size="sm"><FaWindowClose/></Button></Col>
+                  
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  aca va el nombre y precio del producto
-                </ListGroup.Item>
+                <Col>Teclado una mano<Button variant="danger" size="sm"><FaWindowClose/></Button></Col>                </ListGroup.Item>
                 <ListGroup.Item>
-                  aca va el nombre y precio del producto
-                </ListGroup.Item>
+                <Col>Auriculares ReaDragon <Button variant="danger" size="sm"><FaWindowClose/></Button></Col>                </ListGroup.Item>
               </ListGroup>
-              <Button variant="info">Ir al carrito</Button>
+              <Button className="btnIrcarrito">Ir al carrito</Button>
             </Card>
           </Col>
         </Row>

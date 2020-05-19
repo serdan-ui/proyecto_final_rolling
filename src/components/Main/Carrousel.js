@@ -3,8 +3,8 @@ import { Carousel, Container } from "react-bootstrap";
 
 const Carrousel = () => {
   return (
-    <Container fluid>
-      <Carousel>
+    <Container fluid >
+      <Carousel >
         <Carousel.Item>
           <img
             className="d-block w-100"
