@@ -17,11 +17,11 @@ const Fotter = () => {
             <Col xs={6} className="footer_redes" >
             <div className="social-share fb">
 			<span className="fb-inner"></span>
-			<a className="cta fb" href="#">Like</a>
+			<a className="cta fb">Like</a>
 		</div>
 		<div className="social-share tw">
 			<span className="tw-inner"></span>
-			<a className="cta tw" href="#">Tweet</a>
+			<a className="cta tw">Tweet</a>
 		</div>
             </Col>
         </Row>

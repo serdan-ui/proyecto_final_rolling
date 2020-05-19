@@ -12,7 +12,7 @@ const Main = () => {
         <Header/>
         <Carrousel/>
         <Container/>
-        {/* <Fotter/> */}
+        <Fotter/>
         </>
      );
 }
