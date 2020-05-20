@@ -1,10 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Press+Start+2P&display=swap');
+body { 
+    background:  url(https://cdn.dribbble.com/users/2480087/screenshots/7009361/media/5be4690e38762fd53647912018e86189.gif)  center center fixed; 
+  background-size: cover;
+  background-color: black;
+}
+h1{
+  font-size: 3em;
+  margin: .2em .5em;
+  color: whitesmoke;
+}
+body {
+    height: 100%;
+    width: 100%;
+}
 
-html { 
- 
-    background-size: cover;
-  }
+.volverApag{
+    color: whitesmoke;
+    font-family: 'DM Mono', monospace;
+    
+    height: 100vh;
+    bottom: -450px !important;
 
-  body {
-      height: 100%;
-  }
-  
+}
+h2{
+    font-family:'Press Start 2P', cursive;
+}
+.ingreso{
+  position: fixed;
+  bottom: 40px;
+  right: 50vw;
+}

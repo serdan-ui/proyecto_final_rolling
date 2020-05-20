@@ -64,7 +64,7 @@ const botonAlerta = () =>{
             <CardColumns>
              {productos.map((producto) =>(
                 <Card key={producto.id} >
-                <Card.Img variant="top" src={mousered} rounded />
+                <Card.Img variant="top" src={producto.img} rounded />
                 <Card.Body>
              <Card.Title>{producto.nombre}</Card.Title>
                   <Card.Text>${producto.precio}</Card.Text>
@@ -177,7 +177,7 @@ const botonAlerta = () =>{
               <Card.Header className="cardArticulos"><strong>{modal.nombre}</strong></Card.Header>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  {modal.img}
+                 <Card.Img src={modal.img}/>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <p><strong>Precio: </strong> ${modal.precio} </p>
