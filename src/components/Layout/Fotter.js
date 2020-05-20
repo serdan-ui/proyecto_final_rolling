@@ -7,7 +7,15 @@ const Fotter = () => {
     <Container fluid className="container_footer">
       <Row>
         <Col xs={4} className="footer_info">
-          <p>Direccion : <span><a href="https://g.page/RollingCodeSchool?share" target="_blank"> Gral. Paz 576, T4000 San Miguel de Tucumán, Tucumán </a></span> </p>
+          <p>
+            Direccion :{" "}
+            <span>
+              <a href="https://g.page/RollingCodeSchool?share" target="_blank">
+                {" "}
+                Gral. Paz 576, T4000 San Miguel de Tucumán, Tucumán{" "}
+              </a>
+            </span>{" "}
+          </p>
           <p>Telefono</p>
           <p>Email</p>
           <iframe
