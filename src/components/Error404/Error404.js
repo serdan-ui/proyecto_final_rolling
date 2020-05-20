@@ -11,9 +11,9 @@ const Error404 = () => {
         <Container className="conteniendo">
         <Row>
           <Col md={{ span: 6, offset: 3 }} className="volverApag">
-              <h2>Page not found</h2>
+              <h2 className="letraFriki">Page not found</h2>
               <h4>Are you sure the website URL is correct?</h4>
-            <Button className="ingreso" type="button" size="sm" variant="info">Back to home</Button>
+            <Button className="ingreso" type="button" size="sm" variant="info" href="../Main">Back to home</Button>
           </Col>
         </Row>
         </Container>

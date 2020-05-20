@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono&family=Press+Start+2P&display=swap');
-body { 
+.fondo { 
     background:  url(https://cdn.dribbble.com/users/2480087/screenshots/7009361/media/5be4690e38762fd53647912018e86189.gif)  center center fixed; 
   background-size: cover;
   background-color: black;
@@ -23,7 +23,7 @@ body {
     bottom: -450px !important;
 
 }
-h2{
+.letraFriki{
     font-family:'Press Start 2P', cursive;
 }
 .ingreso{
