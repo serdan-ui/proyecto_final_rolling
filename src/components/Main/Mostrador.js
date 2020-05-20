@@ -41,7 +41,7 @@ const mostrarImg = ({nombre,id,precio,descripcion,img}) => {
 }
 
 //agregar al carrito
-const aumento = () =>{
+const botonAlerta = () =>{
   console.log("hola")
   Swal.fire({
     icon: 'success',
@@ -50,7 +50,7 @@ const aumento = () =>{
     timer: 1500
   })
    
-
+  
   
 }
 
@@ -78,7 +78,7 @@ const aumento = () =>{
                       
                     </Col>
                     <Col>
-                      <Button variant="success" onClick={aumento}>
+                      <Button variant="success" onClick={botonAlerta}>
                         <FaCartPlus />
                         Agregar
                       </Button>
