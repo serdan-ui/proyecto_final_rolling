@@ -42,12 +42,7 @@
 .btnLogin_header:hover {
   background: rgb(4, 4, 68);
 }
-.btnCart_header {
-  background: #28a745 !important;
-  border: none !important;
-  width: 100px;
-  font-weight: bold !important ;
-}
+
 
 .nav_header {
   border-top: 0px solid #34495e;
@@ -89,6 +84,44 @@
 .columna-info {
   padding-left: 30px !important;
 }
+.btnCart_header {
+  border: none !important;
+  width: 80px;
+  height: 70px;
+  font-weight: bold !important ;
+  position: fixed;
+  z-index: 2;
+  right: -10px !important;
+}
+.icons_header_cart{
+  font-size: 30px;
+  margin-top: 8px;
+   
+}
+.btnCartOpen{
+  border: none !important;
+  position: fixed;
+  width: 500px;
+  min-height: 100px;
+  overflow: hidden;
+  background-color: red;
+  font-weight: bold !important ;
+  z-index: 10;
+  right: 0px !important;
+  
+}
+.btnCartOpen button.btnCart_header{
+  display: none;
+  
+}     
+.cuerpoCart button.cartClose{
+  display: none;
+
+}
+.cuerpoCart div.containerCart{
+  display: none;
+}
+
 
 /* Media para 600px */
 @media (max-width: 600px) {
