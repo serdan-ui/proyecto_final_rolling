@@ -1,9 +1,10 @@
+
 const productos = [
     {
         nombre:"Mouse dorothy",
         precio:1500,
         id:1,
-        img: "",
+        img: "/image/Products/mousered.png",
         descripcion: "Mouse gammer ultima generacion con luces led"
     },
     {
