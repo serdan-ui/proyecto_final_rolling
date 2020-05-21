@@ -13,7 +13,7 @@ const Header = (numero) => {
         </Col>
         <Col xs={7} md={9} className="login_registro_header">
           <Button className="btnLogin_header mr-2" href="http://localhost:3000/"> <FaUser className="icons_header"/>Iniciar sesion</Button>
-          <Button className="btnCart_header mr-2" href="http://localhost:3000/shopping-cart" > <FaCartPlus className="icons_header"/>Carrito</Button>
+          
         </Col>
       </Row>
       <Nav className="justify-content-center nav_header" >
