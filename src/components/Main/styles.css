@@ -1,38 +1,82 @@
-.columnitax{
-    background-color:#283747;
+.card-articulo {
+  max-height: 350px;
 }
-.card-articulo{
-    max-height: 350px;
-}
-.carrito-xs{
-    background-color:#283747;
 
+/* .cardProduct {
+border: 1px inset rgb(175, 90, 164) !important;
+border-image: linear-gradient(to right, #2387ca, #77B300) !important;
+border-image-slice: 1 !important;
+background-color: transparent !important;
+color: white;
+z-index: 1;
+} */
+.cardProduct {
+    z-index: 1 !important;
+  --borderWidth: 3px;
+  position: relative;
+  border-radius: var(--borderWidth);
 }
-.mercadito-card{
-    margin-left: 50px;
+.cardProduct:after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #d88ba1,
+    #a166ab,
+    #5073b8,
+    #3d6992,
+    #35dbc5,
+    #6fba82
+  );
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
 }
-.titulo_product_main{
-    margin: 0;
-    background-color: #34495E;
-    color: white;
-    padding: 5px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-.btnIrcarrito{
-    background-color: #FC893E !important;
-    border: #FC893E !important;
-    outline: none;
+
+.mercadito-card {
+  margin-left: 50px;
 }
-.cardArticulos{
-    border-color: #FC893E !important;
+.titulo_product_main {
+  margin: 0;
+  background-color: black;
+  color: white;
+  padding: 5px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
 }
-.carrousel-container{
-    padding-right: 0px;
-    padding-left: 0px;
+.btnIrcarrito {
+  background-color: #fc893e !important;
+  border: #fc893e !important;
+  outline: none;
 }
-.container-fluid{
-    padding-right: 0% !important;
-    padding-left: 0% !important;
+.cardArticulos {
+  border-color: #fc893e !important;
+}
+.carrousel-container {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.container-fluid {
+  padding-right: 0% !important;
+  padding-left: 0% !important;
 }
