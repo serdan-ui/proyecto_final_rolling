@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import productos from "./basedatos";
 import {
   Row,
   Col,
@@ -6,7 +7,7 @@ import {
   Button,
   Container,
   ListGroup,
-  CardGroup,
+  Alert,
   CardColumns,
   Modal,
 } from "react-bootstrap";
@@ -18,59 +19,66 @@ import Auris from "../Images/auriii.png"
 import Tecladocheto from "../Images/tecladocheto.png"
 import Silla from "../Images/silla.png"
 import { CardText } from "react-bootstrap/Card";
+import Swal from 'sweetalert2'
 
 const Mostrador = () => {
-  const [smShow, setSmShow] = useState(false);
+  // Estados
+  const [smShow, setSmShow] = useState(false); //Modal
+  const [mostImg, setMostImg] = useState(false) // Img derecha
+  const [modal , setModal ] = useState({
 
-  const enviarDato =(name)=>{
-    console.log(name)
-  };
+  })
+
+
+ 
+// Funcion mostrar Imagen derecha
+const mostrarImg = ({nombre,id,precio,descripcion,img}) => {
+  
+  if(mostImg===false){
+    setMostImg(true); 
+  } 
+  setModal({nombre,id,precio,descripcion,img})
+}
+
+//agregar al carrito
+const botonAlerta = () =>{
+  console.log("hola")
+  Swal.fire({
+    icon: 'success',
+    title: 'El producto ha sido agregado al carrito',
+    showConfirmButton: false,
+    timer: 1500
+  })
+   
+  
+  
+}
 
 
   return (
     <>
       <p className="titulo_product_main">Productos</p>
       <Container fluid>
-        <Row>
+        <Row style={{background:"#283747"}}>
           <Col sm={8} className="columnitax">
             <CardColumns>
-              <Card>
-                <Card.Img variant="top" src={mousered} rounded />
+             {productos.map((producto) =>(
+                <Card key={producto.id} >
+                <Card.Img variant="top" src={producto.img} rounded />
                 <Card.Body>
-                  <Card.Title>Mouse ReaDragon</Card.Title>
-                  <Card.Text>$567</Card.Text>
+             <Card.Title>{producto.nombre}</Card.Title>
+                  <Card.Text>${producto.precio}</Card.Text>
                 </Card.Body>
                 <Card.Footer>
                   <Row>
                     <Col>
-                      <Button variant="info" onClick={() => setSmShow(true)}>
+                      <Button variant="info" onClick={() => mostrarImg(producto)}>
                         Ver mas
                       </Button>
-                      <Modal
-                        size="sm"
-                        show={smShow}
-                        onHide={() => setSmShow(false)}
-                        aria-labelledby="example-modal-sizes-title-sm"
-                      >
-                        <Modal.Header closeButton>
-                          <Modal.Title id="example-modal-sizes-title-sm" name="titulo">
-                            Mouse Readragon
-                          </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                          <p>
-                            Ipsum molestiae natus adipisci modi eligendi?
-                            Debitis amet quae unde commodi aoribus debitis! Ab
-                            quos consequuntur eaque quo rem! Mollitia reiciendis
-                            porro quo magni incidunt dolore amet atque facilis
-                            ipsum deleniti rem!
-                          </p>
-                          <span name="precio"><strong>$599</strong></span>
-                        </Modal.Body>
-                      </Modal>
+                      
                     </Col>
                     <Col>
-                      <Button variant="success" onClick={enviarDato}>
+                      <Button variant="success" onClick={botonAlerta}>
                         <FaCartPlus />
                         Agregar
                       </Button>
@@ -78,6 +86,7 @@ const Mostrador = () => {
                   </Row>
                 </Card.Footer>
               </Card>
+             ))}
 
               <Card>
                 <Card.Img variant="top" src={Auris} rounded />
@@ -88,7 +97,7 @@ const Mostrador = () => {
                 <Card.Footer>
                   <Row>
                     <Col>
-                      <Button variant="info">Ver mas</Button>
+                      <Button variant="info" onClick={mostrarImg}>Ver mas</Button>
                     </Col>
                     <Col>
                       <Button variant="success">
@@ -100,26 +109,7 @@ const Mostrador = () => {
                 </Card.Footer>
               </Card>
 
-              <Card>
-                <Card.Img variant="top" src={Tecladouna} rounded />
-                <Card.Body>
-                  <Card.Title>Teclado una mano</Card.Title>
-                  <Card.Text>$678</Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                  <Row>
-                    <Col>
-                      <Button variant="info">Ver mas</Button>
-                    </Col>
-                    <Col>
-                      <Button variant="success">
-                        <FaCartPlus />
-                        Agregar
-                      </Button>
-                    </Col>
-                  </Row>
-                </Card.Footer>
-              </Card>
+              
               <Card>
                 <Card.Img variant="top" src={Tecladocheto} rounded />{" "}
                 <Card.Body>
@@ -182,23 +172,27 @@ const Mostrador = () => {
               </Card>
             </CardColumns>
           </Col>
-
-          <Col sm={4} className="carrito-xs">
+            {mostImg ? (<Col sm={4} className="carrito-xs">
             <Card style={{ width: "18rem" }} className="mercadito-card">
-              <Card.Header className="cardArticulos">Articulos seleccionados</Card.Header>
+              <Card.Header className="cardArticulos"><strong>{modal.nombre}</strong></Card.Header>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <Col>Mouse ReaDragon  <Button variant="danger" size="sm"><FaWindowClose/></Button></Col>
-                  
+                 <Card.Img src={modal.img}/>
                 </ListGroup.Item>
                 <ListGroup.Item>
-                <Col>Teclado una mano<Button variant="danger" size="sm"><FaWindowClose/></Button></Col>                </ListGroup.Item>
+                  <p><strong>Precio: </strong> ${modal.precio} </p>
+                </ListGroup.Item>
                 <ListGroup.Item>
-                <Col>Auriculares ReaDragon <Button variant="danger" size="sm"><FaWindowClose/></Button></Col>                </ListGroup.Item>
+             <p><strong>Descripcion: </strong>{modal.descripcion}</p>  
+                 </ListGroup.Item>
               </ListGroup>
-              <Button className="btnIrcarrito">Ir al carrito</Button>
+              <Row>
+                <Col><Button variant="success" block ><FaCartPlus />Agregar</Button></Col>
+                <Col><Button variant="danger" onClick={() => setMostImg(false)} block>Cancelar  </Button></Col>
+              </Row>
             </Card>
-          </Col>
+          </Col>) : null}
+          
         </Row>
       </Container>
     </>
