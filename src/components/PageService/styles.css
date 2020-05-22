@@ -1,11 +1,53 @@
-.somos{
-  margin: 15px;
-  height: 200px;
-  border: white solid 1px;
+.nuestroServ{
+  margin: 20px;
+  padding: 5px;
+  height: 440px;
+  border: black solid 3px;
+  background-color: rgb(247, 252, 251) ;
+  color: black;
+}
+.padre{
+ background-color: rgb(247, 252, 251) ; 
+
 }
 
-.uno{
-  border: solid 1px white;
-  margin: 15px;
+.tipodeServ{
   height: 200px;
 }
+.principal{
+  height: 80vh;
+  background-color: rgb(247, 252, 251);
+}
+.persona{
+  /* height: 200px !important;
+  width: 200;
+  border-radius: 100% !important; */
+  width: 200px; 
+  height: 200px;  
+ -moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+  background-color:  rgb(39, 39, 39);
+  color: aliceblue;
+}
+.titulo{
+  color :  #FC893E;
+}
+/* @media (max-width:1082px) {
+  .nuestroServ{
+    width:90vw;
+  }
+  .tipodeServ{
+    width: 80vw;
+  }
+
+} 
+@media (min-width:1082px) {
+  .nuestroServ{
+    width:90vw;
+  }
+  .tipodeServ{
+    width: 80vw;
+  }
+
+}  */
