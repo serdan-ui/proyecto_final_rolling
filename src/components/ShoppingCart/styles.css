@@ -1,0 +1,12 @@
+.cuerpoCard {
+    text-align: center;
+}
+.contenedorPadre {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: smaller;
+    color: grey;
+}
+.botonModal {
+    background-color: white;
+    color: grey;
+}
