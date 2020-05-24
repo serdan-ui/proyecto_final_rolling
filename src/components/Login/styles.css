@@ -6,54 +6,15 @@
     width: 600px;
     
 }
-<<<<<<< HEAD
-=======
 .bodylogin{
     background-color: #283747 ;
    
 }
->>>>>>> 40e7177db55d58fdbb17aa6de7ff59117a972bfb
 .login-contenedor{
     background-color: #34495E;
     height: 500px !important;
     width: 600px !important;
     color: lightcyan;
-<<<<<<< HEAD
-
-}
-.contenedor-inicio{
-    padding: 40px !important;
-    height: 600px !important;
-    width: 800px !important;
-    background-color: #283747;
-    font-family: 'Muli', serif;    
-}
-.form-login{
-    margin-top: 35px;
-}
-.botones{
-    margin-top: 20px;
-    margin-left: 200px;
-    
- }
- .toggle{
-     text-decoration-style: none;
-     border-radius: 20px;
-     background-color: rgb(241, 87, 31) !important;
-     border: none !important;
-     color: white;
-     outline:none!important;
- }
- .toggle:hover{
-     color: white;
-     background-color:  rgb(233, 135, 55) !important;
-     outline:none!important;
-     
- }
-
-
-
-=======
 
 }
 .contenedor-inicio{
@@ -94,4 +55,3 @@
         height: 100vh;
     }
   }
->>>>>>> 40e7177db55d58fdbb17aa6de7ff59117a972bfb

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
+import {Row, Col, Container,Card,Button } from 'react-bootstrap';
 
 
 // stilos de register
@@ -6,9 +7,8 @@ import "./styles.css"
 
 const ShoppingCart = () => {
     
-    return ( <h2>
-        Desde shopping cart
-    </h2> );
+    return (  );
+       
 }
  
 export default ShoppingCart;
