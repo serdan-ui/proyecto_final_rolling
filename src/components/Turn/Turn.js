@@ -1,9 +1,14 @@
 import React from 'react';
+import ListTurn from './ListTurn';
+import BodyTurn from './BodyTurn';
+
 
 const Turn = () => {
-    return ( <div>
-        <p>desde turnos</p>
-    </div> );
+    return ( 
+        <>
+        <BodyTurn /> 
+       </>         
+     );
 }
  
 export default Turn;
