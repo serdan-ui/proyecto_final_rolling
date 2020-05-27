@@ -7,7 +7,6 @@ import ListaProductos from "./ListaProductos";
 export const Tarjeta = (props) => {
   const eliminarProducto = (id) => {
     console.log("eliminado");
-    
   };
 
   return (

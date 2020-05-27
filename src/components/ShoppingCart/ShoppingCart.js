@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import  ListaProductos from "./ListaProductos";
+import ListaProductos from "./ListaProductos";
 import Tabla from "./Tabla";
 
 // stilos de register
 import "./styles.css";
 
-
- const ShoppingCart = () => {
-
-  
-
+const ShoppingCart = () => {
   /*const ListaProductos = ( ) => {
      const datosProductos = [
         {name: 'Mouse', precio: 300, id: 1, descripcion: 'Debido a su diseño eficaz, este mouse convencional te brindará comodidad y una gran experiencia de uso. Además, su sistema de detección de movimiento óptico te permitirá mover el cursor de una manera más precisa y sensible que en los sistemas tradicionales'},
@@ -19,15 +15,11 @@ import "./styles.css";
     const  [productos, setProductos] = useState(ListaProductos);*/
 
   return (
-    
     <div className="contenedor">
       <div>
-        <ListaProductos/>
+        <ListaProductos />
       </div>
-      <Tabla/>
-
-      
-      
+      <Tabla />
     </div>
   );
 };

@@ -27,9 +27,7 @@ const BtnCart = (products) => {
         <Button className="btnCart_header mr-2" onClick={abreCarro}>
           {" "}
           <FaCartPlus className="icons_header_cart" />
-          <Badge variant="dark">
-            {products.products.length}
-          </Badge>
+          <Badge variant="dark">{products.products.length}</Badge>
         </Button>
         <Button className="cartClose" onClick={cierroCarro}>
           Cancelar

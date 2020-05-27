@@ -6,12 +6,18 @@ function CuponModal() {
   const [smShow, setSmShow] = useState(false);
 
   return (
-    
     <Fragment>
-      <Button variant="outline-danger"
-              className="cupon" onClick={() => setSmShow(true)} size="sm"> cupon</Button>
+      <Button
+        variant="outline-danger"
+        className="cupon"
+        onClick={() => setSmShow(true)}
+        size="sm"
+      >
+        {" "}
+        cupon
+      </Button>
       <Modal
-      className="modal"
+        className="modal"
         size="sm"
         show={smShow}
         onHide={() => setSmShow(false)}
@@ -23,13 +29,20 @@ function CuponModal() {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <InputGroup size="sm" className="mb-3">
-    <InputGroup.Prepend>
-      <InputGroup.Text id="inputGroup-sizing-sm" className="codigo">Codigo</InputGroup.Text>
-    </InputGroup.Prepend>
-    <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
-  </InputGroup>
-           <Button type="submit" className="botonCupon">enviar</Button>
+          <InputGroup size="sm" className="mb-3">
+            <InputGroup.Prepend>
+              <InputGroup.Text id="inputGroup-sizing-sm" className="codigo">
+                Codigo
+              </InputGroup.Text>
+            </InputGroup.Prepend>
+            <FormControl
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm"
+            />
+          </InputGroup>
+          <Button type="submit" className="botonCupon">
+            enviar
+          </Button>
         </Modal.Body>
       </Modal>
     </Fragment>

@@ -41,7 +41,6 @@ const Fotter = () => {
               </Col>
             </Row>
           </Col>
-         
         </Col>
 
         <div class="vl"></div>
@@ -100,7 +99,6 @@ const Fotter = () => {
             </Col>
           </Row>
         </Col>
-      
       </Row>
     </Container>
   );
