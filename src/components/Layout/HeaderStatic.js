@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import "./styles.css";
 import Loguito from "../Images/logosecundario.png";
 import { FaUser, FaCartPlus } from "react-icons/fa";
-import BtnCart from "./BtnCart";
 
-const Header = ({ products }) => {
+const HeaderStatic = () => {
   return (
     <Container fluid className="Container_Header">
       <Row className="container_logo">
@@ -24,8 +23,6 @@ const Header = ({ products }) => {
           </Button>
         </Col>
       </Row>
-
-      <BtnCart products={products} />
 
       <Nav className="justify-content-center nav_header">
         <Nav.Item className="nav_header">
@@ -48,4 +45,4 @@ const Header = ({ products }) => {
   );
 };
 
-export default Header;
+export default HeaderStatic;

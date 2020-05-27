@@ -1,36 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300&display=swap');
+/* 
 .nuestroServ{
-  margin: 20px;
-  padding: 5px;
-  height: 440px;
-  border: black solid 3px;
-  background-color: rgb(247, 252, 251) ;
-  color: black;
-}
-.padre{
- background-color: rgb(247, 252, 251) ; 
+  padding: 20px;
+  margin: 10px;
+} */
 
-}
 
-.tipodeServ{
-  height: 200px;
-}
-.principal{
+
+.principal, body{
   height: 80vh;
-  background-color: rgb(247, 252, 251);
+  background-color: rgb(140, 141, 141);
+}
+.bodyPadre{
+  background-color: rgb(10, 10, 10);
+  color: white;
+}
+.bodyPadre p, span{
+  font-size: 1.2rem;
 }
 .persona{
-  /* height: 200px !important;
-  width: 200;
-  border-radius: 100% !important; */
-  width: 200px; 
-  height: 200px;  
+  /* width: 200px; 
+  height: 200px;   */
  -moz-border-radius: 50%;
 -webkit-border-radius: 50%;
 border-radius: 50%;
-  background-color:  rgb(39, 39, 39);
+  /* background-color:  rgb(39, 39, 39); */
   color: aliceblue;
+}
+.imagen-pers{
+  border-radius: 50%; 
+  -moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+background-color:  rgb(39, 39, 39);
+width: 195px; 
+  height: 195px;
 }
 .persona:hover{
   transform: scale(1.8);
@@ -47,11 +53,11 @@ border-radius: 50%;
   height: 195px;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;  
-  border-radius: 50%;
+  border-radius: 50% !important;
   color: white;
   font-size: 40px;
   position: relative;
-  background: black;
+  /* background: black; */
   opacity: 0;
   top: -190px;
   left: 0px;
@@ -60,26 +66,31 @@ border-radius: 50%;
   font-family: 'Dancing Script', cursive;}
 
 .titulo{
-  color :  #FC893E;
+  
+  color : rgb(255, 145, 0);
+  font-family: 'Raleway', sans-serif;
 }
+.textos{
+ 
+  font-family: 'Raleway', sans-serif;
+  
+}
+
 
 
 
 
  @media (max-width:570px) {
   .contenedor-persona{
-    padding-left: 50px ;
+    padding-left: 100px ;
+    /* margin-left: 100px; */
+    padding-right: 0px;
+  }
+  .contenedorPersona{
+    margin: 0px !important;
+    padding: 0px !important;
   }
   .persona{
     margin-top: 50px;
   }
 } 
-/* @media (min-width:1082px) {
-  .nuestroServ{
-    width:90vw;
-  }
-  .tipodeServ{
-    width: 80vw;
-  }
-
-}  */ 

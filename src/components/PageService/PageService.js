@@ -1,27 +1,35 @@
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import Avatar from "../Images/avatarprueba.png";
+import Rochy from "../Images/rochy.png";
+import Sergio from "../Images/sergio.png";
+import Nicole from "../Images/nicole1.jpeg";
+import Mariana from "../Images/mariana.png";
+import Silvia from "../Images/silvia.png";
+import Mauricio from "../Images/mauricio.png";
+import HeaderStatic from "../Layout/HeaderStatic";
+import  Footer  from "../Layout/Fotter";
 // stilos de register
 import "./styles.css";
 
 const PageService = () => {
-  return (
-    
-
-    <Container fluid>
+  return ( 
+    <>
+   <HeaderStatic/>
+    <Container fluid className="bodyPadre" >
       <Row>
         <Col xs={12} xl={6}>
           {" "}
-          <h1 className="text-center titulo animate__heartBeat animate__delay-5s	5s">
+          <h1 className="text-center textos m-3 text-white animate__heartBeat animate__delay-5s	5s">
             {" "}
-            Nuestros Servicios
+            NUESTROS SERVICIOS
           </h1>
           <Container fluid>
             {" "}
             <Row>
-              <Col xs={12} xl={6}>
+              <Col xs={12}  className="nuestroServ">
                 {" "}
-                <h4>
+                <h4 className="textos text-center">
                   {" "}
                   SOMOS SERVICIO OFICIAL de las principales marcas de audio y
                   video.
@@ -29,15 +37,31 @@ const PageService = () => {
                 <br></br>
                 <p>
                   {" "}
-                  <strong>
-                    Reparamos TV_LCD_LED - monitores-DVD-BLU-RAY-Camaras
-                    digitales - <br></br>
-                    filmadoras-Equipos de audio- minicomponentes-home cinema-
-                    PLAY STATION (PS)- computadoras - microondas{" "}
-                  </strong>
+                  
+                    Reparamos TV,LCD,LED , monitores,DVD,BLU,RAY,Camaras
+                    digitales
+                    filmadoras, Equipos de audio- minicomponentes,home cinema,
+                    PLAY STATION (PS),computadoras , microondas{" "}
+                  
+                </p>
+                <br></br>
+
+                <h3 className="text-center textos">QUIENES SOMOS</h3>
+                <br></br>
+                <p className="p-3">
+                  {" "}
+                  
+                    Electronica Zero es un servicio técnico donde se realizan
+                    reparaciones de productos electrónicos de todas las
+                    marcas,tenemos técnicos especializados.
+                    Trabajamos con repuestos originales y entregamos garantías
+                    escritas. Financiamos con tarjetas, Recibimos débito y
+                    crédito.{" "}
+                  
                 </p>
               </Col>{" "}
-              <Col>
+             
+              {/* <Col xs={12} xl={6} className="nuestroServ">
                 {" "}
                 <h4 className="text-center">QUIENES SOMOS</h4>
                 <br></br>
@@ -52,7 +76,7 @@ const PageService = () => {
                     crédito.{" "}
                   </strong>
                 </p>
-              </Col>
+              </Col> */}
             </Row>
           </Container>
         </Col>
@@ -61,9 +85,9 @@ const PageService = () => {
         <Col>
           <Container>
             <Row>
-              <Col xs={12} xl={6}>
+              <Col xs={12} xl={6} >
                 {" "}
-                <h4 className="titulo">Audio</h4>
+                <h4 className="titulo m-3">Audio</h4>
                 <i class="ml-5 fas fa-volume-up fa-5x"></i>
                 <br></br>
                 <span>
@@ -71,7 +95,7 @@ const PageService = () => {
                   repuestos originales.
                 </span>
               </Col>
-              <Col>
+              <Col className="m-3">
                 {" "}
                 <h4 className="titulo">Tv Digital</h4>
                 <i class="ml-5 fas fa-tv fa-5x"></i>
@@ -83,7 +107,7 @@ const PageService = () => {
               </Col>
             </Row>
             <Row>
-              <Col xs={12} xl={6}>
+              <Col xs={12} xl={6} >
                 {" "}
                 <h3 className="titulo">Responsabilidad</h3>
                 <i class="ml-5 far fa-clock fa-5x"></i> <br></br>
@@ -92,7 +116,7 @@ const PageService = () => {
                   Repuestos originales.
                 </span>
               </Col>
-              <Col>
+              <Col className="m-3">
                 {" "}
                 <h4 className="titulo">Soporte</h4>
                 <i class="ml-5 fas fa-phone fa-5x"></i>
@@ -103,12 +127,13 @@ const PageService = () => {
           </Container>
         </Col>
       </Row>
-      <Row className="justify-content-xl-center pt-5 contenedor-persona">
-        <Col xs={12} xl={2}>
+      <hr></hr>
+      <Row className="justify-content-xl-center contenedor-persona">
+        <Col xs={12} xl={2} className="contenedorPersona">
           {" "}
           <div className="persona roundedCircle " style={{ padding: "5px" }}>
             {" "}
-            <img style={{ height: "190px" }} src={Avatar} className="imagen-pers"/>{" "}
+            <img style={{ height: "190px" }} src={Rochy} className="imagen-pers"/>{" "}
             <div className="nombre-imagen">
               {" "}
               <p >Rosario Scarlata</p>
@@ -121,8 +146,13 @@ const PageService = () => {
         <Col xs={12} xl={2}>
           {" "}
           <div className="persona roundedCircle ">
+          
             {" "}
-            <img style={{ height: "190px" }} src={Avatar} />
+            <img style={{ height: "190px" }} src={Sergio} className="imagen-pers" />
+            <div className="nombre-imagen">
+              {" "}
+              <p >Sergio Rosales</p>
+            </div>
           </div>
         </Col>
         <Col xs={12} xl={2}>
@@ -131,8 +161,13 @@ const PageService = () => {
         <Col xs={12} xl={2}>
           {" "}
           <div className="persona roundedCircle ">
-            <img style={{ height: "190px" }} src={Avatar} />
+            <img style={{ height: "190px" }} src={Nicole} className="imagen-pers" />
+            <div className="nombre-imagen">
+              {" "}
+              <p >Nicole Romero</p>
+            </div>
           </div>
+
         </Col>
       </Row>
       <Row className="justify-content-xl-center pt-5 contenedor-persona">
@@ -142,7 +177,11 @@ const PageService = () => {
         <Col xs={12} xl={2}>
           {" "}
           <div className="persona roundedCircle ">
-            <img style={{ height: "190px" }} src={Avatar} />
+            <img style={{ height: "190px" }} src={Silvia} className="imagen-pers" />
+            <div className="nombre-imagen">
+              {" "}
+              <p > Silvia Granara</p>
+            </div>
           </div>
         </Col>
         <Col xs={12} xl={2}>
@@ -151,14 +190,48 @@ const PageService = () => {
         <Col xs={12} xl={2}>
           {" "}
           <div className="persona roundedCircle ">
-            <img style={{ height: "190px" }} src={Avatar} />
+            <img style={{ height: "190px" }} src={Mariana} className="imagen-pers" />
+            <div className="nombre-imagen">
+              {" "}
+              <p >Mariana Granara</p>
+            </div>
           </div>
         </Col>
         <Col xs={12} xl={2}>
           {" "}
         </Col>
       </Row>
+      <Row className="justify-content-xl-center pt-5 contenedor-persona">
+        <Col xs={12} xl={2}>
+         
+        </Col>
+        <Col xs={12} xl={2}>
+        
+        </Col>
+        <Col xs={12} xl={2}>
+          {" "}
+          <div className="persona roundedCircle ">
+          
+            {" "}
+            <img style={{ height: "190px" }} src={Mauricio} className="imagen-pers" />
+            <div className="nombre-imagen">
+              {" "}
+              <p >Mauicio Dranizareck</p>
+            </div>
+          </div>
+        </Col>
+        <Col xs={12} xl={2}>
+          {" "}
+        </Col>
+        <Col xs={12} xl={2}>
+        
+        
+
+        </Col>
+    </Row>
     </Container>
+    <Footer />
+    </>
   );
 };
 
