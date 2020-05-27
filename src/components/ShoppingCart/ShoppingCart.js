@@ -7,7 +7,7 @@ import "./styles.css"
 
 const ShoppingCart = () => {
     
-    return (  );
+    return ( <h1>hola</h1> );
        
 }
  
