@@ -1,6 +1,9 @@
 .card-articulo {
   max-height: 350px;
 }
+.contenedor-mostrador{
+  height: auto;
+}
 
 /* .cardProduct {
 border: 1px inset rgb(175, 90, 164) !important;
@@ -11,7 +14,7 @@ color: white;
 z-index: 1;
 } */
 .cardProduct {
-    z-index: 1 !important;
+    z-index: 1 ;
   --borderWidth: 3px;
   position: relative;
   border-radius: var(--borderWidth);

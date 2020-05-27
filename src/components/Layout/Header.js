@@ -25,13 +25,13 @@ const Header = ({products}) => {
 
       <Nav className="justify-content-center nav_header" >
         <Nav.Item className="nav_header" >
-          <Link to="/shopping-cart" className="btnNav_header">Tienda</Link>
+          <Link to="/main" className="btnNav_header">Tienda</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/service" className="btnNav_header">Turno</Link>
+          <Link to="/service" className="btnNav_header">Servicios</Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/main" className="btnNav_header">Consulta</Link>
+          <Link to="/" className="btnNav_header">Turno</Link>
         </Nav.Item>
       </Nav>
     </Container>

@@ -55,12 +55,11 @@ const Mostrador = ({setProducts, products}) => {
   return (
     <>
       <p className="titulo_product_main">Productos</p>
-      <Container fluid>
+      <Container fluid className="contenedor-mostrador">
         <Row style={{ background: "#060606" }}>
           <Col sm={8} className="columnitax">
             <CardColumns>
-              {productos.map((producto) => (
-                <div className="gradient-border">
+              {productos.map((producto) => (    
                   <Card key={producto.id} className="cardProduct">
                     <Card.Img variant="top" src={producto.img} rounded />
                     <Card.Body>
@@ -87,7 +86,7 @@ const Mostrador = ({setProducts, products}) => {
                       </Row>
                     </Card.Footer>
                   </Card>
-                </div>
+                
               ))}
 
              
@@ -137,6 +136,7 @@ const Mostrador = ({setProducts, products}) => {
           ) : null}
         </Row>
       </Container>
+      
     </>
   );
 };
