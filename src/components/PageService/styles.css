@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap');
+.nuestroServ{
+  margin: 20px;
+  padding: 5px;
+  height: 440px;
+  border: black solid 3px;
+  background-color: rgb(247, 252, 251) ;
+  color: black;
+}
+.padre{
+ background-color: rgb(247, 252, 251) ; 
+
+}
+
+.tipodeServ{
+  height: 200px;
+}
+.principal{
+  height: 80vh;
+  background-color: rgb(247, 252, 251);
+}
+.persona{
+  /* height: 200px !important;
+  width: 200;
+  border-radius: 100% !important; */
+  width: 200px; 
+  height: 200px;  
+ -moz-border-radius: 50%;
+-webkit-border-radius: 50%;
+border-radius: 50%;
+  background-color:  rgb(39, 39, 39);
+  color: aliceblue;
+}
+.persona:hover{
+  transform: scale(1.8);
+  transition: 0.8s;
+
+}
+.persona:hover .nombre-imagen{
+   opacity: 0.8;
+  
+}
+
+.nombre-imagen{
+  width: 195px; 
+  height: 195px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;  
+  border-radius: 50%;
+  color: white;
+  font-size: 40px;
+  position: relative;
+  background: black;
+  opacity: 0;
+  top: -190px;
+  left: 0px;
+  text-align: center;
+  line-height: 80px;
+  font-family: 'Dancing Script', cursive;}
+
+.titulo{
+  color :  #FC893E;
+}
+
+
+
+
+ @media (max-width:570px) {
+  .contenedor-persona{
+    padding-left: 50px ;
+  }
+  .persona{
+    margin-top: 50px;
+  }
+} 
+/* @media (min-width:1082px) {
+  .nuestroServ{
+    width:90vw;
+  }
+  .tipodeServ{
+    width: 80vw;
+  }
+
+}  */ 
