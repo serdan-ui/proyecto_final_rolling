@@ -7,18 +7,14 @@ import ShoppingDetail from "./components/ShoppingDetail/ShoppingDetail";
 import PageService from "./components/PageService/PageService";
 import Payment from "./components/Payment/Payment";
 import Register from "./components/Register/Register";
-import Error404 from "./components/Error404/Error404"
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Error404 from "./components/Error404/Error404";
+import Turn from "./components/Turn/Turn";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
 
-
 function App() {
-
-
   return (
-    
     <Router>
       <Switch>
         <Route exact path="/">
@@ -42,12 +38,14 @@ function App() {
         <Route exact path="/payment">
           <Payment />
         </Route>
-        <Route  path="/error404">
+        <Route exact path="/turn">
+          <Turn />
+        </Route>
+        <Route>
           <Error404 />
         </Route>
       </Switch>
     </Router>
-    
   );
 }
 
