@@ -24,7 +24,7 @@ const Fotter = () => {
                   allowfullscreen=""
                   aria-hidden="false"
                   tabindex="0"
-                  className="mt-4 rounded"
+                  className="mt-4 rounded iframe-mapa"
                 ></iframe>
                 <br />
               </Col>
@@ -78,31 +78,21 @@ const Fotter = () => {
         <Col className="footer_menu">
           <Row>
             <Col className="footer_submenu">
-              <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo">
-                Main Menu
+              <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo f_submenu_1">
+                Menu
               </h5>
-              <ul className="d-flex flex-column">
-                <a href="#">Home</a>
+              <ul className="d-flex flex-column f_submenu_1">
+                <a href="#">Inicio</a>
                 <a href="#">Shop</a>
-                <a href="#">About</a>
-                <a href="#">Help</a>
+                <a href="#">Nosotros</a>
+                <a href="#">Ayuda</a>
               </ul>
             </Col>
             <Col className="footer_submenu">
-              <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo">
-                Company
+              <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo f_submenu_3">
+                Encuentranos
               </h5>
-              <ul className="d-flex flex-column">
-                <a href="#">The Company</a>
-                <a href="#">Careers</a>
-                <a href="#">Press</a>
-              </ul>
-            </Col>
-            <Col className="footer_submenu">
-              <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo">
-                Find us on
-              </h5>
-              <ul className="d-flex flex-column">
+              <ul className="d-flex flex-column f_submenu_3">
                 <a href="#">Facebook</a>
                 <a href="#">Twitter</a>
                 <a href="#">Instagram</a>
