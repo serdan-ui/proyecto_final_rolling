@@ -1,7 +1,13 @@
 .containerTurn{
-    height: 100vh;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     background-color: black ;
 }
+
 
 .tilteList{
     display: flex;
@@ -11,7 +17,7 @@
     margin-top: 50px;
 }
 .containerTurn h2{
-        color: white;
+        color: whitesmoke;
         text-align: center;
         margin-top: 30px;
         font-size: 30px;
@@ -19,37 +25,55 @@
         
 }
 .containerForm{
+    background: #212121;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 24vw;
+    padding: 15px;
+    border: 1px groove #303030;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 2px  #201e1e;
 }
 .containerForm select {
-    
+    text-decoration: none;
+    border: none;
+    border-style: none;
+    border-collapse: none;
+    background: transparent;
+    border-bottom: 1px solid goldenrod;
     margin-bottom: 10px;
     width: 20vw;
+    color: whitesmoke;
 }
 .containerForm input{
+    background-color: #303030;
+    border: 0.5px solid #212121;
+    border-radius: 3px;
     width: 20vw;
     margin-bottom: 10px;
 }
 .containerForm textarea {
+    background-color: #303030;
+    border: 0.5px solid #212121;
+    border-radius: 3px;
     width: 20vw;
     margin-bottom: 10px;
 }
 input[type="submit"]{
-    background:#ee6799;
+    background:rgba(206, 155, 27, 0.616);
     border: none;
     border-radius: 4px;
    
 }
 input[type="submit"]:hover{
-    background-color:#e60859;
+    background-color:gold;
 }
 
  label {
      font-size: 13px;
      width: 20vw;
     text-align: start;
-    color: white;
+    color:goldenrod;
 }

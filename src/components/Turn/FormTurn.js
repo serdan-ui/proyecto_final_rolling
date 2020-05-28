@@ -3,6 +3,7 @@ import { useForm, Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 import FormsRepair from "./FormsRepair"
 import "react-datepicker/dist/react-datepicker.css";
+import FormBuy from "./FormBuy";
 
 
 const FormTurn = () => {
@@ -24,9 +25,17 @@ const FormTurn = () => {
     if (forms === 1) {
       return <FormsRepair/>;
     } else if (forms === 2) {
-      return <h1>ventas</h1>;
+      return (<FormBuy/>);
     } else if (forms === 3) {
-      return <h1>Acesoramiento</h1>;
+      return (<>
+      <label>¿Que equipo estas buscando?</label>
+      <select name="dispositivo" ref={register}>
+          <option value="1">pc</option>
+          <option value="2">celular</option>
+          <option value="3">tablet</option>
+          <option value="4">notebok</option>
+        </select>
+      </>);
     }
   };
   return (
