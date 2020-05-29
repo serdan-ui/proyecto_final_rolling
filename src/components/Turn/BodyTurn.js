@@ -15,7 +15,7 @@ const [titleBtn, setTitleBtn] = useState(false)
     <Container fluid className="containerTurn">
       <Row style={{paddingRight:"0", marginRight:"0"}}>
         <Col className="tilteList" >
-          <Button onClick={()=>{setTitleBtn(!titleBtn)}}   >{titleBtn?"Ver Lista de Turnos":"Solicitar Turno"}</Button>
+          <Button onClick={()=>{setTitleBtn(!titleBtn)}}  className="btnForm" >{titleBtn?"Ver Lista de Turnos":"Solicitar Turno"}</Button>
         </Col>
       </Row>
       <h2>{titleBtn? "Turnos": "Lista de Turnos"} </h2>

@@ -7,6 +7,13 @@
     align-items: center;
     background-color: black ;
 }
+.btnForm{
+    color: whitesmoke !important;
+    background-color: #212122 !important;
+    border: 1px groove goldenrod !important;
+    outline: none !important;
+    box-shadow: 0px 0px 6px 2px #303030 !important;
+}
 
 
 .tilteList{
