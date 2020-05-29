@@ -9,6 +9,7 @@ import Payment from "./components/Payment/Payment";
 import Register from "./components/Register/Register";
 import Error404 from "./components/Error404/Error404";
 import Turn from "./components/Turn/Turn";
+import Admin from "./components/Admin/Admin"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
@@ -40,6 +41,9 @@ function App() {
         </Route>
         <Route exact path="/turn">
           <Turn />
+        </Route>
+        <Route exact path="/admin">
+          <Admin />
         </Route>
         <Route>
           <Error404 />
