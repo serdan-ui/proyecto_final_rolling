@@ -41,11 +41,13 @@
     border: none;
     border-style: none;
     border-collapse: none;
-    background: transparent;
+    background-color: #303030;
     border-bottom: 1px solid goldenrod;
     margin-bottom: 10px;
     width: 20vw;
     color: whitesmoke;
+    outline: none;
+    color: #888888;
 }
 .containerForm input{
     background-color: #303030;
@@ -53,6 +55,9 @@
     border-radius: 3px;
     width: 20vw;
     margin-bottom: 10px;
+    outline: none;
+    color: #888888;
+
 }
 .containerForm textarea {
     background-color: #303030;
@@ -60,6 +65,9 @@
     border-radius: 3px;
     width: 20vw;
     margin-bottom: 10px;
+    color: #888888;
+    outline: none;
+
 }
 input[type="submit"]{
     background:rgba(206, 155, 27, 0.616);
