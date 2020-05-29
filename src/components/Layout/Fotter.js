@@ -10,94 +10,104 @@ import "./styles.css";
 const Fotter = () => {
   return (
     <Container fluid className="container_footer">
-      <Row>
-        <Col className="footer_info">
-          <Col>
-            <Row className="d-flex flex-column">
-              <Col className="d-flex justify-content-center">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.6963141745546!2d-65.20809053997758!3d-26.83722958293365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1589921416940!5m2!1ses-419!2sar"
-                  width="300"
-                  height="200"
-                  frameborder="0"
-                  style={{ marginRight: 0 + "em" }}
-                  allowfullscreen=""
-                  aria-hidden="false"
-                  tabindex="0"
-                  className="mt-4 rounded iframe-mapa"
-                ></iframe>
-                <br />
-              </Col>
-              <Col className="d-flex justify-content-center mt-3 mb-4">
-                <span>
-                  <a
-                    href="https://g.page/RollingCodeSchool?share"
-                    target="noopener noreferrer"
-                  >
-                    {" "}
-                    Gral. Paz 576, T4000 San Miguel de Tucumán, Tucumán{" "}
-                  </a>
-                </span>{" "}
-              </Col>
-            </Row>
-          </Col>
-        </Col>
-
-        <div class="vl"></div>
-
-        <Col className="footer_redes">
-          <div className="social-menu">
-            <ul>
-              <li>
-                <a href="#">
-                  <Image
-                    src={fbIcon2}
-                    height="60"
-                    className="media-icon"
-                    rounded
-                  />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <Image src={twIcon} className="media-icon" rounded />
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <Image src={instaIcon} className="media-icon" rounded />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </Col>
-
-        <div class="vl"></div>
-
-        <Col className="footer_menu">
+      <Row className="footer_scheme d-flex flex-column">
+        <Col>
           <Row>
-            <Col className="footer_submenu">
-              <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo f_submenu_1">
-                Menu
-              </h5>
-              <ul className="d-flex flex-column f_submenu_1">
-                <a href="#">Inicio</a>
-                <a href="#">Shop</a>
-                <a href="#">Nosotros</a>
-                <a href="#">Ayuda</a>
-              </ul>
+            <Col className="footer_info">
+              <Col>
+                <Row className="d-flex flex-column">
+                  <Col className="d-flex justify-content-center">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.6963141745546!2d-65.20809053997758!3d-26.83722958293365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1589921416940!5m2!1ses-419!2sar"
+                      width="300"
+                      height="200"
+                      frameborder="0"
+                      style={{ marginRight: 0 + "em" }}
+                      allowfullscreen=""
+                      aria-hidden="false"
+                      tabindex="0"
+                      className="mt-4 rounded iframe-mapa"
+                    ></iframe>
+                    <br />
+                  </Col>
+                  <Col className="d-flex justify-content-center mt-3 mb-4">
+                    <span>
+                      <a
+                        href="https://g.page/RollingCodeSchool?share"
+                        target="noopener noreferrer"
+                      >
+                        {" "}
+                        Gral. Paz 576, T4000 San Miguel de Tucumán, Tucumán{" "}
+                      </a>
+                    </span>{" "}
+                  </Col>
+                </Row>
+              </Col>
             </Col>
-            <Col className="footer_submenu">
-              <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo f_submenu_3">
-                Encuentranos
-              </h5>
-              <ul className="d-flex flex-column f_submenu_3">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
-              </ul>
+
+            <div class="vl"></div>
+
+            <Col className="footer_menu">
+              <Row>
+                <Col className="footer_submenu">
+                  <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo f_submenu_1">
+                    Menu
+                  </h5>
+                  <ul className="d-flex flex-column f_submenu_1">
+                    <a href="#">Inicio</a>
+                    <a href="#">Shop</a>
+                    <a href="#">Nosotros</a>
+                    <a href="#">Ayuda</a>
+                  </ul>
+                </Col>
+                <Col className="footer_submenu">
+                  <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo f_submenu_3">
+                    Soporte
+                  </h5>
+                  <ul className="d-flex flex-column f_submenu_3">
+                    <a href="#">Nuestro Soporte</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Terminos y Condicion</a>
+                  </ul>
+                </Col>
+              </Row>
+            </Col>
+
+            <div class="vl"></div>
+
+            <Col className="footer_redes">
+              <div className="social-menu">
+                <ul>
+                  <li>
+                    <a href="#">
+                      <Image
+                        src={fbIcon2}
+                        height="60"
+                        className="media-icon"
+                        rounded
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <Image src={twIcon} className="media-icon" rounded />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <Image src={instaIcon} className="media-icon" rounded />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </Col>
           </Row>
+        </Col>
+
+        <Col className="footer_disclaimer d-flex justify-content-center">
+          <div className="mt-3">
+         ZeroTech® ● General Paz 300 ● S.M Tucuman ● 4000 ● Tucuman ● Argentina ● www.zerotechstore.com
+          </div>
         </Col>
       </Row>
     </Container>
