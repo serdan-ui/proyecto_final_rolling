@@ -44,20 +44,30 @@
   background: rgb(4, 4, 68);
 }
 .btnCart_header {
-  background: rgb(15, 15, 143) !important;
+  background: #212121 !important;
   border: none !important;
   width: 80px;
+  color: white;
   font-weight: bold !important ;
 }
-
+.estilosTitulosbtn{
+  background-color: #212121 !important;
+  color: whitesmoke;
+  border: none;
+}
+.productitoslistados{
+  background-color: #212121 !important;
+  color: whitesmoke;
+  border: none !important;
+}
 
 .nav_header {
-  border-top: 1px solid white;
+  border-top: 1px solid grey;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #212121;
 }
 
 .btnNav_header {
@@ -111,7 +121,7 @@
   width: 500px;
   min-height: 100px;
   overflow: hidden;
-  background-color: red;
+  background-color: #212121;
   font-weight: bold !important ;
   z-index: 10;
   right: 0px !important;
