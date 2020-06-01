@@ -112,6 +112,34 @@ const FormRegister = () => {
             </span>
           </Col>
         </Form.Group>
+        <Form.Group as={Row} controlId="formPlaintextPassword">
+          <Col>
+            <FormControl
+              placeholder="Confirmar Contraseña"
+              label="ContraseñaConfirm"
+              type="password"
+              className="form-control"
+              name="passwordConfirm"
+              ref={register({
+                required: {
+                  value: true,
+                  message: "Contraseña es requerido. ",
+                },
+                maxLength: {
+                  value: 20,
+                  message: "No más de 20 carácteres!",
+                },
+                minLength: {
+                  value: 5,
+                  message: " Contraseña con mínimo 5 carácteres. ",
+                },
+              })}
+            />
+            <span className="text-danger text-small d-block mb-2">
+              {errors.passwordConfirm && errors.passwordConfirm.message}
+            </span>
+          </Col>
+        </Form.Group>
         <Form.Group as={Row}>
           <Col className="btn-redes">
             <OverlayTrigger
