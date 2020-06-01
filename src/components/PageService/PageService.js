@@ -20,7 +20,7 @@ const PageService = () => {
       <Row>
         <Col xs={12} xl={6}>
           {" "}
-          <h1 className="text-center textos m-3 text-white animate__heartBeat animate__delay-5s	5s">
+          <h1 className="text-center textos nuestro p-3 m-3">
             {" "}
             NUESTROS SERVICIOS
           </h1>
@@ -35,7 +35,7 @@ const PageService = () => {
                   video.
                 </h4>
                 <br></br>
-                <p>
+                <p className="p-3">
                   {" "}
                   
                     Reparamos TV,LCD,LED , monitores,DVD,BLU,RAY,Camaras
@@ -60,23 +60,6 @@ const PageService = () => {
                   
                 </p>
               </Col>{" "}
-             
-              {/* <Col xs={12} xl={6} className="nuestroServ">
-                {" "}
-                <h4 className="text-center">QUIENES SOMOS</h4>
-                <br></br>
-                <p>
-                  {" "}
-                  <strong>
-                    Electronica Zero es un servicio técnico donde se realizan
-                    reparaciones de productos electrónicos de todas las
-                    marcas,tenemos técnicos especializados. <br></br>
-                    Trabajamos con repuestos originales y entregamos garantías
-                    escritas. Financiamos con tarjetas, Recibimos débito y
-                    crédito.{" "}
-                  </strong>
-                </p>
-              </Col> */}
             </Row>
           </Container>
         </Col>
@@ -87,7 +70,7 @@ const PageService = () => {
             <Row>
               <Col xs={12} xl={6} >
                 {" "}
-                <h4 className="titulo m-3">Audio</h4>
+                <h4 className="titulo m-3 p-3">Audio</h4>
                 <i class="ml-5 fas fa-volume-up fa-5x"></i>
                 <br></br>
                 <span>
@@ -97,7 +80,7 @@ const PageService = () => {
               </Col>
               <Col className="m-3">
                 {" "}
-                <h4 className="titulo">Tv Digital</h4>
+                <h4 className="titulo p-3">Tv Digital</h4>
                 <i class="ml-5 fas fa-tv fa-5x"></i>
                 <br></br>
                 <span>
@@ -109,7 +92,7 @@ const PageService = () => {
             <Row>
               <Col xs={12} xl={6} >
                 {" "}
-                <h3 className="titulo">Responsabilidad</h3>
+                <h3 className="titulo p-3">Responsabilidad</h3>
                 <i class="ml-5 far fa-clock fa-5x"></i> <br></br>
                 <span>
                   Empleamos los mejores instrumentos de medición electrónica.
@@ -118,7 +101,7 @@ const PageService = () => {
               </Col>
               <Col className="m-3">
                 {" "}
-                <h4 className="titulo">Soporte</h4>
+                <h4 className="titulo p-3">Soporte</h4>
                 <i class="ml-5 fas fa-phone fa-5x"></i>
                 <br></br>
                 <span>Ofrecemos garantía escrita de nuestros trabajos.</span>
@@ -133,7 +116,7 @@ const PageService = () => {
           {" "}
           <div className="persona roundedCircle " style={{ padding: "5px" }}>
             {" "}
-            <img style={{ height: "190px" }} src={Rochy} className="imagen-pers"/>{" "}
+            <img style={{ height: "150px" }} src={Rochy} className="imagen-pers"/>{" "}
             <div className="nombre-imagen">
               {" "}
               <p >Rosario Scarlata</p>
@@ -142,34 +125,70 @@ const PageService = () => {
         </Col>
         <Col xs={12} xl={2}>
           {" "}
+          <div className="persona roundedCircle ">
+            <img style={{ height: "150px" }} src={Silvia} className="imagen-pers" />
+            <div className="nombre-imagen">
+              {" "}
+              <p > Silvia Granara</p>
+            </div>
+          </div>
         </Col>
+
         <Col xs={12} xl={2}>
           {" "}
           <div className="persona roundedCircle ">
           
             {" "}
-            <img style={{ height: "190px" }} src={Sergio} className="imagen-pers" />
+            <img style={{ height: "150px" }} src={Sergio} className="imagen-pers" />
             <div className="nombre-imagen">
               {" "}
               <p >Sergio Rosales</p>
             </div>
           </div>
         </Col>
-        <Col xs={12} xl={2}>
-          {" "}
-        </Col>
+
         <Col xs={12} xl={2}>
           {" "}
           <div className="persona roundedCircle ">
-            <img style={{ height: "190px" }} src={Nicole} className="imagen-pers" />
+            <img style={{ height: "150px" }} src={Mariana} className="imagen-pers" />
+            <div className="nombre-imagen">
+              {" "}
+              <p >Mariana Granara</p>
+            </div>
+          </div>
+        </Col>
+
+        <Col xs={12} xl={2}>
+          {" "}
+          <div className="persona roundedCircle ">
+            <img style={{ height: "150px" }} src={Nicole} className="imagen-pers" />
             <div className="nombre-imagen">
               {" "}
               <p >Nicole Romero</p>
             </div>
           </div>
 
+
+        </Col>
+        
+        <Col xs={12} xl={2}>
+          {" "}
+          <div className="persona roundedCircle ">
+          
+            {" "}
+            <img style={{ height: "150px" }} src={Mauricio} className="imagen-pers" />
+            <div className="nombre-imagen">
+              {" "}
+              <p >Mauicio Dranizareck</p>
+            </div>
+          </div>
         </Col>
       </Row>
+
+
+
+
+{/* 
       <Row className="justify-content-xl-center pt-5 contenedor-persona">
         <Col xs={12} xl={2}>
           {" "}
@@ -228,7 +247,7 @@ const PageService = () => {
         
 
         </Col>
-    </Row>
+    </Row> */}
     </Container>
     <Footer />
     </>
