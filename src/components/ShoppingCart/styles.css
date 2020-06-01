@@ -6,89 +6,128 @@
     box-sizing: border-box;
 }
 
+
+ 
+
 .contenedor {
     width: 98%;
     height: auto;
     margin: 50px auto;
     display: flex;
-    background-color: rgb(231, 236, 245);
+    background-color:#212121;
     
 }
 .hijo {
-    background-color: rgb(246, 250, 246);
+    background-color:#303030;
     width: 700px;
     height: 280px;
     margin: 10px;
     padding: 20px;
+    border-radius: 8px;
+    border-style: solid;
+    border-color: gold;
+    border-width: 2px 2px 3px 12px;
     display: flex;
-    font-size: small;
+    font-size: 14px;
+    
+    box-shadow: 2px 2px 7px #999;
+   
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     justify-content: space-around;
     align-items: center;
     
     
 }
 .datosProducto{
+    
     display: flex;
     flex-direction: column;
-   
-   justify-content: space-around;
+    justify-content: space-around;
     align-items: center;
+    color: gold;
    
 }
 .producto{
-    font-size: small;
+    text-decoration: underline;
+    color:gold;
+    margin-top: 12px;
+    font-size: 25px;
     margin-bottom: 20px;
 }
 .descripcion{
-    font-size: smaller;
-    margin-bottom: 15px;
+    color:#fcf8f8;
+    text-align:left;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 5px;
 }
 .cajaDesc {
     width: 300px;
-    height: 90px;
+    height: 70px;
 }
 .precio{
-    font-size: small;
-    
+    font-size: 14px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
 }
 .cantidad{
-    width: 40px;
+    width: 45px;
+    margin: 8px 8px 8px 8px;
     
 }
 .borrar{
     margin-top: 10px;
     align-self: flex-end;
+   
 }
-.datosProducto{
-    flex-grow: ;
 
-}
 .hijoone{
-    background-color: rgb(231, 236, 245);
-    width: 700px;
-    height: 480px;
+   
+    background-color:#212121; 
+    width: 600px;
+    height: 450px;
     margin: 10px;
     padding: 20px;
     display: flex;
+   
     justify-content: space-around;
     align-items: center;
-    
     
 
 }
 .tabla{
-    width: 400px;
-    height: 250px;
+   background-color: #303030;
+   border-radius: 5px;
+   border-color:#212121;
+   box-shadow: 2px 2px 4px rgb(134, 133, 133);
+   text-align: left;
+   padding-left: 30px;
+    width: 500px;
+    height: 350px;
+    color: gold;
+    
+   
+    
+    
+   
 }
 
 .codigo{
     font-size: 12px;
-    color: lightgray;
+   
 }
 .tituloCupon{
     font-size: 14px;
+    
+    
+    
 }
 
+.botonPagar{
+    
+    box-shadow: 2px 2px 4px rgb(134, 133, 133);
+   
+}
 
 @media all and (max-width: 800px){
     .contenedor{

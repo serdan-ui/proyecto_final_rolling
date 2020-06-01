@@ -1,16 +1,17 @@
 import React, { useState, Fragment } from "react";
 import "./styles.css";
 import CuponModal from "./CuponModal";
-import { Button, Table } from "react-bootstrap";
+
+
 
 export const Tabla = (props) => {
-  console.log(props.ListaProductos);
+  console.log(props.datosProductos);
   return (
     <div className="hijoone">
       <div className="tabla">
-        <Table>
+        <table className="tabla">
           <tr>
-            <th>Resumen</th>
+            <th>Tu Compra</th>
           </tr>
           <tr>
             <td>
@@ -31,12 +32,13 @@ export const Tabla = (props) => {
           </tr>
 
           <tr>
-            <td>Envio</td>
+            <td >Envio</td>
           </tr>
           <tr>
             <td>TOTAL</td>
           </tr>
-        </Table>
+        </table>
+        <a className="botonPagar btn btn-secondary mt-3"  href="#" >Pagar</a>
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ function CuponModal() {
     </InputGroup.Prepend>
     <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
   </InputGroup>
-           <Button type="submit" className="botonCupon">enviar</Button>
+           <Button  type="submit" className="botonCupon btn btn-secondary">enviar</Button>
         </Modal.Body>
       </Modal>
      

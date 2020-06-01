@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import  ListaProductos from "./ListaProductos";
 import Tabla from "./Tabla";
-
+import Tarjeta from "./Tarjeta";
 
    
 // stilos de register
@@ -24,7 +24,8 @@ import "./styles.css";
     
     <div className="contenedor">
       <div>
-        <ListaProductos/>
+       <ListaProductos/>
+        <Tarjeta/>
       </div>
       <Tabla/>
 
