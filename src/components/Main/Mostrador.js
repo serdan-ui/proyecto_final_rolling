@@ -50,8 +50,8 @@ const Mostrador = ({ setProducts, products }) => {
       <p className="titulo_product_main">Productos</p>
       <Container fluid className="contenedor-mostrador">
         <Row style={{ background: "#171717" ,margin:"0px"}}>
-          <Col sm={2} ></Col>
-          <Col sm={8}  className="columnitax">
+          <Col sm={2} style={{backgroundColor:'black'}} ></Col>
+          <Col sm={8}  className="columnitax" style={{backgroundColor:'black'}}>
             <CardColumns>
               {productos.map((producto) => (
                 <Card key={producto.id} className="cardProduct">
@@ -99,7 +99,7 @@ const Mostrador = ({ setProducts, products }) => {
               ))}
             </CardColumns>
           </Col>
-          <Col sm={2} ></Col>
+          <Col sm={2} style={{backgroundColor:'black'}} ></Col>
           {/* {mostImg ? (
             <Col sm={4} className="carrito-xs">
               <Card style={{ width: "18rem" }} className="mercadito-card">

@@ -44,13 +44,7 @@
 .btnLogin_header:hover {
   background: rgb(4, 4, 68);
 }
-.btnCart_header {
-  background: #212121 !important;
-  border: none !important;
-  width: 80px;
-  color: white;
-  font-weight: bold !important ;
-}
+
 .estilosTitulosbtn{
   background-color: #212121 !important;
   color: whitesmoke;
@@ -102,18 +96,21 @@
   padding-left: 30px !important;
 }
 .btnCart_header {
-  border: none !important;
   width: 80px;
   height: 70px;
   font-weight: bold !important ;
   position: fixed;
   z-index: 2;
   right: -8px !important;
+  background: #212121 !important;
+  border: 1px solid yellowgreen !important;
+  color: whitesmoke;
+  
 }
 .icons_header_cart{
   font-size: 30px;
   margin-top: 8px;
-   
+   color:#18e317;
 }
 .imgCartBtn{
   height: 15vh;
@@ -122,6 +119,7 @@
 }
 .btnCartOpen{
   border: none !important;
+  box-shadow: 1px 0px 5px 1px #19ED18;
   position: fixed;
   width: 500px;
   min-height: 100px;
@@ -130,6 +128,7 @@
   font-weight: bold !important ;
   z-index: 10;
   right: 0px !important;
+  z-index: 16 ;
 }
 
 /*? FOOTER */
