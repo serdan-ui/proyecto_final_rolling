@@ -1,7 +1,8 @@
 
 .Container_Header {
-  background: #283747;
+  background: #171717;
   padding: 0 !important;
+  
 }
 .container_logo {
   display: flex;
@@ -15,11 +16,11 @@
   justify-content: center !important;
   font-size: 2rem;
   text-align: center;
-  height: 70px !important;
+  height: 130px !important;
   line-height: 70px;
   color: white;
   font-weight: bold;
-  width: 100px !important;
+  width: 50pxpx !important;
 }
 .logo_imagen_header {
   margin-left: 20px;
@@ -35,9 +36,9 @@
   height: 40px;
 }
 .btnLogin_header {
-  background: #fc893e !important;
-  color: rgb(247, 243, 243) !important;
-  border: black !important;
+  background: #171717 !important;
+  color: #19ED18!important;
+  border: 1px solid #19ED18 !important;
   font-weight: bold !important;
 }
 .btnLogin_header:hover {
@@ -62,7 +63,7 @@
 }
 
 .nav_header {
-  border-top: 1px solid grey;
+  border-top: 1px solid rgb(95, 233, 95);
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -76,14 +77,12 @@
   text-align: center;
   padding: 6px 30px;
   text-decoration: none !important;
-  border-left: 0.8px solid white;
-  border-right: 0.8px solid white;
+  border-left: 0.8px solid rgb(95, 233, 95);
+  border-right: 0.8px solid rgb(95, 233, 95);
   border-top: none;
 }
 .btnNav_header:hover {
-  background-color: #34495e !important;
-  color: white;
-  font-weight: bold;
+  color: #19ED18;
 }
 .redesociales {
   color: aliceblue;

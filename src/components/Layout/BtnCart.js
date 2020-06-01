@@ -37,7 +37,8 @@ const BtnCart = (products) => {
             </Button>
           </Col>
           <Col sm={8}>
-            <h4 style={{ color: "white" }}  className="cartClose">Productos seleccionados</h4>
+
+            {/* <h4 style={{ color: "white" }}  className="cartClose">Productos seleccionados</h4> */}
           </Col>
         </Row>
         <ListGroup className="containerCart">

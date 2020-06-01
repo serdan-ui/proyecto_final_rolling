@@ -8,22 +8,41 @@ const Carrousel = () => {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/image/photo1.jpg"
+            src="/image/celucarrousel.jpg"
             alt="First slide"
+            style={{
+              maxHeight:"80vh"
+            }}
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/image/photo2.jpg"
+            src="/image/tecladocarrousel.jpg"
             alt="Third slide"
+            style={{
+              maxHeight:"80vh"
+            }}
           />
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/image/photo3.jpg"
+            src="/image/serviciotecnico.jpg"
             alt="Third slide"
+            style={{
+              maxHeight:"80vh"
+            }}
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="/image/tecnologia.jpg"
+            alt="Four slide"
+            style={{
+              maxHeight:"80vh"
+            }}
           />
         </Carousel.Item>
       </Carousel>
