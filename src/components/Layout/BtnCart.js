@@ -65,10 +65,10 @@ const BtnCart = (products) => {
           {products.products.lenght === 0
             ? null
             : products.products.map((product) => (
-                <Row>
+                <Row style={{borderTop:"0.5px solid greenyellow"}}>
                   <ListGroup horizontal>
                     <Col>
-                      <ListGroup.Item className="productitoslistados">{product.img}</ListGroup.Item>
+                      <ListGroup.Item className="productitoslistados"><img src={product.img} className="imgCartBtn"/></ListGroup.Item>
                     </Col>
                     <Col xs={6}>
                       <ListGroup.Item className="productitoslistados"> 

@@ -60,6 +60,7 @@
   background-color: #212121 !important;
   color: whitesmoke;
   border: none !important;
+  padding: 0px !important;
 }
 
 .nav_header {
@@ -113,6 +114,11 @@
   font-size: 30px;
   margin-top: 8px;
    
+}
+.imgCartBtn{
+  height: 15vh;
+  width: 10vw;
+
 }
 .btnCartOpen{
   border: none !important;
