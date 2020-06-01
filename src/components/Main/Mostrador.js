@@ -49,9 +49,9 @@ const Mostrador = ({ setProducts, products }) => {
     <>
       <p className="titulo_product_main">Productos</p>
       <Container fluid className="contenedor-mostrador">
-        <Row style={{ background: "#171717" }}>
+        <Row style={{ background: "#171717" ,margin:"0px"}}>
           <Col sm={2} ></Col>
-          <Col sm={8} className="columnitax">
+          <Col sm={8}  className="columnitax">
             <CardColumns>
               {productos.map((producto) => (
                 <Card key={producto.id} className="cardProduct">
@@ -69,7 +69,8 @@ const Mostrador = ({ setProducts, products }) => {
                           style={{
                             border: "3px solid #060606",
                             color:"#19ED18",
-                            backgroundColor:"#060606"
+                            backgroundColor:"#060606",
+                            fontSize:"0.9rem",
                           }}
                           onClick={() => mostrarImg(producto)}
                         >
@@ -81,7 +82,7 @@ const Mostrador = ({ setProducts, products }) => {
                           variant="success"
                           style={{
                             border: "2px solid #19ED18",
-                            fontSize:"1rem",
+                            fontSize:"0.9rem",
                             backgroundColor:"#19ED18",
                             color:"black"
                           }}
