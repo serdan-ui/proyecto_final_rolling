@@ -292,6 +292,10 @@ position: relative;
   display: none;
 
 }
+.cuerpoCart h4.cartClose{
+  display: none;
+
+}
 .cuerpoCart div.containerCart{
   display: none;
 }

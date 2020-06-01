@@ -38,7 +38,7 @@ const BtnCart = (products) => {
           </Col>
           <Col sm={8}>
 
-            {/* <h4 style={{ color: "white" }}  className="cartClose">Productos seleccionados</h4> */}
+            <h4 style={{ color: "white" }}  className="cartClose">Productos seleccionados</h4> 
           </Col>
         </Row>
         <ListGroup className="containerCart">
@@ -81,7 +81,37 @@ const BtnCart = (products) => {
                   </ListGroup>
                 </Row>
               ))}
+               <Row>
+                  <Col>
+                    <Button
+                    href="http://localhost:3000/shopping-cart"
+                     variant="success" 
+                    block style={{
+                            border: "3px solid #060606",
+                            color:"#19ED18",
+                            backgroundColor:"#060606"
+                          }}>
+                      
+                      Ir a carrito
+                    </Button>
+                  </Col>
+                  <Col>
+                    <Button
+                      variant="dark"
+                      onClick={cierroCarro}
+                      block
+                      style={{
+                        border:"none",
+                        color:"#19ED18",
+                        backgroundColor:"#212121"
+                      }}
+                    >
+                      Seguir comprando{" "}
+                    </Button>
+                  </Col>
+                </Row>
         </ListGroup>
+        
       </div>
     </>
   );
