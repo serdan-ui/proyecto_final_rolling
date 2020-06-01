@@ -9,7 +9,7 @@ import BtnCart from "./BtnCart";
 const Header = ({ products }) => {
   return (
     <Container fluid className="Container_Header">
-      <Row className="container_logo">
+      <Row className="container_logo"  style={{padding:"0px", margin:"0px"}}>
         <Col xs={4} md={3} className="logo">
           <Image src={Loguito} rounded className="logo_imagen_header" />
           <br/>

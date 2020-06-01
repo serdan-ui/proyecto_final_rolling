@@ -10,7 +10,7 @@ import "./styles.css";
 const Fotter = () => {
   return (
     <Container fluid className="container_footer">
-      <Row className="footer_scheme d-flex flex-column">
+      <Row className="footer_scheme d-flex flex-column" style={{padding:"0px", margin:"0px"}}>
         <Col>
           <Row>
             <Col className="footer_info">
