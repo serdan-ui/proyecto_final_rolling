@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Button, ListGroup, Badge } from "react-bootstrap";
-import { FaCartPlus } from "react-icons/fa";
+import { Button, ListGroup, Badge, Row, Col } from "react-bootstrap";
+import { FaCartPlus, FaRegWindowClose } from "react-icons/fa";
 import { render } from "@testing-library/react";
 
 const BtnCart = (products) => {
@@ -29,16 +29,89 @@ const BtnCart = (products) => {
           <FaCartPlus className="icons_header_cart" />
           <Badge variant="dark">{products.products.length}</Badge>
         </Button>
-        <Button className="cartClose" onClick={cierroCarro}>
-          Cancelar
-        </Button>
+
+        <Row>
+          <Col sm={4}>
+            <Button className="cartClose" variant="dark" onClick={cierroCarro}>
+              <FaRegWindowClose />
+            </Button>
+          </Col>
+          <Col sm={8}>
+
+            <h4 style={{ color: "white" }}  className="cartClose">Productos seleccionados</h4> 
+          </Col>
+        </Row>
         <ListGroup className="containerCart">
+          <Row>
+            <ListGroup horizontal className="estilosTitulosbtn">
+              <Col>
+                <ListGroup.Item className="estilosTitulosbtn">
+                  Imagen
+                </ListGroup.Item>
+              </Col>
+              <Col xs={6}>
+                <ListGroup.Item className="estilosTitulosbtn">
+                  Nombre y descripcion
+                </ListGroup.Item>
+              </Col>
+              <Col>
+                <ListGroup.Item className="estilosTitulosbtn">
+                  Precio
+                </ListGroup.Item>
+              </Col>
+            </ListGroup>
+          </Row>
+
           {products.products.lenght === 0
             ? null
             : products.products.map((product) => (
-                <ListGroup.Item>{product.nombre}</ListGroup.Item>
+                <Row style={{borderTop:"0.5px solid greenyellow"}}>
+                  <ListGroup horizontal>
+                    <Col>
+                      <ListGroup.Item className="productitoslistados"><img src={product.img} className="imgCartBtn"/></ListGroup.Item>
+                    </Col>
+                    <Col xs={6}>
+                      <ListGroup.Item className="productitoslistados"> 
+                        {product.nombre} <br /> {product.descripcion}
+                      </ListGroup.Item>
+                    </Col>
+                    <Col>
+                      <ListGroup.Item className="productitoslistados"> ${product.precio}</ListGroup.Item>
+                    </Col>
+                  </ListGroup>
+                </Row>
               ))}
+               <Row>
+                  <Col>
+                    <Button
+                    href="http://localhost:3000/shopping-cart"
+                     variant="success" 
+                    block style={{
+                            border: "3px solid #060606",
+                            color:"#19ED18",
+                            backgroundColor:"#060606"
+                          }}>
+                      
+                      Ir a carrito
+                    </Button>
+                  </Col>
+                  <Col>
+                    <Button
+                      variant="dark"
+                      onClick={cierroCarro}
+                      block
+                      style={{
+                        border:"none",
+                        color:"#19ED18",
+                        backgroundColor:"#212121"
+                      }}
+                    >
+                      Seguir comprando{" "}
+                    </Button>
+                  </Col>
+                </Row>
         </ListGroup>
+        
       </div>
     </>
   );

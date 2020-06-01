@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Nav, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
-import Loguito from "../Images/logosecundario.png";
+import Loguito from "../Images/zerote.png";
 import { FaUser, FaCartPlus } from "react-icons/fa";
 import BtnCart from "./BtnCart";
 
@@ -12,6 +12,8 @@ const Header = ({ products }) => {
       <Row className="container_logo">
         <Col xs={4} md={3} className="logo">
           <Image src={Loguito} rounded className="logo_imagen_header" />
+          <br/>
+          <br/>
         </Col>
         <Col xs={7} md={9} className="login_registro_header">
           <Button
