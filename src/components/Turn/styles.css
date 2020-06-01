@@ -1,94 +1,159 @@
-.containerTurn{
-    height: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    background-color: black ;
+.containerTurn {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: black;
 }
-.btnForm{
-    color: whitesmoke !important;
-    background-color: #212122 !important;
-    border: 1px groove goldenrod !important;
-    outline: none !important;
-    box-shadow: 0px 0px 6px 2px #303030 !important;
+.btnForm {
+  color: whitesmoke !important;
+  background-color: #212122 !important;
+  border: 1px groove goldenrod !important;
+  outline: none !important;
+  box-shadow: 0px 0px 6px 2px #303030 !important;
 }
 
-
-.tilteList{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 50px;
+.tilteList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
 }
-.containerTurn h2{
-        color: whitesmoke;
-        text-align: center;
-        margin-top: 30px;
-        font-size: 30px;
-        font-weight: bold;
-        
+.containerTurn h2 {
+  color: whitesmoke;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 30px;
+  font-weight: bold;
 }
-.containerForm{
-    background: #212121;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 24vw;
-    padding: 15px;
-    border: 1px groove #303030;
-    border-radius: 5px;
-    box-shadow: 0px 0px 6px 2px  #201e1e;
+.containerForm {
+  background: #212121;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 24vw;
+  padding: 15px;
+  border: 1px groove #303030;
+  border-radius: 5px;
+  box-shadow: 0px 0px 6px 2px #201e1e;
 }
 .containerForm select {
-    text-decoration: none;
-    border: none;
-    border-style: none;
-    border-collapse: none;
-    background-color: #303030;
-    border-bottom: 1px solid goldenrod;
-    margin-bottom: 10px;
-    width: 20vw;
-    color: whitesmoke;
-    outline: none;
-    color: #888888;
+  text-decoration: none;
+  border: none;
+  border-style: none;
+  border-collapse: none;
+  background-color: #303030;
+  border-bottom: 1px solid goldenrod;
+  margin-bottom: 10px;
+  width: 20vw;
+  color: whitesmoke;
+  outline: none;
+  color: #888888;
 }
-.containerForm input{
-    background-color: #303030;
-    border: 0.5px solid #212121;
-    border-radius: 3px;
-    width: 20vw;
-    margin-bottom: 10px;
-    outline: none;
-    color: #888888;
-
+.containerForm input {
+  background-color: #303030;
+  border: 0.5px solid #212121;
+  border-radius: 3px;
+  width: 20vw;
+  margin-bottom: 10px;
+  outline: none;
+  color: #888888;
 }
 .containerForm textarea {
-    background-color: #303030;
-    border: 0.5px solid #212121;
-    border-radius: 3px;
-    width: 20vw;
-    margin-bottom: 10px;
-    color: #888888;
-    outline: none;
-
+  background-color: #303030;
+  border: 0.5px solid #212121;
+  border-radius: 3px;
+  width: 20vw;
+  margin-bottom: 10px;
+  color: #888888;
+  outline: none;
 }
-input[type="submit"]{
-    background:rgba(206, 155, 27, 0.616);
-    border: none;
-    border-radius: 4px;
-   
+input[type="submit"] {
+  background: rgba(206, 155, 27, 0.616);
+  border: none;
+  border-radius: 4px;
 }
-input[type="submit"]:hover{
-    background-color:gold;
+input[type="submit"]:hover {
+  background-color: gold;
 }
 
- label {
-     font-size: 13px;
-     width: 20vw;
-    text-align: start;
-    color:goldenrod;
+label {
+  font-size: 13px;
+  width: 20vw;
+  text-align: start;
+  color: goldenrod;
+}
+
+@media (max-width: 576px) {
+  
+  .containerForm {
+    width: 80vw;
+  }
+  .containerForm select {
+      width: 70vw;
+      height: 5vh;
+  }
+  .containerForm input {
+    width: 70vw;
+    height: 5vh;
+  }
+  label{
+      width: 70vw;
+  }
+  .containerForm textarea {
+      width: 70vw;
+  }
+  .date {
+      width: 70vw !important;
+  }
+}
+
+@media (min-width: 576px) and ( max-width : 768px){
+
+    .containerForm {
+        width: 80vw;
+      }
+      .containerForm select {
+          width: 70vw;
+          height: 5vh;
+      }
+      .containerForm input {
+        width: 70vw;
+        height: 5vh;
+      }
+      label{
+          width: 70vw;
+      }
+      .containerForm textarea {
+          width: 70vw;
+      }
+      .date {
+          width: 70vw !important;
+      }
+}
+@media (min-width: 768px) and ( max-width : 1024px){
+    .containerForm {
+        width: 42vw;
+      }
+      .containerForm select {
+          width: 38vw;
+          height: 5vh;
+      }
+      .containerForm input {
+        width: 38vw;
+        height: 5vh;
+      }
+      label{
+          width: 38vw;
+      }
+      .containerForm textarea {
+          width: 38vw;
+      }
+      .date {
+          width: 38vw !important;
+      }
 }

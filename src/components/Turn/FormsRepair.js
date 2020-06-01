@@ -16,7 +16,7 @@ const FormsRepair = () => {
       <label>Descripcion del Problema</label>
       <textarea name="descripcion" ref={register} />
       <label>Elegir fecha</label>
-      <section>
+      <section >
         <Controller
           as={ReactDatePicker}
           control={control}
@@ -24,6 +24,7 @@ const FormsRepair = () => {
           onChange={([selected]) => selected}
           name="fecha"
           placeholderText="Selecciona fecha"
+          className="date"
         />
       </section>
       <label>selecciona una hora</label>

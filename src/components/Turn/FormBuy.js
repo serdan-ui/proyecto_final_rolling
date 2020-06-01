@@ -26,7 +26,7 @@ const FormBuy = () => {
         <label>Precio estimado de venta (pesos)</label>
         <input type="number" name="precio" placeholder="ejemplo: 1000" ref={register}/>
       <label>Elegir fecha</label>
-      <section>
+      <section >
         <Controller
           as={ReactDatePicker}
           control={control}
@@ -34,6 +34,7 @@ const FormBuy = () => {
           onChange={([selected]) => selected}
           name="fecha"
           placeholderText="Selecciona fecha"
+          className="date"
         />
       </section>
       <label>selecciona una hora</label>
