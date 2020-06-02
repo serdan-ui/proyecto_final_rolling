@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Main from "./components/Main/Main";
@@ -7,47 +7,49 @@ import ShoppingDetail from "./components/ShoppingDetail/ShoppingDetail";
 import PageService from "./components/PageService/PageService";
 import Payment from "./components/Payment/Payment";
 import Register from "./components/Register/Register";
-import Error404 from "./components/Error404/Error404"
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Error404 from "./components/Error404/Error404";
+import Turn from "./components/Turn/Turn";
+import Admin from "./components/Admin/Admin"
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
 
-
 function App() {
-
-
   return (
-    
     <Router>
       <Switch>
         <Route exact path="/">
           <Login />
         </Route>
-        <Route  path="/register">
+        <Route exact path="/register">
           <Register />
         </Route>
-        <Route path="/main">
+        <Route exact path="/main">
           <Main />
         </Route>
-        <Route path="/shopping-cart">
+        <Route exact path="/shopping-cart">
           <ShoppingCart />
         </Route>
-        <Route path="/shopping-details">
+        <Route exact path="/shopping-details">
           <ShoppingDetail />
         </Route>
-        <Route path="/service">
+        <Route exact path="/service">
           <PageService />
         </Route>
-        <Route path="/payment">
+        <Route exact path="/payment">
           <Payment />
         </Route>
-        <Route path="/error404">
+        <Route exact path="/turn">
+          <Turn />
+        </Route>
+        <Route exact path="/admin">
+          <Admin />
+        </Route>
+        <Route>
           <Error404 />
         </Route>
       </Switch>
     </Router>
-    
   );
 }
 

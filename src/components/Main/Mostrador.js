@@ -13,21 +13,15 @@ import {
 } from "react-bootstrap";
 import { FaCartPlus, FaWindowClose } from "react-icons/fa";
 import mousered from "../Images/mousered.png";
-import Teclado from "../Images/teclado.png";
-import Tecladouna from "../Images/tecladounamano.png";
-import Auris from "../Images/auriii.png";
-import Tecladocheto from "../Images/tecladocheto.png";
-import Silla from "../Images/silla.png";
+
 import { CardText } from "react-bootstrap/Card";
 import Swal from "sweetalert2";
 
-const Mostrador = ({setProducts, products}) => {
+const Mostrador = ({ setProducts, products }) => {
   // Estados
   const [smShow, setSmShow] = useState(false); //Modal
   const [mostImg, setMostImg] = useState(false); // Img derecha
   const [modal, setModal] = useState({});
-
-
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, img }) => {
@@ -39,10 +33,9 @@ const Mostrador = ({setProducts, products}) => {
 
   //agregar al carrito
   const botonAlerta = (product) => {
-    console.log(product)
+    console.log(product);
 
-    setProducts([...products, 
-      product])
+    setProducts([...products, product]);
 
     Swal.fire({
       icon: "success",
@@ -55,45 +48,59 @@ const Mostrador = ({setProducts, products}) => {
   return (
     <>
       <p className="titulo_product_main">Productos</p>
-      <Container fluid>
-        <Row style={{ background: "#060606" }}>
-          <Col sm={8} className="columnitax">
+      <Container fluid className="contenedor-mostrador">
+        <Row style={{ background: "#171717" ,margin:"0px"}}>
+          <Col sm={2} style={{backgroundColor:'black'}} ></Col>
+          <Col sm={8}  className="columnitax" style={{backgroundColor:'black'}}>
             <CardColumns>
               {productos.map((producto) => (
-                <div className="gradient-border">
-                  <Card key={producto.id} className="cardProduct">
-                    <Card.Img variant="top" src={producto.img} rounded />
-                    <Card.Body>
-                      <Card.Title>{producto.nombre}</Card.Title>
-                      <Card.Text>${producto.precio}</Card.Text>
-                    </Card.Body>
-                    <Card.Footer>
-                      <Row>
-                        <Col>
-                          <Button border="danger"
-                            variant="info"
-                            style={{border:"3px solid #15798C", textShadow:"1px  1px 1px black"}}
-                            onClick={() => mostrarImg(producto)}
-                          >
-                            Ver mas
-                          </Button>
-                        </Col>
-                        <Col>
-                          <Button variant="success" style={{border:"2px solid green", textShadow:"1px  1px 1px black"}} onClick={()=>botonAlerta(producto)}>
-                            <FaCartPlus />
-                            Agregar
-                          </Button>
-                        </Col>
-                      </Row>
-                    </Card.Footer>
-                  </Card>
-                </div>
+                <Card key={producto.id} className="cardProduct">
+                  <Card.Img variant="top" src={producto.img} rounded />
+                  <Card.Body>
+                    <Card.Title>{producto.nombre}</Card.Title>
+                    <Card.Text>${producto.precio}</Card.Text>
+                  </Card.Body>
+                  <Card.Footer>
+                    <Row>
+                      <Col>
+                        <Button
+                          border="danger"
+                          
+                          style={{
+                            border: "3px solid #060606",
+                            color:"#19ED18",
+                            backgroundColor:"#060606",
+                            fontSize:"0.9rem",
+                          }}
+                          onClick={() => mostrarImg(producto)}
+                        >
+                          Ver mas
+                        </Button>
+                      </Col>
+                      <Col>
+                        <Button
+                          variant="success"
+                          style={{
+                            border: "2px solid #19ED18",
+                            fontSize:"0.9rem",
+                            backgroundColor:"#19ED18",
+                            color:"black"
+                          }}
+                          onClick={() => botonAlerta(producto)}
+                          
+                        >
+                          
+                          <FaCartPlus /> Agregar
+                        </Button>
+                      </Col>
+                    </Row>
+                  </Card.Footer>
+                </Card>
               ))}
-
-             
             </CardColumns>
           </Col>
-          {mostImg ? (
+          <Col sm={2} style={{backgroundColor:'black'}} ></Col>
+          {/* {mostImg ? (
             <Col sm={4} className="carrito-xs">
               <Card style={{ width: "18rem" }} className="mercadito-card">
                 <Card.Header className="cardArticulos">
@@ -134,7 +141,7 @@ const Mostrador = ({setProducts, products}) => {
                 </Row>
               </Card>
             </Col>
-          ) : null}
+          ) : null} */}
         </Row>
       </Container>
     </>

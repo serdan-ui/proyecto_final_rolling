@@ -2,36 +2,48 @@ import React from "react";
 import { Container, Row, Col, Nav, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
-import Loguito from '../Images/logosecundario.png'
-import {FaUser, FaCartPlus} from "react-icons/fa";
+import Loguito from "../Images/zerote.png";
+import { FaUser, FaCartPlus } from "react-icons/fa";
 import BtnCart from "./BtnCart";
 
-const Header = ({products}) => {
-
-
+const Header = ({ products }) => {
   return (
     <Container fluid className="Container_Header">
-      <Row className="container_logo">
+      <Row className="container_logo"  style={{padding:"0px", margin:"0px"}}>
         <Col xs={4} md={3} className="logo">
-        <Image src={Loguito} rounded className="logo_imagen_header" />
+          <Image src={Loguito} rounded className="logo_imagen_header" />
+          <br/>
+          <br/>
         </Col>
         <Col xs={7} md={9} className="login_registro_header">
-          <Button className="btnLogin_header mr-2" href="http://localhost:3000/"> <FaUser className="icons_header"/>Iniciar sesion</Button>
-          
+          <Button
+            className="btnLogin_header mr-2"
+            href="http://localhost:3000/"
+          >
+            {" "}
+            <FaUser className="icons_header" />
+            Iniciar sesion
+          </Button>
         </Col>
       </Row>
 
-      <BtnCart  products={products}/>
+      <BtnCart products={products} />
 
-      <Nav className="justify-content-center nav_header" >
-        <Nav.Item className="nav_header" >
-          <Link to="/shopping-cart" className="btnNav_header">Tienda</Link>
+      <Nav className="justify-content-center nav_header">
+        <Nav.Item className="nav_header">
+          <Link to="/main" className="btnNav_header">
+            Tienda
+          </Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/service" className="btnNav_header">Turno</Link>
+          <Link to="/service" className="btnNav_header">
+            Servicios
+          </Link>
         </Nav.Item>
         <Nav.Item>
-          <Link to="/main" className="btnNav_header">Consulta</Link>
+          <Link to="/turn" className="btnNav_header">
+            Turno
+          </Link>
         </Nav.Item>
       </Nav>
     </Container>

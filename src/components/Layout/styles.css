@@ -1,6 +1,8 @@
+
 .Container_Header {
-  background: #283747;
+  background: #171717;
   padding: 0 !important;
+  
 }
 .container_logo {
   display: flex;
@@ -14,11 +16,11 @@
   justify-content: center !important;
   font-size: 2rem;
   text-align: center;
-  height: 70px !important;
+  height: 130px !important;
   line-height: 70px;
   color: white;
   font-weight: bold;
-  width: 100px !important;
+  width: 50pxpx !important;
 }
 .logo_imagen_header {
   margin-left: 20px;
@@ -34,23 +36,34 @@
   height: 40px;
 }
 .btnLogin_header {
-  background: #fc893e !important;
-  color: rgb(247, 243, 243) !important;
-  border: black !important;
+  background: #171717 !important;
+  color: #19ED18!important;
+  border: 1px solid #19ED18 !important;
   font-weight: bold !important;
 }
 .btnLogin_header:hover {
   background: rgb(4, 4, 68);
 }
 
+.estilosTitulosbtn{
+  background-color: #212121 !important;
+  color: whitesmoke;
+  border: none;
+}
+.productitoslistados{
+  background-color: #212121 !important;
+  color: whitesmoke;
+  border: none !important;
+  padding: 0px !important;
+}
 
 .nav_header {
-  border-top: 0px solid #34495e;
+  border-top: 1px solid rgb(95, 233, 95);
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #283747;
+  background-color: #212121;
 }
 
 .btnNav_header {
@@ -59,14 +72,12 @@
   text-align: center;
   padding: 6px 30px;
   text-decoration: none !important;
-  border-left: 0.8px solid #34495e;
-  border-right: 0.8px solid #34495e;
+  border-left: 0.8px solid rgb(95, 233, 95);
+  border-right: 0.8px solid rgb(95, 233, 95);
   border-top: none;
 }
 .btnNav_header:hover {
-  background-color: #34495e !important;
-  color: white;
-  font-weight: bold;
+  color: #19ED18;
 }
 .redesociales {
   color: aliceblue;
@@ -85,36 +96,208 @@
   padding-left: 30px !important;
 }
 .btnCart_header {
-  border: none !important;
   width: 80px;
   height: 70px;
   font-weight: bold !important ;
   position: fixed;
   z-index: 2;
-  right: -10px !important;
+  right: -8px !important;
+  background: #212121 !important;
+  border: 1px solid yellowgreen !important;
+  color: whitesmoke;
+  
 }
 .icons_header_cart{
   font-size: 30px;
   margin-top: 8px;
-   
+   color:#18e317;
+}
+.imgCartBtn{
+  height: 15vh;
+  width: 10vw;
+
 }
 .btnCartOpen{
   border: none !important;
+  box-shadow: 1px 0px 5px 1px #19ED18;
   position: fixed;
   width: 500px;
   min-height: 100px;
   overflow: hidden;
-  background-color: red;
+  background-color: #212121;
   font-weight: bold !important ;
   z-index: 10;
   right: 0px !important;
+  z-index: 16 ;
+}
+
+/*? FOOTER */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.container_footer {
+  position: relative;
+  bottom: 0px ;
+  background-color: #212121;
+  border-top: 2px groove #a19842;
+}
+
+.footer_disclaimer {
+  color: #9c9341;
+  min-height: 4rem;
+  border-top: 1px solid rgb(67, 68, 25);
+}
+
+.vl {
+  border-left: 1px solid rgb(67, 68, 25);
+  height: 200px;
+  margin-top: 40px;
+}
+
+.social-menu ul {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  padding: 0;
+  margin: 0;
+  transform: translate(-50%, 50%);
+  display: flex;
+}
+
+.social-menu ul li{
+  list-style: none;
+  margin: 0 30px;
+}
+
+.social-menu ul li .media-icon{
+  height: 20px;
+  line-height: 60px;
+  transition: .6s;
+  margin-top: 10px;
+  color: #000000;
+}
+
+.social-menu ul li a{
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  background-color: rgb(177, 182, 47);
+  text-align: center;
+  transition: .6s;
+  box-shadow: 0 5px 4px rgba(0,0,0,.5);
+}
+
+.social-menu ul li a:hover {
+  transform: translate(0, -10px);
+}
+
+
+.footer_submenu {
+  margin-top: 20px;
+}
+
+.footer_submenu ul a{
+  margin-top: 3px;
+}
+
+.container_footer a {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(161, 165, 59) !important;
+}
+
+.container_footer h5 {
+  font-family: 'Montserrat', sans-serif;
+  color: rgb(167, 170, 63);
+}
+
+.social-menu ul li:nth-child(1) a:hover {
+  background-color: #3a5797;
+}
+
+.social-menu ul li:nth-child(2) a:hover {
+  background-color: #55acee;
+}
+.social-menu ul li:nth-child(3) a:hover {
+  background-color: #e4405f;
+}
+
+
+@media (max-width: 938px) {
+  .container_footer {
+    bottom: 0;
+    z-index: -1;
+    overflow: hidden;
+    position: sticky; 
+    height: 40%;
+    display: flex;
+    align-items: center;
+  }
+
+  .vl{
+    border-left: 1px solid rgb(83, 85, 29);
+    height: 150px;
+    margin-top: 50px;
+  }
+
+  .social-menu ul {
+    display: flex;
+    flex-direction: column;
+    top: -40%;
+  }  
   
+  .iframe-mapa {
+    height: 1px;
+    width: 1px;
+    visibility: hidden;
+  }
+
+  .f_submenu_2, .f_submenu_3 {
+    visibility: hidden;
+  }
+
+  .container_footer h5 {
+    margin-left: 60px;
+  }
+}
+
+@media (max-width: 414px) {
+  .container_footer h5 {
+    margin-left: 60px;
+  }
+
+  .social-menu ul {
+    top: -10%;
+  }  
+
+  .social-menu ul li a {
+    display: flex;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 20px;
+  }
+
+  .media-icon {
+    margin: 6px 0;
+    align-self: center;
+    height: 75% !important;
+  }
+
+  .f_submenu_2, .f_submenu_3 {
+    visibility: hidden;
+  }
 }
 .btnCartOpen button.btnCart_header{
   display: none;
   
 }     
 .cuerpoCart button.cartClose{
+  display: none;
+
+}
+.cuerpoCart h4.cartClose{
   display: none;
 
 }

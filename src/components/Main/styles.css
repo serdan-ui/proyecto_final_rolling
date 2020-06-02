@@ -1,6 +1,9 @@
 .card-articulo {
   max-height: 350px;
 }
+.contenedor-mostrador{
+  height: auto;
+}
 
 /* .cardProduct {
 border: 1px inset rgb(175, 90, 164) !important;
@@ -11,33 +14,13 @@ color: white;
 z-index: 1;
 } */
 .cardProduct {
-    z-index: 1 !important;
-  --borderWidth: 3px;
-  position: relative;
-  border-radius: var(--borderWidth);
-}
-.cardProduct:after {
-  content: "";
-  position: absolute;
-  top: calc(-1 * var(--borderWidth));
-  left: calc(-1 * var(--borderWidth));
-  height: calc(100% + var(--borderWidth) * 2);
-  width: calc(100% + var(--borderWidth) * 2);
-  background: linear-gradient(
-    60deg,
-    #f79533,
-    #f37055,
-    #d88ba1,
-    #a166ab,
-    #5073b8,
-    #3d6992,
-    #35dbc5,
-    #6fba82
-  );
-  border-radius: calc(2 * var(--borderWidth));
-  z-index: -1;
-  animation: animatedgradient 3s ease alternate infinite;
-  background-size: 300% 300%;
+  background-color: #212121 !important;
+  color: whitesmoke;
+  box-shadow: 4px 4px 4px 4px #424242; 
+   position: relative;
+   margin-bottom: 20px !important;
+  
+
 }
 
 @keyframes animatedgradient {
@@ -54,6 +37,7 @@ z-index: 1;
 
 .mercadito-card {
   margin-left: 50px;
+ 
 }
 .titulo_product_main {
   margin: 0;
@@ -71,6 +55,8 @@ z-index: 1;
 }
 .cardArticulos {
   border-color: #fc893e !important;
+  background-color: #212121 !important;
+  color:whitesmoke;
 }
 .carrousel-container {
   padding-right: 0px;
@@ -80,3 +66,5 @@ z-index: 1;
   padding-right: 0% !important;
   padding-left: 0% !important;
 }
+
+

@@ -8,6 +8,7 @@ import Mariana from "../Images/mariana.png";
 import Silvia from "../Images/silvia.png";
 import Mauricio from "../Images/mauricio.png";
 import HeaderStatic from "../Layout/HeaderStatic";
+import  Footer  from "../Layout/Fotter";
 // stilos de register
 import "./styles.css";
 
@@ -248,6 +249,7 @@ const PageService = () => {
         </Col>
     </Row> */}
     </Container>
+    <Footer />
     </>
   );
 };
