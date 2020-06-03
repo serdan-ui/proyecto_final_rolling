@@ -1,7 +1,8 @@
+
 .card-articulo {
   max-height: 350px;
 }
-.contenedor-mostrador{
+.contenedor-mostrador {
   height: auto;
 }
 
@@ -26,21 +27,11 @@ z-index: 1;
   width: 100.1% !important;
 }
 
-@keyframes animatedgradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
+
 
 .mercadito-card {
   margin-left: 50px;
- 
 }
 .titulo_product_main {
   margin: 0;
@@ -59,7 +50,7 @@ z-index: 1;
 .cardArticulos {
   border-color: #fc893e !important;
   background-color: #212121 !important;
-  color:whitesmoke;
+  color: whitesmoke;
 }
 .carrousel-container {
   padding-right: 0px;
@@ -70,4 +61,26 @@ z-index: 1;
   padding-left: 0% !important;
 }
 
+/* media querys */
 
+@media (min-width: 600px) and (max-width: 767px) {
+  .card-columns {
+    column-count: 1 !important;  } 
+}
+
+@media (min-width: 768px) and (max-width: 998px) {
+  .card-columns {
+    column-count: 2 !important;  } 
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

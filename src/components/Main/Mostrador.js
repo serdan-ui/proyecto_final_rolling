@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import productos from "./basedatos";
+
 import {
   Row,
   Col,
@@ -25,10 +26,15 @@ const Mostrador = ({ setProducts, products }) => {
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, img }) => {
-    if (mostImg === false) {
-      setMostImg(true);
-    }
-    setModal({ nombre, id, precio, descripcion, img });
+    Swal.fire({
+      title: nombre,
+      imageUrl: img,
+      titleText: descripcion,
+      text: ` $ ${precio}`,
+      imageHeight: 300,
+      imageAlt: 'A tall image'
+    })
+   
   };
 
   //agregar al carrito
@@ -37,12 +43,23 @@ const Mostrador = ({ setProducts, products }) => {
 
     setProducts([...products, product]);
 
-    Swal.fire({
-      icon: "success",
-      title: "El producto ha sido agregado al carrito",
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
       showConfirmButton: false,
-      timer: 1500,
-    });
+      timer: 3000,
+      timerProgressBar: true,
+      onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Signed in successfully'
+    })
   };
 
   return (
@@ -50,11 +67,11 @@ const Mostrador = ({ setProducts, products }) => {
       <p className="titulo_product_main">Productos</p>
       <Container fluid className="contenedor-mostrador">
         <Row style={{ background: "#171717" ,margin:"0px"}}>
-          <Col sm={2} ></Col>
-          <Col sm={8}  className="columnitax">
-            <CardColumns>
+          <Col sm={2} style={{backgroundColor:'black'}} ></Col>
+          <Col  sm={8}  className="columnitax" style={{backgroundColor:'black'}}>
+            <CardColumns className="cardColumns">
               {productos.map((producto) => (
-                <Card key={producto.id} className="cardProduct">
+                <Card key={producto.id} sm={12} className="cardProduct">
                   <Card.Img variant="top" src={producto.img} rounded />
                   <Card.Body>
                     <Card.Title>{producto.nombre}</Card.Title>
@@ -99,49 +116,8 @@ const Mostrador = ({ setProducts, products }) => {
               ))}
             </CardColumns>
           </Col>
-          <Col sm={2} ></Col>
-          {/* {mostImg ? (
-            <Col sm={4} className="carrito-xs">
-              <Card style={{ width: "18rem" }} className="mercadito-card">
-                <Card.Header className="cardArticulos">
-                  <strong>{modal.nombre}</strong>
-                </Card.Header>
-                <ListGroup variant="flush">
-                  <ListGroup.Item>
-                    <Card.Img src={modal.img} />
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <p>
-                      <strong>Precio: </strong> ${modal.precio}{" "}
-                    </p>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <p>
-                      <strong>Descripcion: </strong>
-                      {modal.descripcion}
-                    </p>
-                  </ListGroup.Item>
-                </ListGroup>
-                <Row>
-                  <Col>
-                    <Button variant="success" block>
-                      <FaCartPlus />
-                      Agregar
-                    </Button>
-                  </Col>
-                  <Col>
-                    <Button
-                      variant="danger"
-                      onClick={() => setMostImg(false)}
-                      block
-                    >
-                      Cancelar{" "}
-                    </Button>
-                  </Col>
-                </Row>
-              </Card>
-            </Col>
-          ) : null} */}
+          <Col sm={2} style={{backgroundColor:'black'}} ></Col>
+          
         </Row>
       </Container>
     </>

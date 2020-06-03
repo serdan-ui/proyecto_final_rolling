@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Main from "./components/Main/Main";
@@ -10,12 +10,32 @@ import ShippingDetail from "./components/ShippingDetail/shipping-detail";
 import Register from "./components/Register/Register";
 import Error404 from "./components/Error404/Error404";
 import Turn from "./components/Turn/Turn";
-import Admin from "./components/Admin/Admin"
+import Admin from "./components/Admin/Admin";
 import "bootstrap/dist/css/bootstrap.min.css";
+import axiosInstance from './components/util/axiosInstance'
 
 import "./App.css";
 
 function App() {
+  const token = localStorage.getItem("Token");
+  const [authen, setAuthen] = useState(token);
+  const [usuario ,setUsuario] = useState()
+
+const autenticar = async () => {
+  try {
+    const response = await axiosInstance.get("/private",{ headers: {"Authorization" : `Bearer ${authen}`} })
+    setUsuario(response.data.user)
+ 
+  } catch (error) {
+    console.log(error)
+  }
+ 
+}
+
+  useEffect(() => {
+    autenticar()
+  }, [authen])
+
   return (
     <Router>
       <Switch>
@@ -26,7 +46,7 @@ function App() {
           <Register />
         </Route>
         <Route exact path="/main">
-          <Main />
+          <Main authen={authen} setAuthen={setAuthen} usuario={usuario} />
         </Route>
         <Route exact path="/shopping-cart">
           <ShoppingCart />
@@ -34,17 +54,17 @@ function App() {
         <Route exact path="/shopping-details">
           <ShoppingDetail />
         </Route>
-        <Route exact path="/service">
-          <PageService />
+        <Route exact path="/service" >
+          <PageService authen={authen} setAuthen={setAuthen} />
         </Route>
         <Route exact path="/payment">
-          <Payment />
+          <Payment authen={authen} setAuthen={setAuthen} />
         </Route>
         <Route exact path="/shipping-detail">
           <ShippingDetail />
         </Route>
         <Route exact path="/turn">
-          <Turn />
+          <Turn authen={authen} setAuthen={setAuthen} />
         </Route>
         <Route exact path="/admin">
           <Admin />
