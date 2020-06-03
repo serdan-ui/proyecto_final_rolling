@@ -17,9 +17,20 @@ z-index: 1;
 .cardProduct {
   background-color: #212121 !important;
   color: whitesmoke;
+<<<<<<< HEAD
   box-shadow: 4px 4px 4px 4px #424242;
   position: relative;
   margin-bottom: 20px !important;
+=======
+  box-shadow: 4px 4px 4px 4px #424242; 
+   position: relative;
+   transition: 0.5s;
+}
+
+.cardProduct:hover{
+  background-color: #363636 !important;
+  width: 100.1% !important;
+>>>>>>> origin/Shipping-section
 }
 
 
