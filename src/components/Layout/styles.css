@@ -32,6 +32,9 @@
   justify-content: flex-end;
   align-items: center;
 }
+.login_registro_header span{
+  color: whitesmoke;
+}
 .login_registro_header button {
   height: 40px;
 }
@@ -44,7 +47,16 @@
 .btnLogin_header:hover {
   background: rgb(4, 4, 68);
 }
-
+.btnLogin_header_logout{
+  background: #171717 !important;
+  color: #19ED18!important;
+  border:none !important;
+  font-weight: bold !important;
+}
+.btnLogin_header_logout:hover{
+  font-size: 110%;
+  color: #168516 !important;
+}
 .estilosTitulosbtn{
   background-color: #212121 !important;
   color: whitesmoke;

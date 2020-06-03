@@ -1,29 +1,53 @@
-import React from "react";
+import React , {useEffect} from "react";
 import { Container, Row, Col, Nav, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
 import Loguito from "../Images/zerote.png";
-import { FaUser, FaCartPlus } from "react-icons/fa";
+import { FaUser, FaShareSquare } from "react-icons/fa";
 import BtnCart from "./BtnCart";
 
-const Header = ({ products }) => {
+const Header = ({ products, authen,setAuthen , usuario }) => {
+
+
+console.log(usuario)
+  const cerrarSes = () => {
+    localStorage.removeItem("Token")
+    setAuthen(null)
+  }
+
+
   return (
     <Container fluid className="Container_Header">
-      <Row className="container_logo"  style={{padding:"0px", margin:"0px"}}>
+      <Row className="container_logo" style={{ padding: "0px", margin: "0px" }}>
         <Col xs={4} md={3} className="logo">
           <Image src={Loguito} rounded className="logo_imagen_header" />
-          <br/>
-          <br/>
+          <br />
+          <br />
         </Col>
         <Col xs={7} md={9} className="login_registro_header">
-          <Button
-            className="btnLogin_header mr-2"
-            href="http://localhost:3000/"
-          >
-            {" "}
-            <FaUser className="icons_header" />
-            Iniciar sesion
-          </Button>
+          {authen ? (
+            <>
+            <span><FaUser className="icons_header" />`Hola : ${}` </span>
+
+              <Button
+                className="btnLogin_header_logout mr-2"
+                style={{border:"none"}}
+                onClick={cerrarSes}
+              >
+                {" "}
+                < FaShareSquare/>
+              </Button>
+            </>
+          ) : (
+            <Button
+              className="btnLogin_header mr-2"
+              href="http://localhost:3000/"
+            >
+              {" "}
+              <FaUser className="icons_header" />
+              Iniciar sesion
+            </Button>
+          )}
         </Col>
       </Row>
 

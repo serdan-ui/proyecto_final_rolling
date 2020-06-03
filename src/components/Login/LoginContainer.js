@@ -1,4 +1,4 @@
-import React from "react";
+import React ,{useState} from "react";
 import { useForm } from "react-hook-form";
 import {
   Form,
@@ -9,13 +9,51 @@ import {
 } from "react-bootstrap";
 import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import Fab from "@material-ui/core/Fab";
+import Swal from 'sweetalert2';
+import {
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
-const LoginConteiner = () => {
+import axiosInstance from '../util/axiosInstance';
+
+
+
+const LoginConteiner =  ({setAuthen}) => {
+  
+  let history = useHistory();
   const { register, errors, handleSubmit } = useForm();
+   
+  const onSubmit = async (data, e) => {
+    
+    const {  username, password } = data;
 
-  const onSubmit = (data, e) => {
-    console.log(data);
-
+    if (password ) {
+      const newUser = {
+        username,
+        password,
+      };
+      console.log(newUser)
+      try {
+        
+        const response = await axiosInstance.post("/login", newUser);
+        console.log(response);
+        localStorage.setItem("Token", response.data.token);
+        history.push("/main")
+      } catch (error) {
+        
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: error.response.data.message,
+          showConfirmButton: false,
+          timer: 3000,
+          
+        }
+        )
+      }
+    }
+   
     e.target.reset();
   };
 
@@ -28,7 +66,7 @@ const LoginConteiner = () => {
         <Form.Control
           placeholder="Nombre"
           autoComplete="off"
-          name="usuario"
+          name="username"
           ref={register({
             required: {
               value: true,
@@ -45,7 +83,7 @@ const LoginConteiner = () => {
           })}
         />
         <span className="text-danger text-small d-block mb-2">
-          {errors.usuario && errors.usuario.message}
+          {errors.username && errors.username.message}
         </span>
 
         <Form.Group>
@@ -55,7 +93,7 @@ const LoginConteiner = () => {
           <Form.Control
             placeholder="password"
             type="password"
-            name="Password"
+            name="password"
             ref={register({
               required: {
                 value: true,
@@ -72,7 +110,7 @@ const LoginConteiner = () => {
             })}
           />
           <span className="text-danger text-small d-block mb-2">
-            {errors.Password && errors.Password.message}
+            {errors.password && errors.password.message}
           </span>
         </Form.Group>
 

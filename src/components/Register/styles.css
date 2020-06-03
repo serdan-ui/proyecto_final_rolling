@@ -37,3 +37,8 @@ text-align: start;
     align-items: center !important;
 }
 
+
+  
+  ::ng-deep.swal2-container {
+    z-index: 1000000;
+}
