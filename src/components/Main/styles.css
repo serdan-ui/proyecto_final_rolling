@@ -18,8 +18,12 @@ z-index: 1;
   color: whitesmoke;
   box-shadow: 4px 4px 4px 4px #424242; 
    position: relative;
-  
+   transition: 0.5s;
+}
 
+.cardProduct:hover{
+  background-color: #363636 !important;
+  width: 100.1% !important;
 }
 
 @keyframes animatedgradient {

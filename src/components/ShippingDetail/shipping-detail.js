@@ -1,8 +1,9 @@
 import React from "react";
-import { Col, Row, Container, Form, Card, Button } from "react-bootstrap";
+import { Col, Row, Container, Form, Button } from "react-bootstrap";
 import Fotter from "../Layout/Fotter";
 import Header from "../Layout/HeaderStatic";
-import Resumen from "../ShoppingCart/Tabla";
+import PaisesContainer from "./generador-paises";
+import CardOpcion from "./card-opcionales";
 import "./styles.css";
 
 const ShippingDetail = () => {
@@ -43,11 +44,8 @@ const ShippingDetail = () => {
                 <Row className="mb-3">
                   <Col>
                     <Form.Control as="select" custom>
-                      <option>Pais</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option>Argentina</option>
+                      <PaisesContainer />
                     </Form.Control>
                   </Col>
                   <Col>
@@ -69,39 +67,21 @@ const ShippingDetail = () => {
             <Col className="mt-4 mb-5">
               <Row className="d-flex justify-content-between">
                 <Col>
-                  <Card className="card-tipo-envio">
-                    <Card.Body>
-                      <Row>
-                        <Col sm="auto" className="d-flex align-items-center">
-                          <Form.Check type="radio" aria-label="radio 1" />
-                        </Col>
-                        <Col>
-                          <Card.Title>Envío Gratis</Card.Title>
-                          <Card.Subtitle className="mb-2 text-muted">
-                            Demora de 2 a 5 días habiles
-                          </Card.Subtitle>
-                        </Col>
-                      </Row>
-                    </Card.Body>
-                  </Card>
+                  <CardOpcion
+                    color = "rgb(185, 183, 183)"
+                    seleccionado="true"
+                    titulo="Envío Gratis"
+                    descripcion="Demora de 2 a 5 días habiles"
+                  />
                 </Col>
 
                 <Col>
-                  <Card className="card-tipo-envio">
-                    <Card.Body>
-                      <Row>
-                        <Col sm="auto" className="d-flex align-items-center">
-                          <Form.Check type="radio" aria-label="radio 1" />
-                        </Col>
-                        <Col>
-                          <Card.Title>Envío "Next Day" - $20</Card.Title>
-                          <Card.Subtitle className="mb-2 text-muted">
-                            Entrega en 24 horas
-                          </Card.Subtitle>
-                        </Col>
-                      </Row>
-                    </Card.Body>
-                  </Card>
+                  <CardOpcion
+                    color = "whitesmoke"
+                    seleccionado = "false"
+                    titulo='Envío "Next Day" - $20'
+                    descripcion="Entrega en 24 horas"
+                  />
                 </Col>
               </Row>
             </Col>
@@ -122,9 +102,7 @@ const ShippingDetail = () => {
                 <h3>Resumen</h3>
               </Col>
 
-              <Col>
-                {/* <Resumen /> */}
-              </Col>
+              <Col>{/* <Resumen /> */}</Col>
             </Row>
           </Col>
         </Row>
