@@ -20,7 +20,7 @@ const PageService = () => {
       <Row>
         <Col xs={12} xl={6}>
           {" "}
-          <h1 className="text-center textos nuestro p-3 m-3">
+          <h1 className="text-center textos nuestro p-3 m-3" style={{color: "yellowgreen"}}>
             {" "}
             NUESTROS SERVICIOS
           </h1>
@@ -46,7 +46,7 @@ const PageService = () => {
                 </p>
                 <br></br>
 
-                <h3 className="text-center textos">QUIENES SOMOS</h3>
+                <h3 className="text-center textos" style={{color: "yellowgreen"}}>QUIENES SOMOS</h3>
                 <br></br>
                 <p className="p-3">
                   {" "}
@@ -68,10 +68,10 @@ const PageService = () => {
         <Col>
           <Container>
             <Row>
-              <Col xs={12} xl={6} >
+              <Col xs={12} xl={6}>
                 {" "}
                 <h4 className="titulo m-3 p-3">Audio</h4>
-                <i class="ml-5 fas fa-volume-up fa-5x"></i>
+                <i class="ml-5 fas fa-volume-up fa-5x" style={{color: "#19ED18"}}></i>
                 <br></br>
                 <span>
                   Reparamos equipos de audio con y sin garantía. Empleamos
@@ -81,7 +81,7 @@ const PageService = () => {
               <Col className="m-3">
                 {" "}
                 <h4 className="titulo p-3">Tv Digital</h4>
-                <i class="ml-5 fas fa-tv fa-5x"></i>
+                <i class="ml-5 fas fa-tv fa-5x" style={{color: "#19ED18"}}></i>
                 <br></br>
                 <span>
                   Se hacen reparaciones de tv led y lcd, monitores y
@@ -93,7 +93,7 @@ const PageService = () => {
               <Col xs={12} xl={6} >
                 {" "}
                 <h3 className="titulo p-3">Responsabilidad</h3>
-                <i class="ml-5 far fa-clock fa-5x"></i> <br></br>
+                <i class="ml-5 far fa-clock fa-5x" style={{color: "#19ED18"}}></i> <br></br>
                 <span>
                   Empleamos los mejores instrumentos de medición electrónica.
                   Repuestos originales.
@@ -102,7 +102,7 @@ const PageService = () => {
               <Col className="m-3">
                 {" "}
                 <h4 className="titulo p-3">Soporte</h4>
-                <i class="ml-5 fas fa-phone fa-5x"></i>
+                <i class="ml-5 fas fa-phone fa-5x" style={{color: "#19ED18"}}></i>
                 <br></br>
                 <span>Ofrecemos garantía escrita de nuestros trabajos.</span>
               </Col>

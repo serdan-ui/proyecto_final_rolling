@@ -13,7 +13,11 @@ text-align: start;
  font-family: 'Muli', serif;
     
 }
-
+.btn-env{
+    border:#19ED18 solid 0.7px !important ;
+    background-color: black !important;
+    color: #19ED18 !important;
+  }
 .container_titulo_reg{
     justify-content: center;
     display: flex;
