@@ -18,7 +18,7 @@ import "./App.css";
 function App() {
   const token = localStorage.getItem("Token");
   const [authen, setAuthen] = useState(token);
-  const [usuario ,setUsuario] = useState()
+  const [usuario ,setUsuario] = useState({})
 
 const autenticar = async () => {
   try {

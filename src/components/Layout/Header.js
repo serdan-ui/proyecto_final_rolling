@@ -9,7 +9,7 @@ import BtnCart from "./BtnCart";
 const Header = ({ products, authen,setAuthen , usuario }) => {
 
 
-console.log(usuario)
+console.log(usuario.username)
   const cerrarSes = () => {
     localStorage.removeItem("Token")
     setAuthen(null)
@@ -27,7 +27,7 @@ console.log(usuario)
         <Col xs={7} md={9} className="login_registro_header">
           {authen ? (
             <>
-            <span><FaUser className="icons_header" />`Hola : ${}` </span>
+            <span><FaUser className="icons_header" />Hola: {usuario.username}</span>
 
               <Button
                 className="btnLogin_header_logout mr-2"
