@@ -25,20 +25,6 @@ class CardOpcion extends React.Component {
     }
   };
 
-  /* Seleccionar = () => {
-    this.setState({
-      bgColor: "rgb(185, 183, 183)",
-      selected: true,
-    });
-  }
-
-  Deseleccionar = () => {
-    this.setState({
-      bgColor: "whitesmoke",
-      selected: false,
-    });
-  } */
-
   render() {
     return (
       <Card

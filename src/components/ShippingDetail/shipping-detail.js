@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import {
-  Col,
-  Row,
-  Container,
-  Form,
-  Button,
-} from "react-bootstrap";
+import { Col, Row, Container, Form, Button } from "react-bootstrap";
 import Fotter from "../Layout/Fotter";
 import Header from "../Layout/HeaderStatic";
 import PaisesContainer from "./generador-paises";
 import CardOpcion from "./card-opcionales";
+import { useForm } from "react-hook-form";
 import "./styles.css";
 
 const ShippingDetail = () => {
+  const { register, errors, handleSubmit } = useForm();
+
+  const onSubmit = (data, e) => {
+    console.log(data);
+    e.target.reset();
+  };
+
   const [datos, setDatos] = useState({
     nombre: "",
     apellido: "",
@@ -26,17 +28,11 @@ const ShippingDetail = () => {
   });
 
   const handleInputChange = (event) => {
-    /* console.log(event.target.value); */
     setDatos({
       ...datos,
       [event.target.name]: event.target.value,
     });
   };
-
-  const enviarDatos = (event) => {
-    event.preventDefault();
-    console.log(datos.nombre + ' ' + datos.apellido + ' ' + datos.pais + ' ' + datos.tipoEnvio)
-  }
 
   return (
     <div>
@@ -49,75 +45,145 @@ const ShippingDetail = () => {
               <h3>Detalles de Envío</h3>
             </Col>
 
-            <Form onSubmit={enviarDatos}>
+            <Form onSubmit={handleSubmit(onSubmit)}>
               <Col className="border-bottom">
                 <Row className="mt-3 mb-3">
                   <Col>
                     <Form.Control
-                      placeholder="Nombre"
+                      placeholder="Nombre *"
                       name="nombre"
                       type="text"
                       onChange={handleInputChange}
+                      ref={register({
+                        required: {
+                          value: true,
+                          message: "Nombre obligatorio",
+                        },
+                      })}
                     />
+                    <span className="input-error text-danger text-small d-block mb-2">
+                      {errors?.nombre?.message}
+                    </span>
                   </Col>
                   <Col>
-                    <Form.Control 
-                    placeholder="Apellido" 
-                    name="apellido"
-                    type="text"
-                    onChange={handleInputChange} />
-                  </Col>
-                </Row>
-
-                <Row className="mb-3">
-                  <Col>
-                    <Form.Control 
-                    placeholder="Direccion"
-                    name="direccion1"
-                    onChange={handleInputChange} />
-                  </Col>
-                </Row>
-
-                <Row className="mb-3">
-                  <Col>
-                    <Form.Control 
-                    placeholder="Direccion 2" 
-                    name="direccion2"
-                    onChange={handleInputChange}/>
+                    <Form.Control
+                      placeholder="Apellido *"
+                      name="apellido"
+                      type="text"
+                      onChange={handleInputChange}
+                      ref={register({
+                        required: {
+                          value: true,
+                          message: "Apellido obligatorio",
+                        },
+                      })}
+                    />
+                    <span className="input-error text-danger text-small d-block mb-2">
+                      {errors?.apellido?.message}
+                    </span>
                   </Col>
                 </Row>
 
                 <Row className="mb-3">
                   <Col>
                     <Form.Control
-                     as="select" 
-                     custom
-                     name="pais"
-                     onChange={handleInputChange}>
+                      placeholder="Direccion *"
+                      name="direccion1"
+                      onChange={handleInputChange}
+                      ref={register({
+                        required: {
+                          value: true,
+                          message: "Dirección obligatoria",
+                        },
+                      })}
+                    />
+                    <span className="input-error text-danger text-small d-block mb-2">
+                      {errors?.direccion1?.message}
+                    </span>
+                  </Col>
+                </Row>
+
+                <Row className="mb-3">
+                  <Col>
+                    <Form.Control
+                      placeholder="Direccion 2 (opcional)"
+                      name="direccion2"
+                      onChange={handleInputChange}
+                    />
+                  </Col>
+                </Row>
+
+                <Row className="mb-3">
+                  <Col>
+                    <Form.Control
+                      as="select"
+                      custom
+                      name="pais"
+                      onChange={handleInputChange}
+                      ref={register({
+                        required: {
+                          value: true,
+                          message: "Seleccione un país",
+                        },
+                      })}
+                    >
                       <option>Pais</option>
                       <PaisesContainer />
                     </Form.Control>
+                    <span className="input-error text-danger text-small d-block mb-2">
+                      {errors?.pais?.message}
+                    </span>
                   </Col>
                   <Col>
                     <Form.Control
-                     placeholder="Ciudad" 
-                     name="ciudad"
-                     onChange={handleInputChange}/>
+                      placeholder="Ciudad *"
+                      name="ciudad"
+                      onChange={handleInputChange}
+                      ref={register({
+                        required: {
+                          value: true,
+                          message: "Ciudad obligatoria",
+                        },
+                      })}
+                    />
+                    <span className="input-error text-danger text-small d-block mb-2">
+                      {errors?.ciudad?.message}
+                    </span>
                   </Col>
                 </Row>
 
                 <Row className="mb-3">
                   <Col>
-                    <Form.Control 
-                    placeholder="Codigo ZIP/Postal"
-                    name="postal"
-                    onChange={handleInputChange} />
+                    <Form.Control
+                      placeholder="Codigo ZIP/Postal *"
+                      name="postal"
+                      onChange={handleInputChange}
+                      ref={register({
+                        required: {
+                          value: true,
+                          message: "Codigo obligatorio",
+                        },
+                      })}
+                    />
+                    <span className="input-error text-danger text-small d-block mb-2">
+                      {errors?.postal?.message}
+                    </span>
                   </Col>
                   <Col>
-                    <Form.Control 
-                    placeholder="N° Telefono"
-                    name="telefono" 
-                    onChange={handleInputChange}/>
+                    <Form.Control
+                      placeholder="N° Telefono *"
+                      name="telefono"
+                      onChange={handleInputChange}
+                      ref={register({
+                        required: {
+                          value: true,
+                          message: "Telefono obligatorio",
+                        },
+                      })}
+                    />
+                    <span className="input-error text-danger text-small d-block mb-2">
+                      {errors?.telefono?.message}
+                    </span>
                   </Col>
                 </Row>
               </Col>
@@ -127,7 +193,7 @@ const ShippingDetail = () => {
                   <Col>
                     <CardOpcion
                       onChange={handleInputChange}
-                      name = "tipoEnvio"
+                      name="tipoEnvio"
                       titulo="Envío Gratis"
                       descripcion="Demora de 2 a 5 días habiles"
                     />
