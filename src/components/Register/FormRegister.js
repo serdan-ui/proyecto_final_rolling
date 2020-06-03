@@ -162,7 +162,7 @@ const FormRegister = () => {
         </Form.Group>
         <Form.Group>
           <Col>
-            <Button type="submit" className="btn-lg  btn-dark btn-block">
+            <Button type="submit" className="btn-lg  btn-dark btn-block btn-env">
               Enviar
             </Button>
           </Col>

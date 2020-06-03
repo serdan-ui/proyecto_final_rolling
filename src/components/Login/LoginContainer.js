@@ -24,7 +24,7 @@ const LoginConteiner = () => {
       <Form onSubmit={handleSubmit(onSubmit)}>
         <h3 className="text-center text-white">Iniciar sesion</h3>
 
-        <Form.Label>Ingrese su nombre de usuario</Form.Label>
+        <br></br>
         <Form.Control
           placeholder="Nombre"
           autoComplete="off"
@@ -49,7 +49,9 @@ const LoginConteiner = () => {
         </span>
 
         <Form.Group>
-          <Form.Label>Ingrese su contraseña</Form.Label>
+          
+        
+        
           <Form.Control
             placeholder="password"
             type="password"
@@ -93,7 +95,7 @@ const LoginConteiner = () => {
           </OverlayTrigger>{" "}
         </Form.Group>
 
-        <Button className="btn-lg  btn-dark btn-block" type="submit">
+        <Button className="btn-lg btn-block btn-env" type="submit">
           Enviar
         </Button>
       </Form>

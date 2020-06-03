@@ -4,18 +4,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:wght@300&display=swap');
 /* 
 .nuestroServ{
-  padding: 20px;
-  margin: 10px;
+  
+  border: #19ED18 solid 0.7px;
 } */
 
 
 
 .principal, body{
   height: 80vh;
-  background-color: rgb(140, 141, 141);
+  background-color: #060606 !important;
 }
 .bodyPadre{
-  background-color: #212121;
+  background-color: #060606;
   color: beige;
 }
 .nuestro{
@@ -68,8 +68,8 @@ width: 195px;
   font-family: 'Dancing Script', cursive;}
 
 .titulo{
-  color: beige;
-  /* color : goldenrod; */
+  /* color: beige; */
+  color:whitesmoke;
   font-family: 'Raleway', sans-serif;
 }
 .textos{
