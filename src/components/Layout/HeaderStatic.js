@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Nav, Button, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./styles.css";
-import Loguito from "../Images/logosecundario.png";
+import Loguito from "../Images/zerote.png";
 import { FaUser, FaCartPlus } from "react-icons/fa";
 
 const HeaderStatic = () => {
