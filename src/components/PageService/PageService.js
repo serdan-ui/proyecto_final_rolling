@@ -12,10 +12,10 @@ import Footer from "../Layout/Fotter";
 // stilos de register
 import "./styles.css";
 
-const PageService = () => {
+const PageService = ({ authen, setAuthen }) => {
   return (
     <>
-      <HeaderStatic />
+      <HeaderStatic authen={authen} setAuthen={setAuthen} />
       <Container fluid className="bodyPadre">
         <Row>
           <Col xs={12} xl={6}>

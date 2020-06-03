@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Button,
@@ -12,14 +12,71 @@ import {
 import { useForm } from "react-hook-form";
 import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import Fab from "@material-ui/core/Fab";
+import axiosInstance from "../util/axiosInstance";
+import Swal from "sweetalert2";
 
 const FormRegister = () => {
   const { register, errors, handleSubmit } = useForm();
+  const [password, setPassword] = useState();
+  const [message, setMessage] = useState(false);
 
-  const onSubmit = (data, e) => {
-    console.log(data);
+  const pass = (e) => {
+    setPassword(e.target.value);
+  };
 
-    e.target.reset();
+  const verificarPass = (e) => {
+    if (password != e.target.value) {
+      setMessage(true);
+    } else {
+      setMessage(false);
+    }
+  };
+
+  const onSubmit = async (data, e) => {
+    const { username, email, password, passwordConfirm } = data;
+
+    if (password === passwordConfirm) {
+      const newUser = {
+        username,
+        email,
+        password,
+        role:'user'
+      };
+      try {
+        const response = await axiosInstance.post("/register", newUser);
+        console.log(response);
+        if (response) {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            onOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+              },
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Registro exitoso !!",
+          });
+        }
+      } catch (error) {
+        console.log(error.response.data.error)
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: error.response.data.error,
+          showConfirmButton: false,
+          timer: 3000,
+          
+        }
+        )
+      }
+
+      e.target.reset();
+    }
   };
 
   return (
@@ -32,7 +89,7 @@ const FormRegister = () => {
               placeholder="Nombre"
               className="form-control"
               autoComplete="off"
-              name="usuario"
+              name="username"
               ref={register({
                 required: {
                   value: true,
@@ -49,7 +106,7 @@ const FormRegister = () => {
               })}
             />
             <span className="text-danger text-small d-block mb-2">
-              {errors.usuario && errors.usuario.message}
+              {errors.username && errors.username.message}
             </span>
           </Col>
         </Form.Group>
@@ -62,7 +119,7 @@ const FormRegister = () => {
               autoComplete="off"
               className="form-control"
               type="email"
-              name="Email"
+              name="email"
               ref={register({
                 required: {
                   value: true,
@@ -79,7 +136,7 @@ const FormRegister = () => {
               })}
             />
             <span className="text-danger text-small d-block mb-2">
-              {errors.Email && errors.Email.message}
+              {errors.email && errors.email.message}
             </span>
           </Col>
         </Form.Group>
@@ -91,7 +148,8 @@ const FormRegister = () => {
               label="Contraseña"
               type="password"
               className="form-control"
-              name="Password"
+              name="password"
+              onChange={pass}
               ref={register({
                 required: {
                   value: true,
@@ -108,7 +166,7 @@ const FormRegister = () => {
               })}
             />
             <span className="text-danger text-small d-block mb-2">
-              {errors.Password && errors.Password.message}
+              {errors.password && errors.password.message}
             </span>
           </Col>
         </Form.Group>
@@ -120,6 +178,7 @@ const FormRegister = () => {
               type="password"
               className="form-control"
               name="passwordConfirm"
+              onChange={verificarPass}
               ref={register({
                 required: {
                   value: true,
@@ -138,6 +197,11 @@ const FormRegister = () => {
             <span className="text-danger text-small d-block mb-2">
               {errors.passwordConfirm && errors.passwordConfirm.message}
             </span>
+            {message ? (
+              <span className="text-danger text-small d-block mb-2">
+                Las contraseñas no son iguales
+              </span>
+            ) : null}
           </Col>
         </Form.Group>
         <Form.Group as={Row}>
@@ -162,7 +226,10 @@ const FormRegister = () => {
         </Form.Group>
         <Form.Group>
           <Col>
-            <Button type="submit" className="btn-lg  btn-dark btn-block btn-env">
+            <Button
+              type="submit"
+              className="btn-lg  btn-dark btn-block btn-env"
+            >
               Enviar
             </Button>
           </Col>

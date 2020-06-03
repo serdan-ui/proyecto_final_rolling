@@ -4,10 +4,12 @@ import HeaderStatic from '../Layout/HeaderStatic';
 import Fotter from '../Layout/Fotter';
 import "./styles.css";
 // eslint-disable-next-line
-const Turn = () => {
+const Turn = ({authen,setAuthen}) => {
     return ( 
         <>
-        <HeaderStatic />
+        <HeaderStatic 
+         authen={authen}
+         setAuthen={setAuthen}/>
         <BodyTurn /> 
         <Fotter/>
        </>         
