@@ -13,6 +13,7 @@ import Admin from "./components/Admin/Admin"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
+import AgregProd from "./components/Admin/AgregProd";
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
         </Route>
         <Route exact path="/admin">
           <Admin />
+        </Route>
+        <Route exact path="/AdminAgregar">
+          <AgregProd/>
         </Route>
         <Route>
           <Error404 />
