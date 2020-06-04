@@ -1,0 +1,9 @@
+.product-card {
+    transition: 0.3s;
+    background-color: white;
+    box-shadow: -3px 3px 5px 0px rgba(207, 207, 207, 0.75);
+}
+
+.imagen-card {
+    max-width: 7rem !important;
+}

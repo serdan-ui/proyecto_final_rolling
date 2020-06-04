@@ -9,12 +9,12 @@ function CuponModal() {
     <Fragment>
       <Button
         variant="outline-danger"
-        className="cupon"
+        className="cupon shadow-sm"
         onClick={() => setSmShow(true)}
         size="sm"
       >
         {" "}
-        cupon
+        <h6 className="mt-2">INGRESAR CUPON</h6>
       </Button>
       <Modal
         className="modal"

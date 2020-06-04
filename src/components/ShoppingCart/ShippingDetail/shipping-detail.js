@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Col, Row, Container, Form, Button } from "react-bootstrap";
-import Fotter from "../Layout/Fotter";
-import Header from "../Layout/HeaderStatic";
 import PaisesContainer from "./generador-paises";
 import CardOpcion from "./card-opcionales";
 import { useForm } from "react-hook-form";
+import ResumenCompra from "../CartDetail/resumen-compra";
 import "./styles.css";
 
 const ShippingDetail = () => {
@@ -36,11 +35,9 @@ const ShippingDetail = () => {
 
   return (
     <div>
-      <Header />
-
-      <Container className="shipping-detail-container rounded mb-5">
-        <Row className="mt-5">
-          <Col className="mt-4 d-flex flex-column">
+      <Container>
+        <Row className="">
+          <Col className="mt-5 d-flex flex-column">
             <Col className="d-flex align-items-end border-bottom">
               <h3>Detalles de Envío</h3>
             </Col>
@@ -209,6 +206,9 @@ const ShippingDetail = () => {
               </Col>
 
               <Col className="mb-4 d-flex justify-content-start align-items-center">
+                <Button className="w-25 mr-2" variant="secondary">
+                  Anterior
+                </Button>
                 <Button className="w-25 mr-2" variant="secondary" type="submit">
                   Siguiente
                 </Button>
@@ -218,20 +218,8 @@ const ShippingDetail = () => {
               </Col>
             </Form>
           </Col>
-
-          <Col md="4" className="mt-4">
-            <Row className="d-flex flex-column">
-              <Col className="d-flex align-items-end border-bottom">
-                <h3>Resumen</h3>
-              </Col>
-
-              <Col>{/* <Resumen /> */}</Col>
-            </Row>
-          </Col>
         </Row>
       </Container>
-
-      <Fotter />
     </div>
   );
 };
