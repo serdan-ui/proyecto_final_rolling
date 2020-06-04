@@ -78,11 +78,11 @@ const Mostrador = ({ setProducts, products }) => {
                     <Card.Text>${producto.precio}</Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Row>
-                      <Col>
+                    <Row className="rowroto">
+                      <Col className="p-0">
                         <Button
                           border="danger"
-                          
+                          className="btnroto"
                           style={{
                             border: "3px solid #060606",
                             color:"#19ED18",
@@ -94,9 +94,10 @@ const Mostrador = ({ setProducts, products }) => {
                           Ver mas
                         </Button>
                       </Col>
-                      <Col>
+                      <Col className="p-0">
                         <Button
                           variant="success"
+                          className="btnroto"
                           style={{
                             border: "2px solid #19ED18",
                             fontSize:"0.9rem",
