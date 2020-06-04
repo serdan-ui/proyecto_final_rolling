@@ -27,10 +27,6 @@
 }
 
 .contenedor-inicio {
-  padding: 40px !important;
-  /* height: 600px !important;
-    width: 800px !important; */
-  background-color: #171717;
   font-family: "Muli", serif;
 }
 .form-login {
@@ -60,5 +56,13 @@
 @media (max-width: 664px) {
   .sidebar-contenedor {
     display: none;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 980px){
+  .sidebar-contenedor{
+    background-position: center;
+    background-size: cover ;
+    background-repeat: no-repeat;
   }
 }

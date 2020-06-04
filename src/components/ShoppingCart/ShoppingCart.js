@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ListaProductos from "./ListaProductos";
 import Tabla from "./Tabla";
+import { Col, Row, Container } from "react-bootstrap";
+import Fotter from "../Layout/Fotter";
+import HeaderStatic from "../Layout/HeaderStatic";
 
 // stilos de register
 import "./styles.css";
@@ -15,11 +18,19 @@ const ShoppingCart = () => {
     const  [productos, setProductos] = useState(ListaProductos);*/
 
   return (
-    <div className="contenedor">
-      <div>
-        <ListaProductos />
-      </div>
-      <Tabla />
+    <div>
+      <HeaderStatic />
+      <Container>
+        <Row>
+          <Col>
+            <ListaProductos />
+          </Col>
+          <Col>
+            <Tabla />
+          </Col>
+        </Row>
+      </Container>
+      <Fotter />
     </div>
   );
 };
