@@ -6,6 +6,7 @@ import "./styles.css";
 export const ListaProductos = () => {
   const datosProductos = [
     {
+      id: 1,
       nombre: "Mouse 'REN4ZI'",
       precio: 300,
       cantidad: 6,
@@ -14,6 +15,7 @@ export const ListaProductos = () => {
       imagen: "https://tecnologiasinlimites.com/wp-content/uploads/2019/08/Logitech-G502-hero-Mouse-Gamer-1.jpg",
     },
     {
+      id: 2,
       nombre: "Teclado 'NOSABELOQUETA'",
       precio: 1000,
       cantidad: 2,
@@ -22,6 +24,7 @@ export const ListaProductos = () => {
       imagen: "https://www.puntodigital.com.ar/productos/1578922530/01_1578922530.jpg",  
     },
     {
+      id: 3,
       nombre: "Monitor 'DAME2LINCE'",
       precio: 5000,
       cantidad: 2,

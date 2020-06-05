@@ -47,6 +47,7 @@ const ShippingDetail = () => {
                 <Row className="mt-3 mb-3">
                   <Col>
                     <Form.Control
+                      className="shadow-sm"
                       placeholder="Nombre *"
                       name="nombre"
                       type="text"
@@ -64,6 +65,7 @@ const ShippingDetail = () => {
                   </Col>
                   <Col>
                     <Form.Control
+                      className="shadow-sm"
                       placeholder="Apellido *"
                       name="apellido"
                       type="text"
@@ -84,6 +86,7 @@ const ShippingDetail = () => {
                 <Row className="mb-3">
                   <Col>
                     <Form.Control
+                      className="shadow-sm"
                       placeholder="Direccion *"
                       name="direccion1"
                       onChange={handleInputChange}
@@ -103,6 +106,7 @@ const ShippingDetail = () => {
                 <Row className="mb-3">
                   <Col>
                     <Form.Control
+                      className="shadow-sm"
                       placeholder="Direccion 2 (opcional)"
                       name="direccion2"
                       onChange={handleInputChange}
@@ -113,6 +117,7 @@ const ShippingDetail = () => {
                 <Row className="mb-3">
                   <Col>
                     <Form.Control
+                      className="shadow-sm"
                       as="select"
                       custom
                       name="pais"
@@ -133,6 +138,7 @@ const ShippingDetail = () => {
                   </Col>
                   <Col>
                     <Form.Control
+                      className="shadow-sm"
                       placeholder="Ciudad *"
                       name="ciudad"
                       onChange={handleInputChange}
@@ -152,6 +158,7 @@ const ShippingDetail = () => {
                 <Row className="mb-3">
                   <Col>
                     <Form.Control
+                      className="shadow-sm"
                       placeholder="Codigo ZIP/Postal *"
                       name="postal"
                       onChange={handleInputChange}
@@ -168,6 +175,7 @@ const ShippingDetail = () => {
                   </Col>
                   <Col>
                     <Form.Control
+                      className="shadow-sm"
                       placeholder="N° Telefono *"
                       name="telefono"
                       onChange={handleInputChange}

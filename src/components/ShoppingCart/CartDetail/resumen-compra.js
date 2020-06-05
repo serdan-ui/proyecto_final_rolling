@@ -11,7 +11,7 @@ const ResumenCompra = () => {
           <h3>Resumen</h3>
         </Col>
         <Col className="mb-3 border-bottom">
-          <div className="mt-3 mb-3">
+          <div className="mt-3 mb-3 d-flex justify-content-center">
             <CuponModal />
           </div>
         </Col>
@@ -32,8 +32,8 @@ const ResumenCompra = () => {
           </Row>
           <Row className="mt-3">
             <Col className="d-flex justify-content-between">
-              <h3>TOTAL</h3>
-              <h3>$1500</h3>
+              <h4>TOTAL</h4>
+              <h4>$1500</h4>
             </Col>
           </Row>
         </Col>

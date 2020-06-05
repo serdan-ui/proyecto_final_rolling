@@ -6,6 +6,7 @@ import ShoppingCart from "./CartDetail/ShoppingCart";
 import Fotter from "../Layout/Fotter";
 import HeaderStatic from "../Layout/HeaderStatic";
 import ResumenCompra from "./CartDetail/resumen-compra";
+import PaymentDetail from "./PaymentDetail/payment-detail";
 import "./styles.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -30,6 +31,7 @@ const ShoppingCheckout = () => {
             <Slider {...settings}>
               <ShoppingCart />
               <ShippingDetail />
+              <PaymentDetail/>
             </Slider>
           </Col>
 
