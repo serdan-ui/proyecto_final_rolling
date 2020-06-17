@@ -1,37 +1,22 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
 
-class PaisesContainer extends React.Component {
-  constructor(props) {
-    super(props);
+const PaisesContainer = () => {
+  const [paises, setPaises] = useState([]);
+  const [isFetch, setIsFetch] = useState();
 
-    this.state = {
-      paises: [],
-      isFetch: true,
-    };
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     const url = "https://restcountries.eu/rest/v2/all";
 
     fetch(url)
       .then((response) => response.json())
-      .then((paisesJson) =>
-        this.setState({ paises: paisesJson, isFetch: false })
-      )
+      .then((paisesJson) => setPaises(paisesJson))
       .catch((err) => console.log(err));
-  }
 
-  render() {
-    if (this.state.isFetch) {
-      return "Loading...";
-    }
+  }, []);
 
-    const paisNombre = this.state.paises[0].name;
-
-    return (this.state.paises.map((item) => <option>{item.name}</option>))
-    
-  }
-}
+  return paises.map((item, index) => (
+    <option key={index}>{item.name}</option>
+  ));
+};
 
 export default PaisesContainer;

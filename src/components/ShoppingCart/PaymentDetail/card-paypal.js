@@ -3,21 +3,20 @@ import { Col, Form, Row, Container, Card } from "react-bootstrap";
 import paypalLogo from "../../assets/paypal-logo.svg";
 import "./styles.css";
 
-const PaypalCard = () => {
-  let [seleccionado = false, setSeleccionado] = useState("");
+const PaypalCard = (props) => {
 
   return (
     <Card
-      className={seleccionado? "metodo-pago mb-3 shadow metodo-seleccionado": "metodo-pago mb-3 shadow"}
-      onClick={(e) => setSeleccionado(true)}
+      onChange={props.onChange}
+      className={props.seleccionado? "metodo-pago mb-3 shadow metodo-seleccionado": "metodo-pago mb-3 shadow"}
+      onClick={props.onClick}
     >
       <Container className="mb-2 mt-4">
         <Row className="d-flex justify-content-between">
           <Col className="mt-2" sm="1">
             <Form.Check
-              checked={seleccionado}
+              checked={props.seleccionado}
               type="radio"
-              aria-label="radio 1"
             />
           </Col>
           <Col>

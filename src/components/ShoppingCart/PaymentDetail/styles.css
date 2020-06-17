@@ -9,3 +9,7 @@
 .metodo-seleccionado {
     background-color: rgb(221, 221, 221) !important;
 }
+
+.tarjeta-grafico {
+    background-color: rgb(185, 185, 185);
+}

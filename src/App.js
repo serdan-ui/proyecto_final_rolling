@@ -6,7 +6,7 @@ import Main from "./components/Main/Main";
 /* import ShippingDetail from "./components/ShoppingCart/ShippingDetail/shipping-detail"; */
 import PageService from "./components/PageService/PageService";
 import Payment from "./components/Payment/Payment";
-import ShoppingCheckout from "./components/ShoppingCart/shopping-checkout"
+import ShoppingCheckout from "./components/ShoppingCart/Shopping-checkout"
 import Register from "./components/Register/Register";
 import Error404 from "./components/Error404/Error404";
 import Turn from "./components/Turn/Turn";
@@ -48,9 +48,6 @@ const autenticar = async () => {
         <Route exact path="/main">
           <Main authen={authen} setAuthen={setAuthen} usuario={usuario} />
         </Route>
-        {/* <Route exact path="/shopping-cart">
-          <ShoppingCart />
-        </Route> */}
         <Route exact path="/shopping-checkout">
           <ShoppingCheckout />
         </Route>
@@ -60,9 +57,6 @@ const autenticar = async () => {
         <Route exact path="/payment">
           <Payment authen={authen} setAuthen={setAuthen} />
         </Route>
-        {/* <Route exact path="/shipping-detail">
-          <ShippingDetail />
-        </Route> */}
         <Route exact path="/turn">
           <Turn authen={authen} setAuthen={setAuthen} />
         </Route>

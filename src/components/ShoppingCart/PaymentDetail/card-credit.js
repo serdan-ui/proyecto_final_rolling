@@ -1,35 +1,36 @@
-import React, { useState } from "react";
-import { Col, Row, Button, Form, Container, Card } from "react-bootstrap";
+import React, { useState, Fragment } from "react";
+import { Col, Row, Form, Container, Card } from "react-bootstrap";
 import Cards from "react-credit-cards";
 import "./styles.css";
 import "react-credit-cards/es/styles-compiled.css";
 
-const CreditCard = () => {
+const CreditCard = (props) => {
   const [number, setNumber] = useState("");
   const [name, setName] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvc, setCvc] = useState("");
   const [focus, setFocus] = useState("");
-  let [visible = false, setVisible] = useState("");
-  let [seleccionado = false, setSeleccionado] = useState("");
+  const [visible, setVisible] = useState();
 
   return (
+    <div onClick={props.onClick}>
     <Card
       className={
-        seleccionado
+        props.seleccionado
           ? "metodo-pago mb-3 shadow metodo-seleccionado"
           : "metodo-pago mb-3 shadow"
       }
       onClick={(e) => {
-        setVisible(true) || setSeleccionado(true);
+        setVisible(true);
       }}
     >
       <Container className="mb-3">
         <Row className="d-flex flex-column">
           {visible ? (
-            <Col className="mt-3 bg-secondary tarjeta-grafico">
+            <Col className="mt-3 tarjeta-grafico">
               <div className="mt-3 mb-3">
                 <Cards
+                  className="shadow"
                   cvc={cvc}
                   expiry={expiry}
                   focused={focus}
@@ -46,9 +47,8 @@ const CreditCard = () => {
                 <Row>
                   <Col className="mt-2" sm="1">
                     <Form.Check
-                      checked={seleccionado}
+                      checked={props.seleccionado}
                       type="radio"
-                      aria-label="radio 1"
                     />
                   </Col>
                   <Col>
@@ -124,7 +124,8 @@ const CreditCard = () => {
         </Row>
       </Container>
     </Card>
+    </div>
   );
 };
 
-export default CreditCard; 
+export default CreditCard;
