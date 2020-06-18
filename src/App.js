@@ -18,6 +18,9 @@ import TurnosPanel from "./components/Admin/TurnosPanel";
 import Graficos from "./components/Admin/Graficos";
 import Drag from "./components/Admin/Drag"
 import Usuarios from "./components/Admin/Usuarios"
+import PagoExitoso from "./components/PaginaDePago.js/PagoExitoso"
+import PagoRechazado from "./components/PaginaDePago.js/PagoRechazado"
+import PagoPendiente from "./components/PaginaDePago.js/PagoPendiente"
 
 import "./App.css";
 
@@ -89,6 +92,15 @@ const autenticar = async () => {
         </Route>
         <Route exact path="/usuarios">
           <Usuarios/>
+        </Route>
+        <Route exact path="/pagoExitoso">
+          <PagoExitoso/>
+        </Route>
+        <Route exact path="/pagoRechazado">
+          <PagoRechazado/>
+        </Route>
+        <Route exact path="/pagoPendiente">
+          <PagoPendiente/>
         </Route>
         <Route>
           <Error404 />
