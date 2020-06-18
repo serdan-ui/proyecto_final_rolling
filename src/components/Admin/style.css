@@ -1,21 +1,6 @@
-.dos-dash{
-  height: 100vh;
-}
-.uno-dash{
-  height: 100vh;
-}
-.card-dash{
-  height: 280px;
-}
-.tamanoInputPanel{
-  width: 25rem !important;
- 
-
-}
-
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300);
+
 .fa-2x {
 font-size: 2em;
 }
@@ -28,38 +13,35 @@ text-align: center;
 vertical-align: middle;
 font-size:20px;
 }
-
-
 .main-menu:hover,nav.main-menu.expanded {
-width:250px;
 overflow:visible;
 }
-
+.panel{
+    height: 120vh;
+    background: #141B2D;
+}
+.opciones{
+    height: 120vh;
+}
 .main-menu {
-background:#060606;
-border-right:1px solid #e5e5e5;
+background: #1F2940;
 position:absolute;
 top:0;
 bottom:0;
-height:100%;
+height:120vh;
 left:0;
-width:60px;
 overflow:hidden;
 -webkit-transition:width .05s linear;
 transition:width .05s linear;
 z-index:1000;
 }
-
 .main-menu>ul {
 margin:7px 0;
 }
-
 .main-menu li {
 position:relative;
 display:block;
-width:250px;
 }
-
 .main-menu li>a {
 position:relative;
 display:table;
@@ -71,9 +53,7 @@ font-size: 14px;
 text-decoration:none;
 -webkit-transition:all .1s linear;
 transition:all .1s linear;
-  
 }
-
 .main-menu .nav-icon {
 position:relative;
 display:table-cell;
@@ -83,7 +63,6 @@ text-align:center;
 vertical-align:middle;
 font-size:18px;
 }
-
 .main-menu .nav-text {
 position:relative;
 display:table-cell;
@@ -91,26 +70,20 @@ vertical-align:middle;
 width:190px;
   font-family: 'Titillium Web', sans-serif;
 }
-
 .main-menu>ul.logout {
-position:absolute;
 left:0;
 bottom:0;
 }
-
 .no-touch .scrollable.hover {
 overflow-y:hidden;
 }
-
 .no-touch .scrollable.hover:hover {
 overflow-y:auto;
 overflow:visible;
 }
-
 a:hover,a:focus {
 text-decoration:none;
 }
-
 nav {
 -webkit-user-select:none;
 -moz-user-select:none;
@@ -118,7 +91,6 @@ nav {
 -o-user-select:none;
 user-select:none;
 }
-
 nav ul,nav li {
 outline:0;
 margin:0;
@@ -130,10 +102,27 @@ background-color:#7e7f80;
 }
 .area {
 float: left;
-background: #e2e2e2;
+background: #E2E2E2;
 width: 100%;
 height: 100%;
 }
+.cardChart{
+  background-color:#1F2940 !important;
+  color: #fff;
+}
+.drag{
+  margin: auto;
+  width: 300px;
+  height: 100px;
+  border: 2px dashed rgb(26, 209, 241);
+  color: #E2E2E2;
+}
+.listaHorarios{
+  margin: 30px;
+  padding: 30px;
+}
+
+
 @font-face {
   font-family: 'Titillium Web';
   font-style: normal;

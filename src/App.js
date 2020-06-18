@@ -14,8 +14,12 @@ import Admin from "./components/Admin/Admin";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axiosInstance from './components/util/axiosInstance'
 
+
 import "./App.css";
 import AgregProd from "./components/Admin/AgregProd";
+import TurnosPanel from "./components/Admin/TurnosPanel";
+import Graficos from "./components/Admin/Graficos";
+import Drag from "./components/Admin/Drag"
 
 function App() {
   const token = localStorage.getItem("Token");
@@ -72,6 +76,15 @@ const autenticar = async () => {
         </Route>
         <Route exact path="/AdminAgregar">
           <AgregProd/>
+        </Route>
+        <Route exact path="/grafico">
+          <Graficos/>
+        </Route>
+        <Route exact path="/drag">
+          <Drag/>
+        </Route>
+        <Route exact path="/TurnosPanel">
+          <TurnosPanel/>
         </Route>
         <Route>
           <Error404 />
