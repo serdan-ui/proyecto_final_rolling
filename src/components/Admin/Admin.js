@@ -5,6 +5,7 @@ import Graficos from "./Graficos";
 
 import AgregProd from "./AgregProd"
 import TurnosPanel from "./TurnosPanel"
+import Usuarios from "./Usuarios"
 
 
 const Admin = () => {
@@ -16,12 +17,15 @@ const Admin = () => {
     setCuerpo(e.target.firstChild.data);
   };
   const mostrarCuerpo = () => {
+
     if (cuerpo === "Graficos") {
       return <Graficos />;
     } else if (cuerpo === "AgregProd"){
         return (<AgregProd/>)
     }else if ( cuerpo === "TurnosPanel"){
       return (<TurnosPanel/>)
+    }else if ( cuerpo === "Usuarios"){
+      return (<Usuarios/>)
     }
         
     
