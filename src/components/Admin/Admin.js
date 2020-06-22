@@ -38,10 +38,10 @@ const Admin = () => {
             <nav class="main-menu">
             <h2 style={{color:"#96E2FF", textAlign:"center"}} >Zero Technology</h2>
             <br/>
-              <ul>
+              <ul className="m-3">
                 <li>
                   <a>
-                    <i class="fa fa-bar-chart-o fa-2x"></i>
+                    <i class="fa fa-bar-chart-o fa-2x m-5"></i>
                     <span class="nav-text" onClick={(e) => cambiar(e)}>
                       Graficos
                     </span>
@@ -82,7 +82,7 @@ const Admin = () => {
                   </a>
                 </li>
               </ul>
-              <ul class="logout">
+              <ul class="logout m-3">
                 <li>
                   <a href="#">
                     <i class="fa fa-power-off fa-2x"></i>
