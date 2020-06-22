@@ -3,7 +3,7 @@ import { Button, ListGroup, Badge, Row, Col } from "react-bootstrap";
 import { FaCartPlus, FaRegWindowClose } from "react-icons/fa";
 import { render } from "@testing-library/react";
 
-const BtnCart = (products) => {
+const BtnCart = ({products, setCarrito}) => {
   const [cartOpen, setCartOpen] = useState(false);
 
   const cierroCarro = () => {
@@ -14,7 +14,7 @@ const BtnCart = (products) => {
     setCartOpen(true);
   };
 
-  console.log(products.products);
+  console.log(products);
 
   let clase;
   {
@@ -27,7 +27,7 @@ const BtnCart = (products) => {
         <Button className="btnCart_header mr-2" onClick={abreCarro}>
           {" "}
           <FaCartPlus className="icons_header_cart" />
-          <Badge variant="dark">{products.products.length}</Badge>
+          <Badge variant="dark">{products.length}</Badge>
         </Button>
 
         <Row>
@@ -62,9 +62,10 @@ const BtnCart = (products) => {
             </ListGroup>
           </Row>
 
-          {products.products.lenght === 0
+          {products.lenght === 0
             ? null
-            : products.products.map((product) => (
+            :
+             products.map((product) => (
                 <Row style={{borderTop:"0.5px solid greenyellow"}}>
                   <ListGroup horizontal>
                     <Col>
@@ -84,7 +85,8 @@ const BtnCart = (products) => {
                <Row>
                   <Col>
                     <Button
-                    href="http://localhost:3000/shopping-cart"
+                    onClick={()=> setCarrito(products)}
+                    href="http://localhost:3000/shopping-checkout"
                      variant="success" 
                     block style={{
                             border: "3px solid #060606",

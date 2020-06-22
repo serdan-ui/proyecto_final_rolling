@@ -15,11 +15,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import axiosInstance from './components/util/axiosInstance'
 
 import "./App.css";
+import productos from "./components/Main/basedatos";
 
 function App() {
   const token = localStorage.getItem("Token");
   const [authen, setAuthen] = useState(token);
   const [usuario ,setUsuario] = useState()
+
+  //Prueba Carrito
+  const [carrito, setCarrito] = useState([])
 
 const autenticar = async () => {
   try {
@@ -46,11 +50,10 @@ const autenticar = async () => {
           <Register />
         </Route>
         <Route exact path="/main">
-          <Main authen={authen} setAuthen={setAuthen} usuario={usuario} />
+          <Main authen={authen} setAuthen={setAuthen} usuario={usuario} setCarrito={setCarrito} />
         </Route>
-        <Route exact path="/shopping-checkout">
-          <ShoppingCheckout />
-        </Route>
+        <Route exact path="/shopping-checkout" render={(props) => <ShoppingCheckout {...props} carrito={carrito} />} />
+
         <Route exact path="/service" >
           <PageService authen={authen} setAuthen={setAuthen} />
         </Route>

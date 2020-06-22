@@ -5,13 +5,13 @@ import CardOpcion from "./card-opcionales";
 import { useForm } from "react-hook-form";
 import "./styles.css";
 
-const ShippingDetail = () => {
+const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
   const { register, errors, handleSubmit } = useForm();
   const [metodoEnvio, setMetodoEnvio] = useState("EnvioGratis");
+  const [envioValido, setEnvioValido] = useState();
 
-  const onSubmit = (data, e) => {
+  const onSubmit = () => {
     console.log(datos);
-    e.target.reset();
   };
 
   const [datos, setDatos] = useState({
@@ -26,11 +26,14 @@ const ShippingDetail = () => {
     tipoEnvio: metodoEnvio,
   });
 
-  const handleInputChange = (event, envio) => {
-    setDatos({
-      ...datos,
-      [event.target.name]: event.target.value,
-    });
+  const handleInputChange = (event) => {
+    event.target.value === ""
+      ? setEnvioValido(false)
+      : setEnvioValido(true) ||
+        setDatos({
+          ...datos,
+          [event.target.name]: event.target.value,
+        });
   };
 
   const SeleccionarEnvio = (nombreMetodoEnvio) => {
@@ -141,7 +144,7 @@ const ShippingDetail = () => {
                         },
                       })}
                     >
-                      <option>Pais</option>
+                      <option>Argentina</option>
                       <PaisesContainer />
                     </Form.Control>
                     <span className="input-error text-danger text-small d-block mb-2">
@@ -232,10 +235,19 @@ const ShippingDetail = () => {
               </Col>
 
               <Col className="mb-4 d-flex justify-content-start align-items-center">
-                <Button className="w-25 mr-2" variant="secondary">
+                <Button
+                  onClick={sliderAnterior}
+                  className="w-25 mr-2"
+                  variant="secondary"
+                >
                   Anterior
                 </Button>
-                <Button className="w-25 mr-2" variant="secondary" type="submit">
+                <Button
+                  onClick={envioValido ? sliderSiguiente : null}
+                  className="w-25 mr-2"
+                  variant="secondary"
+                  type="submit"
+                >
                   Siguiente
                 </Button>
                 <Button className="w-25" variant="outline-danger">

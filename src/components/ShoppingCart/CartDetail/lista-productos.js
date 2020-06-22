@@ -2,22 +2,22 @@ import React, { useState, Fragment } from "react";
 import ProductCard from "./product-card";
 import "./styles.css";
 
-export const ListaProductos = ({productos}, props) => {
-  
+export const ListaProductos = ({ carrito, calcularSubtotal, setCarrito, setCartValido}) => {
+
   return (
     <Fragment>
-      {productos.map((producto, index) => (
-        <ProductCard
-          key={index}
-          nombre={producto.nombre}
-          precio={producto.precio}
-          descripcion={producto.descripcion}
-          imagen={producto.imagen}
-          cantidad={producto.cantidad}
-        />
-      ))}
-      
-      
+      <div className="scrollable">
+        {carrito.map((producto) => (
+          <ProductCard
+            key={producto.id}
+            producto={producto}
+            carrito={carrito}
+            setCarrito={setCarrito}
+            calcularSubtotal={calcularSubtotal}
+            setCartValido={setCartValido}
+          />
+        ))}
+      </div>
     </Fragment>
   );
 };
