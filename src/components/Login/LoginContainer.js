@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   Form,
@@ -10,51 +10,41 @@ import {
 } from "react-bootstrap";
 import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import Fab from "@material-ui/core/Fab";
-import Swal from 'sweetalert2';
-import {
-  useHistory,
-  useLocation
-} from "react-router-dom";
+import Swal from "sweetalert2";
+import { useHistory, useLocation } from "react-router-dom";
 
-import axiosInstance from '../util/axiosInstance';
+import axiosInstance from "../util/axiosInstance";
 
-
-
-const LoginConteiner =  ({setAuthen}) => {
-  
+const LoginConteiner = ({ setAuthen }) => {
   let history = useHistory();
   const { register, errors, handleSubmit } = useForm();
-   
-  const onSubmit = async (data, e) => {
-    
-    const {  username, password } = data;
 
-    if (password ) {
+  const onSubmit = async (data, e) => {
+    const { username, password } = data;
+
+    if (password) {
       const newUser = {
         username,
         password,
       };
-      console.log(newUser)
+      console.log(newUser);
       try {
-        
         const response = await axiosInstance.post("/login", newUser);
         console.log(response);
+
         localStorage.setItem("Token", response.data.token);
-        history.push("/main")
+        history.push("/main");
       } catch (error) {
-        console.log(error.response.data.error)
         Swal.fire({
-          position: 'center',
-          icon: 'error',
+          position: "center",
+          icon: "error",
           title: error.response.data.message,
           showConfirmButton: false,
           timer: 3000,
-          
-        }
-        )
+        });
       }
     }
-   
+
     e.target.reset();
   };
 
@@ -88,10 +78,7 @@ const LoginConteiner =  ({setAuthen}) => {
         </span>
 
         <Form.Group>
-          
-        
-        
-          <FormControl
+          <Form.Control
             placeholder="password"
             type="password"
             name="password"

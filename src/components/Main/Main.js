@@ -6,7 +6,7 @@ import Header from "../Layout/Header";
 // stilos de register
 import "./styles.css";
 
-const Main = ({authen,setAuthen,usuario}) => {
+const Main = ({authen,setAuthen,usuario, setCarrito}) => {
   const [products, setProducts] = useState([]);
   setAuthen(localStorage.getItem("Token"));
   
@@ -18,6 +18,7 @@ const Main = ({authen,setAuthen,usuario}) => {
       authen={authen}
       setAuthen={setAuthen}
       usuario={usuario}
+      setCarrito={setCarrito}
       />
       <Carrousel />
       <Mostrador setProducts={setProducts} products={products} />
