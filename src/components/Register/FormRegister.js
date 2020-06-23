@@ -33,6 +33,7 @@ const FormRegister = () => {
   };
 
   const onSubmit = async (data, e) => {
+
     const { username, email, password, passwordConfirm } = data;
 
     if (password === passwordConfirm) {
