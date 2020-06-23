@@ -4,6 +4,7 @@ import {
   Form,
   Button,
   Container,
+  FormControl,
   OverlayTrigger,
   Tooltip,
 } from "react-bootstrap";
@@ -41,7 +42,7 @@ const LoginConteiner =  ({setAuthen}) => {
         localStorage.setItem("Token", response.data.token);
         history.push("/main")
       } catch (error) {
-        
+        console.log(error.response.data.error)
         Swal.fire({
           position: 'center',
           icon: 'error',
@@ -63,7 +64,7 @@ const LoginConteiner =  ({setAuthen}) => {
         <h3 className="text-center text-white">Iniciar sesion</h3>
 
         <br></br>
-        <Form.Control
+        <FormControl
           placeholder="Nombre"
           autoComplete="off"
           name="username"
@@ -90,7 +91,7 @@ const LoginConteiner =  ({setAuthen}) => {
           
         
         
-          <Form.Control
+          <FormControl
             placeholder="password"
             type="password"
             name="password"
