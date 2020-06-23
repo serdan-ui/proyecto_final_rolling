@@ -17,18 +17,19 @@ font-size:20px;
 overflow:visible;
 }
 .panel{
-    height: 120vh;
-    background: #141B2D;
+  overflow: scroll;
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1576473318185-e5e4304f55cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
 }
 .opciones{
-    height: 120vh;
+    height: 100vh;
 }
 .main-menu {
-background: #1F2940;
+background: #171717;
 position:absolute;
 top:0;
 bottom:0;
-height:120vh;
+height:100vh;
 left:0;
 overflow:hidden;
 -webkit-transition:width .05s linear;
@@ -107,7 +108,7 @@ width: 100%;
 height: 100%;
 }
 .cardChart{
-  background-color:#1F2940 !important;
+  background-color:#171717!important;
   color: #fff;
 }
 .drag{
@@ -120,6 +121,10 @@ height: 100%;
 .listaHorarios{
   margin: 30px;
   padding: 30px;
+}
+.turnoAsignado{
+  opacity: 0.8;
+  background-color: "#2B2C2B";
 }
 
 

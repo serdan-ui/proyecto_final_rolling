@@ -5,16 +5,16 @@ import "./style.css";
 const TurnosPanel = () => {
   return (
     <>
-      <div className="container">
-        <h2 style={{ color: "#96E2FF", textAlign: "center" }}>
+      <div className="container text-center text-white">
+        <h2>
           Turnos asignados
         </h2>
         <div className="row">
           {" "}
-          <Card
+          <Card className="turnoAsignado"
             style={{
               width: "18rem",
-              backgroundColor: "#1F2940",
+              backgroundColor: "#2B2C2B",
               color: "white",
               margin:"20px"
             }}
@@ -27,13 +27,13 @@ const TurnosPanel = () => {
                   <li>Hora:</li>
                 </ul>
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="success">Eliminar Turno</Button>
             </Card.Body>
           </Card>
-          <Card
+          <Card className="turnoAsignado"
             style={{
               width: "18rem",
-              backgroundColor: "#1F2940",
+              backgroundColor: "#2B2C2B",
               color: "white",
               margin:"20px"
             }}
@@ -46,13 +46,13 @@ const TurnosPanel = () => {
                   <li>Hora:</li>
                 </ul>
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="success">Eliminar Turno</Button>
             </Card.Body>
           </Card>
-          <Card
+          <Card className="turnoAsignado"
             style={{
               width: "18rem",
-              backgroundColor: "#1F2940",
+              backgroundColor: "#2B2C2B",
               color: "white",
               margin:"20px"
             }}
@@ -65,13 +65,13 @@ const TurnosPanel = () => {
                   <li>Hora:</li>
                 </ul>
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="success">Eliminar Turno</Button>
             </Card.Body>
           </Card>
-          <Card
+          <Card className="turnoAsignado"
             style={{
               width: "18rem",
-              backgroundColor: "#1F2940",
+              backgroundColor: "#2B2C2B",
               color: "white",
               margin:"20px"
             }}
@@ -84,7 +84,7 @@ const TurnosPanel = () => {
                   <li>Hora:</li>
                 </ul>
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="success">Eliminar Turno</Button>
             </Card.Body>
           </Card>
         </div>

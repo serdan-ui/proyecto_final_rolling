@@ -40,7 +40,7 @@ const Admin = () => {
             
             <br/>
             <nav class="main-menu">
-            <h2 style={{color:"#96E2FF", textAlign:"center"}} >Zero Technology</h2>
+            <h2 style={{color:"white", textAlign:"center"}} >Zero Technology</h2>
             <br/>
               <ul>
                 <li>

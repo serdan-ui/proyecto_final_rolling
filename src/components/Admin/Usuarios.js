@@ -4,7 +4,7 @@ import {Table} from 'react-bootstrap'
 const Usuarios = () => {
   return( <>
   <h3 className="text-center text-white">Usuarios Registrados</h3>
-  <Table striped bordered hover variant="dark">
+  <Table striped bordered hover responsive="sm" variant="dark" >
   <thead>
     <tr>
       <th>#</th>

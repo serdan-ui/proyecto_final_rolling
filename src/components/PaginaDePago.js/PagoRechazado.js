@@ -4,7 +4,7 @@ import {Card, Button} from 'react-bootstrap'
 const PagoRechazado = () => {
   return(<>
   <>
- 
+  
  <Card className="text-center m-5">
    <Card.Header className="bg-danger text-white"><h5>¡ Pago Rechazado !</h5></Card.Header>
  
@@ -13,12 +13,15 @@ const PagoRechazado = () => {
  <br></br>
  <br></br>
    <Card.Text>
-     <strong><h5>Hubo un error al procesar tu pago</h5></strong>
+   <h5> <strong>Hubo un error al procesar tu pago</strong> </h5>
    </Card.Text>
+   <br></br>
+ <br></br>
    <Button variant="primary">Volver</Button>
  </Card.Body>
- <Card.Footer className="text-muted bg-danger text-white">2 days ago</Card.Footer>
+ <Card.Footer className="bg-danger text-white">2 days ago</Card.Footer>
 </Card>
+
   </>
    </>)
 }
