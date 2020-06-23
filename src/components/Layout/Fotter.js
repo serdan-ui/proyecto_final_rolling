@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import fbIcon from "../assets/icons/facebook.svg";
 import fbIcon2 from "../assets/icons/facebook2.svg";
 import twIcon from "../assets/icons/twitter.svg";
 import instaIcon from "../assets/icons/instagram.svg";
@@ -21,11 +20,11 @@ const Fotter = () => {
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.6963141745546!2d-65.20809053997758!3d-26.83722958293365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1589921416940!5m2!1ses-419!2sar"
                       width="300"
                       height="200"
-                      frameborder="0"
+                      frameBorder="0"
                       style={{ marginRight: 0 + "em" }}
-                      allowfullscreen=""
+                      allowFullScreen=""
                       aria-hidden="false"
-                      tabindex="0"
+                      tabIndex="0"
                       className="mt-4 rounded iframe-mapa"
                     ></iframe>
                     <br />
@@ -45,7 +44,7 @@ const Fotter = () => {
               </Col>
             </Col>
 
-            <div class="vl"></div>
+            <div className="vl"></div>
 
             <Col className="footer_menu">
               <Row>
@@ -73,7 +72,7 @@ const Fotter = () => {
               </Row>
             </Col>
 
-            <div class="vl"></div>
+            <div className="vl"></div>
 
             <Col className="footer_redes">
               <div className="social-menu">

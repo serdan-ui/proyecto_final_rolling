@@ -42,7 +42,7 @@ const Admin = () => {
             <nav class="main-menu">
             <h2 style={{color:"white", textAlign:"center"}} >Zero Technology</h2>
             <br/>
-              <ul>
+              <ul style={{marginLeft:"15px"}}>
                 <li>
                   <a>
                     <i class="fa fa-bar-chart-o fa-2x"></i>
@@ -86,8 +86,8 @@ const Admin = () => {
                   </a>
                 </li>
               </ul>
-              <ul class="logout">
-                <li>
+              <ul class="logout" style={{marginLeft:"15px"}}>
+                <li >
                   <a href="#">
                     <i class="fa fa-power-off fa-2x"></i>
                     <span class="nav-text">Logout</span>
