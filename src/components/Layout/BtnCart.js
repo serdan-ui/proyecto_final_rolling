@@ -14,7 +14,7 @@ const BtnCart = ({products, setCarrito}) => {
     setCartOpen(true);
   };
 
-  console.log(products);
+  
 
   let clase;
   {
@@ -69,7 +69,7 @@ const BtnCart = ({products, setCarrito}) => {
                 <Row style={{borderTop:"0.5px solid greenyellow"}}>
                   <ListGroup horizontal>
                     <Col>
-                      <ListGroup.Item className="productitoslistados"><img src={product.img} className="imgCartBtn"/></ListGroup.Item>
+                      <ListGroup.Item className="productitoslistados"><img src={product.imagen[0]} className="imgCartBtn"/></ListGroup.Item>
                     </Col>
                     <Col xs={6}>
                       <ListGroup.Item className="productitoslistados"> 

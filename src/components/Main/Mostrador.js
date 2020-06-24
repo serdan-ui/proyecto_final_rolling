@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import productos from "./basedatos";
+import React, { useState, useEffect } from "react";
+
 
 import {
   Row,
@@ -17,18 +17,33 @@ import mousered from "../Images/mousered.png";
 
 import { CardText } from "react-bootstrap/Card";
 import Swal from "sweetalert2";
+import axiosInstance from "../util/axiosInstance";
 
 const Mostrador = ({ setProducts, products }) => {
+//Traer productos de base de datos
+
+const getProductos = async() =>{
+ const response= await  axiosInstance.get("/producto");
+ console.log(response.data.productos);
+ setProductos(response.data.productos)
+}
+useEffect(() => {
+  getProductos()
+  
+}, [])
+
+
   // Estados
+  const [productos , setProductos]= useState([])
   const [smShow, setSmShow] = useState(false); //Modal
   const [mostImg, setMostImg] = useState(false); // Img derecha
   const [modal, setModal] = useState({});
 
   // Funcion mostrar Imagen derecha
-  const mostrarImg = ({ nombre, id, precio, descripcion, img }) => {
+  const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {
     Swal.fire({
       title: nombre,
-      imageUrl: img,
+      imageUrl: imagen[0],
       titleText: descripcion,
       text: ` $ ${precio}`,
       imageHeight: 300,
@@ -72,7 +87,7 @@ const Mostrador = ({ setProducts, products }) => {
             <CardColumns className="cardColumns">
               {productos.map((producto) => (
                 <Card key={producto.id} sm={12} className="cardProduct">
-                  <Card.Img variant="top" src={producto.img} rounded />
+                  <Card.Img variant="top" src={producto.imagen[0]} rounded style={{height:"250px"}} />
                   <Card.Body>
                     <Card.Title>{producto.nombre}</Card.Title>
                     <Card.Text>${producto.precio}</Card.Text>
