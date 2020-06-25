@@ -6,7 +6,7 @@ import Graficos from "./Graficos";
 import AgregProd from "./AgregProd"
 import TurnosPanel from "./TurnosPanel"
 import Usuarios from "./Usuarios"
-
+import Ventas from './Ventas'
 
 const Admin = () => {
 
@@ -26,6 +26,8 @@ const Admin = () => {
       return (<TurnosPanel/>)
     }else if ( cuerpo === "Usuarios"){
       return (<Usuarios/>)
+    }else if (cuerpo === "Ventas"){
+      return (<Ventas/>)
     }
         
     
