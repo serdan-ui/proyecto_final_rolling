@@ -18,9 +18,28 @@ body {
 }
 
 .card-tipo-envio-seleccionado {
-    background-color: rgb(221, 221, 221) !important;
+    background-color: rgb(228, 228, 228) !important;
 }
 
 .input-error {
     font-size: small;
+}
+
+
+@media (max-width: 1080px) {    
+    .titulo-card-envio {
+        font-size: 1rem !important;
+    }
+}
+
+@media (min-width: 770px) and (max-width: 991px) {    
+    .card-envio-checkbox {
+        display: none !important;
+    }
+}
+
+@media (max-width: 580px) {    
+    .card-envio-checkbox {
+        display: none !important;
+    }
 }

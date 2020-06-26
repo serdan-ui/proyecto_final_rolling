@@ -5,13 +5,12 @@ import CardOpcion from "./card-opcionales";
 import { useForm } from "react-hook-form";
 import "./styles.css";
 
-const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
+const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
   const { register, errors, handleSubmit } = useForm();
   const [metodoEnvio, setMetodoEnvio] = useState("EnvioGratis");
-  const [envioValido, setEnvioValido] = useState();
 
   const onSubmit = () => {
-    console.log(datos);
+    sliderSiguiente();
   };
 
   const [datos, setDatos] = useState({
@@ -27,16 +26,14 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
   });
 
   const handleInputChange = (event) => {
-    event.target.value === ""
-      ? setEnvioValido(false)
-      : setEnvioValido(true) ||
-        setDatos({
-          ...datos,
-          [event.target.name]: event.target.value,
-        });
+    setDatos({
+      ...datos,
+      [event.target.name]: event.target.value,
+    });
   };
 
-  const SeleccionarEnvio = (nombreMetodoEnvio) => {
+  const SeleccionarEnvio = (nombreMetodoEnvio, valor) => {
+    setValorEnvio(valor);
     setMetodoEnvio(nombreMetodoEnvio);
     setDatos({ ...datos, tipoEnvio: nombreMetodoEnvio });
   };
@@ -59,7 +56,7 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                       placeholder="Nombre *"
                       name="nombre"
                       type="text"
-                      onChange={handleInputChange}
+                      onChange={(e) => handleInputChange(e)}
                       ref={register({
                         required: {
                           value: true,
@@ -136,7 +133,7 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                       as="select"
                       custom
                       name="pais"
-                      onChange={handleInputChange}
+                      onChange={(e) => handleInputChange(e)}
                       ref={register({
                         required: {
                           value: true,
@@ -144,7 +141,7 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                         },
                       })}
                     >
-                      <option>Argentina</option>
+                      <option>Pais *</option>
                       <PaisesContainer />
                     </Form.Control>
                     <span className="input-error text-danger text-small d-block mb-2">
@@ -212,22 +209,22 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                 <Row className="d-flex justify-content-between">
                   <Col>
                     <CardOpcion
-                      onClick={() => SeleccionarEnvio("EnvioGratis")}
+                      onClick={() => SeleccionarEnvio("EnvioGratis", 0)}
                       seleccionado={
                         metodoEnvio === "EnvioGratis" ? true : false
                       }
                       titulo="Envío Gratis"
-                      descripcion="Demora de 2 a 5 días habiles"
+                      descripcion="Demora entre 2 y 5 días hábiles"
                     />
                   </Col>
 
                   <Col>
                     <CardOpcion
-                      onClick={() => SeleccionarEnvio("EnvioNextDay")}
+                      onClick={() => SeleccionarEnvio("EnvioNextDay", 450)}
                       seleccionado={
                         metodoEnvio === "EnvioNextDay" ? true : false
                       }
-                      titulo='Envío "Next Day" - $20'
+                      titulo='Envío "Next Day" - $450'
                       descripcion="Entrega en 24 horas"
                     />
                   </Col>
@@ -237,20 +234,22 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
               <Col className="mb-4 d-flex justify-content-start align-items-center">
                 <Button
                   onClick={sliderAnterior}
-                  className="w-25 mr-2"
+                  className="w-25 mr-2 d-flex justify-content-center"
                   variant="secondary"
                 >
                   Anterior
                 </Button>
                 <Button
-                  onClick={envioValido ? sliderSiguiente : null}
-                  className="w-25 mr-2"
+                  className="w-25 mr-2 d-flex justify-content-center"
                   variant="secondary"
                   type="submit"
                 >
                   Siguiente
                 </Button>
-                <Button className="w-25" variant="outline-danger">
+                <Button
+                  className="w-25 d-flex justify-content-center"
+                  variant="outline-danger"
+                >
                   Cancelar
                 </Button>
               </Col>

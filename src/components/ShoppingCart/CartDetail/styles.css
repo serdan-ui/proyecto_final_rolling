@@ -5,11 +5,11 @@
 }
 
 .imagen-card {
-    max-width: 7rem !important;
+    max-width: 11rem !important;
 }
 
 .product-card:hover{
-    background-color: whitesmoke;
+    background-color: rgb(238, 237, 237);
     box-shadow: -3px 3px 5px 0px rgba(207, 207, 207, 0.75);
 }
 
@@ -24,4 +24,47 @@
 
 .close:hover {
     background-color: rgb(207, 207, 207) !important;
+}
+
+.trash-icono{
+    width: 18px;
+    color: rgb(160, 17, 17) !important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+.btn-cargando {
+    min-width: 9rem !important;
+    max-height: 2.4rem !important;
+}
+
+.titulo-cupon { 
+    font-size: 2rem;
+}
+
+.btn-irTienda {
+    font-weight: bolder !important;
+}
+
+
+@media (max-width: 1080px) {
+    .titulo-cupon { 
+        
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .producto-descripcion {
+        background-color: rgb(228, 228, 228) !important;
+    }
+    
+    .titulo-cupon { 
+        font-weight: bolder;
+        font-size: 1rem;
+    }
 }

@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { Col, Row, Form, Container, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import Cards from "react-credit-cards";
@@ -8,21 +8,30 @@ import "react-credit-cards/es/styles-compiled.css";
 const CreditCard = ({
   onClick,
   seleccionado,
-  setCamposValidos,
   setDatosTarjeta,
   datosTarjeta,
+  setDatosCompletos,
 }) => {
-  const { register, errors, handleSubmit } = useForm();
-
   const [numero, setNumero] = useState("");
   const [nombre, setNombre] = useState("");
   const [expiracion, setExpiracion] = useState("");
   const [cvc, setCvc] = useState("");
   const [focus, setFocus] = useState("");
 
-  const GuardarDatosTarjeta = (e) => {
-    
-  }
+  const ValidarCampos = (e) => {
+    console.log(datosTarjeta)
+  };
+
+  const handleInputChange = (event) => {
+    event.target.value === ""
+      ? setDatosCompletos(false)
+      : setDatosCompletos(true) ||
+        setDatosTarjeta({
+          ...datosTarjeta,
+          [event.target.name]: event.target.value,
+        });
+    ValidarCampos(event);
+  };
 
   return (
     <Fragment>
@@ -56,7 +65,7 @@ const CreditCard = ({
                 <Col>
                   <Row>
                     <Col className="mt-2" sm="1">
-                      <Form.Check checked={seleccionado} type="radio" />
+                      <Form.Check checked={seleccionado} readOnly={true} type="radio" />
                     </Col>
                     <Col>
                       <Card.Title>
@@ -84,20 +93,26 @@ const CreditCard = ({
                             <Form.Control
                               className="d-flex justify-content-between"
                               type="tel"
-                              name="number"
+                              name="numero"
                               placeholder="0000 0000 0000 0000"
                               value={numero}
-                              onChange={(e) => setNumero(e.target.value)}
+                              onChange={(e) =>
+                                setNumero(e.target.value) ||
+                                handleInputChange(e) 
+                              }
                               onFocus={(e) => setFocus(e.target.name)}
                             />
                           </Col>
                           <Col sm="2">
                             <Form.Control
                               type="tel"
-                              name="expiry"
+                              name="expiracion"
                               placeholder="M/A"
                               value={expiracion}
-                              onChange={(e) => setExpiracion(e.target.value)}
+                              onChange={(e) =>
+                                setExpiracion(e.target.value) ||
+                                handleInputChange(e)
+                              }
                               onFocus={(e) => setFocus(e.target.name)}
                             />
                           </Col>
@@ -107,7 +122,9 @@ const CreditCard = ({
                               name="cvc"
                               placeholder="CVC"
                               value={cvc}
-                              onChange={(e) => setCvc(e.target.value)}
+                              onChange={(e) =>
+                                setCvc(e.target.value) || handleInputChange(e)
+                              }
                               onFocus={(e) => setFocus(e.target.name)}
                             />
                           </Col>
@@ -116,10 +133,12 @@ const CreditCard = ({
                       <Col>
                         <Form.Control
                           type="text"
-                          name="name"
+                          name="nombre"
                           placeholder="Nombre en la Tarjeta"
                           value={nombre}
-                          onChange={(e) => setNombre(e.target.value)}
+                          onChange={(e) =>
+                            setNombre(e.target.value) || handleInputChange(e)
+                          }
                           onFocus={(e) => setFocus(e.target.name)}
                         />
                       </Col>
