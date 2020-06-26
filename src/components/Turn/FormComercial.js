@@ -3,9 +3,9 @@ import {  useForm, Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 
 
-const FormComercial = () => {
+const FormComercial = ({ register, control }) => {
     const [dispositivo, setDispositivo] = useState(1);
-    const { register, control } = useForm();
+  
     const onChangeDevice = (e) => {
         let typeDevice = e.target.value;
         setDispositivo(parseInt(typeDevice));

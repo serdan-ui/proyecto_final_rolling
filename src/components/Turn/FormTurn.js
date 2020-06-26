@@ -10,10 +10,11 @@ const FormTurn = () => {
   const [data, setData] = useState(null);
   
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control ,reset} = useForm();
   const onSubmit = (data) => {
     setData(data);
     console.log(data);
+    reset()
   };
   const onChangeSelet = (e) => {
     console.log(e.target.value);
@@ -23,13 +24,22 @@ const FormTurn = () => {
 
   
 
-  const typeForms = () => {
+  const typeForms = ({register,control}) => {
     if (forms === 1) {
-      return <FormsRepair />;
+      return <FormsRepair 
+      register={register}
+      control={control}
+      />;
     } else if (forms === 2) {
-      return <FormBuy />;
+      return <FormBuy 
+      register={register}
+      control={control}
+      />;
     } else if (forms === 3) {
-      return <FormComercial/>
+      return <FormComercial
+      register={register}
+      control={control}
+      />
     }
   };
   return (
@@ -44,9 +54,9 @@ const FormTurn = () => {
       >
         <option value="1">Reparacion</option>
         <option value="2">Ventas</option>
-        <option value="3">Acesoramiento comercial</option>
+        <option value="3">Asesoramiento comercial</option>
       </select>
-      {typeForms()}
+      {typeForms({register,control})}
       <input type="submit" />
     </form>
   );
