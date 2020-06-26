@@ -145,7 +145,7 @@
 
 /*? FOOTER */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
 
 .container_footer {
   position: relative;
@@ -215,12 +215,12 @@
 }
 
 .container_footer a {
-  font-family: 'Montserrat', sans-serif;
+  
   color: rgb(161, 165, 59) !important;
 }
 
 .container_footer h5 {
-  font-family: 'Montserrat', sans-serif;
+  
   color: rgb(167, 170, 63);
 }
 

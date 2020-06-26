@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import productos from "./basedatos";
+import React, { useState, useEffect } from "react";
+
+
 import {
   Row,
   Col,
@@ -16,19 +17,39 @@ import mousered from "../Images/mousered.png";
 
 import { CardText } from "react-bootstrap/Card";
 import Swal from "sweetalert2";
+import axiosInstance from "../util/axiosInstance";
 
 const Mostrador = ({ setProducts, products }) => {
+//Traer productos de base de datos
+
+const getProductos = async() =>{
+ const response= await  axiosInstance.get("/producto");
+ console.log(response.data.productos);
+ setProductos(response.data.productos)
+}
+useEffect(() => {
+  getProductos()
+  
+}, [])
+
+
   // Estados
+  const [productos , setProductos]= useState([])
   const [smShow, setSmShow] = useState(false); //Modal
   const [mostImg, setMostImg] = useState(false); // Img derecha
   const [modal, setModal] = useState({});
 
   // Funcion mostrar Imagen derecha
-  const mostrarImg = ({ nombre, id, precio, descripcion, img }) => {
-    if (mostImg === false) {
-      setMostImg(true);
-    }
-    setModal({ nombre, id, precio, descripcion, img });
+  const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {
+    Swal.fire({
+      title: nombre,
+      imageUrl: imagen[0],
+      titleText: descripcion,
+      text: ` $ ${precio}`,
+      imageHeight: 300,
+      imageAlt: 'A tall image'
+    })
+   
   };
 
   //agregar al carrito
@@ -37,12 +58,23 @@ const Mostrador = ({ setProducts, products }) => {
 
     setProducts([...products, product]);
 
-    Swal.fire({
-      icon: "success",
-      title: "El producto ha sido agregado al carrito",
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
       showConfirmButton: false,
-      timer: 1500,
-    });
+      timer: 3000,
+      timerProgressBar: true,
+      onOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+        
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Signed in successfully'
+    })
   };
 
   return (
@@ -51,21 +83,21 @@ const Mostrador = ({ setProducts, products }) => {
       <Container fluid className="contenedor-mostrador">
         <Row style={{ background: "#171717" ,margin:"0px"}}>
           <Col sm={2} style={{backgroundColor:'black'}} ></Col>
-          <Col sm={8}  className="columnitax" style={{backgroundColor:'black'}}>
-            <CardColumns>
+          <Col  sm={8}  className="columnitax" style={{backgroundColor:'black'}}>
+            <CardColumns className="cardColumns">
               {productos.map((producto) => (
-                <Card key={producto.id} className="cardProduct">
-                  <Card.Img variant="top" src={producto.img} rounded />
+                <Card key={producto.id} sm={12} className="cardProduct">
+                  <Card.Img variant="top" src={producto.imagen[0]} rounded style={{height:"250px"}} />
                   <Card.Body>
                     <Card.Title>{producto.nombre}</Card.Title>
                     <Card.Text>${producto.precio}</Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Row>
-                      <Col>
+                    <Row className="rowroto">
+                      <Col className="p-0">
                         <Button
                           border="danger"
-                          
+                          className="btnroto"
                           style={{
                             border: "3px solid #060606",
                             color:"#19ED18",
@@ -77,9 +109,10 @@ const Mostrador = ({ setProducts, products }) => {
                           Ver mas
                         </Button>
                       </Col>
-                      <Col>
+                      <Col className="p-0">
                         <Button
                           variant="success"
+                          className="btnroto"
                           style={{
                             border: "2px solid #19ED18",
                             fontSize:"0.9rem",
@@ -100,48 +133,7 @@ const Mostrador = ({ setProducts, products }) => {
             </CardColumns>
           </Col>
           <Col sm={2} style={{backgroundColor:'black'}} ></Col>
-          {/* {mostImg ? (
-            <Col sm={4} className="carrito-xs">
-              <Card style={{ width: "18rem" }} className="mercadito-card">
-                <Card.Header className="cardArticulos">
-                  <strong>{modal.nombre}</strong>
-                </Card.Header>
-                <ListGroup variant="flush">
-                  <ListGroup.Item>
-                    <Card.Img src={modal.img} />
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <p>
-                      <strong>Precio: </strong> ${modal.precio}{" "}
-                    </p>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <p>
-                      <strong>Descripcion: </strong>
-                      {modal.descripcion}
-                    </p>
-                  </ListGroup.Item>
-                </ListGroup>
-                <Row>
-                  <Col>
-                    <Button variant="success" block>
-                      <FaCartPlus />
-                      Agregar
-                    </Button>
-                  </Col>
-                  <Col>
-                    <Button
-                      variant="danger"
-                      onClick={() => setMostImg(false)}
-                      block
-                    >
-                      Cancelar{" "}
-                    </Button>
-                  </Col>
-                </Row>
-              </Card>
-            </Col>
-          ) : null} */}
+          
         </Row>
       </Container>
     </>

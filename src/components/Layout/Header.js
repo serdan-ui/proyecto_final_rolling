@@ -6,7 +6,7 @@ import Loguito from "../Images/zerote.png";
 import { FaUser, FaShareSquare } from "react-icons/fa";
 import BtnCart from "./BtnCart";
 
-const Header = ({ products, authen,setAuthen , usuario }) => {
+const Header = ({ products, authen,setAuthen , usuario, setCarrito}) => {
 
 
 console.log(usuario.username)
@@ -51,7 +51,7 @@ console.log(usuario.username)
         </Col>
       </Row>
 
-      <BtnCart products={products} />
+      <BtnCart products={products} setCarrito={setCarrito} />
 
       <Nav className="justify-content-center nav_header">
         <Nav.Item className="nav_header">

@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: #424242 !important;
+}
+
+.card-tipo-envio{
+    transition: 0.3s;
+}
+
+.card-tipo-envio:hover{
+    background-color: rgb(216, 215, 215) !important;
+    cursor: pointer;
+}
+
+.card-tipo-envio-seleccionado {
+    background-color: rgb(221, 221, 221) !important;
+}
+
+.input-error {
+    font-size: small;
+}

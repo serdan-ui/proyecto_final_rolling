@@ -2,12 +2,12 @@ import React from "react";
 import {  useForm, Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 
-const FormsRepair = () => {
-    const { register, handleSubmit, control, reset } = useForm();
+const FormsRepair = ({register,control}) => {
+   
   return (
     <>
       <label>Tipo de dispositivo a reparar</label>
-      <select name="dispositivo" ref={register}>
+      <select name="dispositivo" ref={register} >
         <option value="1">pc</option>
         <option value="2">celular</option>
         <option value="3">tablet</option>
