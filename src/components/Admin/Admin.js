@@ -17,7 +17,7 @@ const Admin = () => {
     setCuerpo(e.target.firstChild.data);
   };
   const mostrarCuerpo = () => {
-
+      
     if (cuerpo === "Graficos") {
       return <Graficos />;
     } else if (cuerpo === "AgregProd"){
@@ -26,6 +26,8 @@ const Admin = () => {
       return (<TurnosPanel/>)
     }else if ( cuerpo === "Usuarios"){
       return (<Usuarios/>)
+    }else{
+      return <Usuarios/>
     }
         
     
@@ -96,7 +98,7 @@ const Admin = () => {
               </ul>
             </nav>
           </div>
-          <div className="col-10 panel">{mostrarCuerpo()}</div>
+          <div className="col-10 panel">{mostrarCuerpo()} </div>
         </div>
       </div>
     </>

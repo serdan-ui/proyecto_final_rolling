@@ -31,9 +31,6 @@ top:0;
 bottom:0;
 height:100vh;
 left:0;
-overflow:hidden;
--webkit-transition:width .05s linear;
-transition:width .05s linear;
 z-index:1000;
 }
 .main-menu>ul {
@@ -52,8 +49,7 @@ color:rgb(248, 244, 244);
  font-family: arial;
 font-size: 14px;
 text-decoration:none;
--webkit-transition:all .1s linear;
-transition:all .1s linear;
+
 }
 .main-menu .nav-icon {
 position:relative;
