@@ -8,12 +8,7 @@ import "./styles.css";
 const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
   const { register, errors, handleSubmit } = useForm();
   const [metodoEnvio, setMetodoEnvio] = useState("EnvioGratis");
-
-  const onSubmit = () => {
-    sliderSiguiente();
-  };
-
-  const [datos, setDatos] = useState({
+  const [datosEnvio, setDatosEnvio] = useState({
     nombre: "",
     apellido: "",
     direccion1: "",
@@ -22,20 +17,27 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
     ciudad: "",
     postal: "",
     telefono: "",
-    tipoEnvio: metodoEnvio,
+    tipoEnvio: "",
   });
 
-  const handleInputChange = (event) => {
-    setDatos({
-      ...datos,
-      [event.target.name]: event.target.value,
+  const onSubmit = (data) => {
+    sliderSiguiente();
+    setDatosEnvio({
+      nombre: data.nombre,
+      apellido: data.apellido,
+      direccion1: data.direccion1,
+      direccion2: data.direccion2,
+      pais: data.pais,
+      ciudad: data.pais,
+      postal: data.postal,
+      telefono: data.telefono,
+      tipoEnvio: metodoEnvio,
     });
   };
 
   const SeleccionarEnvio = (nombreMetodoEnvio, valor) => {
     setValorEnvio(valor);
     setMetodoEnvio(nombreMetodoEnvio);
-    setDatos({ ...datos, tipoEnvio: nombreMetodoEnvio });
   };
 
   return (
@@ -56,7 +58,6 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
                       placeholder="Nombre *"
                       name="nombre"
                       type="text"
-                      onChange={(e) => handleInputChange(e)}
                       ref={register({
                         required: {
                           value: true,
@@ -75,7 +76,6 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
                       placeholder="Apellido *"
                       name="apellido"
                       type="text"
-                      onChange={handleInputChange}
                       ref={register({
                         required: {
                           value: true,
@@ -95,7 +95,6 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
                       className="shadow-sm"
                       placeholder="Direccion *"
                       name="direccion1"
-                      onChange={handleInputChange}
                       ref={register({
                         required: {
                           value: true,
@@ -115,7 +114,6 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
                       className="shadow-sm"
                       placeholder="Direccion 2 (opcional)"
                       name="direccion2"
-                      onChange={handleInputChange}
                       ref={register({
                         required: {
                           value: false,
@@ -131,9 +129,8 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
                     <Form.Control
                       className="shadow-sm"
                       as="select"
-                      custom
                       name="pais"
-                      onChange={(e) => handleInputChange(e)}
+                      custom
                       ref={register({
                         required: {
                           value: true,
@@ -141,7 +138,7 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
                         },
                       })}
                     >
-                      <option>Pais *</option>
+                      <option>Argentina</option>
                       <PaisesContainer />
                     </Form.Control>
                     <span className="input-error text-danger text-small d-block mb-2">
@@ -153,7 +150,6 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
                       className="shadow-sm"
                       placeholder="Ciudad *"
                       name="ciudad"
-                      onChange={handleInputChange}
                       ref={register({
                         required: {
                           value: true,
@@ -173,7 +169,7 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
                       className="shadow-sm"
                       placeholder="Codigo ZIP/Postal *"
                       name="postal"
-                      onChange={handleInputChange}
+                      type="number"
                       ref={register({
                         required: {
                           value: true,
@@ -190,7 +186,7 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
                       className="shadow-sm"
                       placeholder="N° Telefono *"
                       name="telefono"
-                      onChange={handleInputChange}
+                      type="number"
                       ref={register({
                         required: {
                           value: true,

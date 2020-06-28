@@ -50,6 +50,15 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: bolder !important;
 }
 
+.input-cupon {
+    font-size: 1.5rem !important;
+    font-weight: bolder !important;
+}
+
+.input-cupon::placeholder {
+    color: rgb(206, 206, 206) !important;
+}
+
 
 @media (max-width: 1080px) {
     .titulo-cupon { 

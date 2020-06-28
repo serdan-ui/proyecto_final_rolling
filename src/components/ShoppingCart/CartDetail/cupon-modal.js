@@ -6,9 +6,23 @@ import "./styles.css";
 function CuponModal() {
   const [mostrarModal, setMostrarModal] = useState(false);
   const [estaCargando, setCargando] = useState(false);
+  const [errorInput, setErrorInput] = useState("");
   const [formValido, setFormValido] = useState(false);
 
   const { register, errors, handleSubmit } = useForm();
+
+  const ValidarInput = (e, longitud) => {
+    if (isNaN(e.target.value) === true) {
+      setErrorInput("Solo se aceptan números");
+      setFormValido(false);
+    } else if (e.target.value.length < longitud) {
+      setErrorInput("No menos de " + longitud + " caracteres");
+      setFormValido(false);
+    } else {
+      setErrorInput("");
+      setFormValido(true);
+    }
+  };
 
   function simularCargando() {
     return new Promise((resolve) => setTimeout(resolve, 1200));
@@ -60,39 +74,55 @@ function CuponModal() {
                       <Col sm="8">
                         <Form.Control
                           disabled={estaCargando}
-                          className="mb-2"
+                          className="mb-2 input-cupon"
+                          type="text"
+                          maxLength="10"
                           name="codigoCupon"
-                          placeholder="Ingrese el código de su copón"
+                          placeholder="Código del cupón"
                           ref={register({
-                            required: {
-                              value: true,
-                              message: "Código inválido",
-                            },
+                            required: true,
+                            minLength: 10,
                           })}
                         />
-
-                        <span className="input-error text-danger text-small d-block mb-2">
-                          {errors?.codigoCupon?.message}
-                        </span>
+                        {errors.codigoCupon &&
+                          errors.codigoCupon.type === "required" && (
+                            <span className="input-error text-danger text-small d-block mb-2">
+                              Campo requerido
+                            </span>
+                          )}
+                        {errors.codigoCupon &&
+                          errors.codigoCupon.type === "minLength" && (
+                            <span className="input-error text-danger text-small d-block mb-2">
+                              No menos de 10 caracteres
+                            </span>
+                          )}
                       </Col>
+
                       <Col xs="4" sm="4">
                         <Form.Control
                           disabled={estaCargando}
-                          type="number"
-                          className="mb-2"
+                          type="text"
+                          maxLength="4"
+                          className="mb-2 input-cupon"
                           placeholder="PIN"
                           name="pinCupon"
                           ref={register({
-                            required: {
-                              value: true,
-                              message: "PIN inválido",
-                            },
+                            required: true,
+                            minLength: 4,
                           })}
                         />
-
-                        <span className="input-error text-danger text-small d-block mb-2">
-                          {errors?.pinCupon?.message}
-                        </span>
+                        {errors.pinCupon &&
+                          errors.pinCupon.type === "required" && (
+                            <span className="input-error text-danger text-small d-block mb-2">
+                              Campo requerido
+                            </span>
+                          )}
+                        {errors.pinCupon &&
+                          errors.pinCupon.type === "minLength" && (
+                            <span className="input-error text-danger text-small d-block mb-2">
+                              No menos de 4 caracteres
+                            </span>
+                          )}
                       </Col>
                     </Row>
                   </form>
@@ -118,12 +148,10 @@ function CuponModal() {
             Cerrar
           </Button>
           <Button
-            
             className="btn-cargando"
             variant="success"
             disabled={estaCargando}
-            onClick={handleSubmit(() => setCargando(true)) 
-            }
+            onClick={handleSubmit(() => setCargando(true))}
           >
             {estaCargando ? (
               <div className="spinner-border spinner-border-sm" role="status">

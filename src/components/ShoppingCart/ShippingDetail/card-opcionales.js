@@ -17,7 +17,7 @@ const CardOpcion = ({name, onChange, onClick, seleccionado, value, titulo, descr
     >
       <Card.Body>
         <Row className="d-flex justify-content-center">
-          <Col xs="auto" className="d-flex align-items-center">
+          <Col xs="auto" className="d-flex align-items-center mb-sm-2 ">
             <FormCheck
               className="card-envio-checkbox"
               type="radio"
@@ -25,11 +25,11 @@ const CardOpcion = ({name, onChange, onClick, seleccionado, value, titulo, descr
               checked={seleccionado}
             />
           </Col>
-          <Col xs="12" sm="9">
+          <Col xs="12" md="9">
             <Card.Title className="titulo-card-envio">
               {titulo}
             </Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">
+            <Card.Subtitle className="mb-2 text-muted detalle-card-envio">
               {descripcion}
             </Card.Subtitle>
           </Col>

@@ -6,16 +6,19 @@ import PaypalCard from "./card-paypal";
 import "./styles.css";
 
 const PaymentDetail = ({ sliderAnterior }) => {
-  const [metodoSeleccionado, setMetodoSeleccioando] = useState(false);
-  const { register, errors, handleSubmit } = useForm();
-  const [datosTarjeta, setDatosTarjeta] = useState({
-    nombre: "",
-    numero: "",
-    expiracion: "",
-    cvc: "",
-  });
+  const [metodoSeleccionado, setMetodoSeleccioando] = useState("");
+  const [datosTarjeta, setDatosTarjeta] = useState();
 
-  const [datosCompletos, setDatosCompletos] = useState(false);
+  const { register, errors, handleSubmit } = useForm();
+
+  const onSubmit = (datos) => {
+    if (metodoSeleccionado === "TarjetaCredito") {
+      setDatosTarjeta(datos);
+      console.log(datos);
+    } else if (metodoSeleccionado === "Paypal") {
+      console.log("paypal");
+    }
+  };
 
   return (
     <Container>
@@ -31,10 +34,8 @@ const PaymentDetail = ({ sliderAnterior }) => {
             }
             datosTarjeta={datosTarjeta}
             setDatosTarjeta={setDatosTarjeta}
-            setDatosCompletos={setDatosCompletos}
             register={register}
             errors={errors}
-            handleSubmit={handleSubmit}
           />
         </Col>
         <Col className="border-bottom mb-3 mt-3">
@@ -44,23 +45,34 @@ const PaymentDetail = ({ sliderAnterior }) => {
           />
         </Col>
         <Col className="mt-3 mb-4 d-flex justify-content-start align-items-center">
-          <Button
-            onClick={sliderAnterior}
-            className="w-25 mr-2"
-            variant="secondary"
-          >
+          <Button onClick={sliderAnterior} className="mr-2" variant="secondary">
             Anterior
           </Button>
-          <Button
-            disabled={datosCompletos ? false : true}
-            onClick={handleSubmit((d) => console.log(d))}
-            className="w-25 mr-2"
-            variant="success"
-            type="submit"
-          >
-            Finalizar Compra
-          </Button>
-          <Button className="w-25" variant="outline-danger">
+          {metodoSeleccionado === "TarjetaCredito" ? (
+            <Button
+              onClick={handleSubmit(onSubmit)}
+              className="mr-2"
+              variant="success"
+              type="submit"
+            >
+              Finalizar Compra
+            </Button>
+          ) : metodoSeleccionado === "" ? (
+            <Button disabled="true" className="mr-2" variant="success">
+              Finalizar Compra
+            </Button>
+          ) : metodoSeleccionado === "Paypal" ? (
+            <Button
+              onClick={() => console.log("paypal")}
+              className="mr-2"
+              variant="success"
+              type="submit"
+            >
+              Finalizar Compra
+            </Button>
+          ) : null}
+
+          <Button className="" variant="outline-danger">
             Cancelar
           </Button>
         </Col>

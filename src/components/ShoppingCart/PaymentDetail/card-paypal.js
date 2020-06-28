@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Col, Form, Row, Container, Card } from "react-bootstrap";
 import paypalLogo from "../../assets/paypal-logo.svg";
 import "./styles.css";
@@ -16,7 +16,7 @@ const PaypalCard = (props) => {
     >
       <Container className="mb-2 mt-4">
         <Row className="d-flex justify-content-between">
-          <Col className="mt-2" sm="1">
+          <Col className="mt-2" xs="auto">
             <Form.Check
               readOnly={true}
               checked={props.seleccionado}

@@ -76,6 +76,7 @@ const ShoppingCheckout = () => {
         <Row className="shopping-detail-panel d-sm-flex flex-md-row flex-column-reverse">
           <Col>
             <Slider ref={SliderContainer} {...sliderSettings}>
+            <PaymentDetail sliderAnterior={SliderAnterior}/>
               <ShoppingCart
                 carrito={carrito}
                 setCarrito={setCarrito}
@@ -87,7 +88,7 @@ const ShoppingCheckout = () => {
                 sliderAnterior={SliderAnterior}
                 setValorEnvio={setValorEnvio}
               />
-              <PaymentDetail sliderAnterior={SliderAnterior}/>
+             {/*  <PaymentDetail sliderAnterior={SliderAnterior}/> */}
             </Slider>
           </Col>
 
