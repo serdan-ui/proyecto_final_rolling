@@ -1,11 +1,9 @@
 import React from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
-import Avatar from "../Images/avatarprueba.png";
+import { Container, Row, Col } from "react-bootstrap";
+
 import Rochy from "../Images/rochy.png";
 import Sergio from "../Images/sergio.png";
 import Nicole from "../Images/nicole1.jpeg";
-import Mariana from "../Images/mariana.png";
-import Silvia from "../Images/silvia.png";
 import Mauricio from "../Images/mauricio.png";
 import HeaderStatic from "../Layout/HeaderStatic";
 import Footer from "../Layout/Fotter";
@@ -134,6 +132,7 @@ const PageService = ({ authen, setAuthen }) => {
                 style={{ height: "150px" }}
                 src={Rochy}
                 className="imagen-pers"
+                alt="photo"
               />{" "}
               <div className="nombre-imagen">
                 {" "}
@@ -147,6 +146,7 @@ const PageService = ({ authen, setAuthen }) => {
             <div className="persona roundedCircle ">
               {" "}
               <img
+              alt="photo"
                 style={{ height: "150px" }}
                 src={Sergio}
                 className="imagen-pers"
@@ -162,6 +162,7 @@ const PageService = ({ authen, setAuthen }) => {
             {" "}
             <div className="persona roundedCircle ">
               <img
+              alt="photo"
                 style={{ height: "150px" }}
                 src={Nicole}
                 className="imagen-pers"
@@ -178,6 +179,7 @@ const PageService = ({ authen, setAuthen }) => {
             <div className="persona roundedCircle ">
               {" "}
               <img
+              alt="photo"
                 style={{ height: "150px" }}
                 src={Mauricio}
                 className="imagen-pers"

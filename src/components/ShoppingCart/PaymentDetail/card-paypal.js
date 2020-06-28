@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Col, Form, Row, Container, Card } from "react-bootstrap";
 import paypalLogo from "../../assets/paypal-logo.svg";
 import "./styles.css";

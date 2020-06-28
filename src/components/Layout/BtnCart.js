@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, ListGroup, Badge, Row, Col } from "react-bootstrap";
 import { FaCartPlus, FaRegWindowClose } from "react-icons/fa";
-import { render } from "@testing-library/react";
+
 
 const BtnCart = ({products, setCarrito}) => {
   const [cartOpen, setCartOpen] = useState(false);

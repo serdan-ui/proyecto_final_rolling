@@ -7,15 +7,14 @@ import {
   Card,
   Button,
   Container,
-  ListGroup,
-  Alert,
-  CardColumns,
-  Modal,
-} from "react-bootstrap";
-import { FaCartPlus, FaWindowClose } from "react-icons/fa";
-import mousered from "../Images/mousered.png";
 
-import { CardText } from "react-bootstrap/Card";
+
+  CardColumns,
+ 
+} from "react-bootstrap";
+import { FaCartPlus } from "react-icons/fa";
+
+
 import Swal from "sweetalert2";
 import axiosInstance from "../util/axiosInstance";
 
@@ -35,9 +34,9 @@ useEffect(() => {
 
   // Estados
   const [productos , setProductos]= useState([])
-  const [smShow, setSmShow] = useState(false); //Modal
-  const [mostImg, setMostImg] = useState(false); // Img derecha
-  const [modal, setModal] = useState({});
+  
+ 
+
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {

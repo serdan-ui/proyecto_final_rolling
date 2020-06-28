@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Main from "./components/Main/Main";
-/* import ShoppingCart from "./components/ShoppingCart/CartDetail/ShoppingCart"; */
-/* import ShippingDetail from "./components/ShoppingCart/ShippingDetail/shipping-detail"; */
 import PageService from "./components/PageService/PageService";
 import Payment from "./components/Payment/Payment";
 import ShoppingCheckout from "./components/ShoppingCart/shopping-checkout"
@@ -18,9 +16,9 @@ import TurnosPanel from "./components/Admin/TurnosPanel";
 import Graficos from "./components/Admin/Graficos";
 import Drag from "./components/Admin/Drag"
 import Usuarios from "./components/Admin/Usuarios"
-import PagoExitoso from "./components/PaginaDePago.js/PagoExitoso"
-import PagoRechazado from "./components/PaginaDePago.js/PagoRechazado"
-import PagoPendiente from "./components/PaginaDePago.js/PagoPendiente"
+import PagoExitoso from "./components/PaginaDePago/PagoExitoso"
+import PagoRechazado from "./components/PaginaDePago/PagoRechazado"
+import PagoPendiente from "./components/PaginaDePago/PagoPendiente"
 
 import "./App.css";
 import productos from "./components/Main/basedatos";
