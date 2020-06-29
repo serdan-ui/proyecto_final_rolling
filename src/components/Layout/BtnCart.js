@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button, ListGroup, Badge, Row, Col } from "react-bootstrap";
 import { FaCartPlus, FaRegWindowClose } from "react-icons/fa";
 
 
-const BtnCart = ({products, setCarrito}) => {
+
+const BtnCart = ({products, setCarrito }) => {
+
+  console.log(products)
+
   const [cartOpen, setCartOpen] = useState(false);
 
   const cierroCarro = () => {

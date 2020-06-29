@@ -21,22 +21,29 @@ import PagoRechazado from "./components/PaginaDePago/PagoRechazado"
 import PagoPendiente from "./components/PaginaDePago/PagoPendiente"
 
 import "./App.css";
-import productos from "./components/Main/basedatos";
+
 
 
 function App() {
   const token = localStorage.getItem("Token");
   const [authen, setAuthen] = useState(token);
   const [usuario ,setUsuario] = useState({})
-
+  const [userId , setUserId ] = useState();
+  const [products, setProducts] = useState([]);
   //Prueba Carrito
   const [carrito, setCarrito] = useState([])
+
+const cargarUserId = (usuario) => {
+  setUserId(usuario._id)
+  
+}
 
 const autenticar = async () => {
   try {
     const response = await axiosInstance.get("/private",{ headers: {"Authorization" : `Bearer ${authen}`} })
     setUsuario(response.data.user)
- 
+    cargarUserId(response.data.user)
+    
   } catch (error) {
     console.log(error)
   }
@@ -46,7 +53,7 @@ const autenticar = async () => {
   useEffect(() => {
     autenticar()
   }, [authen])
-
+  
   return (
     <Router>
       <Switch>
@@ -57,18 +64,18 @@ const autenticar = async () => {
           <Register />
         </Route>
         <Route exact path="/main">
-          <Main authen={authen} setAuthen={setAuthen} usuario={usuario} setCarrito={setCarrito} />
+          <Main authen={authen} setAuthen={setAuthen} usuario={usuario} setCarrito={setCarrito} userId={userId} products={products} setProducts={setProducts}/>
         </Route>
         <Route exact path="/shopping-checkout" render={(props) => <ShoppingCheckout {...props} carrito={carrito} />} />
 
         <Route exact path="/service" >
-          <PageService authen={authen} setAuthen={setAuthen} />
+          <PageService authen={authen} setAuthen={setAuthen} usuario={usuario} />
         </Route>
         <Route exact path="/payment">
           <Payment authen={authen} setAuthen={setAuthen} />
         </Route>
         <Route exact path="/turn">
-          <Turn authen={authen} setAuthen={setAuthen} />
+          <Turn authen={authen} setAuthen={setAuthen} usuario={usuario}/>
         </Route>
         <Route exact path="/admin">
           <Admin />

@@ -23,7 +23,7 @@ const Mostrador = ({ setProducts, products }) => {
 
 const getProductos = async() =>{
  const response= await  axiosInstance.get("/producto");
- console.log(response.data.productos);
+ 
  setProductos(response.data.productos)
 }
 useEffect(() => {
