@@ -1,28 +1,15 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment} from "react";
 import { Col, Row, Form, Container, Card } from "react-bootstrap";
-import { useForm } from "react-hook-form";
 import Cards from "react-credit-cards";
 import "./styles.css";
 import "react-credit-cards/es/styles-compiled.css";
 
-const CreditCard = ({
-  onClick,
-  seleccionado,
-  setCamposValidos,
-  setDatosTarjeta,
-  datosTarjeta,
-}) => {
-  const { register, errors, handleSubmit } = useForm();
-
+const CreditCard = ({ onClick, seleccionado, register, errors }) => {
   const [numero, setNumero] = useState("");
   const [nombre, setNombre] = useState("");
   const [expiracion, setExpiracion] = useState("");
   const [cvc, setCvc] = useState("");
   const [focus, setFocus] = useState("");
-
-  const GuardarDatosTarjeta = (e) => {
-    
-  }
 
   return (
     <Fragment>
@@ -55,8 +42,12 @@ const CreditCard = ({
               <Row className="d-flex flex-column mt-3 mb-3">
                 <Col>
                   <Row>
-                    <Col className="mt-2" sm="1">
-                      <Form.Check checked={seleccionado} type="radio" />
+                    <Col className="mt-2" xs="auto">
+                      <Form.Check
+                        checked={seleccionado}
+                        readOnly={true}
+                        type="radio"
+                      />
                     </Col>
                     <Col>
                       <Card.Title>
@@ -79,49 +70,121 @@ const CreditCard = ({
                   <Form>
                     <Row className="d-flex flex-column">
                       <Col className="mb-3 mt-2">
-                        <Row className="d-fles justify-content-between">
-                          <Col sm="8">
+                        <Row className="">
+                          <Col xs="8" sm="6" md="6" lg="8">
                             <Form.Control
-                              className="d-flex justify-content-between"
+                              className="d-flex justify-content-between small-placeholder"
                               type="tel"
-                              name="number"
-                              placeholder="0000 0000 0000 0000"
-                              value={numero}
+                              name="numero"
+                              maxLength="16"
+                              placeholder="- - - -     - - - -     - - - -     - - - -"
+                              disabled={seleccionado ? false : true}
                               onChange={(e) => setNumero(e.target.value)}
                               onFocus={(e) => setFocus(e.target.name)}
+                              ref={register({
+                                required: true,
+                                minLength: 16,
+                              })}
                             />
+                            {errors.numero &&
+                              errors.numero.type === "required" && (
+                                <span className="input-error text-danger text-small d-block mb-2">
+                                  {seleccionado && "Campo requerido"}
+                                </span>
+                              )}
+                            {errors.numero &&
+                              errors.numero.type === "minLength" && (
+                                <span className="input-error text-danger text-small d-block mb-2">
+                                  {seleccionado
+                                    ? isNaN(numero)
+                                      ? "Solo números"
+                                      : "No menos de 16 caracteres"
+                                    : null}
+                                </span>
+                              )}
                           </Col>
-                          <Col sm="2">
+                          <Col xs="2" sm="3" md="3" lg="2">
                             <Form.Control
+                              className="small-placeholder"
                               type="tel"
-                              name="expiry"
+                              name="expiracion"
+                              maxLength="4"
                               placeholder="M/A"
-                              value={expiracion}
+                              disabled={seleccionado ? false : true}
                               onChange={(e) => setExpiracion(e.target.value)}
                               onFocus={(e) => setFocus(e.target.name)}
+                              ref={register({
+                                required: true,
+                                minLength: 4,
+                              })}
                             />
+                            {errors.expiracion &&
+                              errors.expiracion.type === "required" && (
+                                <span className="input-error text-danger text-small d-block mb-2">
+                                  {seleccionado && "Campo requerido"}
+                                </span>
+                              )}
+                            {errors.expiracion &&
+                              errors.expiracion.type === "minLength" && (
+                                <span className="input-error text-danger text-small d-block mb-2">
+                                  {seleccionado
+                                    ? isNaN(numero)
+                                      ? "Solo números"
+                                      : "No menos de 4 caracteres"
+                                    : null}
+                                </span>
+                              )}
                           </Col>
-                          <Col sm="2">
+                          <Col xs="2" sm="3" md="3" lg="2">
                             <Form.Control
+                              className="small-placeholder"
                               type="tel"
+                              maxLength="3"
                               name="cvc"
                               placeholder="CVC"
-                              value={cvc}
+                              disabled={seleccionado ? false : true}
                               onChange={(e) => setCvc(e.target.value)}
                               onFocus={(e) => setFocus(e.target.name)}
+                              ref={register({
+                                required: true,
+                                minLength: 3,
+                              })}
                             />
+                            {errors.cvc && errors.cvc.type === "required" && (
+                              <span className="input-error text-danger text-small d-block mb-2">
+                                {seleccionado && "Campo requerido"}
+                              </span>
+                            )}
+                            {errors.cvc && errors.cvc.type === "minLength" && (
+                              <span className="input-error text-danger text-small d-block mb-2">
+                                {seleccionado
+                                  ? isNaN(numero)
+                                    ? "Solo números"
+                                    : "No menos de 3 caracteres"
+                                  : null}
+                              </span>
+                            )}
                           </Col>
                         </Row>
                       </Col>
                       <Col>
                         <Form.Control
+                          className="small-placeholder"
                           type="text"
-                          name="name"
+                          name="nombre"
                           placeholder="Nombre en la Tarjeta"
-                          value={nombre}
+                          disabled={seleccionado ? false : true}
                           onChange={(e) => setNombre(e.target.value)}
                           onFocus={(e) => setFocus(e.target.name)}
+                          ref={register({
+                            required: true,
+                          })}
                         />
+                        {errors.nombre && errors.nombre.type === "required" && (
+                          <span className="input-error text-danger text-small d-block mb-2">
+                            {seleccionado && "Campo requerido"}
+                          </span>
+                        )}
                       </Col>
                     </Row>
                   </Form>
