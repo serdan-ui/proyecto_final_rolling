@@ -16,7 +16,7 @@ import { FaCartPlus, FaWindowClose } from "react-icons/fa";
 import mousered from "../Images/mousered.png";
 
 import { CardText } from "react-bootstrap/Card";
-import Swal from "sweetalert2";
+import swal from "sweetalert";
 
 const Mostrador = ({ setProducts, products }) => {
   // Estados
@@ -26,7 +26,7 @@ const Mostrador = ({ setProducts, products }) => {
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, img }) => {
-    Swal.fire({
+    swal({
       title: nombre,
       imageUrl: img,
       titleText: descripcion,
@@ -43,22 +43,12 @@ const Mostrador = ({ setProducts, products }) => {
 
     setProducts([...products, product]);
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      onOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-        
-      }
-    })
+  
     
-    Toast.fire({
+    swal({
       icon: 'success',
-      title: 'Signed in successfully'
+      title: 'Producto agregado correctamente',
+      timer: 2000,
     })
   };
 

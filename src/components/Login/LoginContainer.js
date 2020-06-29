@@ -9,7 +9,7 @@ import {
 } from "react-bootstrap";
 import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import Fab from "@material-ui/core/Fab";
-import Swal from 'sweetalert2';
+import swal from 'sweetalert';
 import {
   useHistory,
   useLocation
@@ -41,18 +41,12 @@ const LoginConteiner =  ({setAuthen}) => {
         localStorage.setItem("Token", response.data.token);
         history.push("/main")
       } catch (error) {
-        
-        Swal.fire({
-          position: 'center',
-          icon: 'error',
-          title: error.response.data.message,
-          showConfirmButton: false,
-          timer: 3000,
-          
-        }
-        )
+        swal ( "Error" ,  "Usuario o contraseña incorrecta." ,  "error" )
       }
     }
+       
+    
+    
    
     e.target.reset();
   };
@@ -73,8 +67,8 @@ const LoginConteiner =  ({setAuthen}) => {
               message: "Nombre es requerido. ",
             },
             maxLength: {
-              value: 12,
-              message: "No más de 12 carácteres!",
+              value: 50,
+              message: "No más de 50 carácteres!",
             },
             minLength: {
               value: 2,
