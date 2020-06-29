@@ -42,9 +42,9 @@ const FormTurn = () => {
           onChangeSelet(e);
         }}
       >
-        <option value="1">Reparacion</option>
+        <option value="1">Reparación</option>
         <option value="2">Ventas</option>
-        <option value="3">Acesoramiento comercial</option>
+        <option value="3">Asesoramiento comercial</option>
       </select>
       {typeForms()}
       <input type="submit" />

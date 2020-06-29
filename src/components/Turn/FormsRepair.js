@@ -11,9 +11,9 @@ const FormsRepair = () => {
         <option value="1">pc</option>
         <option value="2">celular</option>
         <option value="3">tablet</option>
-        <option value="4">notebok</option>
+        <option value="4">notebook</option>
       </select>
-      <label>Descripcion del Problema</label>
+      <label>Descripción del Problema</label>
       <textarea name="descripcion" ref={register} />
       <label>Elegir fecha</label>
       <section >
