@@ -19,7 +19,7 @@ const PagoExitoso = () => {
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQHBCJMWW3a1baV8vzC1NaYFhhzmmbcpoK6jjfoj8SmIA&usqp=CAU&ec=45675148"
                     style={{ height: '150px' }}></img>
 
-                  {/* src="https://thumbs.gfycat.com/QuaintLikelyFlyingfish-size_restricted.gif" */}
+                 
                   <Card.Text>
                     <h5>  <strong>¡Su pago fue procesado exitosamente!</strong></h5>
                   </Card.Text>

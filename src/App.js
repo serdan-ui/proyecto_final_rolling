@@ -75,7 +75,7 @@ const autenticar = async () => {
           <Payment authen={authen} setAuthen={setAuthen} />
         </Route>
         <Route exact path="/turn">
-          <Turn authen={authen} setAuthen={setAuthen} usuario={usuario}/>
+          <Turn authen={authen} setAuthen={setAuthen} usuario={usuario} userId={userId}/>
         </Route>
         <Route exact path="/admin">
           <Admin />
