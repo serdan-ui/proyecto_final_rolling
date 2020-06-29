@@ -31,7 +31,7 @@ const ShoppingCheckout = () => {
   });
   const [valorEnvio, setValorEnvio] = useState(0);
   const [valorImpuestos, setValorImpuestos] = useState(subtotal * 0.21);
-  const [valorDescuento, setDescuento] = useState(0);
+  const [valorDescuento, setValorDescuento] = useState(0);
 
   const CalcularSubtotal = () => {
     let subtotal = 0;
@@ -96,7 +96,7 @@ const ShoppingCheckout = () => {
               subtotal={subtotal}
               valorEnvio={valorEnvio}
               valorImpuestos={valorImpuestos}
-              setDescuento={setDescuento}
+              setDescuento={setValorDescuento}
               valorDescuento={valorDescuento}
             />
           </Col>

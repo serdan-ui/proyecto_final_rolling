@@ -71,9 +71,9 @@ const CreditCard = ({ onClick, seleccionado, register, errors }) => {
                     <Row className="d-flex flex-column">
                       <Col className="mb-3 mt-2">
                         <Row className="">
-                          <Col xs="8" sm="6" md="6" lg="8">
+                          <Col xs="12" sm="6" md="6" lg="8">
                             <Form.Control
-                              className="d-flex justify-content-between small-placeholder"
+                              className="d-flex justify-content-between small-placeholder mt-2"
                               type="tel"
                               name="numero"
                               maxLength="16"
@@ -103,9 +103,9 @@ const CreditCard = ({ onClick, seleccionado, register, errors }) => {
                                 </span>
                               )}
                           </Col>
-                          <Col xs="2" sm="3" md="3" lg="2">
+                          <Col xs="4" sm="3" md="3" lg="2">
                             <Form.Control
-                              className="small-placeholder"
+                              className="small-placeholder mt-2"
                               type="tel"
                               name="expiracion"
                               maxLength="4"
@@ -135,9 +135,9 @@ const CreditCard = ({ onClick, seleccionado, register, errors }) => {
                                 </span>
                               )}
                           </Col>
-                          <Col xs="2" sm="3" md="3" lg="2">
+                          <Col xs="4" sm="3" md="3" lg="2">
                             <Form.Control
-                              className="small-placeholder"
+                              className="small-placeholder mt-2"
                               type="tel"
                               maxLength="3"
                               name="cvc"
