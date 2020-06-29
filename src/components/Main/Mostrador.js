@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
 import {
   Row,
   Col,
@@ -12,31 +11,27 @@ import {
   Accordion,
 } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
-import axiosInstance from "../util/axiosInstance"
+import axiosInstance from "../util/axiosInstance";
 
 import { CardText } from "react-bootstrap/Card";
 import swal from "sweetalert";
 
-
 const Mostrador = ({ setProducts, products }) => {
-//Traer productos de base de datos
+  //Traer productos de base de datos
 
-const getProductos = async() =>{
- const response= await  axiosInstance.get("/producto");
- 
- setProductos(response.data.productos)
-}
-useEffect(() => {
-  getProductos()
-  
-}, [])
+  const getProductos = async () => {
+    const response = await axiosInstance.get("/producto");
 
+    setProductos(response.data.productos);
+  };
+  useEffect(() => {
+    getProductos();
+  }, []);
 
   // Estados
-  const [productos , setProductos]= useState([])
-  
- 
+  const [productos, setProductos] = useState([]);
 
+  const [categorias, setCategorias] = useState([]);
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {
@@ -46,10 +41,21 @@ useEffect(() => {
       titleText: descripcion,
       text: ` $ ${precio}`,
       imageHeight: 300,
-      imageAlt: 'A tall image'
-    })
-   
+      imageAlt: "A tall image",
+    });
   };
+
+  // const filtrarCategorias = ({productos,categoria}) => {
+  //   console.log(productos)
+  //     const newCategorias = productos.filter(element => element.tipo != categoria )
+  //     console.log(newCategorias)
+
+  //  }
+  //  const handleCategoria = (e) => {
+  //   const categoria = e
+  //   console.log(productos)
+  //   filtrarCategorias(productos,categoria)
+  // }
 
   //agregar al carrito
   const botonAlerta = (product) => {
@@ -57,59 +63,70 @@ useEffect(() => {
 
     setProducts([...products, product]);
 
-  
-    
     swal({
-      icon: 'success',
-      title: 'Producto agregado correctamente',
+      icon: "success",
+      title: "Producto agregado correctamente",
       timer: 2000,
-    })
+    });
   };
 
   return (
     <>
       <p className="titulo_product_main">Productos</p>
       <Container fluid className="contenedor-mostrador">
-        <Row style={{ background: "#171717" ,margin:"0px"}}>
-          <Col sm={2} style={{backgroundColor:'black'}} > 
-          <h3 style={{color:"white"}}>Filtrar por: </h3>
-          <br/>
-          <Dropdown >
-  <Dropdown.Toggle  id="dropdown-basic" style={{backgroundColor:"#212121"}}>
-   Categoria
-  </Dropdown.Toggle>
+        <Row style={{ background: "#171717", margin: "0px" }}>
+          <Col sm={2} style={{ backgroundColor: "black" }}>
+            <h3 style={{ color: "white" }}>Filtrar por: </h3>
+            <br />
+            <Dropdown>
+              <Dropdown.Toggle
+                id="dropdown-basic"
+                style={{ backgroundColor: "#212121" }}
+              >
+                Categoria
+              </Dropdown.Toggle>
 
-  <Dropdown.Menu>
-    <Dropdown.Item >Auriculares</Dropdown.Item>
-    <Dropdown.Item >Monitores</Dropdown.Item>
-    <Dropdown.Item >Mouse</Dropdown.Item>
-    <Dropdown.Item >Sillas</Dropdown.Item>
-    <Dropdown.Item >Teclados</Dropdown.Item>
-    <Dropdown.Item >Sillas</Dropdown.Item>
+              <Dropdown.Menu>
+                <Dropdown.Item eventKey="Auriculares">
+                  Auriculares
+                </Dropdown.Item>
+                <Dropdown.Item eventKey="Monitores">Monitores</Dropdown.Item>
+                <Dropdown.Item eventKey="Mouse">Mouse</Dropdown.Item>
+                <Dropdown.Item eventKey="Sillas">Sillas</Dropdown.Item>
+                <Dropdown.Item eventKey="Teclados">Teclados</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
 
-  </Dropdown.Menu>
-</Dropdown>
+            <br />
+            <br />
+            <Dropdown>
+              <Dropdown.Toggle
+                id="dropdown-basic"
+                style={{ backgroundColor: "#212121", outlineColor: "black" }}
+              >
+                Precio
+              </Dropdown.Toggle>
 
-  <br/>
-  <br/>
-  <Dropdown>
-  <Dropdown.Toggle id="dropdown-basic" style={{backgroundColor:"#212121", outlineColor:"black"}}>
-    Precio
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu>
-    <Dropdown.Item href="#/action-1">Menor a mayor</Dropdown.Item>
-    <Dropdown.Item href="#/action-2">Mayor a menor</Dropdown.Item>
-   
-  </Dropdown.Menu>
-</Dropdown>
-
-  </Col>
-          <Col  sm={8}  className="columnitax" style={{backgroundColor:'black'}}>
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Menor a mayor</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Mayor a menor</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+          <Col
+            sm={8}
+            className="columnitax"
+            style={{ backgroundColor: "black" }}
+          >
             <CardColumns className="cardColumns">
               {productos.map((producto) => (
                 <Card key={producto.id} sm={12} className="cardProduct">
-                  <Card.Img variant="top" src={producto.imagen[0]} rounded style={{height:"250px"}} />
+                  <Card.Img
+                    variant="top"
+                    src={producto.imagen[0]}
+                    rounded
+                    style={{ height: "250px" }}
+                  />
                   <Card.Body>
                     <Card.Title>{producto.nombre}</Card.Title>
                     <Card.Text>${producto.precio}</Card.Text>
@@ -122,9 +139,9 @@ useEffect(() => {
                           className="btnroto"
                           style={{
                             border: "3px solid #060606",
-                            color:"#19ED18",
-                            backgroundColor:"#060606",
-                            fontSize:"0.9rem",
+                            color: "#19ED18",
+                            backgroundColor: "#060606",
+                            fontSize: "0.9rem",
                           }}
                           onClick={() => mostrarImg(producto)}
                         >
@@ -137,14 +154,12 @@ useEffect(() => {
                           className="btnroto"
                           style={{
                             border: "2px solid #19ED18",
-                            fontSize:"0.9rem",
-                            backgroundColor:"#19ED18",
-                            color:"black"
+                            fontSize: "0.9rem",
+                            backgroundColor: "#19ED18",
+                            color: "black",
                           }}
                           onClick={() => botonAlerta(producto)}
-                          
                         >
-                          
                           <FaCartPlus /> Agregar
                         </Button>
                       </Col>
@@ -154,8 +169,7 @@ useEffect(() => {
               ))}
             </CardColumns>
           </Col>
-          <Col sm={2} style={{backgroundColor:'black'}} ></Col>
-          
+          <Col sm={2} style={{ backgroundColor: "black" }}></Col>
         </Row>
       </Container>
     </>

@@ -7,8 +7,9 @@ const Usuarios = () => {
   const [persona, setPersonas] = useState([])
 
   const traerUsuario = async() =>{
-    const response = await axiosInstance.get("/persona")
-    setPersonas(response.data.personas)
+    const response = await axiosInstance.get("/personas")
+    setPersonas(response.data.user)
+    console.log(response.data.user)
   }
   useEffect(()=>{
     traerUsuario();
@@ -33,7 +34,7 @@ const Usuarios = () => {
       <tr style={{color:"white"}} key={usuario._id}>
       <td>{index}</td>
       <td>{usuario.username}</td>
-      <td>{usuario.mail}</td>
+      <td>{usuario.email}</td>
       <td>{usuario.turn===undefined ? (<p>no tiene</p>) : usuario.turn}</td>
       </tr>
     ))}
