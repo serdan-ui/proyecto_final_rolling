@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {Table} from 'react-bootstrap'
+import axiosInstance from '../util/axiosInstance';
 
 const Usuarios = () => {
+
+  const [persona, setPersonas] = useState([])
+
+  const traerUsuario = async() =>{
+    const response = await axiosInstance.get("/persona")
+    setPersonas(response.data.personas)
+  }
+  useEffect(()=>{
+    traerUsuario();
+  }, [])
+
+
+
   return( <>
   <h3 className="text-center text-white">Usuarios Registrados</h3>
   <Table striped bordered hover responsive="sm" variant="dark" >
@@ -15,23 +29,14 @@ const Usuarios = () => {
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td colSpan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    {persona.length === 0 ? null : persona.map((usuario, index)=>(
+      <tr style={{color:"white"}} key={usuario._id}>
+      <td>{index}</td>
+      <td>{usuario.username}</td>
+      <td>{usuario.mail}</td>
+      <td>{usuario.turn===undefined ? (<p>no tiene</p>) : usuario.turn}</td>
+      </tr>
+    ))}
   </tbody>
 </Table>
 </>

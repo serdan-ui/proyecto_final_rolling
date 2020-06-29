@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import "./style.css";
 import Graficos from "./Graficos";
-
+import Productos from './Productos'
 import AgregProd from "./AgregProd"
 import TurnosPanel from "./TurnosPanel"
 import Usuarios from "./Usuarios"
@@ -20,7 +20,7 @@ const Admin = () => {
 
     if (cuerpo === "Graficos") {
       return <Graficos />;
-    } else if (cuerpo === "AgregProd"){
+    } else if (cuerpo === "Nuevo producto"){
         return (<AgregProd/>)
     }else if ( cuerpo === "TurnosPanel"){
       return (<TurnosPanel/>)
@@ -28,6 +28,8 @@ const Admin = () => {
       return (<Usuarios/>)
     }else if (cuerpo === "Ventas"){
       return (<Ventas/>)
+    }else if (cuerpo === "Productos"){
+      return (<Productos/>)
     }
         
     
@@ -77,7 +79,13 @@ const Admin = () => {
                 <li class="has-subnav">
                   <a href="#">
                     <i class="fa fa-folder-open fa-2x"></i>
-                    <span class="nav-text" onClick={(e) => cambiar(e)}>AgregProd</span>
+                    <span class="nav-text" onClick={(e) => cambiar(e)}>Nuevo producto</span>
+                  </a>
+                </li>
+                <li class="has-subnav">
+                  <a href="#">
+                    <i class="fa fa-folder-open fa-2x"></i>
+                    <span class="nav-text" onClick={(e) => cambiar(e)}>Productos</span>
                   </a>
                 </li>
 
