@@ -27,6 +27,7 @@ text-align: start;
 .container_titulo_reg{
     justify-content: center;
     display: flex;
+    color: aliceblue;
 }
 .btn-redes{
     border-radius: 10px;

@@ -27,6 +27,7 @@ const BtnCart = ({products, setCarrito }) => {
 
   return (
     <>
+    <div className="padreContainer">
       <div className={clase}>
         <Button className="btnCart_header mr-2" onClick={abreCarro}>
           {" "}
@@ -81,9 +82,12 @@ const BtnCart = ({products, setCarrito }) => {
                       </ListGroup.Item>
                     </Col>
                     <Col>
-                      <ListGroup.Item className="productitoslistados"> ${product.precio}</ListGroup.Item>
+                      <ListGroup.Item className="productitoslistados m-1"> ${product.precio}</ListGroup.Item>
+                      <Button variant="dark" text="white">Eliminar</Button>
                     </Col>
+                    
                   </ListGroup>
+                  
                 </Row>
               ))}
                <Row>
@@ -118,6 +122,7 @@ const BtnCart = ({products, setCarrito }) => {
                 </Row>
         </ListGroup>
         
+      </div>
       </div>
     </>
   );

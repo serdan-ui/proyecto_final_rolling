@@ -7,16 +7,16 @@ import {
   Card,
   Button,
   Container,
-
-
   CardColumns,
- 
+  Dropdown,
+  Accordion,
 } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
+import axiosInstance from "../util/axiosInstance"
 
+import { CardText } from "react-bootstrap/Card";
+import swal from "sweetalert";
 
-import Swal from "sweetalert2";
-import axiosInstance from "../util/axiosInstance";
 
 const Mostrador = ({ setProducts, products }) => {
 //Traer productos de base de datos
@@ -40,7 +40,7 @@ useEffect(() => {
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {
-    Swal.fire({
+    swal({
       title: nombre,
       imageUrl: imagen[0],
       titleText: descripcion,
@@ -57,22 +57,12 @@ useEffect(() => {
 
     setProducts([...products, product]);
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      onOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-        
-      }
-    })
+  
     
-    Toast.fire({
+    swal({
       icon: 'success',
-      title: 'Signed in successfully'
+      title: 'Producto agregado correctamente',
+      timer: 2000,
     })
   };
 
@@ -81,7 +71,40 @@ useEffect(() => {
       <p className="titulo_product_main">Productos</p>
       <Container fluid className="contenedor-mostrador">
         <Row style={{ background: "#171717" ,margin:"0px"}}>
-          <Col sm={2} style={{backgroundColor:'black'}} ></Col>
+          <Col sm={2} style={{backgroundColor:'black'}} > 
+          <h3 style={{color:"white"}}>Filtrar por: </h3>
+          <br/>
+          <Dropdown >
+  <Dropdown.Toggle  id="dropdown-basic" style={{backgroundColor:"#212121"}}>
+   Categoria
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+    <Dropdown.Item >Auriculares</Dropdown.Item>
+    <Dropdown.Item >Monitores</Dropdown.Item>
+    <Dropdown.Item >Mouse</Dropdown.Item>
+    <Dropdown.Item >Sillas</Dropdown.Item>
+    <Dropdown.Item >Teclados</Dropdown.Item>
+    <Dropdown.Item >Sillas</Dropdown.Item>
+
+  </Dropdown.Menu>
+</Dropdown>
+
+  <br/>
+  <br/>
+  <Dropdown>
+  <Dropdown.Toggle id="dropdown-basic" style={{backgroundColor:"#212121", outlineColor:"black"}}>
+    Precio
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+    <Dropdown.Item href="#/action-1">Menor a mayor</Dropdown.Item>
+    <Dropdown.Item href="#/action-2">Mayor a menor</Dropdown.Item>
+   
+  </Dropdown.Menu>
+</Dropdown>
+
+  </Col>
           <Col  sm={8}  className="columnitax" style={{backgroundColor:'black'}}>
             <CardColumns className="cardColumns">
               {productos.map((producto) => (
