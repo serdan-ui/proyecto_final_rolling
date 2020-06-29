@@ -1,14 +1,14 @@
 .metodo-pago{
-    background-color: rgb(224, 224, 224) !important;
+    background-color: rgb(255, 255, 255) !important;
     transition: 0.3s;
 }
 .metodo-pago:hover {
-    background-color: rgb(253, 253, 253)  !important;
+    background-color: rgb(231, 231, 231)  !important;
     cursor: pointer;
 }
 
 .metodo-seleccionado {
-    background-color: rgb(253, 253, 253) !important;
+    background-color: rgb(235, 235, 235) !important;
 }
 
 .tarjeta-grafico {

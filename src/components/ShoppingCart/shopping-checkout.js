@@ -29,9 +29,9 @@ const ShoppingCheckout = () => {
     );
     return subtotal;
   });
-
   const [valorEnvio, setValorEnvio] = useState(0);
   const [valorImpuestos, setValorImpuestos] = useState(subtotal * 0.21);
+  const [valorDescuento, setDescuento] = useState(0);
 
   const CalcularSubtotal = () => {
     let subtotal = 0;
@@ -76,7 +76,6 @@ const ShoppingCheckout = () => {
         <Row className="shopping-detail-panel d-sm-flex flex-md-row flex-column-reverse">
           <Col>
             <Slider ref={SliderContainer} {...sliderSettings}>
-            <PaymentDetail sliderAnterior={SliderAnterior}/>
               <ShoppingCart
                 carrito={carrito}
                 setCarrito={setCarrito}
@@ -88,7 +87,7 @@ const ShoppingCheckout = () => {
                 sliderAnterior={SliderAnterior}
                 setValorEnvio={setValorEnvio}
               />
-             {/*  <PaymentDetail sliderAnterior={SliderAnterior}/> */}
+              <PaymentDetail sliderAnterior={SliderAnterior}/>
             </Slider>
           </Col>
 
@@ -97,6 +96,8 @@ const ShoppingCheckout = () => {
               subtotal={subtotal}
               valorEnvio={valorEnvio}
               valorImpuestos={valorImpuestos}
+              setDescuento={setDescuento}
+              valorDescuento={valorDescuento}
             />
           </Col>
         </Row>

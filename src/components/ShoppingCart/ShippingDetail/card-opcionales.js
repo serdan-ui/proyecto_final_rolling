@@ -16,7 +16,7 @@ const CardOpcion = ({name, onChange, onClick, seleccionado, value, titulo, descr
       onClick={onClick}
     >
       <Card.Body>
-        <Row className="d-flex justify-content-center">
+        <Row className="d-flex justify-content-center align-items-center">
           <Col xs="auto" className="d-flex align-items-center mb-sm-2 ">
             <FormCheck
               className="card-envio-checkbox"

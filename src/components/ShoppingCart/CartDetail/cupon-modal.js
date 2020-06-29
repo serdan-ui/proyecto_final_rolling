@@ -1,46 +1,48 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, Fragment, useEffect, useRef } from "react";
+import cupones from "../1 DB/cupones";
 import { Modal, Button, Form, Col, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./styles.css";
 
-function CuponModal() {
+function CuponModal({ setDescuento, subtotal }) {
   const [mostrarModal, setMostrarModal] = useState(false);
-  const [estaCargando, setCargando] = useState(false);
-  const [errorInput, setErrorInput] = useState("");
-  const [formValido, setFormValido] = useState(false);
+  const [validandoCupon, setValidandoCupon] = useState(false);
+  const [cuponIngresado, setCuponIngresado] = useState({ codigo: "", pin: "" });
+  const [cuponValido, setCuponValido] = useState();
 
   const { register, errors, handleSubmit } = useForm();
-
-  const ValidarInput = (e, longitud) => {
-    if (isNaN(e.target.value) === true) {
-      setErrorInput("Solo se aceptan números");
-      setFormValido(false);
-    } else if (e.target.value.length < longitud) {
-      setErrorInput("No menos de " + longitud + " caracteres");
-      setFormValido(false);
-    } else {
-      setErrorInput("");
-      setFormValido(true);
-    }
-  };
 
   function simularCargando() {
     return new Promise((resolve) => setTimeout(resolve, 1200));
   }
 
   useEffect(() => {
-    if (estaCargando) {
+    cupones.map((cupon) =>
+      cupon.codigo === parseInt(cuponIngresado.codigo) &&
+      cupon.pin === parseInt(cuponIngresado.pin)
+        ? setCuponValido(true) || setDescuento((cupon.descuento * subtotal) / 100) || setMostrarModal(false)
+        : setCuponValido(false)
+    );
+  }, [validandoCupon]);
+
+  useEffect(() => {
+    if (validandoCupon) {
       simularCargando().then(() => {
-        setCargando(false);
+        setValidandoCupon(false);
       });
     }
-  }, [estaCargando]);
+  }, [validandoCupon]);
 
-  const onSubmit = () => {};
+  const onSubmit = (datos) => {
+    console.log(datos);
+    setCuponIngresado(datos);
+  };
+
 
   return (
     <Fragment>
       <Button
+        disabled={cuponValido}
         variant="outline-danger"
         className="cupon shadow-sm"
         onClick={() => setMostrarModal(true)}
@@ -50,13 +52,14 @@ function CuponModal() {
         <h6 className="mt-2">CANJEAR CUPÓN</h6>
       </Button>
       <Modal
+        ref={Modal}
         size="lg"
         aria-labelledby="contained-modal-title-vcenter"
         centered
         show={mostrarModal}
-        onHide={() => setMostrarModal(false)}
+        onHide={() => setMostrarModal(false)}   
       >
-        <Modal.Header closeButton={estaCargando ? false : true}>
+        <Modal.Header closeButton={validandoCupon ? false : true}>
           <Modal.Title id="contained-modal-title-vcenter" className="mt-3">
             <h3 className="titulo-cupon">Cupón de descuento</h3>
           </Modal.Title>
@@ -73,25 +76,24 @@ function CuponModal() {
                     <Row className="d-md-flex flex-md-row mr-sm-4 ml-sm-4">
                       <Col sm="8">
                         <Form.Control
-                          disabled={estaCargando}
+                          disabled={validandoCupon}
                           className="mb-2 input-cupon"
                           type="text"
                           maxLength="10"
-                          name="codigoCupon"
+                          name="codigo"
                           placeholder="Código del cupón"
                           ref={register({
                             required: true,
                             minLength: 10,
                           })}
                         />
-                        {errors.codigoCupon &&
-                          errors.codigoCupon.type === "required" && (
-                            <span className="input-error text-danger text-small d-block mb-2">
-                              Campo requerido
-                            </span>
-                          )}
-                        {errors.codigoCupon &&
-                          errors.codigoCupon.type === "minLength" && (
+                        {errors.codigo && errors.codigo.type === "required" && (
+                          <span className="input-error text-danger text-small d-block mb-2">
+                            Campo requerido
+                          </span>
+                        )}
+                        {errors.codigo &&
+                          errors.codigo.type === "minLength" && (
                             <span className="input-error text-danger text-small d-block mb-2">
                               No menos de 10 caracteres
                             </span>
@@ -100,29 +102,27 @@ function CuponModal() {
 
                       <Col xs="4" sm="4">
                         <Form.Control
-                          disabled={estaCargando}
+                          disabled={validandoCupon}
                           type="text"
                           maxLength="4"
                           className="mb-2 input-cupon"
                           placeholder="PIN"
-                          name="pinCupon"
+                          name="pin"
                           ref={register({
                             required: true,
                             minLength: 4,
                           })}
                         />
-                        {errors.pinCupon &&
-                          errors.pinCupon.type === "required" && (
-                            <span className="input-error text-danger text-small d-block mb-2">
-                              Campo requerido
-                            </span>
-                          )}
-                        {errors.pinCupon &&
-                          errors.pinCupon.type === "minLength" && (
-                            <span className="input-error text-danger text-small d-block mb-2">
-                              No menos de 4 caracteres
-                            </span>
-                          )}
+                        {errors.pin && errors.pin.type === "required" && (
+                          <span className="input-error text-danger text-small d-block mb-2">
+                            Campo requerido
+                          </span>
+                        )}
+                        {errors.pin && errors.pin.type === "minLength" && (
+                          <span className="input-error text-danger text-small d-block mb-2">
+                            No menos de 4 caracteres
+                          </span>
+                        )}
                       </Col>
                     </Row>
                   </form>
@@ -141,7 +141,7 @@ function CuponModal() {
         </Modal.Body>
         <Modal.Footer>
           <Button
-            disabled={estaCargando}
+            disabled={validandoCupon}
             variant="outline-secondary"
             onClick={() => setMostrarModal(false)}
           >
@@ -150,10 +150,12 @@ function CuponModal() {
           <Button
             className="btn-cargando"
             variant="success"
-            disabled={estaCargando}
-            onClick={handleSubmit(() => setCargando(true))}
+            disabled={validandoCupon}
+            onClick={handleSubmit(
+              (data) => setValidandoCupon(true) || onSubmit(data)
+            )}
           >
-            {estaCargando ? (
+            {validandoCupon ? (
               <div className="spinner-border spinner-border-sm" role="status">
                 <span className="sr-only">Loading...</span>
               </div>
