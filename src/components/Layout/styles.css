@@ -10,6 +10,12 @@
   justify-content: space-between;
   flex: 1;
 }
+/* .containerCart{
+  overflow: scroll !important;
+} */
+.clase{
+  overflow: scroll !important;
+}
 .logo {
   display: flex;
   flex-direction: row;
@@ -67,6 +73,7 @@
   color: whitesmoke;
   border: none !important;
   padding: 0px !important;
+
 }
 
 .nav_header {
@@ -129,6 +136,7 @@
   width: 10vw;
 
 }
+
 .btnCartOpen{
   border: none !important;
   box-shadow: 1px 0px 5px 1px #19ED18;
@@ -141,6 +149,7 @@
   z-index: 10;
   right: 0px !important;
   z-index: 16 ;
+ 
 }
 
 /*? FOOTER */

@@ -17,9 +17,9 @@ const FormComercial = ({ register, control }) => {
             <>
               <label>Modelo</label>
               <select name="modelo" ref={register}>
-                <option value="1">apple</option>
-                <option value="2">hp</option>
-                <option value="3">lenovo</option>
+                <option value="1">Apple</option>
+                <option value="2">Hp</option>
+                <option value="3">Lenovo</option>
               </select>
             </>
           );
@@ -28,7 +28,7 @@ const FormComercial = ({ register, control }) => {
             <>
               <label>Modelo</label>
               <select name="modelo" ref={register}>
-                <option value="1">samsung</option>
+                <option value="1">Samsung</option>
                 <option value="2">Apple</option>
                 <option value="3">Motorola</option>
                 <option value="4">Xiaomi</option>
@@ -55,15 +55,15 @@ const FormComercial = ({ register, control }) => {
                 <option value="1">lenovo</option>
                 <option value="2">Apple</option>
                 <option value="3">Exo</option>
-                <option value="4">dell</option>
-                <option value="5">hp</option>
+                <option value="4">Dell</option>
+                <option value="5">Hp</option>
               </select>
             </>
           );
         }
       };
     return ( <>
-        <label>¿Que equipo estas buscando?</label>
+        <label>¿Que equipo estás buscando?</label>
         <select
           name="dispositivo"
           ref={register}
@@ -74,13 +74,13 @@ const FormComercial = ({ register, control }) => {
           <option value="1">pc</option>
           <option value="2">celular</option>
           <option value="3">tablet</option>
-          <option value="4">notebok</option>
+          <option value="4">notebook</option>
         </select>
         {changeDevice()}
 
         {dispositivo === 1 || dispositivo === 4 ? (
           <>
-            <label>Descripcion del dispositivo</label>
+            <label>Descripción del dispositivo</label>
             <textarea
               name="descripcion"
               ref={register}
