@@ -10,12 +10,13 @@
   justify-content: space-between;
   flex: 1;
 }
-/* .containerCart{
-  overflow: scroll !important;
-} */
-.clase{
-  overflow: scroll !important;
-}
+ .containerCart{
+ overflow-x:hidden ;
+  overflow-y: scroll;
+  min-height: 100px;
+  height: 500px;
+} 
+
 .logo {
   display: flex;
   flex-direction: row;

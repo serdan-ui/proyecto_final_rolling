@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button, ListGroup, Badge, Row, Col } from "react-bootstrap";
 import { FaCartPlus, FaRegWindowClose } from "react-icons/fa";
+import axiosInstance from "../util/axiosInstance";
 
 const BtnCart = ({ products, setCarrito }) => {
-  console.log(products);
+ 
 
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -28,10 +29,21 @@ for (var i = 0; i < parseInt(stock); i++) {
 return 
 }
 
+const claseBotones =  () => {
+  let classBot;
+  if(cartOpen){
+   return  
+  }else{
+  return  classBot="none"
+  }  
+}
+
+
+
   return (
     <>
       <div className="padreContainer">
-        <div className={clase}>
+        <div className={clase} >
           <Button className="btnCart_header mr-2" onClick={abreCarro}>
             {" "}
             <FaCartPlus className="icons_header_cart" />
@@ -54,8 +66,9 @@ return
               </h4>
             </Col>
           </Row>
-          <ListGroup className="containerCart">
-            <Row>
+          <div>
+          <ListGroup className="containerCart" >
+            <Row >
               <ListGroup horizontal className="estilosTitulosbtn">
                 <Col xs={5}>
                   <ListGroup.Item className="estilosTitulosbtn">
@@ -114,7 +127,9 @@ return
                     </ListGroup>
                   </Row>
                 ))}
-            <Row>
+              </ListGroup>
+              
+            <Row style={{display:claseBotones()}} >
               <Col>
                 <Button
                   onClick={() => setCarrito(products)}
@@ -126,6 +141,7 @@ return
                     color: "#19ED18",
                     backgroundColor: "#060606",
                   }}
+                 
                 >
                   Ir a carrito
                 </Button>
@@ -145,7 +161,8 @@ return
                 </Button>
               </Col>
             </Row>
-          </ListGroup>
+            
+            </div>
         </div>
       </div>
     </>

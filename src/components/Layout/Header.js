@@ -16,6 +16,7 @@ const Header = ({
   setCarrito,
   userId,
   setProducts,
+  fetchCarrito
 }) => {
   let history = useHistory();
 
@@ -32,20 +33,13 @@ const Header = ({
       user = userId;
       console.log(user)
       fetchCarrito(user);
-    }, []);
+    }, [products]);
   };
 
 
-  const fetchCarrito = async (user) => {
-    const id = user;
-    const response = await axiosInstance.get(`/cart/${id}`);
-   if(response.data.carrito[0]===undefined){
-     
-   }else{
-    setProducts(response.data.carrito[0].productos);
-   }
-  
-  };
+
+
+
   if (userId === undefined) {
     return <HeaderStatic/>;
   } else {
