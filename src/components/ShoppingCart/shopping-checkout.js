@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import Slider from "react-slick";
-import ShippingDetail from "./ShippingDetail/shipping-detail";
+import ShippingDetail from "./ShippingDetail/ShippingDetail";
 import ShoppingCart from "./CartDetail/ShoppingCart";
 import Fotter from "../Layout/Fotter";
 import HeaderStatic from "../Layout/HeaderStatic";
@@ -29,23 +29,27 @@ const ShoppingCheckout = () => {
     );
     return subtotal;
   });
-
-  const [envio, setEnvio] = useState(0);
-  const [impuestos, setImpuestos] = useState(subtotal * 0.21);
+  const [valorEnvio, setValorEnvio] = useState(0);
+  const [valorImpuestos, setValorImpuestos] = useState(subtotal * 0.21);
+  const [valorDescuento, setValorDescuento] = useState(0);
 
   const CalcularSubtotal = () => {
     let subtotal = 0;
     carrito.map(
       (producto) => (subtotal += producto.precio * producto.cantidad)
     );
-    console.log(carrito);
     setSubtotal(subtotal);
-    setImpuestos(subtotal * 0.21);
+    setValorImpuestos(subtotal * 0.21);
   };
+
+  useEffect(() => {
+    CalcularSubtotal();
+  }, [carrito])
 
   //Slider
   const sliderSettings = {
-     draggable: false,
+    swipe: false,
+    draggable: false,
     dots: false,
     infinite: false,
     speed: 500,
@@ -69,7 +73,7 @@ const ShoppingCheckout = () => {
       <HeaderStatic />
 
       <Container className="shopping-detail-container rounded mt-5 mb-5">
-        <Row>
+        <Row className="shopping-detail-panel d-sm-flex flex-md-row flex-column-reverse">
           <Col>
             <Slider ref={SliderContainer} {...sliderSettings}>
               <ShoppingCart
@@ -81,16 +85,19 @@ const ShoppingCheckout = () => {
               <ShippingDetail
                 sliderSiguiente={SliderSiguiente}
                 sliderAnterior={SliderAnterior}
+                setValorEnvio={setValorEnvio}
               />
               <PaymentDetail sliderAnterior={SliderAnterior}/>
             </Slider>
           </Col>
 
-          <Col md="4">
+          <Col md="5" lg="4" className="mb-md-5">
             <ResumenCompra
               subtotal={subtotal}
-              envio={envio}
-              impuestos={impuestos}
+              valorEnvio={valorEnvio}
+              valorImpuestos={valorImpuestos}
+              setDescuento={setValorDescuento}
+              valorDescuento={valorDescuento}
             />
           </Col>
         </Row>

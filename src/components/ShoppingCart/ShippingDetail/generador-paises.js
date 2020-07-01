@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const PaisesContainer = () => {
   const [paises, setPaises] = useState([]);
-  const [isFetch, setIsFetch] = useState();
 
   useEffect(() => {
     const url = "https://restcountries.eu/rest/v2/all";
@@ -10,9 +9,10 @@ const PaisesContainer = () => {
     fetch(url)
       .then((response) => response.json())
       .then((paisesJson) => setPaises(paisesJson))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err)); 
 
   }, []);
+
 
   return paises.map((item, index) => (
     <option key={index}>{item.name}</option>

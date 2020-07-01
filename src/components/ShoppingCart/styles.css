@@ -7,3 +7,47 @@
     max-height: 30rem;
     overflow-y: scroll;
 }
+
+.card-descuento {
+    font-size: 1.2rem !important;
+    color: rgb(36, 158, 42);
+    background-color: whitesmoke !important;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    border: 2px dashed rgb(111, 221, 117) !important;
+}
+.card-descuento h6 {
+    font-size: 0.8rem !important;
+    font-weight: bolder !important;
+    color: rgb(178, 180, 177) !important;
+}
+
+#cupon {
+    background-image: url("./assets/cool-background.svg") !important;
+    border: 3px solid rgb(99, 99, 99);
+/*     border: 3px solid rgba(71,138,63,1); */
+/*     background: radial-gradient(circle, rgba(71,138,63,1) 30%, rgba(85,176,74,1) 72%, rgb(93, 201, 79) 100%); */
+    box-shadow: 0px 0px 24px 0px rgb(168, 168, 168);
+    color: rgb(248, 248, 248);
+    max-width: 30rem !important;
+}
+
+#cupon-descuento {
+    font-size: 2rem !important;
+    font-weight: bolder !important;
+}
+
+#cupon-terminos {
+    font-size: 0.6rem !important;
+}
+
+.btn-cargando {
+    min-width: 9rem !important;
+    max-height: 2.4rem !important;
+}
+
+@media (max-width: 575px) {
+    .card-descuento{
+        margin-left: -15px !important;
+    }
+}
