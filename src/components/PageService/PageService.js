@@ -1,21 +1,19 @@
 import React from "react";
-import { Container, Row, Col, Image } from "react-bootstrap";
-import Avatar from "../Images/avatarprueba.png";
+import { Container, Row, Col } from "react-bootstrap";
+
 import Rochy from "../Images/rochy.png";
 import Sergio from "../Images/sergio.png";
 import Nicole from "../Images/nicole1.jpeg";
-import Mariana from "../Images/mariana.png";
-import Silvia from "../Images/silvia.png";
 import Mauricio from "../Images/mauricio.png";
 import HeaderStatic from "../Layout/HeaderStatic";
 import Footer from "../Layout/Fotter";
 // stilos de register
 import "./styles.css";
 
-const PageService = ({ authen, setAuthen }) => {
+const PageService = ({ authen, setAuthen ,usuario}) => {
   return (
     <>
-      <HeaderStatic authen={authen} setAuthen={setAuthen} />
+      <HeaderStatic authen={authen} setAuthen={setAuthen} usuario={usuario}/>
       <Container fluid className="bodyPadre">
         <Row>
           <Col xs={12} xl={6}>
@@ -131,9 +129,9 @@ const PageService = ({ authen, setAuthen }) => {
             <div className="persona roundedCircle " style={{ padding: "5px" }}>
               {" "}
               <img
-                style={{ height: "150px" }}
                 src={Rochy}
                 className="imagen-pers"
+                alt="photo"
               />{" "}
               <div className="nombre-imagen">
                 {" "}
@@ -147,7 +145,7 @@ const PageService = ({ authen, setAuthen }) => {
             <div className="persona roundedCircle ">
               {" "}
               <img
-                style={{ height: "150px" }}
+              alt="photo"
                 src={Sergio}
                 className="imagen-pers"
               />
@@ -162,7 +160,7 @@ const PageService = ({ authen, setAuthen }) => {
             {" "}
             <div className="persona roundedCircle ">
               <img
-                style={{ height: "150px" }}
+              alt="photo"
                 src={Nicole}
                 className="imagen-pers"
               />
@@ -175,10 +173,10 @@ const PageService = ({ authen, setAuthen }) => {
 
           <Col xs={12} xl={2}>
             {" "}
-            <div className="persona roundedCircle ">
+            <div className="persona  ">
               {" "}
               <img
-                style={{ height: "150px" }}
+              alt="photo"
                 src={Mauricio}
                 className="imagen-pers"
               />

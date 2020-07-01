@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import {  useForm, Controller } from "react-hook-form";
+import {   Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 
 
-const FormComercial = () => {
+const FormComercial = ({ register, control }) => {
     const [dispositivo, setDispositivo] = useState(1);
-    const { register, control } = useForm();
+  
     const onChangeDevice = (e) => {
         let typeDevice = e.target.value;
         setDispositivo(parseInt(typeDevice));
@@ -17,9 +17,9 @@ const FormComercial = () => {
             <>
               <label>Modelo</label>
               <select name="modelo" ref={register}>
-                <option value="1">apple</option>
-                <option value="2">hp</option>
-                <option value="3">lenovo</option>
+                <option value="1">Apple</option>
+                <option value="2">Hp</option>
+                <option value="3">Lenovo</option>
               </select>
             </>
           );
@@ -28,7 +28,7 @@ const FormComercial = () => {
             <>
               <label>Modelo</label>
               <select name="modelo" ref={register}>
-                <option value="1">samsung</option>
+                <option value="1">Samsung</option>
                 <option value="2">Apple</option>
                 <option value="3">Motorola</option>
                 <option value="4">Xiaomi</option>
@@ -55,15 +55,15 @@ const FormComercial = () => {
                 <option value="1">lenovo</option>
                 <option value="2">Apple</option>
                 <option value="3">Exo</option>
-                <option value="4">dell</option>
-                <option value="5">hp</option>
+                <option value="4">Dell</option>
+                <option value="5">Hp</option>
               </select>
             </>
           );
         }
       };
     return ( <>
-        <label>¿Que equipo estas buscando?</label>
+        <label>¿Que equipo estás buscando?</label>
         <select
           name="dispositivo"
           ref={register}
@@ -74,13 +74,13 @@ const FormComercial = () => {
           <option value="1">pc</option>
           <option value="2">celular</option>
           <option value="3">tablet</option>
-          <option value="4">notebok</option>
+          <option value="4">notebook</option>
         </select>
         {changeDevice()}
 
         {dispositivo === 1 || dispositivo === 4 ? (
           <>
-            <label>Descripcion del dispositivo</label>
+            <label>Descripción del dispositivo</label>
             <textarea
               name="descripcion"
               ref={register}
@@ -109,10 +109,17 @@ const FormComercial = () => {
         </section>
         <label>selecciona una hora</label>
         <select name="hora" ref={register}>
-          <option value="12:00">12:00</option>
-          <option value="13:00">13:00</option>
-          <option value="14:00">14:00</option>
-          <option value="15:00">15:00</option>
+        <option value="08:00">08:00</option>
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <option value="11:00">11:00</option>
+        <option value="12:00">12:00</option>
+        <option value="16:00">16:00</option>
+        <option value="17:00">17:00</option>
+        <option value="18:00">18:00</option>
+        <option value="19:00">19:00</option>
+        <option value="20:00">20:00</option>
+        <option value="21:00">21:00</option>
         </select>
       </> );
 }

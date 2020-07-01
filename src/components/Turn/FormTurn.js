@@ -4,16 +4,35 @@ import FormsRepair from "./FormsRepair";
 import "react-datepicker/dist/react-datepicker.css";
 import FormBuy from "./FormBuy";
 import FormComercial from "./FormComercial"
+import axiosInstance from "../util/axiosInstance";
+import { useHistory } from "react-router-dom";
 
-const FormTurn = () => {
+const FormTurn = (userId) => {
+  let history = useHistory()
   const [forms, setForms] = useState(1);
   const [data, setData] = useState(null);
   
+  const enviarTurno = async(Turno) => {
+    const response = await axiosInstance.post("/turno", Turno)
+    
+    console.log(response)
+   
+  }
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, control ,reset} = useForm();
   const onSubmit = (data) => {
     setData(data);
-    console.log(data);
+   const {fecha , hora , descripcion , servicio , precio, dispositivo , modelo ,estado} = data;
+ const newTurno={
+   fecha,
+   hora,
+   servicio,
+  usuario:userId.userId.userId
+ }
+ enviarTurno(newTurno);
+ 
+    reset()
+   
   };
   const onChangeSelet = (e) => {
     console.log(e.target.value);
@@ -23,13 +42,22 @@ const FormTurn = () => {
 
   
 
-  const typeForms = () => {
+  const typeForms = ({register,control}) => {
     if (forms === 1) {
-      return <FormsRepair />;
+      return <FormsRepair 
+      register={register}
+      control={control}
+      />;
     } else if (forms === 2) {
-      return <FormBuy />;
+      return <FormBuy 
+      register={register}
+      control={control}
+      />;
     } else if (forms === 3) {
-      return <FormComercial/>
+      return <FormComercial
+      register={register}
+      control={control}
+      />
     }
   };
   return (
@@ -42,11 +70,11 @@ const FormTurn = () => {
           onChangeSelet(e);
         }}
       >
-        <option value="1">Reparacion</option>
+        <option value="1">Reparación</option>
         <option value="2">Ventas</option>
-        <option value="3">Acesoramiento comercial</option>
+        <option value="3">Asesoramiento comercial</option>
       </select>
-      {typeForms()}
+      {typeForms({register,control})}
       <input type="submit" />
     </form>
   );

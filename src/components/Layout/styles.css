@@ -10,6 +10,13 @@
   justify-content: space-between;
   flex: 1;
 }
+ .containerCart{
+ overflow-x:hidden ;
+  overflow-y: auto;
+  min-height: 300px;
+  max-height: 500px;
+} 
+
 .logo {
   display: flex;
   flex-direction: row;
@@ -67,6 +74,7 @@
   color: whitesmoke;
   border: none !important;
   padding: 0px !important;
+
 }
 
 .nav_header {
@@ -129,20 +137,24 @@
   width: 10vw;
 
 }
+
 .btnCartOpen{
   border: none !important;
   box-shadow: 1px 0px 5px 1px #19ED18;
   position: fixed;
   width: 500px;
   min-height: 100px;
-  overflow: hidden;
   background-color: #212121;
   font-weight: bold !important ;
   z-index: 10;
   right: 0px !important;
   z-index: 16 ;
+ 
 }
+#padreContainer{
+  overflow-y: scroll !important;
 
+}
 /*? FOOTER */
 
 
@@ -314,6 +326,7 @@
 
 }
 .cuerpoCart div.containerCart{
+ 
   display: none;
 }
 

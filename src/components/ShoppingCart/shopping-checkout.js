@@ -7,19 +7,29 @@ import Fotter from "../Layout/Fotter";
 import HeaderStatic from "../Layout/HeaderStatic";
 import ResumenCompra from "./resumen-compra";
 import PaymentDetail from "./PaymentDetail/payment-detail";
-import productos from "../Main/basedatos";
+import axiosInstance from "../util/axiosInstance";
 
 import "./styles.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+;
 
-const ShoppingCheckout = () => {
+const ShoppingCheckout = ({authen, setAuthen, usuario ,userId }) => {
+
   //Carrito
-  const [carrito, setCarrito] = useState(() => {
-    let carro = productos;
-    carro.map((producto) => (producto.cantidad = 1));
-    return carro;
-  });
+  const [carrito, setCarrito] = useState([]);
+
+//funcion traer carrito 
+const fetchCarrito = async (user) => {
+  const id = user;
+  const response = await axiosInstance.get(`/cart/${id}`);
+ if(response.data.carrito[0]===undefined){
+   
+ }else{
+ return setCarrito(response.data.carrito[0].productos);
+ }
+};
+
 
   //Para resumen-compra
   const [subtotal, setSubtotal] = useState(() => {
@@ -36,7 +46,7 @@ const ShoppingCheckout = () => {
   const CalcularSubtotal = () => {
     let subtotal = 0;
     carrito.map(
-      (producto) => (subtotal += producto.precio * producto.cantidad)
+      (producto) => (subtotal += producto.productoId.precio * producto.cantidadProducto)
     );
     setSubtotal(subtotal);
     setValorImpuestos(subtotal * 0.21);
@@ -45,6 +55,12 @@ const ShoppingCheckout = () => {
   useEffect(() => {
     CalcularSubtotal();
   }, [carrito])
+
+useEffect(() => {
+  fetchCarrito(userId)
+  
+}, [userId])
+
 
   //Slider
   const sliderSettings = {
@@ -70,7 +86,7 @@ const ShoppingCheckout = () => {
 
   return (
     <Fragment>
-      <HeaderStatic />
+      <HeaderStatic authen={authen} setAuthen={setAuthen}  usuario={usuario} />
 
       <Container className="shopping-detail-container rounded mt-5 mb-5">
         <Row className="shopping-detail-panel d-sm-flex flex-md-row flex-column-reverse">

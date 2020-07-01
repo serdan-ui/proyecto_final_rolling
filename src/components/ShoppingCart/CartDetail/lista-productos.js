@@ -9,7 +9,7 @@ export const ListaProductos = ({ carrito, calcularSubtotal, setCarrito, setCartV
       <div className="scrollable">
         {carrito.map((producto) => (
           <ProductCard
-            key={producto.id}
+            key={producto._id}
             producto={producto}
             carrito={carrito}
             setCarrito={setCarrito}

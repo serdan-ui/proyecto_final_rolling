@@ -15,10 +15,21 @@
   outline: none !important;
   box-shadow: 0px 0px 6px 0px #232323 !important;
 }
+
 .btnForm:active{
   background-color: #454545 !important;
+  
 }
-
+.btnFormCancel{
+  background-color: #f12121 ;
+  border: 3px groove #f02323 ;
+  border-radius: 6px ;
+  outline: 0 !important;
+  box-shadow: 0px 0px 6px 0px #232323 ;
+}
+.btnFormCancel:active{
+  background-color: rgb(235, 76, 76) ;
+}
 .tilteList {
   display: flex;
   flex-direction: column;
@@ -97,6 +108,13 @@ label {
   width: 20vw;
   text-align: start;
   color: yellowgreen;
+}
+.modalInfoTurno{
+  background-color: #121212;
+  color:yellowgreen ;
+}
+.modal-content{
+border:1px solid yellowgreen !important;
 }
 
 @media (max-width: 576px) {

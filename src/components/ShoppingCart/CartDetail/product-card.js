@@ -11,14 +11,15 @@ const ProductCard = ({
   calcularSubtotal,
   setCartValido,
 }) => {
-  const { id, img, nombre, descripcion, precio, cantidad } = producto;
+  const { _id, imagen, nombre, descripcion, precio } = producto.productoId;
+  const { cantidadProducto } = producto;
 
   const CambiarCantidad = (valor) => {
-    cantidad + valor != 0 && cantidad + valor != 10
+    cantidadProducto + valor != 0 && cantidadProducto + valor != 10
       ? setCarrito(
           carrito.map((producto) =>
-            producto.id === id
-              ? { ...producto, cantidad: cantidad + valor }
+            producto._id === _id
+              ? { ...producto, cantidad: cantidadProducto + valor }
               : producto
           )
         )
@@ -50,7 +51,7 @@ const ProductCard = ({
       confirmButtonText: "Eliminar",
     }).then((result) => {
       if (result.value) {
-        const productos = carrito.filter((producto) => producto.id !== id);
+        const productos = carrito.filter((producto) => producto._id !== _id);
         setCarrito(productos);
       }
     });
@@ -64,7 +65,7 @@ const ProductCard = ({
           sm="6"
           className="d-flex justify-content-center align-items-center"
         >
-          <Image className="imagen-card" src={img} rounded fluid />
+          <Image className="imagen-card" src={imagen[0]} rounded fluid />
         </Col>
         <Col sm="6" md="8" className="mb-sm-1 producto-descripcion">
           <Row className="mt-2 d-flex flex-column align-items-baseline">
@@ -100,11 +101,11 @@ const ProductCard = ({
                       </Button>
                     </Col>
                     <Col className="d-flex align-items-center justify-content-center">
-                      <h3>{cantidad}</h3>
+                      <h3>{cantidadProducto}</h3>
                     </Col>
                     <Col className="d-flex align-items-center justify-content-center">
                       <Button
-                        disabled={cantidad === 1}
+                        disabled={cantidadProducto === 1}
                         size="sm"
                         variant="outline-danger"
                         onClick={() => CambiarCantidad(-1)}

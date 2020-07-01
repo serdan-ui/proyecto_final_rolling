@@ -14,6 +14,8 @@ import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import Fab from "@material-ui/core/Fab";
 import axiosInstance from "../util/axiosInstance";
 import Swal from "sweetalert2";
+import swal from "sweetalert";
+
 
 const FormRegister = () => {
   const { register, errors, handleSubmit } = useForm();
@@ -58,19 +60,18 @@ const FormRegister = () => {
               toast.addEventListener("mouseleave", Swal.resumeTimer);
               },
           });
-          Toast.fire({
+          swal({
             icon: "success",
             title: "Registro exitoso !!",
+            
           });
         }
       } catch (error) {
         console.log(error.response.data.error)
-        Swal.fire({
-          position: 'center',
+        swal({
           icon: 'error',
           title: error.response.data.error,
-          showConfirmButton: false,
-          timer: 3000,
+          
           
         }
         )
@@ -97,8 +98,8 @@ const FormRegister = () => {
                   message: "Nombre es requerido. ",
                 },
                 maxLength: {
-                  value: 12,
-                  message: "No más de 12 carácteres!",
+                  value: 50,
+                  message: "No más de 50 carácteres!",
                 },
                 minLength: {
                   value: 2,

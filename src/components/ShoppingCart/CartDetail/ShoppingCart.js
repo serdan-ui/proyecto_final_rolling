@@ -15,10 +15,25 @@ const ShoppingCart = ({
   const [cartValido, setCartValido] = useState(true);
 
   useEffect(() => {
+    console.log("useeefect")
+
     if (carrito.length === 0) {
-      setCartValido(false);
+     return  setCartValido(false);
     }
+
+    
   }, [carrito]);
+
+
+ 
+  //funcion validar carrito
+  const disableBoton = () =>{
+    if(carrito.length===0){
+      return true
+    }else{
+      return false
+    }
+  }
 
   const VolverATienda = () => {
     Swal.fire({
@@ -64,7 +79,7 @@ const ShoppingCart = ({
               onClick={cartValido ? sliderSiguiente : null}
               className="w-25 d-flex justify-content-center"
               variant="secondary"
-              disabled={cartValido ? false : true}
+              disabled={disableBoton()}
               type="submit"
             >
               Siguiente
@@ -82,7 +97,7 @@ const ShoppingCart = ({
             <p>
               {carrito.length === 0
                 ? "Su carrito está vacío! Vuelva a la Tienda!"
-                : "Error!  Hay un problema con uno o mas productos de su carrito!"}
+                :  console.log(carrito.length)}
             </p>
           </span>
         )}

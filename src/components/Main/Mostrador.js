@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import productos from "./basedatos";
+import React, { useState, useEffect } from "react";
 
 import {
   Row,
@@ -7,108 +6,192 @@ import {
   Card,
   Button,
   Container,
-  ListGroup,
-  Alert,
   CardColumns,
-  Modal,
+  Dropdown,
+  
 } from "react-bootstrap";
-import { FaCartPlus, FaWindowClose } from "react-icons/fa";
-import mousered from "../Images/mousered.png";
+import { FaCartPlus } from "react-icons/fa";
+import axiosInstance from "../util/axiosInstance";
 
-import { CardText } from "react-bootstrap/Card";
+import { Spinner} from "react-bootstrap";
+import swal from "sweetalert";
 import Swal from "sweetalert2";
 
-const Mostrador = ({ setProducts, products }) => {
+
+const Mostrador = ({ setProducts, products ,userId ,fetchCarrito}) => {
+
+  const [loader, setloader] = useState(false)
+
+  //funcion para loader de productos
+  const Onloader = () => {
+    setloader(true)
+  }
+  const Offloader = () => {
+    setloader(false)
+  }
+
+  //Traer productos de base de datos
+
+  const getProductos = async () => {
+    const response = await axiosInstance.get("/producto");
+
+    setProductos(response.data.productos);
+  };
+  useEffect(() => {
+    getProductos();
+  }, []);
+
   // Estados
-  const [smShow, setSmShow] = useState(false); //Modal
-  const [mostImg, setMostImg] = useState(false); // Img derecha
-  const [modal, setModal] = useState({});
+  const [productos, setProductos] = useState([]);
+
+  const [categorias, setCategorias] = useState([]);
 
   // Funcion mostrar Imagen derecha
-  const mostrarImg = ({ nombre, id, precio, descripcion, img }) => {
-    Swal.fire({
+  const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {
+    console.log(imagen[0])
+    swal({
       title: nombre,
-      imageUrl: img,
+      imageUrl: imagen[0],
       titleText: descripcion,
+      text:<img src={imagen[0]}></img>,
+      fontsize:0.5,
       text: ` $ ${precio}`,
-      imageHeight: 300,
-      imageAlt: 'A tall image'
-    })
-   
+      imageHeight: 200,
+      
+    });
   };
 
-  //agregar al carrito
-  const botonAlerta = (product) => {
-    console.log(product);
+  // const filtrarCategorias = ({productos,categoria}) => {
+  //   console.log(productos)
+  //     const newCategorias = productos.filter(element => element.tipo != categoria )
+  //     console.log(newCategorias)
 
-    setProducts([...products, product]);
+  //  }
+  //  const handleCategoria = (e) => {
+  //   const categoria = e
+  //   console.log(productos)
+  //   filtrarCategorias(productos,categoria)
+  // }
 
-    const Toast = Swal.mixin({
-      toast: true,
-      position: 'top-end',
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      onOpen: (toast) => {
-        toast.addEventListener('mouseenter', Swal.stopTimer)
-        toast.addEventListener('mouseleave', Swal.resumeTimer)
-        
-      }
-    })
+
+  //funcion para agregar productos al carrito
+
+const postCart = async(contenido) => {
+  const {usuarioID, productoID , cantidad } = contenido;
+  Onloader()
+  const response = await axiosInstance.post("/cart",{usuarioID,productoID,cantidad})
+  fetchCarrito(userId)
+  Offloader()
+  swal({
+    icon: "success",
+    title: "Producto agregado correctamente",
+    timer: 2000,
+  });
+  }
+  //funcion del onclick del boton agregar
+  const addCart = (_id) => {
+    const usuarioID = userId;
+    const productoID = _id;
+ 
+    postCart({usuarioID,productoID});
     
-    Toast.fire({
-      icon: 'success',
-      title: 'Signed in successfully'
-    })
-  };
+    }
+
 
   return (
     <>
       <p className="titulo_product_main">Productos</p>
       <Container fluid className="contenedor-mostrador">
-        <Row style={{ background: "#171717" ,margin:"0px"}}>
-          <Col sm={2} style={{backgroundColor:'black'}} ></Col>
-          <Col  sm={8}  className="columnitax" style={{backgroundColor:'black'}}>
+        <Row style={{ background: "#171717", margin: "0px" }}>
+          <Col sm={2} style={{ backgroundColor: "black" }}>
+            <h3 style={{ color: "white" }}>Filtrar por: </h3>
+            <br />
+            <Dropdown>
+              <Dropdown.Toggle
+                id="dropdown-basic"
+                style={{ backgroundColor: "#212121" }}
+              >
+                Categoria
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item eventKey="Auriculares">
+                  Auriculares
+                </Dropdown.Item>
+                <Dropdown.Item eventKey="Monitores">Monitores</Dropdown.Item>
+                <Dropdown.Item eventKey="Mouse">Mouse</Dropdown.Item>
+                <Dropdown.Item eventKey="Sillas">Sillas</Dropdown.Item>
+                <Dropdown.Item eventKey="Teclados">Teclados</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+
+            <br />
+            <br />
+            <Dropdown>
+              <Dropdown.Toggle
+                id="dropdown-basic"
+                style={{ backgroundColor: "#212121", outlineColor: "black" }}
+              >
+                Precio
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item href="#/action-1">Menor a mayor</Dropdown.Item>
+                <Dropdown.Item href="#/action-2">Mayor a menor</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+          <Col
+            sm={8}
+            className="columnitax"
+            style={{ backgroundColor: "black" }}
+          >
             <CardColumns className="cardColumns">
               {productos.map((producto) => (
-                <Card key={producto.id} sm={12} className="cardProduct">
-                  <Card.Img variant="top" src={producto.img} rounded />
-                  <Card.Body>
-                    <Card.Title>{producto.nombre}</Card.Title>
-                    <Card.Text>${producto.precio}</Card.Text>
+                <Card key={producto._id} sm={12} className="cardProduct">
+                  <Card.Img
+                    variant="top"
+                    src={producto.imagen[0]}
+                    rounded
+                    style={{ height: "250px" ,cursor:"pointer"}}
+                    onClick={()=>mostrarImg(producto)}
+                  />
+                  <Card.Body onClick={()=>mostrarImg(producto)} style={{cursor:"pointer"}}>
+                    <Card.Title className="font-weight-light text-uppercase" >{producto.nombre}</Card.Title>
+                    <Card.Text className="font-weight-bold">${producto.precio}</Card.Text>
                   </Card.Body>
                   <Card.Footer>
-                    <Row>
-                      <Col>
+                    <Row className="rowroto">
+                      <Col className="p-0">
                         <Button
                           border="danger"
-                          
+                          className="btnroto"
                           style={{
                             border: "3px solid #060606",
-                            color:"#19ED18",
-                            backgroundColor:"#060606",
-                            fontSize:"0.9rem",
+                            color: "#19ED18",
+                            backgroundColor: "#060606",
+                            fontSize: "0.9rem",
                           }}
                           onClick={() => mostrarImg(producto)}
                         >
                           Ver mas
                         </Button>
                       </Col>
-                      <Col>
-                        <Button
+                      <Col className="p-0">
+                        {!loader ? (<Button
                           variant="success"
+                          className="btnroto"
                           style={{
                             border: "2px solid #19ED18",
-                            fontSize:"0.9rem",
-                            backgroundColor:"#19ED18",
-                            color:"black"
+                            fontSize: "0.9rem",
+                            backgroundColor: "#19ED18",
+                            color: "black",
                           }}
-                          onClick={() => botonAlerta(producto)}
-                          
+                          onClick={() => addCart(producto._id)}
                         >
-                          
                           <FaCartPlus /> Agregar
-                        </Button>
+                        </Button>) : (<Spinner animation="border" />)}
+                        
                       </Col>
                     </Row>
                   </Card.Footer>
@@ -116,8 +199,7 @@ const Mostrador = ({ setProducts, products }) => {
               ))}
             </CardColumns>
           </Col>
-          <Col sm={2} style={{backgroundColor:'black'}} ></Col>
-          
+          <Col sm={2} style={{ backgroundColor: "black" }}></Col>
         </Row>
       </Container>
     </>
