@@ -31,13 +31,15 @@ let productoId;
   {
     cartOpen ? (clase = "btnCartOpen") : (clase = "cuerpoCart");
   }
-  var option = [];
-const optionSelect = (stock) => {
   
+
+  //funcion para poner en el selet el stock de cada producto
+const optionSelect = (stock) => {
+  var option = [];
 for (var i = 0; i < parseInt(stock); i++) {
   option.push(i+1);
 }
-return 
+return option
 }
 
 const claseBotones =  () => {
@@ -159,13 +161,13 @@ history.push("/shopping-checkout")
                           onChange={handleCantidad}
                           className="custom-select custom-select-sm w-50 mt-1"
                           id="cantidadProducto"
-                        >{optionSelect(product.productoId.stock)}
-                         {option.map(opcion=>(
-                           <>
-                          {opcion == product.cantidadProducto? (<option value={opcion} selected >{opcion}</option>): (<option value={opcion}>{opcion}</option>)}
-                            
-                            </>
-                         ))}
+                        >{optionSelect(product.productoId.stock) ? optionSelect(product.productoId.stock).map(opcion=>(
+                          <>
+                         {opcion == product.cantidadProducto? (<option value={opcion} selected >{opcion}</option>): (<option value={opcion}>{opcion}</option>)}
+                           
+                           </>
+                        )) : <Spinner animation="border" variant="dark"/>  }
+                        
                         </select>
                       </Col>
                     </ListGroup>
