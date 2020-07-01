@@ -5,8 +5,7 @@ import "./styles.css";
 import Loguito from "../Images/zerote.png";
 import { FaUser, FaShareSquare } from "react-icons/fa";
 import BtnCart from "./BtnCart";
-import axiosInstance from "../util/axiosInstance";
-import HeaderStatic from "./HeaderStatic";
+
 
 const Header = ({
   products,
@@ -16,35 +15,30 @@ const Header = ({
   setCarrito,
   userId,
   setProducts,
-  fetchCarrito
+  fetchCarrito,
+  autenticar,
 }) => {
   let history = useHistory();
-
   const cerrarSes = () => {
     localStorage.removeItem("Token");
     setAuthen(null);
     history.push("/");
   };
 
+  // if (userId === undefined) {
+  //   return <HeaderStatic/>;
+  // } else {
+  //   TraerCart();
+  // }
 
-  const TraerCart = () => {
-    useEffect(() => {
-      let user;
-      user = userId;
-      console.log(user)
-      fetchCarrito(user);
-    }, [products]);
-  };
+  //se carga el carrito una vez que se actualia el usuario
+  useEffect(() => {
+    fetchCarrito(userId);
+    return () => {
+      //
+    };
+  }, [usuario]);
 
-
-
-
-
-  if (userId === undefined) {
-    return <HeaderStatic/>;
-  } else {
-    TraerCart();
-  }
   return (
     <Container fluid className="Container_Header">
       <Row className="container_logo" style={{ padding: "0px", margin: "0px" }}>
@@ -73,7 +67,9 @@ const Header = ({
           ) : (
             <Button
               className="btnLogin_header mr-2"
-              onClick={()=>{history.push("/")}}
+              onClick={() => {
+                history.push("/");
+              }}
             >
               {" "}
               <FaUser className="icons_header" />
@@ -83,7 +79,12 @@ const Header = ({
         </Col>
       </Row>
 
-      <BtnCart products={products} setCarrito={setCarrito} />
+      <BtnCart
+        products={products}
+        setCarrito={setCarrito}
+        userId={userId}
+        fetchCarrito={fetchCarrito}
+      />
 
       <Nav className="justify-content-center nav_header">
         <Nav.Item className="nav_header">

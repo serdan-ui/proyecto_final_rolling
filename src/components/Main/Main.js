@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Carrousel from "./Carrousel";
 import Mostrador from "./Mostrador";
 import Fotter from "../Layout/Fotter";
@@ -9,7 +9,7 @@ import Header from "../Layout/Header";
 import "./styles.css";
 import axiosInstance from "../util/axiosInstance";
 
-const Main = ({authen,setAuthen,usuario, setCarrito, userId ,products , setProducts}) => {
+const Main = ({authen,setAuthen,usuario, setCarrito, userId ,products , setProducts,autenticar}) => {
   
   setAuthen(localStorage.getItem("Token"));
   
@@ -19,12 +19,15 @@ const Main = ({authen,setAuthen,usuario, setCarrito, userId ,products , setProdu
    if(response.data.carrito[0]===undefined){
      
    }else{
-    setProducts(response.data.carrito[0].productos);
+   return setProducts(response.data.carrito[0].productos);
    }
   
   };
 
-
+useEffect(() => {
+  autenticar()
+ 
+}, [])
   return (
     <>
       <Header products={products} 
@@ -35,6 +38,7 @@ const Main = ({authen,setAuthen,usuario, setCarrito, userId ,products , setProdu
       userId={userId}
       setProducts={setProducts}
       fetchCarrito={fetchCarrito}
+      autenticar={autenticar}
       />
       <Carrousel />
       <Mostrador setProducts={setProducts} products={products} userId={userId} fetchCarrito={fetchCarrito} />

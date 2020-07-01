@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Button, ListGroup, Badge, Row, Col } from "react-bootstrap";
+import { Button, ListGroup, Badge, Row, Col ,Spinner} from "react-bootstrap";
 import { FaCartPlus, FaRegWindowClose } from "react-icons/fa";
 import axiosInstance from "../util/axiosInstance";
+import { useHistory } from "react-router-dom";
 
-const BtnCart = ({ products, setCarrito }) => {
+const BtnCart = ({ products, setCarrito, userId ,fetchCarrito}) => {
  
-
+  const [loaderCart, setloaderCart] = useState(false)
   const [cartOpen, setCartOpen] = useState(false);
+let history = useHistory();
+let productoId;
+  //funcion para loader de productos
+  const Onloader = () => {
+    setloaderCart(true)
+  }
+  const Offloader = () => {
+    setloaderCart(false)
+  }
+
 
   const cierroCarro = () => {
     setCartOpen(false);
@@ -37,8 +48,34 @@ const claseBotones =  () => {
   return  classBot="none"
   }  
 }
+//funcion para eliminar los productos del carrito
+const deleteCart = async(_id) =>{
+  console.log(_id)
+  Onloader()
+const response = await axiosInstance.delete(`/cart/${_id}`,{ data:{
+  usuarioId:userId
+}})
+fetchCarrito(userId)
+Offloader()
+}
 
+//funcion para cambiar la cantidad con select
 
+const tomarProducto = (producto) => {
+ productoId=(producto.productoId._id)
+ 
+}
+const handleCantidad = async(e) => {
+  const cantidad = e.target.value
+   const response = await axiosInstance.post("/cart",{cantidad,usuarioID:userId,productoID:productoId})
+  fetchCarrito(userId)
+
+}
+//funcion para ir al carrito 
+const irCarrito= () => {
+  setCarrito(products)
+history.push("/shopping-checkout")
+}
 
   return (
     <>
@@ -94,11 +131,13 @@ const claseBotones =  () => {
                   <Row style={{ borderTop: "0.5px solid greenyellow" }}>
                     <ListGroup horizontal>
                       <Col xs={4}>
-                        <ListGroup.Item className="productitoslistados">
+                      <ListGroup.Item className="productitoslistados">
+                        {!loaderCart ? (
                           <img
                             src={product.productoId.imagen[0]}
                             className="imgCartBtn"
                           />
+                        ) : (<Spinner animation="border" variant="light"/>)}
                         </ListGroup.Item>
                       </Col>
                       <Col xs={4}>
@@ -112,15 +151,20 @@ const claseBotones =  () => {
                           {" "}
                           ${product.productoId.precio}
                         </ListGroup.Item>
-                        <Button variant="dark" text="white">
+                        <Button variant="dark" text="white" onClick={()=> deleteCart(product._id)}>
                           Eliminar
                         </Button>
                         <select
+                        onClick={()=> tomarProducto(product)}
+                          onChange={handleCantidad}
                           className="custom-select custom-select-sm w-50 mt-1"
                           id="cantidadProducto"
                         >{optionSelect(product.productoId.stock)}
                          {option.map(opcion=>(
-                            <option>{opcion}</option>
+                           <>
+                          {opcion == product.cantidadProducto? (<option value={opcion} selected >{opcion}</option>): (<option value={opcion}>{opcion}</option>)}
+                            
+                            </>
                          ))}
                         </select>
                       </Col>
@@ -132,8 +176,7 @@ const claseBotones =  () => {
             <Row style={{display:claseBotones()}} >
               <Col>
                 <Button
-                  onClick={() => setCarrito(products)}
-                  href="http://localhost:3000/shopping-checkout"
+                  onClick={irCarrito}
                   variant="success"
                   block
                   style={{

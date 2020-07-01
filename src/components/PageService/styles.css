@@ -27,15 +27,15 @@
 .persona{
   /* width: 200px; 
   height: 200px;   */
- -moz-border-radius: 50%;
+ /* -moz-border-radius: 50%;
 -webkit-border-radius: 50%;
-border-radius: 50%;
+border-radius: 50%; */
   color: aliceblue;
 }
 .imagen-pers{
-  border-radius: 50%; 
+  /* border-radius: 50%; 
   -moz-border-radius: 50%;
--webkit-border-radius: 50%;
+-webkit-border-radius: 50%; */
 background-color:  rgb(39, 39, 39);
 width: 195px; 
   height: 195px;
@@ -93,6 +93,6 @@ width: 195px;
     padding: 0px !important;
   }
   .persona{
-    margin-top: 50px;
+    margin-top: 20px;
   }
-} 
+}

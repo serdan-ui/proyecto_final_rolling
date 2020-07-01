@@ -9,10 +9,11 @@ import {
 } from "react-bootstrap";
 import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import Fab from "@material-ui/core/Fab";
+import swal from "sweetalert"
+
 import {
   useHistory
 } from "react-router-dom";
-import swal from "sweetalert";
 
 import axiosInstance from "../util/axiosInstance";
 

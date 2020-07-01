@@ -11,7 +11,8 @@ const ProductCard = ({
   calcularSubtotal,
   setCartValido,
 }) => {
-  const { id, img, nombre, descripcion, precio, cantidad } = producto;
+  const { _id, imagen, nombre, descripcion, precio } = producto.productoId;
+  const { cantidadProducto } = producto;
 
   const [inputValido, setInputValido] = useState(true);
 
@@ -20,7 +21,7 @@ const ProductCard = ({
 
     setCarrito(
       carrito.map((producto) =>
-        producto.id === id ? { ...producto, cantidad: nuevaCantidad } : producto
+        producto._id === _id ? { ...producto, cantidad: nuevaCantidad } : producto
       )
     );
   };
@@ -37,7 +38,7 @@ const ProductCard = ({
       confirmButtonText: "Eliminar",
     }).then((result) => {
       if (result.value) {
-        const productos = carrito.filter((producto) => producto.id !== id);
+        const productos = carrito.filter((producto) => producto._id !== _id);
         setCarrito(productos);
       }
     });
@@ -51,7 +52,7 @@ const ProductCard = ({
           sm="6"
           className="d-flex justify-content-center align-items-center"
         >
-          <Image className="imagen-card" src={img} rounded fluid />
+          <Image className="imagen-card" src={imagen} rounded fluid />
         </Col>
         <Col sm="6" md="8" className="mb-sm-1 producto-descripcion">
           <Row className="mt-2 d-flex flex-column align-items-baseline">
@@ -87,7 +88,7 @@ const ProductCard = ({
                     <Col>
                       <input
                         className="text-center input-cantidad w-100"
-                        defaultValue={cantidad}
+                        defaultValue={cantidadProducto}
                         onChange={(e) =>
                           e.target.value < 1
                             ? setInputValido(false) || setCartValido(false)

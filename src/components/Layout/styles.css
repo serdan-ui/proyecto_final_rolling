@@ -13,8 +13,8 @@
  .containerCart{
  overflow-x:hidden ;
   overflow-y: scroll;
-  min-height: 100px;
-  height: 500px;
+  min-height: 300px;
+  max-height: 500px;
 } 
 
 .logo {
@@ -144,7 +144,6 @@
   position: fixed;
   width: 500px;
   min-height: 100px;
-  overflow: hidden;
   background-color: #212121;
   font-weight: bold !important ;
   z-index: 10;
@@ -152,7 +151,10 @@
   z-index: 16 ;
  
 }
+#padreContainer{
+  overflow-y: scroll !important;
 
+}
 /*? FOOTER */
 
 
@@ -324,6 +326,7 @@
 
 }
 .cuerpoCart div.containerCart{
+ 
   display: none;
 }
 

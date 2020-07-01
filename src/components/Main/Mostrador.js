@@ -15,6 +15,8 @@ import axiosInstance from "../util/axiosInstance";
 
 import { Spinner} from "react-bootstrap";
 import swal from "sweetalert";
+import Swal from "sweetalert2";
+
 
 const Mostrador = ({ setProducts, products ,userId ,fetchCarrito}) => {
 
@@ -51,9 +53,11 @@ const Mostrador = ({ setProducts, products ,userId ,fetchCarrito}) => {
       title: nombre,
       imageUrl: imagen[0],
       titleText: descripcion,
+      text:<img src={imagen[0]}></img>,
+      fontsize:0.5,
       text: ` $ ${precio}`,
-      imageHeight: 300,
-      imageAlt: "A tall image",
+      imageHeight: 200,
+      
     });
   };
 
@@ -72,11 +76,11 @@ const Mostrador = ({ setProducts, products ,userId ,fetchCarrito}) => {
 
   //funcion para agregar productos al carrito
 
-
 const postCart = async(contenido) => {
   const {usuarioID, productoID , cantidad } = contenido;
   Onloader()
   const response = await axiosInstance.post("/cart",{usuarioID,productoID,cantidad})
+  fetchCarrito(userId)
   Offloader()
   swal({
     icon: "success",
@@ -84,12 +88,13 @@ const postCart = async(contenido) => {
     timer: 2000,
   });
   }
+  //funcion del onclick del boton agregar
   const addCart = (_id) => {
     const usuarioID = userId;
     const productoID = _id;
  
     postCart({usuarioID,productoID});
-    fetchCarrito(userId)
+    
     }
 
 
@@ -148,11 +153,12 @@ const postCart = async(contenido) => {
                     variant="top"
                     src={producto.imagen[0]}
                     rounded
-                    style={{ height: "250px" }}
+                    style={{ height: "250px" ,cursor:"pointer"}}
+                    onClick={()=>mostrarImg(producto)}
                   />
-                  <Card.Body>
-                    <Card.Title>{producto.nombre}</Card.Title>
-                    <Card.Text>${producto.precio}</Card.Text>
+                  <Card.Body onClick={()=>mostrarImg(producto)} style={{cursor:"pointer"}}>
+                    <Card.Title className="font-weight-light text-uppercase" >{producto.nombre}</Card.Title>
+                    <Card.Text className="font-weight-bold">${producto.precio}</Card.Text>
                   </Card.Body>
                   <Card.Footer>
                     <Row className="rowroto">
