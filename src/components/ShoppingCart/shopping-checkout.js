@@ -10,8 +10,7 @@ import PaymentDetail from "./PaymentDetail/payment-detail";
 import productos from "../Main/basedatos";
 
 import "./styles.css";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+;
 
 const ShoppingCheckout = () => {
   //Carrito

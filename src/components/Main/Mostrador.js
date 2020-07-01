@@ -35,6 +35,7 @@ const Mostrador = ({ setProducts, products }) => {
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {
+    console.log(imagen[0])
     swal({
       title: nombre,
       imageUrl: imagen[0],

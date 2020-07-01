@@ -18,22 +18,33 @@ const Header = ({
   setProducts,
 }) => {
   let history = useHistory();
+
   const cerrarSes = () => {
     localStorage.removeItem("Token");
     setAuthen(null);
     history.push("/");
   };
+
+
   const TraerCart = () => {
     useEffect(() => {
       let user;
       user = userId;
+      console.log(user)
       fetchCarrito(user);
     }, []);
   };
+
+
   const fetchCarrito = async (user) => {
     const id = user;
     const response = await axiosInstance.get(`/cart/${id}`);
-    setProducts(response.data.carrito[0].Productos);
+   if(response.data.carrito[0]===undefined){
+     
+   }else{
+    setProducts(response.data.carrito[0].productos);
+   }
+  
   };
   if (userId === undefined) {
     return <HeaderStatic/>;
