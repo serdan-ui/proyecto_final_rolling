@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import cupones from "./1 DB/cupones";
+import Loguito from '../Images/Zero-Images/Zero-Black.svg'
 import {
   Container,
   Modal,
@@ -8,6 +9,7 @@ import {
   Card,
   Form,
   Button,
+  Image
 } from "react-bootstrap";
 import {
   FaShopware,
@@ -76,7 +78,7 @@ const CuponDetail = ({ valorDescuento, detalleCupon, setDescuento, setHayCupon }
                 <Col>
                   <Row className="d-flex justify-content-between mt-3">
                     <Col xs="auto">
-                      <h5>Gift Card</h5>
+                      <h5>Cupón</h5>
                     </Col>
                     <Col xs="auto">
                       <h3 id="cupon-descuento">-{detalleCupon.descuento}%</h3>
@@ -84,12 +86,12 @@ const CuponDetail = ({ valorDescuento, detalleCupon, setDescuento, setHayCupon }
                   </Row>
                 </Col>
                 <Col>
-                  <Row className="d-flex flex-column justify-content-center align-items-center">
-                    <Col className="d-flex justify-content-center align-items-center">
-                      <h1>Zero</h1>
+                  <Row className="d-flex flex-column justify-content-center align-items-center mt-2">
+                    <Col className="d-flex justify-content-center align-items-center mt-5">
+                      <h2>Descuento</h2>
                     </Col>
-                    <Col className="d-flex justify-content-center align-items-center mt-3 mb-3">
-                      <FaShopware size="200" />
+                    <Col className="d-flex justify-content-center align-items-center mt-2 mb-5">
+                     <Image src={Loguito} height="110" />
                     </Col>
                     <Col className="d-flex justify-content-center align-items-center mt-3 mb-3">
                       <Row>
