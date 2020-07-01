@@ -1,5 +1,5 @@
 import React from 'react';
-import {  useForm, Controller } from "react-hook-form";
+import {   Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 
 const FormBuy = ({ register, control }) => {
@@ -7,19 +7,19 @@ const FormBuy = ({ register, control }) => {
     return ( <>
         <label>Que tipo de dispositivo quieres vender</label>
         <select name="dispositivo" ref={register}>
-          <option value="1">pc</option>
-          <option value="2">celular</option>
-          <option value="3">tablet</option>
-          <option value="4">notebok</option>
+          <option value="pc">pc</option>
+          <option value="celular">celular</option>
+          <option value="tablet">tablet</option>
+          <option value="notebok">notebok</option>
         </select>
         <label>Marca</label>
         <input name="marca" type="text" placeholder="ejemplo: motorola G4" ref={register}/>
         <label>Estado</label>
         <select name="estado" ref={register}>
-          <option value="1">nuevo</option>
-          <option value="2">usado</option>
-          <option value="3">roto con arreglo</option>
-          <option value="4">para repuesto</option>
+          <option value="nuevo">nuevo</option>
+          <option value="usado2">usado</option>
+          <option value="roto">roto con arreglo</option>
+          <option value="repuesto">para repuesto</option>
         </select>
         <label>Descripcion del dispositivo</label>
         <textarea name="descripcion" ref={register} placeholder="ejemplo: exelente estado, o pantalla rota ..." />
@@ -35,6 +35,7 @@ const FormBuy = ({ register, control }) => {
           name="fecha"
           placeholderText="Selecciona fecha"
           className="date"
+          minDate={new Date()}
         />
       </section>
       <label>selecciona una hora</label>

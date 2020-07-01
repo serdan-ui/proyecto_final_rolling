@@ -5,16 +5,10 @@ import CardOpcion from "./card-opcionales";
 import { useForm } from "react-hook-form";
 import "./styles.css";
 
-const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
+const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
   const { register, errors, handleSubmit } = useForm();
   const [metodoEnvio, setMetodoEnvio] = useState("EnvioGratis");
-  const [envioValido, setEnvioValido] = useState();
-
-  const onSubmit = () => {
-    console.log(datos);
-  };
-
-  const [datos, setDatos] = useState({
+  const [datosEnvio, setDatosEnvio] = useState({
     nombre: "",
     apellido: "",
     direccion1: "",
@@ -23,22 +17,27 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
     ciudad: "",
     postal: "",
     telefono: "",
-    tipoEnvio: metodoEnvio,
+    tipoEnvio: "",
   });
 
-  const handleInputChange = (event) => {
-    event.target.value === ""
-      ? setEnvioValido(false)
-      : setEnvioValido(true) ||
-        setDatos({
-          ...datos,
-          [event.target.name]: event.target.value,
-        });
+  const onSubmit = (data) => {
+    sliderSiguiente();
+    setDatosEnvio({
+      nombre: data.nombre,
+      apellido: data.apellido,
+      direccion1: data.direccion1,
+      direccion2: data.direccion2,
+      pais: data.pais,
+      ciudad: data.pais,
+      postal: data.postal,
+      telefono: data.telefono,
+      tipoEnvio: metodoEnvio,
+    });
   };
 
-  const SeleccionarEnvio = (nombreMetodoEnvio) => {
+  const SeleccionarEnvio = (nombreMetodoEnvio, valor) => {
+    setValorEnvio(valor);
     setMetodoEnvio(nombreMetodoEnvio);
-    setDatos({ ...datos, tipoEnvio: nombreMetodoEnvio });
   };
 
   return (
@@ -59,7 +58,6 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                       placeholder="Nombre *"
                       name="nombre"
                       type="text"
-                      onChange={handleInputChange}
                       ref={register({
                         required: {
                           value: true,
@@ -78,7 +76,6 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                       placeholder="Apellido *"
                       name="apellido"
                       type="text"
-                      onChange={handleInputChange}
                       ref={register({
                         required: {
                           value: true,
@@ -98,7 +95,6 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                       className="shadow-sm"
                       placeholder="Direccion *"
                       name="direccion1"
-                      onChange={handleInputChange}
                       ref={register({
                         required: {
                           value: true,
@@ -118,7 +114,6 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                       className="shadow-sm"
                       placeholder="Direccion 2 (opcional)"
                       name="direccion2"
-                      onChange={handleInputChange}
                       ref={register({
                         required: {
                           value: false,
@@ -134,9 +129,8 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                     <Form.Control
                       className="shadow-sm"
                       as="select"
-                      custom
                       name="pais"
-                      onChange={handleInputChange}
+                      custom
                       ref={register({
                         required: {
                           value: true,
@@ -156,7 +150,6 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                       className="shadow-sm"
                       placeholder="Ciudad *"
                       name="ciudad"
-                      onChange={handleInputChange}
                       ref={register({
                         required: {
                           value: true,
@@ -176,7 +169,7 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                       className="shadow-sm"
                       placeholder="Codigo ZIP/Postal *"
                       name="postal"
-                      onChange={handleInputChange}
+                      type="number"
                       ref={register({
                         required: {
                           value: true,
@@ -193,7 +186,7 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                       className="shadow-sm"
                       placeholder="N° Telefono *"
                       name="telefono"
-                      onChange={handleInputChange}
+                      type="number"
                       ref={register({
                         required: {
                           value: true,
@@ -212,22 +205,22 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
                 <Row className="d-flex justify-content-between">
                   <Col>
                     <CardOpcion
-                      onClick={() => SeleccionarEnvio("EnvioGratis")}
+                      onClick={() => SeleccionarEnvio("EnvioGratis", 0)}
                       seleccionado={
                         metodoEnvio === "EnvioGratis" ? true : false
                       }
                       titulo="Envío Gratis"
-                      descripcion="Demora de 2 a 5 días habiles"
+                      descripcion="Demora entre 2 y 5 días hábiles"
                     />
                   </Col>
 
                   <Col>
                     <CardOpcion
-                      onClick={() => SeleccionarEnvio("EnvioNextDay")}
+                      onClick={() => SeleccionarEnvio("EnvioNextDay", 450)}
                       seleccionado={
                         metodoEnvio === "EnvioNextDay" ? true : false
                       }
-                      titulo='Envío "Next Day" - $20'
+                      titulo='Envío "Next Day" - $450'
                       descripcion="Entrega en 24 horas"
                     />
                   </Col>
@@ -237,20 +230,22 @@ const ShippingDetail = ({ sliderSiguiente, sliderAnterior }) => {
               <Col className="mb-4 d-flex justify-content-start align-items-center">
                 <Button
                   onClick={sliderAnterior}
-                  className="w-25 mr-2"
+                  className="w-25 mr-2 d-flex justify-content-center"
                   variant="secondary"
                 >
                   Anterior
                 </Button>
                 <Button
-                  onClick={envioValido ? sliderSiguiente : null}
-                  className="w-25 mr-2"
+                  className="w-25 mr-2 d-flex justify-content-center"
                   variant="secondary"
                   type="submit"
                 >
                   Siguiente
                 </Button>
-                <Button className="w-25" variant="outline-danger">
+                <Button
+                  className="w-25 d-flex justify-content-center"
+                  variant="outline-danger"
+                >
                   Cancelar
                 </Button>
               </Col>

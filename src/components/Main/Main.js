@@ -3,12 +3,14 @@ import Carrousel from "./Carrousel";
 import Mostrador from "./Mostrador";
 import Fotter from "../Layout/Fotter";
 import Header from "../Layout/Header";
+
 // stilos de register
 import "./styles.css";
 
-const Main = ({authen,setAuthen,usuario, setCarrito}) => {
-  const [products, setProducts] = useState([]);
+const Main = ({authen,setAuthen,usuario, setCarrito, userId ,products , setProducts}) => {
+  
   setAuthen(localStorage.getItem("Token"));
+  
   
 
 
@@ -19,6 +21,8 @@ const Main = ({authen,setAuthen,usuario, setCarrito}) => {
       setAuthen={setAuthen}
       usuario={usuario}
       setCarrito={setCarrito}
+      userId={userId}
+      setProducts={setProducts}
       />
       <Carrousel />
       <Mostrador setProducts={setProducts} products={products} />

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import {
   Form,
@@ -9,14 +9,13 @@ import {
 } from "react-bootstrap";
 import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import Fab from "@material-ui/core/Fab";
-import swal from 'sweetalert';
+import swal from "sweetalert"
+
 import {
-  useHistory,
-  useLocation
+  useHistory
 } from "react-router-dom";
 
-import axiosInstance from '../util/axiosInstance';
-
+import axiosInstance from "../util/axiosInstance";
 
 const LoginConteiner = ({ setAuthen }) => {
   let history = useHistory();

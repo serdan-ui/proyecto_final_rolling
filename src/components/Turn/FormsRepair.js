@@ -1,5 +1,5 @@
 import React from "react";
-import {  useForm, Controller } from "react-hook-form";
+import {   Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 
 const FormsRepair = ({register,control}) => {
@@ -8,10 +8,10 @@ const FormsRepair = ({register,control}) => {
     <>
       <label>Tipo de dispositivo a reparar</label>
       <select name="dispositivo" ref={register} >
-        <option value="1">pc</option>
-        <option value="2">celular</option>
-        <option value="3">tablet</option>
-        <option value="4">notebook</option>
+        <option value="pc">pc</option>
+        <option value="celular">celular</option>
+        <option value="tablet">tablet</option>
+        <option value="notebook">notebook</option>
       </select>
       <label>Descripción del Problema</label>
       <textarea name="descripcion" ref={register} />
@@ -25,6 +25,7 @@ const FormsRepair = ({register,control}) => {
           name="fecha"
           placeholderText="Selecciona fecha"
           className="date"
+          minDate={new Date()}
         />
       </section>
       <label>selecciona una hora</label>

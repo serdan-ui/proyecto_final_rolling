@@ -19,6 +19,7 @@
     "jquery": "^3.5.1",
     "materialize-css": "^1.0.0",
     "mdbreact": "^4.26.1",
+    "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-chartjs-2": "^2.9.0",
@@ -29,13 +30,10 @@
     "react-icons": "^3.10.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-<<<<<<< HEAD
     "react-slick": "^0.26.1",
     "simplebar": "^5.2.0",
     "slick-carousel": "^1.8.1",
-=======
     "sweetalert": "^2.1.2",
->>>>>>> fbe15c672b6095310b35e4217f683c2b0e0adca0
     "sweetalert2": "^9.14.2"
   },
   "scripts": {

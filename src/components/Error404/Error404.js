@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Image, Button, Row, Col } from "react-bootstrap";
-import { ErrorCompleto } from "../Images/auriii.png";
+import { Container,  Button, Row, Col } from "react-bootstrap";
+
 import "./styles.css";
 
 const Error404 = () => {

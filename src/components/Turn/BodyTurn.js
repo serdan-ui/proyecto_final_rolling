@@ -4,7 +4,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import FormTurn from "./FormTurn";
 
 
-const BodyTurn = () => {
+const BodyTurn = (userId) => {
   const [titleBtn, setTitleBtn] = useState(false);
 
   return (
@@ -16,7 +16,7 @@ const BodyTurn = () => {
       </Row>
       <h2>{titleBtn ? "Turnos" : "Lista de Turnos"} </h2>
 
-      {titleBtn ? <FormTurn /> : <ListTurn />}
+      {titleBtn ? <FormTurn userId={userId}/> : <ListTurn userId={userId} />}
     </Container>
   );
 };

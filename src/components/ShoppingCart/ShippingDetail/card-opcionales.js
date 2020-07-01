@@ -2,28 +2,35 @@ import React from "react";
 import { Col, Row, Card, FormCheck } from "react-bootstrap";
 import "./styles.css";
 
-const CardOpcion = (props) => {
+const CardOpcion = ({name, onChange, onClick, seleccionado, value, titulo, descripcion}) => {
   return (
     <Card
-      name={props.name}
-      onChange={props.onChange}
-      defaultValue={props.value}
+      name={name}
+      onChange={onChange}
+      defaultValue={value}
       className={
-        props.seleccionado
+        seleccionado
           ? "card-tipo-envio-seleccionado shadow"
           : "card-tipo-envio shadow"
       }
-      onClick={props.onClick}
+      onClick={onClick}
     >
       <Card.Body>
-        <Row>
-          <Col sm="auto" className="d-flex align-items-center">
-            <FormCheck type="radio" checked={props.seleccionado} />
+        <Row className="d-flex justify-content-center align-items-center">
+          <Col xs="auto" className="d-flex align-items-center mb-sm-2 ">
+            <FormCheck
+              className="card-envio-checkbox"
+              type="radio"
+              readOnly={true}
+              checked={seleccionado}
+            />
           </Col>
-          <Col>
-            <Card.Title>{props.titulo}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">
-              {props.descripcion}
+          <Col xs="12" md="9">
+            <Card.Title className="titulo-card-envio">
+              {titulo}
+            </Card.Title>
+            <Card.Subtitle className="mb-2 text-muted detalle-card-envio">
+              {descripcion}
             </Card.Subtitle>
           </Col>
         </Row>

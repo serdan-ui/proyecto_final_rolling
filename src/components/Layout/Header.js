@@ -1,21 +1,45 @@
-import React , {useEffect} from "react";
+import React, { useEffect } from "react";
 import { Container, Row, Col, Nav, Button, Image } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./styles.css";
 import Loguito from "../Images/zerote.png";
 import { FaUser, FaShareSquare } from "react-icons/fa";
 import BtnCart from "./BtnCart";
+import axiosInstance from "../util/axiosInstance";
+import HeaderStatic from "./HeaderStatic";
 
-const Header = ({ products, authen,setAuthen , usuario, setCarrito}) => {
-
-
-console.log(usuario)
+const Header = ({
+  products,
+  authen,
+  setAuthen,
+  usuario,
+  setCarrito,
+  userId,
+  setProducts,
+}) => {
+  let history = useHistory();
   const cerrarSes = () => {
-    localStorage.removeItem("Token")
-    setAuthen(null)
+    localStorage.removeItem("Token");
+    setAuthen(null);
+    history.push("/");
+  };
+  const TraerCart = () => {
+    useEffect(() => {
+      let user;
+      user = userId;
+      fetchCarrito(user);
+    }, []);
+  };
+  const fetchCarrito = async (user) => {
+    const id = user;
+    const response = await axiosInstance.get(`/cart/${id}`);
+    setProducts(response.data.carrito[0].Productos);
+  };
+  if (userId === undefined) {
+    return <HeaderStatic/>;
+  } else {
+    TraerCart();
   }
-
-
   return (
     <Container fluid className="Container_Header">
       <Row className="container_logo" style={{ padding: "0px", margin: "0px" }}>
@@ -27,21 +51,24 @@ console.log(usuario)
         <Col xs={7} md={9} className="login_registro_header">
           {authen ? (
             <>
-            <span><FaUser className="icons_header" />`Hola : ${}` </span>
+              <span>
+                <FaUser className="icons_header" />
+                Hola: {usuario.username}
+              </span>
 
               <Button
                 className="btnLogin_header_logout mr-2"
-                style={{border:"none"}}
+                style={{ border: "none" }}
                 onClick={cerrarSes}
               >
                 {" "}
-                < FaShareSquare/>
+                <FaShareSquare />
               </Button>
             </>
           ) : (
             <Button
               className="btnLogin_header mr-2"
-              href="http://localhost:3000/"
+              onClick={()=>{history.push("/")}}
             >
               {" "}
               <FaUser className="icons_header" />

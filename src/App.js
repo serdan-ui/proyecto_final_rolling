@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Main from "./components/Main/Main";
-/* import ShoppingCart from "./components/ShoppingCart/CartDetail/ShoppingCart"; */
-/* import ShippingDetail from "./components/ShoppingCart/ShippingDetail/shipping-detail"; */
 import PageService from "./components/PageService/PageService";
 import Payment from "./components/Payment/Payment";
 import ShoppingCheckout from "./components/ShoppingCart/shopping-checkout"
@@ -18,27 +16,34 @@ import TurnosPanel from "./components/Admin/TurnosPanel";
 import Graficos from "./components/Admin/Graficos";
 import Drag from "./components/Admin/Drag"
 import Usuarios from "./components/Admin/Usuarios"
-import PagoExitoso from "./components/PaginaDePago.js/PagoExitoso"
-import PagoRechazado from "./components/PaginaDePago.js/PagoRechazado"
-import PagoPendiente from "./components/PaginaDePago.js/PagoPendiente"
+import PagoExitoso from "./components/PaginaDePago/PagoExitoso"
+import PagoRechazado from "./components/PaginaDePago/PagoRechazado"
+import PagoPendiente from "./components/PaginaDePago/PagoPendiente"
 
 import "./App.css";
-import productos from "./components/Main/basedatos";
+
 
 
 function App() {
   const token = localStorage.getItem("Token");
   const [authen, setAuthen] = useState(token);
-  const [usuario ,setUsuario] = useState()
-
+  const [usuario ,setUsuario] = useState({})
+  const [userId , setUserId ] = useState();
+  const [products, setProducts] = useState([]);
   //Prueba Carrito
   const [carrito, setCarrito] = useState([])
+
+const cargarUserId = (usuario) => {
+  setUserId(usuario._id)
+  
+}
 
 const autenticar = async () => {
   try {
     const response = await axiosInstance.get("/private",{ headers: {"Authorization" : `Bearer ${authen}`} })
     setUsuario(response.data.user)
- 
+    cargarUserId(response.data.user)
+    
   } catch (error) {
     console.log(error)
   }
@@ -48,7 +53,7 @@ const autenticar = async () => {
   useEffect(() => {
     autenticar()
   }, [authen])
-
+  
   return (
     <Router>
       <Switch>
@@ -59,18 +64,18 @@ const autenticar = async () => {
           <Register />
         </Route>
         <Route exact path="/main">
-          <Main authen={authen} setAuthen={setAuthen} usuario={usuario} setCarrito={setCarrito} />
+          <Main authen={authen} setAuthen={setAuthen} usuario={usuario} setCarrito={setCarrito} userId={userId} products={products} setProducts={setProducts}/>
         </Route>
         <Route exact path="/shopping-checkout" render={(props) => <ShoppingCheckout {...props} carrito={carrito} />} />
 
         <Route exact path="/service" >
-          <PageService authen={authen} setAuthen={setAuthen} />
+          <PageService authen={authen} setAuthen={setAuthen} usuario={usuario} />
         </Route>
         <Route exact path="/payment">
           <Payment authen={authen} setAuthen={setAuthen} />
         </Route>
         <Route exact path="/turn">
-          <Turn authen={authen} setAuthen={setAuthen} />
+          <Turn authen={authen} setAuthen={setAuthen} usuario={usuario} userId={userId}/>
         </Route>
         <Route exact path="/admin">
           <Admin />

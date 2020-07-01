@@ -7,3 +7,18 @@
     max-height: 30rem;
     overflow-y: scroll;
 }
+
+.card-descuento {
+    font-size: 1.2rem !important;
+    color: rgb(230, 52, 52);
+    background-color: whitesmoke !important;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    border: 4px dashed #DB5249 !important;
+}
+
+@media (max-width: 575px) {
+    .card-descuento{
+        margin-left: -15px !important;
+    }
+}
