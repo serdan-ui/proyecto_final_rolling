@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import cupones from "./1 DB/cupones";
-import Loguito from '../Images/Zero-Images/Zero-Black.svg'
+import Loguito from "../Images/Zero-Images/Zero-Black.svg";
 import {
   Container,
   Modal,
@@ -9,7 +9,7 @@ import {
   Card,
   Form,
   Button,
-  Image
+  Image,
 } from "react-bootstrap";
 import {
   FaShopware,
@@ -21,7 +21,12 @@ import {
 } from "react-icons/fa";
 import "./styles.css";
 
-const CuponDetail = ({ valorDescuento, detalleCupon, setDescuento, setHayCupon }) => {
+const CuponDetail = ({
+  valorDescuento,
+  detalleCupon,
+  setDescuento,
+  setHayCupon,
+}) => {
   const [mostrarModal, setMostrarModal] = useState(false);
   const [validandoCupon, setValidandoCupon] = useState(false);
 
@@ -71,6 +76,7 @@ const CuponDetail = ({ valorDescuento, detalleCupon, setDescuento, setHayCupon }
         show={mostrarModal}
         onHide={() => setMostrarModal(false)}
       >
+        {/* Gráfico */}
         <Modal.Body className="d-flex justify-content-center">
           <Card className="w-100 d-flex justify-content-center" id="cupon">
             <Container>
@@ -91,7 +97,7 @@ const CuponDetail = ({ valorDescuento, detalleCupon, setDescuento, setHayCupon }
                       <h2>Descuento</h2>
                     </Col>
                     <Col className="d-flex justify-content-center align-items-center mt-2 mb-5">
-                     <Image src={Loguito} height="110" />
+                      <Image src={Loguito} height="110" />
                     </Col>
                     <Col className="d-flex justify-content-center align-items-center mt-3 mb-3">
                       <Row>
@@ -160,6 +166,7 @@ const CuponDetail = ({ valorDescuento, detalleCupon, setDescuento, setHayCupon }
             </Container>
           </Card>
         </Modal.Body>
+        {/* Gráfico */}
         <Modal.Footer>
           <Row className="w-100 d-flex justify-content-between justify-content-md-around">
             <Col className="d-flex justify-content-center" xs="auto">
