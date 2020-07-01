@@ -3,13 +3,19 @@ import {Table, Container,Tooltip  , OverlayTrigger } from "react-bootstrap"
 import InfoTwoToneIcon from '@material-ui/icons/InfoTwoTone';
 import MydModalWithGrid from './modalInfoTurno';
 import axiosInstance from '../util/axiosInstance';
-
+import moment from 'moment';
+import 'moment/locale/es'
 
 
 const ListTurn = (userId) => {
 const [turnos , setTurnos] = useState([])
 
 
+
+const ModificarFecha = (fecha)=> {
+  
+ return  moment(fecha).format('dddd Do [de] MMMM [del] YYYY ');
+}
 
 const fetchTurnos = async() => {
 //_id usuario
@@ -44,7 +50,7 @@ const borrarTurno=  async(_id)=>{
     return ( 
         <Container >
           {console.log(turnos)}
-          {turnos.msg ? <p>{turnos.msg}</p> : (
+          {turnos.msg ? <h4 className="text-white text-center pt-3 lg">{turnos.msg}</h4> : (
           <>
           <Table striped bordered hover variant="dark" style={{backgroundColor:"#212121"}} >
             <thead style={{color:"#19ed18"}}>
@@ -68,7 +74,7 @@ const borrarTurno=  async(_id)=>{
               {turnos.map(turno=> (
               <>
               <tr key={turno._id}>
-              <td>{turno.fecha}</td>
+              <td>{ModificarFecha(turno.fecha)}</td>
                 <td>{turno.hora}</td>
                 <td>Reparacion</td>
                 <td><button className="btnForm" onClick={() => setModalShow(true)}><span style={{color:"#19ed18", fontSize:"14px", padding:"0px"}}>Ver mas...</span></button></td>
