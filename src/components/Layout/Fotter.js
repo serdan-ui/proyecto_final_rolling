@@ -1,114 +1,169 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+import Loguito from "../Images/Zero-Images/Zero-Black-Borderless.svg";
 import fbIcon2 from "../assets/icons/facebook2.svg";
 import twIcon from "../assets/icons/twitter.svg";
 import instaIcon from "../assets/icons/instagram.svg";
+import {
+  FaCcVisa,
+  FaCcMastercard,
+  FaCcAmex,
+  FaPaypal,
+  FaCcPaypal,
+} from "react-icons/fa";
 import "./styles.css";
 
 const Fotter = () => {
+  const ubicacion =
+    "https://www.google.com/maps/dir/-26.8322264,-65.2026019/rolling+code+tucuman/@-26.8346764,-65.2067965,17z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x94225d3ad7f30f1d:0xf8606cd659b8e3e4!2m2!1d-65.2072018!2d-26.8367009";
+
   return (
     <Container fluid className="container_footer">
-      <Row className="footer_scheme d-flex flex-column" style={{padding:"0px", margin:"0px"}}>
-        <Col>
-          <Row>
-            <Col className="footer_info">
-              <Col>
-                <Row className="d-flex flex-column">
-                  <Col className="d-flex justify-content-center">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2445.6963141745546!2d-65.20809053997758!3d-26.83722958293365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf8606cd659b8e3e4!2sRollingCode%20School!5e0!3m2!1ses-419!2sar!4v1589921416940!5m2!1ses-419!2sar"
-                      width="300"
-                      height="200"
-                      frameBorder="0"
-                      style={{ marginRight: 0 + "em" }}
-                      allowFullScreen=""
-                      aria-hidden="false"
-                      tabIndex="0"
-                      className="mt-4 rounded iframe-mapa"
-                    ></iframe>
-                    <br />
-                  </Col>
-                  <Col className="d-flex justify-content-center mt-3 mb-4">
-                    <span>
-                      <a
-                        href="https://g.page/RollingCodeSchool?share"
-                        target="noopener noreferrer"
-                      >
-                        {" "}
-                        Gral. Paz 576, T4000 San Miguel de Tucumán, Tucumán{" "}
-                      </a>
-                    </span>{" "}
-                  </Col>
-                </Row>
+      <Container className="d-flex flex-column justify-content-center">
+        <Row className="d-flex flex-column justify-content-center">
+          <Col className="d-flex justify-content-center">
+            <Row className="footer-section d-flex justify-content-around align-items-center flex-column flex-md-row w-100">
+              <Col className="footer-menu-link-container h-100">
+                <Link
+                  className="footer-menu-list-link h-100 text-justify text-center"
+                  to="/main"
+                >
+                  NUESTRA TIENDA
+                </Link>
               </Col>
-            </Col>
-
-            <div className="vl"></div>
-
-            <Col className="footer_menu">
-              <Row>
-                <Col className="footer_submenu">
-                  <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo f_submenu_1">
-                    Menu
-                  </h5>
-                  <ul className="d-flex flex-column f_submenu_1">
-                    <a href="#">Inicio</a>
-                    <a href="#">Shop</a>
-                    <a href="#">Nosotros</a>
-                    <a href="#">Ayuda</a>
-                  </ul>
-                </Col>
-                <Col className="footer_submenu">
-                  <h5 className="h-25 d-flex justify-content-center align-items-end mb-4 footer-titulo f_submenu_3">
-                    Soporte
-                  </h5>
-                  <ul className="d-flex flex-column f_submenu_3">
-                    <a href="#">Nuestro Soporte</a>
-                    <a href="#">FAQ</a>
-                    <a href="#">Terminos y Condicion</a>
-                  </ul>
-                </Col>
-              </Row>
-            </Col>
-
-            <div className="vl"></div>
-
-            <Col className="footer_redes">
-              <div className="social-menu">
-                <ul>
-                  <li>
-                    <a href="#">
-                      <Image
-                        src={fbIcon2}
-                        height="60"
-                        className="media-icon"
-                        rounded
-                      />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Image src={twIcon} className="media-icon" rounded />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <Image src={instaIcon} className="media-icon" rounded />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </Col>
-          </Row>
-        </Col>
-
-        <Col className="footer_disclaimer d-flex justify-content-center">
-          <div className="mt-3">
-         ZeroTech® ● General Paz 300 ● S.M Tucuman ● 4000 ● Tucuman ● Argentina ● www.zerotechstore.com
-          </div>
-        </Col>
-      </Row>
+              <Col className="footer-menu-link-container h-100">
+                <a
+                  className="footer-menu-list-link h-100 text-justify text-center"
+                  href={ubicacion}
+                  rel="noopener noreferrer"
+                  target="_new"
+                >
+                  COMO LLEGAR
+                </a>
+              </Col>
+              <Col className="footer-menu-link-container h-100">
+                <Link
+                  className="footer-menu-list-link h-100 text-justify text-center"
+                  to="/service"
+                >
+                  SERVICIOS
+                </Link>
+              </Col>
+              <Col className="footer-menu-link-container h-100">
+                <Link
+                  className="footer-menu-list-link h-100 text-justify text-center"
+                  to="/turn"
+                >
+                  ASISTENCIA ONLINE
+                </Link>
+              </Col>
+              <Col className="footer-menu-link-container h-100">
+                <Link
+                  className="footer-menu-list-link h-100 text-justify text-center"
+                  to="/service"
+                >
+                  CONTACTO
+                </Link>
+              </Col>
+            </Row>
+          </Col>
+          <Col className="d-flex justify-content-center mt-4">
+            <Row className="footer-section d-flex align-items-center">
+              <Image src={Loguito} rounded className="logo_imagen_header" />
+            </Row>
+          </Col>
+          <Col className="d-flex justify-content-center">
+            <Row className="social-menu footer-section d-flex justify-content-center align-items-center">
+              <Col>
+                <a href="#" className="social-menu-a fb-icon shadow">
+                  <Image
+                    src={fbIcon2}
+                    height="60"
+                    className="media-icon"
+                    rounded
+                  />
+                </a>
+              </Col>
+              <Col>
+                <a href="#" className="social-menu-a tw-icon shadow">
+                  <Image src={twIcon} className="media-icon" rounded />
+                </a>
+              </Col>
+              <Col>
+                <a href="#" className="social-menu-a insta-icon shadow">
+                  <Image src={instaIcon} className="media-icon" rounded />
+                </a>
+              </Col>
+            </Row>
+          </Col>
+          <Col className="d-flex justify-content-center mt-4">
+            <Row className="footer-section d-flex justify-content-center align-items-center">
+              <Col
+                md="8"
+                className="footer-disclaimer text-justify text-center"
+              >
+                ZeroTech® ● General Paz 300 ● S.M Tucuman ● 4000 ● Tucuman ●
+                Argentina ● www.zerotechstore.com. Todos los derechos
+                reservados. Prohibida la distribución de los elementos
+                registrados de ZeroTech Inc.
+              </Col>
+            </Row>
+          </Col>
+          <Col className="d-flex justify-content-center">
+            <Row className="footer-section d-flex justify-content-around justify-content-center align-items-start mt-3 w-50">
+              <Col className="d-flex justify-content-center">
+                <a className="footer-disclaimer-option" href="#">
+                  Política de Privacidad
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a className="footer-disclaimer-option" href="#">
+                  Términos de uso
+                </a>
+              </Col>
+              <Col className="d-flex justify-content-center">
+                <a className="footer-disclaimer-option" href="#">
+                  Pólitica de cookies
+                </a>
+              </Col>
+            </Row>
+          </Col>
+          <Col className="d-flex justify-content-center mb-5">
+            <Row className="footer-section d-flex justify-content-center align-items-center w-50 h-100">
+              <Col
+                xs="3"
+                md="2"
+                className="d-flex justify-content-center h-100"
+              >
+                <FaCcVisa className="footer-icono w-100 h-100" />
+              </Col>
+              <Col
+                xs="3"
+                md="2"
+                className="d-flex justify-content-center h-100"
+              >
+                <FaCcMastercard className="footer-icono w-100 h-100" />
+              </Col>
+              <Col
+                xs="3"
+                md="2"
+                className="d-flex justify-content-center h-100"
+              >
+                <FaCcAmex className="footer-icono w-100 h-100" />
+              </Col>
+              <Col
+                xs="3"
+                md="2"
+                className="d-flex justify-content-center h-100"
+              >
+                <FaCcPaypal className="footer-icono w-100 h-100" />
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+      </Container>
     </Container>
   );
 };

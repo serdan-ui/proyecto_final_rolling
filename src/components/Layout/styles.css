@@ -1,8 +1,6 @@
-
 .Container_Header {
-  background: #171717;
-  padding: 0 !important;
-  
+  background-color: rgba(22, 30, 49, 1) !important;
+  border-bottom: solid 1px #1c253a;
 }
 .container_logo {
   display: flex;
@@ -26,12 +24,14 @@
   line-height: 70px;
   color: white;
   font-weight: bold;
-  width: 50pxpx !important;
+  width: 50px !important;
 }
+
 .logo_imagen_header {
-  margin-left: 20px;
-  width: 30vw;
+  max-height: 4rem !important;
+  transition: 0.3s;
 }
+
 .login_registro_header {
   display: flex;
   flex-direction: row;
@@ -45,14 +45,53 @@
   height: 40px;
 }
 .btnLogin_header {
-  background: #171717 !important;
-  color: #19ED18!important;
-  border: 1px solid #19ED18 !important;
-  font-weight: bold !important;
+  width: 10em !important;
+  background: #7045af !important;
+  color: #f1f1f1!important;
+  border: 0px solid #7045af  !important;
+  font-weight: bolder !important;
+  transition: 0.2s !important;
 }
 .btnLogin_header:hover {
-  background: rgb(4, 4, 68);
+  background: #44198f !important;
 }
+
+.btnNav_header {
+  font-size: 1.2rem !important;
+  color: rgb(216, 216, 216) !important;
+  text-decoration: none !important;
+  font-weight: bolder !important;
+  height: 5rem !important;
+  margin-left: 2rem !important;
+  margin-right: 2rem !important;
+  margin-bottom: -10px !important;
+  transition: 0.1s;
+}
+.btnNav_header:hover {
+  color: rgb(255, 255, 255) !important;
+  border-bottom: 5px solid rgb(93, 61, 233) !important;
+  border-radius: 2px;
+}
+
+@media (max-width: 991px) {
+  .btnLogin-out {
+    display: none !important;
+  }
+  .logo_imagen_header{
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    width: 7rem !important;
+  }
+  .btnNav_header {
+    height: 4rem !important;
+  }
+}
+@media (min-width: 992px) {
+  .btnLogin-collapse {
+    display: none !important;
+  }
+}
+
 .btnLogin_header_logout{
   background: #171717 !important;
   color: #19ED18!important;
@@ -76,28 +115,6 @@
 
 }
 
-.nav_header {
-  border-top: 1px solid rgb(95, 233, 95);
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #212121;
-}
-
-.btnNav_header {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 6px 30px;
-  text-decoration: none !important;
-  border-left: 0.8px solid rgb(95, 233, 95);
-  border-right: 0.8px solid rgb(95, 233, 95);
-  border-top: none;
-}
-.btnNav_header:hover {
-  color: #19ED18;
-}
 .redesociales {
   color: aliceblue;
 }
@@ -154,162 +171,106 @@
 
 /*? FOOTER */
 
-
-
 .container_footer {
   position: relative;
-  bottom: 0px ;
-  background-color: #212121;
-  border-top: 2px groove #a19842;
+  overflow: hidden !important;
+  bottom: 0 ;
+  background-color: #111111 !important;
+  border-top: 1px solid #161c29;
 }
 
-.footer_disclaimer {
-  color: #9c9341;
-  min-height: 4rem;
-  border-top: 1px solid rgb(67, 68, 25);
+.footer-section {
+  font-family: 'Montserrat', sans-serif;
+  color: #7e7e7e;
+  min-height: 5rem !important;
 }
 
-.vl {
-  border-left: 1px solid rgb(67, 68, 25);
-  height: 200px;
-  margin-top: 40px;
-}
-
-.social-menu ul {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  padding: 0;
-  margin: 0;
-  transform: translate(-50%, 50%);
+.footer-menu-link-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+  cursor: pointer;
+  border-bottom: solid 1px #161c29;
 }
 
-.social-menu ul li{
-  list-style: none;
-  margin: 0 30px;
+.footer-menu-link-container:hover {
+  background-color: #161c29;
 }
 
-.social-menu ul li .media-icon{
-  height: 20px;
-  line-height: 60px;
-  transition: .6s;
-  margin-top: 10px;
-  color: #000000;
+.footer-menu-link-container:hover .footer-menu-list-link{
+  color: white !important;
 }
 
-.social-menu ul li a{
+.footer-menu-list-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none !important;
+  color: #7e7e7e !important;
+  font-weight: bolder;
+}
+
+.social-menu-a{
+  top: 20%;
   position: relative;
   display: block;
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  background-color: rgb(177, 182, 47);
+  background-color: #7e7e7e;
   text-align: center;
+  transition: .3s;
+}
+
+.social-menu-a:hover {
+  transform: translate(0, -5px);
+}
+
+.media-icon{
+  height: 20px;
+  line-height: 60px;
   transition: .6s;
-  box-shadow: 0 5px 4px rgba(0,0,0,.5);
+  margin-top: 10px;
+  color: white !important;
 }
 
-.social-menu ul li a:hover {
-  transform: translate(0, -10px);
-}
-
-
-.footer_submenu {
-  margin-top: 20px;
-}
-
-.footer_submenu ul a{
-  margin-top: 3px;
-}
-
-.container_footer a {
-  
-  color: rgb(161, 165, 59) !important;
-}
-
-.container_footer h5 {
-  
-  color: rgb(167, 170, 63);
-}
-
-.social-menu ul li:nth-child(1) a:hover {
+.fb-icon:hover {
   background-color: #3a5797;
 }
 
-.social-menu ul li:nth-child(2) a:hover {
+.tw-icon:hover {
   background-color: #55acee;
 }
-.social-menu ul li:nth-child(3) a:hover {
+.insta-icon:hover {
   background-color: #e4405f;
+}
+
+.footer-disclaimer{
+  font-size: 0.7rem;
+}
+
+.footer-disclaimer-option{
+  text-decoration: none !important;
+  border-bottom: solid 0.1px #7e7e7e;
+  color: #7e7e7e !important;
+  font-size: 0.8rem;
+}
+
+
+@media (max-width: 766px) {
+  .footer-disclaimer-option{
+    font-size: 0.6rem;
+  }
 }
 
 
 @media (max-width: 938px) {
   .container_footer {
-    bottom: 0;
-    z-index: -1;
     overflow: hidden;
-    position: sticky; 
-    height: 40%;
-    display: flex;
-    align-items: center;
-  }
-
-  .vl{
-    border-left: 1px solid rgb(83, 85, 29);
-    height: 150px;
-    margin-top: 50px;
-  }
-
-  .social-menu ul {
-    display: flex;
-    flex-direction: column;
-    top: -40%;
-  }  
-  
-  .iframe-mapa {
-    height: 1px;
-    width: 1px;
-    visibility: hidden;
-  }
-
-  .f_submenu_2, .f_submenu_3 {
-    visibility: hidden;
-  }
-
-  .container_footer h5 {
-    margin-left: 60px;
-  }
+  } 
 }
 
-@media (max-width: 414px) {
-  .container_footer h5 {
-    margin-left: 60px;
-  }
-
-  .social-menu ul {
-    top: -10%;
-  }  
-
-  .social-menu ul li a {
-    display: flex;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    margin-bottom: 20px;
-  }
-
-  .media-icon {
-    margin: 6px 0;
-    align-self: center;
-    height: 75% !important;
-  }
-
-  .f_submenu_2, .f_submenu_3 {
-    visibility: hidden;
-  }
-}
 .btnCartOpen button.btnCart_header{
   display: none;
   

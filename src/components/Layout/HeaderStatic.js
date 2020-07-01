@@ -1,11 +1,20 @@
-import React from "react";
-import { Container, Row, Col, Nav, Button, Image } from "react-bootstrap";
-import { Link ,useHistory} from "react-router-dom";
+import React, { Fragment } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Nav,
+  Button,
+  Image,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 import "./styles.css";
-import Loguito from "../Images/zerote.png";
+import Loguito from "../Images/Zero-Images/Zero-Black.svg";
 import { FaUser, FaShareSquare } from "react-icons/fa";
 
-const HeaderStatic = ({authen, setAuthen, usuario}) => {
+const HeaderStatic = ({ authen, setAuthen, usuario }) => {
   let history = useHistory();
   const cerrarSes = () => {
     localStorage.removeItem("Token");
@@ -14,57 +23,59 @@ const HeaderStatic = ({authen, setAuthen, usuario}) => {
   };
 
   return (
-    <Container fluid className="Container_Header">
-      <Row className="container_logo"  style={{padding:"0px", margin:"0px"}}>
-        <Col xs={4} md={3} className="logo">
-          <Image src={Loguito} rounded className="logo_imagen_header" />
-        </Col>
-        <Col xs={7} md={9} className="login_registro_header">
-        {authen ? (
-            <>
-            <span><FaUser className="icons_header" />Hola: {usuario.username}</span>
+    <Fragment>
+      <Container fluid className="Container_Header">
+        <Navbar collapseOnSelect expand="lg"  variant="dark">
+          <Navbar.Brand href="/main" className="">
+            <Image fluid src={Loguito} className="logo_imagen_header" />
+          </Navbar.Brand>
 
-              <Button
-                className="btnLogin_header_logout mr-2"
-                style={{border:"none"}}
-                onClick={cerrarSes}
-              >
-                {" "}
-                < FaShareSquare/>
-              </Button>
-            </>
-          ) : (
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-            <Button
-              className="btnLogin_header mr-2"
-              onClick={()=>{history.push("/")}}
-            >
-              {" "}
-              <FaUser className="icons_header" />
-              Iniciar sesion
-            </Button>
-          )}
-        </Col>
-      </Row>
+          <Navbar.Collapse
+            id="responsive-navbar-nav"
+            className="justify-content-center"
+          >
+            <Nav className="d-flex flex-column-reverse flex-lg-row justify-content-center">
+              
+              <Nav.Link href="/main" className="btnNav_header d-flex justify-content-center align-items-center">
+                Tienda
+              </Nav.Link>
 
-      <Nav className="justify-content-center nav_header">
-        <Nav.Item className="nav_header">
-          <Link to="/main" className="btnNav_header">
-            Tienda
-          </Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link to="/service" className="btnNav_header">
-            Servicios
-          </Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link to="/turn" className="btnNav_header">
-            Turno
-          </Link>
-        </Nav.Item>
-      </Nav>
-    </Container>
+              <Nav.Link href="/service" className="btnNav_header d-flex justify-content-center align-items-center">
+                Servicios
+              </Nav.Link>
+
+              <Nav.Link href="/turn" className="btnNav_header d-flex justify-content-center align-items-center">
+                Turno
+              </Nav.Link>
+
+              <Nav>
+                <div className="d-flex justify-content-center mt-3 mb-2">
+                  <Button
+                    className="btnLogin_header btnLogin-collapse shadow"
+                    onClick={() => {
+                      history.push("/");
+                    }}
+                  >
+                    INICIAR SESIÓN
+                  </Button>
+                </div>
+              </Nav>
+            </Nav>
+          </Navbar.Collapse>
+
+          <Button
+            className="btnLogin_header btnLogin-out mr-3 shadow"
+            onClick={() => {
+              history.push("/");
+            }}
+          >
+            INICIAR SESIÓN
+          </Button>
+        </Navbar>
+      </Container>
+    </Fragment>
   );
 };
 

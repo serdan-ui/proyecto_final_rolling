@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import Carrousel from "./Carrousel";
 import Mostrador from "./Mostrador";
 import Fotter from "../Layout/Fotter";
@@ -15,7 +15,7 @@ const Main = ({authen,setAuthen,usuario, setCarrito, userId ,products , setProdu
 
 
   return (
-    <>
+    <Fragment>
       <Header products={products} 
       authen={authen}
       setAuthen={setAuthen}
@@ -27,7 +27,7 @@ const Main = ({authen,setAuthen,usuario, setCarrito, userId ,products , setProdu
       <Carrousel />
       <Mostrador setProducts={setProducts} products={products} />
       <Fotter />
-    </>
+    </Fragment>
   );
 };
 

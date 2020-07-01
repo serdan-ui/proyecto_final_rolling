@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.background-checkout {
+    background-color: #424242 !important ;
+}
+
 .shopping-detail-container {
+    font-family: 'Montserrat', sans-serif !important;
     background-color: whitesmoke;
     box-shadow: -7px 10px 5px 0px rgba(48, 47, 47, 0.75);
 }

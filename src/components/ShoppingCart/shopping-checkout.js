@@ -44,7 +44,7 @@ const ShoppingCheckout = () => {
 
   useEffect(() => {
     CalcularSubtotal();
-  }, [carrito])
+  }, [carrito]);
 
   //Slider
   const sliderSettings = {
@@ -70,40 +70,42 @@ const ShoppingCheckout = () => {
 
   return (
     <Fragment>
+      <Container fluid className="background-checkout">
       <HeaderStatic />
+      
+        <Container className="shopping-detail-container rounded mt-5 mb-5">
+          <Row className="shopping-detail-panel d-sm-flex flex-md-row flex-column-reverse">
+            <Col>
+              <Slider ref={SliderContainer} {...sliderSettings}>
+                <ShoppingCart
+                  carrito={carrito}
+                  setCarrito={setCarrito}
+                  calcularSubtotal={CalcularSubtotal}
+                  sliderSiguiente={SliderSiguiente}
+                />
+                <ShippingDetail
+                  sliderSiguiente={SliderSiguiente}
+                  sliderAnterior={SliderAnterior}
+                  setValorEnvio={setValorEnvio}
+                />
+                <PaymentDetail sliderAnterior={SliderAnterior} />
+              </Slider>
+            </Col>
 
-      <Container className="shopping-detail-container rounded mt-5 mb-5">
-        <Row className="shopping-detail-panel d-sm-flex flex-md-row flex-column-reverse">
-          <Col>
-            <Slider ref={SliderContainer} {...sliderSettings}>
-              <ShoppingCart
-                carrito={carrito}
-                setCarrito={setCarrito}
-                calcularSubtotal={CalcularSubtotal}
-                sliderSiguiente={SliderSiguiente}
+            <Col md="5" lg="4" className="mb-md-5">
+              <ResumenCompra
+                subtotal={subtotal}
+                valorEnvio={valorEnvio}
+                valorImpuestos={valorImpuestos}
+                setDescuento={setDescuento}
+                valorDescuento={valorDescuento}
               />
-              <ShippingDetail
-                sliderSiguiente={SliderSiguiente}
-                sliderAnterior={SliderAnterior}
-                setValorEnvio={setValorEnvio}
-              />
-              <PaymentDetail sliderAnterior={SliderAnterior}/>
-            </Slider>
-          </Col>
-
-          <Col md="5" lg="4" className="mb-md-5">
-            <ResumenCompra
-              subtotal={subtotal}
-              valorEnvio={valorEnvio}
-              valorImpuestos={valorImpuestos}
-              setDescuento={setDescuento}
-              valorDescuento={valorDescuento}
-            />
-          </Col>
-        </Row>
-      </Container>
+            </Col>
+          </Row>
+        </Container>
 
       <Fotter />
+      </Container>
     </Fragment>
   );
 };

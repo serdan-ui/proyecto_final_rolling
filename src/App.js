@@ -9,6 +9,7 @@ import Register from "./components/Register/Register";
 import Error404 from "./components/Error404/Error404";
 import Turn from "./components/Turn/Turn";
 import Admin from "./components/Admin/Admin";
+import MainTest from "./components/Test/Main-Test";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axiosInstance from './components/util/axiosInstance'
 import AgregProd from "./components/Admin/AgregProd";
@@ -57,6 +58,11 @@ const autenticar = async () => {
   return (
     <Router>
       <Switch>
+
+        <Route exact path="/main-test">
+          <MainTest />
+        </Route>
+
         <Route exact path="/">
           <Login />
         </Route>
