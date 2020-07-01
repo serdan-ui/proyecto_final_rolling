@@ -16,7 +16,7 @@ const BodyTurn = (userId) => {
       </Row>
       <h2>{titleBtn ? "Turnos" : "Lista de Turnos"} </h2>
 
-      {titleBtn ? <FormTurn userId={userId}/> : <ListTurn userId={userId} />}
+      {titleBtn ? <FormTurn userId={userId} setTitleBtn={setTitleBtn}/> : <ListTurn userId={userId} />}
     </Container>
   );
 };

@@ -21,6 +21,8 @@ const fetchTurnos = async() => {
 //_id usuario
 if(userId.userId.userId!=undefined){
   const _id=userId.userId.userId
+  console.log(_id)
+  console.log(userId)
   const response = await axiosInstance.get(`/turno/${_id}`);
   console.log(response)
   const {message,turnos } = response.data;
