@@ -27,8 +27,8 @@ const BtnCart = ({products, setCarrito }) => {
 
   return (
     <>
-    <div className="padreContainer">
-      <div className={clase}>
+    <div >
+      <div className={clase} id="padreContainer">
         <Button className="btnCart_header mr-2" onClick={abreCarro}>
           {" "}
           <FaCartPlus className="icons_header_cart" />

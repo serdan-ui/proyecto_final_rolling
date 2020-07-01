@@ -129,7 +129,6 @@ const PageService = ({ authen, setAuthen ,usuario}) => {
             <div className="persona roundedCircle " style={{ padding: "5px" }}>
               {" "}
               <img
-                style={{ height: "150px" }}
                 src={Rochy}
                 className="imagen-pers"
                 alt="photo"
@@ -147,7 +146,6 @@ const PageService = ({ authen, setAuthen ,usuario}) => {
               {" "}
               <img
               alt="photo"
-                style={{ height: "150px" }}
                 src={Sergio}
                 className="imagen-pers"
               />
@@ -163,7 +161,6 @@ const PageService = ({ authen, setAuthen ,usuario}) => {
             <div className="persona roundedCircle ">
               <img
               alt="photo"
-                style={{ height: "150px" }}
                 src={Nicole}
                 className="imagen-pers"
               />
@@ -176,11 +173,10 @@ const PageService = ({ authen, setAuthen ,usuario}) => {
 
           <Col xs={12} xl={2}>
             {" "}
-            <div className="persona roundedCircle ">
+            <div className="persona  ">
               {" "}
               <img
               alt="photo"
-                style={{ height: "150px" }}
                 src={Mauricio}
                 className="imagen-pers"
               />
