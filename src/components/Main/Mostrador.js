@@ -8,15 +8,26 @@ import {
   Container,
   CardColumns,
   Dropdown,
-  Accordion,
+  
 } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
 import axiosInstance from "../util/axiosInstance";
 
-import { CardText } from "react-bootstrap/Card";
+import { Spinner} from "react-bootstrap";
 import swal from "sweetalert";
 
-const Mostrador = ({ setProducts, products }) => {
+const Mostrador = ({ setProducts, products ,userId ,fetchCarrito}) => {
+
+  const [loader, setloader] = useState(false)
+
+  //funcion para loader de productos
+  const Onloader = () => {
+    setloader(true)
+  }
+  const Offloader = () => {
+    setloader(false)
+  }
+
   //Traer productos de base de datos
 
   const getProductos = async () => {
@@ -35,6 +46,7 @@ const Mostrador = ({ setProducts, products }) => {
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {
+    console.log(imagen[0])
     swal({
       title: nombre,
       imageUrl: imagen[0],
@@ -57,18 +69,29 @@ const Mostrador = ({ setProducts, products }) => {
   //   filtrarCategorias(productos,categoria)
   // }
 
-  //agregar al carrito
-  const botonAlerta = (product) => {
-    console.log(product);
 
-    setProducts([...products, product]);
+  //funcion para agregar productos al carrito
 
-    swal({
-      icon: "success",
-      title: "Producto agregado correctamente",
-      timer: 2000,
-    });
-  };
+
+const postCart = async(contenido) => {
+  const {usuarioID, productoID , cantidad } = contenido;
+  Onloader()
+  const response = await axiosInstance.post("/cart",{usuarioID,productoID,cantidad})
+  Offloader()
+  swal({
+    icon: "success",
+    title: "Producto agregado correctamente",
+    timer: 2000,
+  });
+  }
+  const addCart = (_id) => {
+    const usuarioID = userId;
+    const productoID = _id;
+ 
+    postCart({usuarioID,productoID});
+    fetchCarrito(userId)
+    }
+
 
   return (
     <>
@@ -120,7 +143,7 @@ const Mostrador = ({ setProducts, products }) => {
           >
             <CardColumns className="cardColumns">
               {productos.map((producto) => (
-                <Card key={producto.id} sm={12} className="cardProduct">
+                <Card key={producto._id} sm={12} className="cardProduct">
                   <Card.Img
                     variant="top"
                     src={producto.imagen[0]}
@@ -149,7 +172,7 @@ const Mostrador = ({ setProducts, products }) => {
                         </Button>
                       </Col>
                       <Col className="p-0">
-                        <Button
+                        {!loader ? (<Button
                           variant="success"
                           className="btnroto"
                           style={{
@@ -158,10 +181,11 @@ const Mostrador = ({ setProducts, products }) => {
                             backgroundColor: "#19ED18",
                             color: "black",
                           }}
-                          onClick={() => botonAlerta(producto)}
+                          onClick={() => addCart(producto._id)}
                         >
                           <FaCartPlus /> Agregar
-                        </Button>
+                        </Button>) : (<Spinner animation="border" />)}
+                        
                       </Col>
                     </Row>
                   </Card.Footer>

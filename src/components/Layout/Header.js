@@ -16,25 +16,30 @@ const Header = ({
   setCarrito,
   userId,
   setProducts,
+  fetchCarrito
 }) => {
   let history = useHistory();
+
   const cerrarSes = () => {
     localStorage.removeItem("Token");
     setAuthen(null);
     history.push("/");
   };
+
+
   const TraerCart = () => {
     useEffect(() => {
       let user;
       user = userId;
+      console.log(user)
       fetchCarrito(user);
-    }, []);
+    }, [products]);
   };
-  const fetchCarrito = async (user) => {
-    const id = user;
-    const response = await axiosInstance.get(`/cart/${id}`);
-    setProducts(response.data.carrito[0].Productos);
-  };
+
+
+
+
+
   if (userId === undefined) {
     return <HeaderStatic/>;
   } else {
