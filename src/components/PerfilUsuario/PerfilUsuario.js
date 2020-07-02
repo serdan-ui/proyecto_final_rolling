@@ -23,13 +23,14 @@ const PerfilUsuario = () => {
           </Row>
         </div>
         <div className="p-3">
+          <h2 className="comprasRe">Compras realizadas</h2>
           <Table striped bordered hover variant="dark">
             <thead>
               <tr>
                 <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Nombre producto</th>
+                <th>Cantidad</th>
+                <th>Total</th>
               </tr>
             </thead>
             <tbody>
