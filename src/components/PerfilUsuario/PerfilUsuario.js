@@ -8,7 +8,7 @@ const PerfilUsuario = () => {
     <>
       <Container fluid className="padrePerfil">
 
-        <h2 className="text-center text-white"> Mi Perfil</h2>
+        <h2 className="text-center text-white comprasRe"> Mi Perfil</h2>
         <div className="contenedorImgPer">
           <Row className="perfilUsuario">
             <div className="xl-col-4 lg-col-4 xs-col-10 ">
