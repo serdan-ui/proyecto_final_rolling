@@ -14,7 +14,7 @@ const BodyTurn = (userId) => {
           <Button onClick={()=>{setTitleBtn(!titleBtn)}}  className="btnForm" >{titleBtn?"Ver Lista de Turnos":"Solicitar Turno"}</Button>
         </Col>
       </Row>
-      <h2>{titleBtn ? "Turnos" : "Lista de Turnos"} </h2>
+      <h2 >{titleBtn ? "Turnos" : "Lista de Turnos"} </h2>
 
       {titleBtn ? <FormTurn userId={userId}/> : <ListTurn userId={userId} />}
     </Container>
