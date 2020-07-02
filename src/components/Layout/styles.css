@@ -12,7 +12,7 @@
 }
  .containerCart{
  overflow-x:hidden ;
-  overflow-y: scroll;
+  overflow-y: auto;
   min-height: 300px;
   max-height: 500px;
 } 
