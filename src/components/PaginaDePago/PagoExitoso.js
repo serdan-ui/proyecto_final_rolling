@@ -4,6 +4,12 @@ import {useHistory} from "react-router-dom"
 
 const PagoExitoso = () => {
   let history = useHistory()
+
+  const Fecha =(hoy)=>{
+    moment(hoy).format('MMMM Do YYYY, h:mm:ss a');
+  }
+
+
   return (<>
 
     <div className="container-fluid fondooexit">
