@@ -87,6 +87,11 @@ const Header = ({
           </Link>
         </Nav.Item>
         <Nav.Item>
+          <Link to="/turn" className="btnNav_header">
+            Perfil
+          </Link>
+        </Nav.Item>
+        <Nav.Item>
           <Link to="/service" className="btnNav_header">
             Servicios
           </Link>
@@ -96,6 +101,7 @@ const Header = ({
             Turno
           </Link>
         </Nav.Item>
+        
       </Nav>
     </Container>
   );
