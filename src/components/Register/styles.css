@@ -41,5 +41,5 @@ text-align: start;
 
   
   ::ng-deep.swal2-container {
-    z-index: 1000000;
+    /* z-index: 1000000; */
 }

@@ -1,6 +1,9 @@
 .Container_Header {
-  background-color: rgba(22, 30, 49, 1) !important;
-  border-bottom: solid 1px #1c253a;
+  /* background-color: rgba(25, 28, 34, 0.8) !important; */
+  background-color: rgba(32, 45, 68, 0.5);
+  border-bottom: solid 1px #171d2b;
+  position: relative;
+  z-index: 10;
 }
 .container_logo {
   display: flex;
@@ -28,7 +31,7 @@
 }
 
 .logo_imagen_header {
-  max-height: 4rem !important;
+  max-height: 3rem !important;
   transition: 0.3s;
 }
 
@@ -46,34 +49,51 @@
 }
 .btnLogin_header {
   width: 10em !important;
-  background: #7045af !important;
+  background: #21325c !important;
   color: #f1f1f1!important;
-  border: 0px solid #7045af  !important;
+  border: 0px solid #171f33  !important;
   font-weight: bolder !important;
   transition: 0.2s !important;
 }
 .btnLogin_header:hover {
-  background: #44198f !important;
+  background: #243e7a !important;
+  box-shadow: 0px 0px 20px 0px rgba(28, 34, 49, 0.75) !important;
 }
 
 .btnNav_header {
-  font-size: 1.2rem !important;
-  color: rgb(216, 216, 216) !important;
+  font-family: 'Montserrat', sans-serif;
   text-decoration: none !important;
-  font-weight: bolder !important;
   height: 5rem !important;
-  margin-left: 2rem !important;
-  margin-right: 2rem !important;
-  margin-bottom: -10px !important;
-  transition: 0.1s;
+  min-width: 8rem !important;
+  margin-bottom: -8px !important;
+  margin-top: -8px !important;
+  transition: 0.4s;
 }
 .btnNav_header:hover {
-  color: rgb(255, 255, 255) !important;
-  border-bottom: 5px solid rgb(93, 61, 233) !important;
-  border-radius: 2px;
+/*   background-color: rgba(33, 42, 61, 0.6) !important; */
+background-color: rgba(99, 53, 160, 0.4);
+}
+
+.btnNav_mainFont{
+  margin-top: 8px;
+  font-weight: bolder !important;
+  color: #ffffff !important;
+}
+
+.btnNav_secondFont{
+  font-size: smaller;
+  font-weight: bolder;
+  color: #998d8d;
 }
 
 @media (max-width: 991px) {
+  
+  .navbar-desplegable {
+    border-top: solid 1px rgb(34, 43, 61);
+  }
+  .Container_Header{
+    background-color: rgba(22, 28, 41, 0.97) !important;
+  }
   .btnLogin-out {
     display: none !important;
   }
@@ -83,6 +103,8 @@
     width: 7rem !important;
   }
   .btnNav_header {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
     height: 4rem !important;
   }
 }
@@ -136,7 +158,7 @@
   height: 70px;
   font-weight: bold !important ;
   position: fixed;
-  z-index: 2;
+/*   z-index: 10000; */
   right: -8px !important;
   background: #212121 !important;
   border: 1px solid yellowgreen !important;
@@ -163,9 +185,8 @@
   overflow: hidden;
   background-color: #212121;
   font-weight: bold !important ;
-  z-index: 10;
+/*   z-index: 100; */
   right: 0px !important;
-  z-index: 16 ;
  
 }
 
@@ -173,10 +194,12 @@
 
 .container_footer {
   position: relative;
+  z-index: 8;
   overflow: hidden !important;
   bottom: 0 ;
   background-color: #111111 !important;
   border-top: 1px solid #161c29;
+  box-shadow: 0px -5px 0px 0px rgba(24, 24, 24, 0.7);
 }
 
 .footer-section {
@@ -274,7 +297,6 @@
 
 .btnCartOpen button.btnCart_header{
   display: none;
-  
 }     
 .cuerpoCart button.cartClose{
   display: none;

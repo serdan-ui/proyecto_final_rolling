@@ -1,3 +1,79 @@
 .main-container {
+    position: relative;
+}
 
+.img-disclaimer-container{
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    background: url("../Images/games/disclaimer2.png") no-repeat;
+}
+.back-color{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(transparent 60%, rgb(0, 0, 0));
+    /* background-color: rgba(54, 30, 88, 0.5); */
+    background-color: rgba(104, 85, 129, 0.4);
+}
+.main-disclaimer-container{
+    min-height: 41rem !important;
+}
+
+.disclaimer-panel{
+    padding-left: 4rem !important;
+    margin-bottom: 8rem;
+    background-color: rgba(33, 45, 65, 0.8);
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+    transition: 0.3s;
+}
+.disclaimer-panel-logo{
+    margin-top: 2rem;
+    max-height: 8rem;
+}
+.disclaimer-panel-titulo{
+    color: white;
+    font-size: 4rem;
+}
+.disclaimer-panel-descripcion{
+    margin-top: 2rem;
+    color: rgb(233, 233, 233);
+    font-size: 1.3rem;
+}
+.disclaimer-panel-titulo, .disclaimer-panel-descripcion{
+    font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 1500px) {
+    .disclaimer-panel-titulo{
+        margin-top: 2rem;
+        font-size: 3.6rem;
+    }
+    .disclaimer-panel-logo{
+        max-height: 6rem;
+    }
+}
+@media (max-width: 1054px) {
+    .disclaimer-panel-titulo{
+        font-size: 3.4rem;
+    }
+    .disclaimer-panel-logo{
+        max-height: 5.35rem;
+    }
+    .disclaimer-panel-descripcion{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .disclaimer-panel-titulo{
+        font-size: 2.5rem;
+    }
+    .disclaimer-panel{
+        margin-top: 4rem;
+        padding-left: 20px !important;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    
 }

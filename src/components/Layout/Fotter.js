@@ -2,7 +2,7 @@
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import Loguito from "../Images/Zero-Images/Zero-Black-Borderless.svg";
+import Loguito from "../Images/Zero-Images/Zero-Tech-Grey.svg";
 import fbIcon2 from "../assets/icons/facebook2.svg";
 import twIcon from "../assets/icons/twitter.svg";
 import instaIcon from "../assets/icons/instagram.svg";
@@ -23,7 +23,7 @@ const Fotter = () => {
     <Container fluid className="container_footer">
       <Container className="d-flex flex-column justify-content-center">
         <Row className="d-flex flex-column justify-content-center">
-          <Col className="d-flex justify-content-center">
+          <Col className="d-flex justify-content-center mb-4">
             <Row className="footer-section d-flex justify-content-around align-items-center flex-column flex-md-row w-100">
               <Col className="footer-menu-link-container h-100">
                 <Link
@@ -107,7 +107,7 @@ const Fotter = () => {
                 ZeroTech® ● General Paz 300 ● S.M Tucuman ● 4000 ● Tucuman ●
                 Argentina ● www.zerotechstore.com. Todos los derechos
                 reservados. Prohibida la distribución de los elementos
-                registrados de ZeroTech Inc.
+                registrados en ZeroTech Inc.
               </Col>
             </Row>
           </Col>

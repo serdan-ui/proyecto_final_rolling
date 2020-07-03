@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Container, Row, Col, Nav, Button, Image } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import "./styles.css";
-import Loguito from "../Images/Zero-Images/Zero-Black.svg";
+import Loguito from "../Images/Zero-Images/Zero-Tech-Purple.svg";
 import { FaUser, FaShareSquare } from "react-icons/fa";
 import BtnCart from "./BtnCart";
 import axiosInstance from "../util/axiosInstance";
@@ -42,7 +42,7 @@ const Header = ({
   }
   return (
     <Container fluid className="Container_Header">
-      <Row className="container_logo" style={{ padding: "0px", margin: "0px" }}>
+      <Row className="container_logo">
         <Col xs={4} md={3} className="logo">
           <Image src={Loguito} rounded className="logo_imagen_header" />
           <br />

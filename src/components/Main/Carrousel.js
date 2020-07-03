@@ -1,48 +1,37 @@
 import React from "react";
-import { Carousel, Container } from "react-bootstrap";
+import { Carousel, Container, Image } from "react-bootstrap";
+import Loguito from "../Images/Zero-Images/Zero-Black.svg";
 
 const Carrousel = () => {
   return (
-    <Container fluid >
-      <Carousel >
+    <Container fluid className="carrousel-container">
+      <Carousel>
         <Carousel.Item>
-          <img
+          <Image 
             className="d-block w-100"
             src="/image/celucarrousel.jpg"
             alt="First slide"
-            style={{
-              maxHeight:"80vh"
-            }}
           />
         </Carousel.Item>
         <Carousel.Item>
-          <img
+          <Image 
             className="d-block w-100"
             src="/image/tecladocarrousel.jpg"
             alt="Third slide"
-            style={{
-              maxHeight:"80vh"
-            }}
           />
         </Carousel.Item>
         <Carousel.Item>
-          <img
+          <Image 
             className="d-block w-100"
             src="/image/serviciotecnico.jpg"
             alt="Third slide"
-            style={{
-              maxHeight:"80vh"
-            }}
           />
         </Carousel.Item>
         <Carousel.Item>
-          <img
+          <Image 
             className="d-block w-100"
             src="/image/tecnologia.jpg"
             alt="Four slide"
-            style={{
-              maxHeight:"80vh"
-            }}
           />
         </Carousel.Item>
       </Carousel>

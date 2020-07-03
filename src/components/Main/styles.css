@@ -1,18 +1,27 @@
+body {
+  overflow-x: hidden;
+}
+
+.carrousel-container{
+  position: relative;
+}
+
+.carrousel-container img {
+  max-height: 80vh;
+  min-height: 80vh;
+}
+
+.zero-disclaimer-carrousel{
+  position: absolute;
+/*   z-index: 3; */
+}
+
 .card-articulo {
   max-height: 350px;
 }
 .contenedor-mostrador {
   height: auto;
 }
-
-/* .cardProduct {
-border: 1px inset rgb(175, 90, 164) !important;
-border-image: linear-gradient(to right, #2387ca, #77B300) !important;
-border-image-slice: 1 !important;
-background-color: transparent !important;
-color: white;
-z-index: 1;
-} */
 .cardProduct {
   background-color: #212121 !important;
   color: whitesmoke;
@@ -48,10 +57,7 @@ z-index: 1;
   background-color: #212121 !important;
   color: whitesmoke;
 }
-.carrousel-container {
-  padding-right: 0px;
-  padding-left: 0px;
-}
+
 .container-fluid {
   padding-right: 0% !important;
   padding-left: 0% !important;

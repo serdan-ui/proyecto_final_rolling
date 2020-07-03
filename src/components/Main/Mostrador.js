@@ -72,19 +72,14 @@ const Mostrador = ({ setProducts, products }) => {
 
   return (
     <>
-      <p className="titulo_product_main">Productos</p>
       <Container fluid className="contenedor-mostrador">
-        <Row style={{ background: "#171717", margin: "0px" }}>
-          <Col sm={2} style={{ backgroundColor: "black" }}>
-            <h3 style={{ color: "white" }}>Filtrar por: </h3>
+        <p className="titulo_product_main">Productos</p>
+        <Row>
+          <Col sm={2}>
+            <h3>Filtrar por: </h3>
             <br />
             <Dropdown>
-              <Dropdown.Toggle
-                id="dropdown-basic"
-                style={{ backgroundColor: "#212121" }}
-              >
-                Categoria
-              </Dropdown.Toggle>
+              <Dropdown.Toggle id="dropdown-basic">Categoria</Dropdown.Toggle>
 
               <Dropdown.Menu>
                 <Dropdown.Item eventKey="Auriculares">
@@ -100,12 +95,7 @@ const Mostrador = ({ setProducts, products }) => {
             <br />
             <br />
             <Dropdown>
-              <Dropdown.Toggle
-                id="dropdown-basic"
-                style={{ backgroundColor: "#212121", outlineColor: "black" }}
-              >
-                Precio
-              </Dropdown.Toggle>
+              <Dropdown.Toggle id="dropdown-basic">Precio</Dropdown.Toggle>
 
               <Dropdown.Menu>
                 <Dropdown.Item href="#/action-1">Menor a mayor</Dropdown.Item>
@@ -113,11 +103,7 @@ const Mostrador = ({ setProducts, products }) => {
               </Dropdown.Menu>
             </Dropdown>
           </Col>
-          <Col
-            sm={8}
-            className="columnitax"
-            style={{ backgroundColor: "black" }}
-          >
+          <Col sm={8} className="columnitax">
             <CardColumns className="cardColumns">
               {productos.map((producto) => (
                 <Card key={producto.id} sm={12} className="cardProduct">
@@ -169,7 +155,7 @@ const Mostrador = ({ setProducts, products }) => {
               ))}
             </CardColumns>
           </Col>
-          <Col sm={2} style={{ backgroundColor: "black" }}></Col>
+          <Col sm={2}></Col>
         </Row>
       </Container>
     </>
