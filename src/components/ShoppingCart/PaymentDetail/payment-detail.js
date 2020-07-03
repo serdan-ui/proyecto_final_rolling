@@ -5,20 +5,36 @@ import CreditCard from "./card-credit";
 import PaypalCard from "./card-paypal";
 import "./styles.css";
 
-const PaymentDetail = ({ sliderAnterior }) => {
+const PaymentDetail = ({ sliderAnterior, setDetailCheckout, detailCheckout }) => {
   const [metodoSeleccionado, setMetodoSeleccioando] = useState("");
   const [datosTarjeta, setDatosTarjeta] = useState();
 
   const { register, errors, handleSubmit } = useForm();
 
+  //funcion si carga los datos de la tarjeta
   const onSubmit = (datos) => {
-    if (metodoSeleccionado === "TarjetaCredito") {
-      setDatosTarjeta(datos);
-      console.log(datos);
-    } else if (metodoSeleccionado === "Paypal") {
-      console.log("paypal");
-    }
+    
+    console.log(detailCheckout);
   };
+
+
+  //funcion cargar efectivo
+  const cargarPagoEfectivo = () => {
+    setMetodoSeleccioando("Paypal")
+    setDetailCheckout({...detailCheckout,
+      tarjeta:{
+        cvc:"",
+        expiracion:"",
+        nombre:"",
+        numero:"",
+      },
+    efectivo:true})
+  }
+
+//funcion si elije efectivo
+const detailEfectivo = () =>{
+  console.log(detailCheckout)
+}
 
   return (
     <Container>
@@ -36,11 +52,13 @@ const PaymentDetail = ({ sliderAnterior }) => {
             setDatosTarjeta={setDatosTarjeta}
             register={register}
             errors={errors}
+            setDetailCheckout={setDetailCheckout}
+              detailCheckout={detailCheckout}
           />
         </Col>
         <Col className="border-bottom mb-3 mt-3">
           <PaypalCard
-            onClick={() => setMetodoSeleccioando("Paypal")}
+            onClick={cargarPagoEfectivo}
             seleccionado={metodoSeleccionado === "Paypal" ? true : false}
           />
         </Col>
@@ -63,7 +81,7 @@ const PaymentDetail = ({ sliderAnterior }) => {
             </Button>
           ) : metodoSeleccionado === "Paypal" ? (
             <Button
-              onClick={() => console.log("paypal")}
+              onClick={() => detailEfectivo()}
               className="mr-2"
               variant="success"
               type="submit"

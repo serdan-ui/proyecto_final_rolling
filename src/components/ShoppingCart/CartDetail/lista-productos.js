@@ -2,8 +2,14 @@ import React, { useState, Fragment } from "react";
 import ProductCard from "./product-card";
 import "./styles.css";
 
-export const ListaProductos = ({ carrito, calcularSubtotal, setCarrito, setCartValido}) => {
-
+export const ListaProductos = ({
+  carrito,
+  calcularSubtotal,
+  setCarrito,
+  setCartValido,
+  fetchCarrito,
+  userId,
+}) => {
   return (
     <Fragment>
       <div className="scrollable">
@@ -15,6 +21,8 @@ export const ListaProductos = ({ carrito, calcularSubtotal, setCarrito, setCartV
             setCarrito={setCarrito}
             calcularSubtotal={calcularSubtotal}
             setCartValido={setCartValido}
+            fetchCarrito={fetchCarrito}
+            userId={userId}
           />
         ))}
       </div>

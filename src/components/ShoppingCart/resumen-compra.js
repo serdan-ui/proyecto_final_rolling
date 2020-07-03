@@ -11,6 +11,8 @@ const ResumenCompra = ({
   valorImpuestos,
   valorDescuento,
   setDescuento,
+  setDetailCheckout,
+  detailCheckout
 }) => {
   const [detalleCupon, setDetalleCupon] = useState({
     id: "",
@@ -28,6 +30,16 @@ const ResumenCompra = ({
       parseFloat(valorEnvio)
     ).toFixed(2)
   );
+
+
+ useEffect(() => {
+
+   setDetailCheckout({...detailCheckout,
+    total:valorTotal,
+    subtotal:subtotal
+  })
+ }, [valorTotal])
+
 
   useEffect(() => {
     setValorTotal(

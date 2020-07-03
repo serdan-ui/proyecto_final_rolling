@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Col, Row, Container, Image, Button } from "react-bootstrap";
+import { Col, Row, Container, Image, Button, Spinner } from "react-bootstrap";
 import { FaRegTrashAlt, FaPlus, FaMinus } from "react-icons/fa";
 import Swal from "sweetalert2";
 import "./styles.css";
+import axiosInstance from "../../util/axiosInstance";
 
 const ProductCard = ({
   producto,
@@ -10,36 +11,56 @@ const ProductCard = ({
   setCarrito,
   calcularSubtotal,
   setCartValido,
+  fetchCarrito,
+  userId
 }) => {
   const { _id, imagen, nombre, descripcion, precio } = producto.productoId;
   const { cantidadProducto } = producto;
 
-  const CambiarCantidad = (valor) => {
-    cantidadProducto + valor != 0 && cantidadProducto + valor != 10
-      ? setCarrito(
-          carrito.map((producto) =>
-            producto._id === _id
-              ? { ...producto, cantidad: cantidadProducto + valor }
-              : producto
-          )
-        )
-      : Swal.fire({
-        title: 'Compra Mayorista',
-        text: "Para comprar grandes cantidades tendrás que solicitar un turno. Descuida, tu carrito no se perderá.",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        cancelButtonText: "Cancelar",
-        confirmButtonText: 'Solicitar Turno'
-      }).then((result) => {
-        if (result.value) {
-          window.location.href = "turn";
-        }
-      })
+  const [loader, setloader] = useState(false)
+
+  //funcion para loader de productos
+  const Onloader = () => {
+    setloader(true)
+  }
+  const Offloader = () => {
+    setloader(false)
+  }
+
+  const addCart = (_id) => {
+    console.log("productoID" + _id)
+    const usuarioID = userId;
+    const productoID = _id;
+    postCart({ usuarioID, productoID })
+
+
   };
 
-  const EliminarProducto = () => {
+
+  //funcion para agregar productos al carrito
+
+  const postCart = async (contenido) => {
+    const { usuarioID, productoID, cantidad } = contenido;
+    Onloader()
+    const response = await axiosInstance.post("/cart", { usuarioID, productoID, cantidad })
+    fetchCarrito(userId)
+    Offloader()
+
+  }
+
+
+
+
+  //funcion para disminuir cantidad
+  const CambiarCantidad = (_id) => {
+    const cantidad = cantidadProducto - 1;
+
+    const usuarioID = userId;
+    const productoID = _id;
+    postCart({ usuarioID, productoID, cantidad })
+  }
+  //funcion para eliminar un producto
+  const EliminarProducto = (producto) => {
     Swal.fire({
       title: "Eliminar Producto?",
       text: "No podrás deshacer esta acción",
@@ -49,13 +70,24 @@ const ProductCard = ({
       confirmButtonColor: "#E74C3C",
       cancelButtonColor: "#ABB2B8",
       confirmButtonText: "Eliminar",
-    }).then((result) => {
+    }).then(async(result) => {
       if (result.value) {
-        const productos = carrito.filter((producto) => producto._id !== _id);
-        setCarrito(productos);
+        
+        console.log("usuarioId" + userId)
+        Onloader()
+        const response = await axiosInstance.delete(`/cart/${producto._id}`, {
+          data: {
+            usuarioId: userId
+          }
+        })
+        fetchCarrito(userId)
+        Offloader()
       }
     });
   };
+
+  
+
 
   return (
     <Container className="mt-2 mb-3 product-card border">
@@ -75,9 +107,10 @@ const ProductCard = ({
                   <h4>{nombre}</h4>
                 </Col>
                 <Col>
-                  <Button onClick={EliminarProducto} className="close">
+                {!loader ? (<Button onClick={() => EliminarProducto(producto)} className="close">
                     <FaRegTrashAlt className="trash-icono" />
-                  </Button>
+                  </Button>) : (<Spinner animation="border" variant="danger" />)}
+                  
                 </Col>
               </Row>
             </Col>
@@ -92,26 +125,43 @@ const ProductCard = ({
                 <Col xs="auto" className="d-flex justify-content-center">
                   <Row className="w-100">
                     <Col className="d-flex align-items-center justify-content-center">
-                      <Button
+                      {!loader ? (<Button
                         size="sm"
                         variant="outline-info"
-                        onClick={() => CambiarCantidad(1)}
+                        onClick={() => addCart(_id)}
                       >
                         <FaPlus />
-                      </Button>
+                      </Button>) :
+                        (<Button
+                          disabled
+                          size="sm"
+                          variant="outline-info"
+                          onClick={() => addCart(_id)}
+                        >
+                          <FaPlus />
+                        </Button>)}
+
                     </Col>
                     <Col className="d-flex align-items-center justify-content-center">
-                      <h3>{cantidadProducto}</h3>
+                      {!loader ? (<h3>{cantidadProducto}</h3>) : <Spinner animation="border" variant="primary" />}
                     </Col>
                     <Col className="d-flex align-items-center justify-content-center">
-                      <Button
+                      {!loader ? (<Button
                         disabled={cantidadProducto === 1}
                         size="sm"
                         variant="outline-danger"
-                        onClick={() => CambiarCantidad(-1)}
+                        onClick={() => CambiarCantidad(_id)}
                       >
                         <FaMinus />
-                      </Button>
+                      </Button>) : (<Button
+                        disabled
+                        size="sm"
+                        variant="outline-danger"
+                        onClick={() => CambiarCantidad(_id)}
+                      >
+                        <FaMinus />
+                      </Button>)}
+
                     </Col>
                   </Row>
                 </Col>

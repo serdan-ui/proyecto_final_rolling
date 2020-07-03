@@ -19,7 +19,9 @@ import Swal from "sweetalert2";
 
 
 const Mostrador = ({ setProducts, products ,userId ,fetchCarrito}) => {
-
+ // Estados
+ const [productos, setProductos] = useState([]);
+ const [categorias, setCategorias] = useState([]);
   const [loader, setloader] = useState(false)
 
   //funcion para loader de productos
@@ -41,10 +43,8 @@ const Mostrador = ({ setProducts, products ,userId ,fetchCarrito}) => {
     getProductos();
   }, []);
 
-  // Estados
-  const [productos, setProductos] = useState([]);
+ 
 
-  const [categorias, setCategorias] = useState([]);
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {

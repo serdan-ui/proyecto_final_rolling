@@ -4,13 +4,26 @@ import Cards from "react-credit-cards";
 import "./styles.css";
 import "react-credit-cards/es/styles-compiled.css";
 
-const CreditCard = ({ onClick, seleccionado, register, errors }) => {
+const CreditCard = ({ onClick, seleccionado, register, errors , setDetailCheckout ,detailCheckout}) => {
   const [numero, setNumero] = useState("");
   const [nombre, setNombre] = useState("");
   const [expiracion, setExpiracion] = useState("");
   const [cvc, setCvc] = useState("");
   const [focus, setFocus] = useState("");
 
+
+  //funcion para cargar datos de la tarjeta
+const cargarDatosTarjeta = (e) => {
+  setNombre(e.target.value)
+  setDetailCheckout({...detailCheckout,
+    tarjeta:{
+      cvc:cvc,
+       expiracion:expiracion,
+      numero:numero,
+      nombre:e.target.value
+     },
+    efectivo:false})
+}
   return (
     <Fragment>
       <Card
@@ -33,6 +46,8 @@ const CreditCard = ({ onClick, seleccionado, register, errors }) => {
                     focused={focus}
                     name={nombre}
                     number={numero}
+                    setDetailCheckout={setDetailCheckout}
+                   detailCheckout={detailCheckout}
                   />
                 </div>
               </Col>
@@ -174,7 +189,7 @@ const CreditCard = ({ onClick, seleccionado, register, errors }) => {
                           name="nombre"
                           placeholder="Nombre en la Tarjeta"
                           disabled={seleccionado ? false : true}
-                          onChange={(e) => setNombre(e.target.value)}
+                          onChange={(e) => cargarDatosTarjeta(e)}
                           onFocus={(e) => setFocus(e.target.name)}
                           ref={register({
                             required: true,
