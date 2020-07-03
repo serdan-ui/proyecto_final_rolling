@@ -1,0 +1,32 @@
+.imgperfil{
+  height: 200px;
+  margin: 30px;
+  border-radius: 50%;
+}
+.perfilUsuario{
+  /* margin: auto; */
+  border: solid 1px rgb(99, 9, 134);
+  background-color: rgb(06,06,06);
+  color: rgb(241, 239, 239);
+}
+
+.padrePerfil{
+  background-color: rgb(19, 18, 17);
+  height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1502847427791-d0194ec4cff4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1490&q=80);
+  
+  overflow: scroll;
+}
+.perfilUsuarioUno{
+  margin-left: 0px;
+  margin-top: 90px;
+}
+.contenedorImgPer{
+  margin: auto;
+  height: 350px;
+  width: 500px;
+}
+.comprasRe{
+  color: white;
+  text-align: center;
+  text-shadow: #CCC 1px 0 10px;}

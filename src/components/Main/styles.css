@@ -25,6 +25,15 @@ z-index: 1;
   background-color: #363636 !important;
   width: 100.1% !important;
 }
+.sinStock{
+  position: relative !important;
+  background-image:url(../Images/sinSrock.png);
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 30%;
+
+  
+}
 
 .mercadito-card {
   margin-left: 50px;

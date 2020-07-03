@@ -54,6 +54,11 @@ const HeaderStatic = ({authen, setAuthen, usuario}) => {
           </Link>
         </Nav.Item>
         <Nav.Item>
+          <Link to="/perfil" className="btnNav_header">
+            Perfil
+          </Link>
+        </Nav.Item>
+        <Nav.Item>
           <Link to="/service" className="btnNav_header">
             Servicios
           </Link>

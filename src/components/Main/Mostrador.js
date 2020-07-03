@@ -149,12 +149,15 @@ const postCart = async(contenido) => {
             <CardColumns className="cardColumns">
               {productos.map((producto) => (
                 <Card key={producto._id} sm={12} className="cardProduct">
+                  
                   <Card.Img
-                    variant="top"
+                    className={producto.stock==0 ? "sinStock" : null }
+                    variant="bottom"
                     src={producto.imagen[0]}
                     rounded
                     style={{ height: "250px" ,cursor:"pointer"}}
                     onClick={()=>mostrarImg(producto)}
+                    
                   />
                   <Card.Body onClick={()=>mostrarImg(producto)} style={{cursor:"pointer"}}>
                     <Card.Title className="font-weight-light text-uppercase" >{producto.nombre}</Card.Title>
@@ -179,6 +182,7 @@ const postCart = async(contenido) => {
                       </Col>
                       <Col className="p-0">
                         {!loader ? (<Button
+                         disabled={producto.stock==0 ? true : false}
                           variant="success"
                           className="btnroto"
                           style={{

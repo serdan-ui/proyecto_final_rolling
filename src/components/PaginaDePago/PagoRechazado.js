@@ -1,37 +1,37 @@
 import React from 'react'
-import {Card, Row, Col, Button, Container} from 'react-bootstrap'
-
+import { Card, Row, Col, Button, Container } from 'react-bootstrap'
+import {useHistory} from "react-router-dom"
 const PagoRechazado = () => {
-  return(<>
-  <div className="container-fluid fondoo">
-    <div>
+  let history = useHistory()
+  return (<>
+    <div className="container-fluid fondoo">
+      <div>
 
-  <Container className="cartaRachaz">
-<Row>
-   
-<Col  xl={12} lg={12} md={12} >
+        <Container className="cartaRachaz">
+          <Row>
 
- <Card className="text-center m-5 cardmadre">
-   <Card.Header className="text-white card-rech"><h5>¡ Pago Rechazado !</h5></Card.Header>
- 
- <Card.Body>
- {/* <i class="fas fa-exclamation-triangle text-danger fa-4x"></i> */}
- <img className="imgrech" src="https://www.paraserbella.com/wp-content/uploads/2016/08/dedo.png"></img>
- 
-   <Card.Text>
-   <h5> <strong>Hubo un error al procesar tu pago</strong> </h5>
-   </Card.Text>
+            <Col xl={12} lg={12} md={12} >
 
-   <Button variant="primary">Volver</Button>
- </Card.Body>
- <Card.Footer className="card-rech text-white"></Card.Footer>
-</Card>
-</Col>
-</Row>
-</Container> 
-</div>
-</div>
-   </>)
+              <Card className="text-center m-5 cardmadre">
+                <Card.Header className="text-white card-rech"><h5 className="text-white">¡ Pago Rechazado !</h5></Card.Header>
+
+                <Card.Body>
+                  <img className="imgrech" src="https://media3.giphy.com/media/jnDMB1WvLilqjtmsG0/giphy.gif"></img>
+                  {/* https://media3.giphy.com/media/dt6qassLoUgtDCwf3h/giphy.gif */}
+                  <Card.Text>
+                    <h5> <strong>Hubo un error al procesar tu pago</strong> </h5>
+                  </Card.Text>
+
+                  <Button variant="primary"  onClick={()=> history.push("/main")}>Volver</Button>
+                </Card.Body>
+                <Card.Footer className="card-rech text-white"> <br></br></Card.Footer>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </div>
+  </>)
 }
 
 export default PagoRechazado;
