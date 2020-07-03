@@ -11,7 +11,7 @@ const Error404 = () => {
           <Row className="conteniendo2">
             <Col  xl={7} lg={7} md={7}  className="volverApag">
               <h2 className="letraFriki ">Page not found</h2>
-              <h4  >Are you sure the website URL is correct?</h4>
+              <h4>Revisa el url y vuelve a intentarlo</h4>
               
             </Col>
             <Col className="contenedor-boton">
@@ -23,7 +23,7 @@ const Error404 = () => {
                 variant="info"
                 href="../Main"
               >
-                Back to home
+                Volver
               </Button>
             </Col>
           </Row>

@@ -9,7 +9,7 @@ const PagoPendiente = () => {
         <Container >
           <Row className="conteniendo2">
             <Col  xl={7} lg={7} md={7}  className="volverApag">
-              <h2 >El pago esta siendo procesado</h2>
+              <h2 className="pendiente">El pago esta siendo procesado</h2>
               
               
             </Col>
