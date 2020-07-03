@@ -1,14 +1,20 @@
 import React from 'react';
 import { Button, Card, Col, Row, Container } from 'react-bootstrap';
 import {useHistory} from "react-router-dom";
-import {moment} from "moment";
-const PagoExitoso = () => {
+import moment from "moment";
+
+import "moment/locale/es";
+
+
+
+
+
+const PagoExitoso = ({fecha}) => {
   let history = useHistory()
 
-  const Fecha =(hoy)=>{
-    moment(hoy).format('MMMM Do YYYY, h:mm:ss a');
-  }
-
+  const Fecha = () => {
+    return moment(fecha).format("Do [de] MMMM [del] YYYY, h:mm:ss a");
+  };
 
   return (<>
 
@@ -31,10 +37,8 @@ const PagoExitoso = () => {
                   </Card.Text>
                   <Button variant="primary" onClick={()=> history.push("/main")}>Volver</Button>
                 </Card.Body>
-                <Card.Footer className="card-exit ">2 days ago</Card.Footer>
+                <Card.Footer className="card-exit ">{Fecha()}</Card.Footer>
               </Card>
-
-
             </Col>
           </Row>
         </Container>

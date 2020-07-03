@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, Row, Col, Button, Container } from 'react-bootstrap'
-import {useHistory} from "react-router-dom"
+import {useHistory} from "react-router-dom";
+
+
 const PagoRechazado = () => {
   let history = useHistory()
   return (<>

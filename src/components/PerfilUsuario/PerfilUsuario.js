@@ -22,10 +22,10 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
               <img src="https://image.freepik.com/vector-gratis/perfil-avatar-mujer-icono-redondo_24640-14042.jpg" className="imgperfil"></img>
 
             </div>
-            <div className="xl-col-6 lg-col-6 xs-col-10 mt-5">
+            <div className="xl-col-8 lg-col-8 xs-col-10 mt-5">
 
-              <br></br> <p>Nombre: {usuario.username}</p>
-              <br></br> <p>Email: {usuario.email}</p>
+                <p>Nombre: {usuario.username}</p>
+               <p>Email: {usuario.email}</p>
             </div>
           </Row>
         </div>

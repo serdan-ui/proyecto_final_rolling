@@ -6,7 +6,6 @@ import Loguito from "../Images/zerote.png";
 import { FaUser, FaShareSquare } from "react-icons/fa";
 import BtnCart from "./BtnCart";
 
-
 const Header = ({
   products,
   authen,
@@ -92,22 +91,25 @@ const Header = ({
             Tienda
           </Link>
         </Nav.Item>
-        <Nav.Item>
-          <Link to="/perfil" className="btnNav_header">
-            Perfil
-          </Link>
-        </Nav.Item>
+        {authen ? (
+          <Nav.Item>
+            <Link to="/perfil" className="btnNav_header">
+              Perfil
+            </Link>
+          </Nav.Item>
+        ) : null}
         <Nav.Item>
           <Link to="/service" className="btnNav_header">
             Servicios
           </Link>
         </Nav.Item>
-        <Nav.Item>
-          <Link to="/turn" className="btnNav_header">
-            Turno
-          </Link>
-        </Nav.Item>
-        
+        {authen ? (
+          <Nav.Item>
+            <Link to="/turn" className="btnNav_header">
+              Turno
+            </Link>
+          </Nav.Item>
+        ) : null}
       </Nav>
     </Container>
   );

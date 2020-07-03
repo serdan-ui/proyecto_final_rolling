@@ -4,17 +4,46 @@ import { useForm } from "react-hook-form";
 import CreditCard from "./card-credit";
 import PaypalCard from "./card-paypal";
 import "./styles.css";
+import axiosInstance from "../../util/axiosInstance";
+import { useHistory } from "react-router-dom";
+
 
 const PaymentDetail = ({ sliderAnterior, setDetailCheckout, detailCheckout }) => {
+
+let history= useHistory()
+
   const [metodoSeleccionado, setMetodoSeleccioando] = useState("");
   const [datosTarjeta, setDatosTarjeta] = useState();
 
   const { register, errors, handleSubmit } = useForm();
 
+  //funcion para enviar el formulario de compra
+  const Comprar = async(compra) => {
+    const response = await axiosInstance.post("/venta",compra);
+    const { _id, estadoVenta} = response.data;
+    console.log(_id)
+    console.log(estadoVenta)
+    
+if(estadoVenta=== "exitoso") {
+  if (_id) {
+    history.push(`/pago/${_id}`)
+   return
+  }
+    }   else if (estadoVenta=== "rechazado") {
+      history.push(`/pago/${estadoVenta}`)
+      return 
+    }
+  
+  }
+
+
+
   //funcion si carga los datos de la tarjeta
   const onSubmit = (datos) => {
-    
     console.log(detailCheckout);
+    Comprar(detailCheckout)
+
+    
   };
 
 
@@ -34,6 +63,7 @@ const PaymentDetail = ({ sliderAnterior, setDetailCheckout, detailCheckout }) =>
 //funcion si elije efectivo
 const detailEfectivo = () =>{
   console.log(detailCheckout)
+  Comprar(detailCheckout)
 }
 
   return (

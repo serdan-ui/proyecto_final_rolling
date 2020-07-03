@@ -8,18 +8,15 @@ import Register from "./components/Register/Register";
 import Error404 from "./components/Error404/Error404";
 import Turn from "./components/Turn/Turn";
 import Admin from "./components/Admin/Admin";
-import "bootstrap/dist/css/bootstrap.min.css";
 import axiosInstance from "./components/util/axiosInstance";
 import AgregProd from "./components/Admin/AgregProd";
 import TurnosPanel from "./components/Admin/TurnosPanel";
 import Graficos from "./components/Admin/Graficos";
 import Drag from "./components/Admin/Drag";
 import Usuarios from "./components/Admin/Usuarios";
-import PagoExitoso from "./components/PaginaDePago/PagoExitoso";
-import PagoRechazado from "./components/PaginaDePago/PagoRechazado";
-import PagoPendiente from "./components/PaginaDePago/PagoPendiente";
+import Payment from "./components/PaginaDePago/Payment";
 import PerfilUsuario from "./components/PerfilUsuario/PerfilUsuario";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 function App() {
@@ -120,14 +117,8 @@ function App() {
         <Route exact path="/usuarios">
           <Usuarios />
         </Route>
-        <Route exact path="/pagoExitoso">
-          <PagoExitoso />
-        </Route>
-        <Route exact path="/pagoRechazado">
-          <PagoRechazado />
-        </Route>
-        <Route exact path="/pagoPendiente">
-          <PagoPendiente />
+        <Route  path="/pago/:id">
+          <Payment />
         </Route>
         <Route exact path="/perfil">
           <PerfilUsuario 
