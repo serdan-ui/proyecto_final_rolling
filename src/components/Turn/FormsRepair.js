@@ -1,13 +1,12 @@
 import React from "react";
-import {   Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 
-const FormsRepair = ({register,control}) => {
-   
+const FormsRepair = ({ register, control }) => {
   return (
     <>
       <label>Tipo de dispositivo a reparar</label>
-      <select name="dispositivo" ref={register} >
+      <select name="dispositivo" ref={register}>
         <option value="pc">pc</option>
         <option value="celular">celular</option>
         <option value="tablet">tablet</option>
@@ -16,7 +15,7 @@ const FormsRepair = ({register,control}) => {
       <label>Descripción del Problema</label>
       <textarea name="descripcion" ref={register} />
       <label>Elegir fecha</label>
-      <section >
+      <section>
         <Controller
           as={ReactDatePicker}
           control={control}

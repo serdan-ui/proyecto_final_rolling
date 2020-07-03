@@ -6,7 +6,6 @@ import Loguito from "../Images/zerote.png";
 import { FaUser, FaShareSquare } from "react-icons/fa";
 import BtnCart from "./BtnCart";
 
-
 const Header = ({
   products,
   authen,
@@ -107,7 +106,6 @@ const Header = ({
             Turno
           </Link>
         </Nav.Item>
-        
       </Nav>
     </Container>
   );

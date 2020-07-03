@@ -1,28 +1,31 @@
-import React from 'react';
-import { Col, Row, Container, Table, Button } from 'react-bootstrap';
-import {useHistory} from "react-router-dom"
+import React from "react";
+import { Col, Row, Container, Table, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
 
-import "./style.css"
-
+import "./style.css";
 
 const PerfilUsuario = () => {
-  let history = useHistory()
+  let history = useHistory();
 
   return (
     <>
       <Container fluid className="padrePerfil">
-        <Button className="btnVolverPerf" onClick={()=> history.push("/main")}>Volver</Button>
+        <Button className="btnVolverPerf" onClick={() => history.push("/main")}>
+          Volver
+        </Button>
         <h2 className="text-center text-white comprasRe"> Mi Perfil</h2>
         <div className="contenedorImgPer">
           <Row className="perfilUsuario">
             <div className="xl-col-4 lg-col-4 xs-col-10 unoIMG">
-              <img src="https://image.freepik.com/vector-gratis/perfil-avatar-mujer-icono-redondo_24640-14042.jpg" className="imgperfil"></img>
-
+              <img
+                src="https://image.freepik.com/vector-gratis/perfil-avatar-mujer-icono-redondo_24640-14042.jpg"
+                className="imgperfil"
+              ></img>
             </div>
             <div className="xl-col-8 lg-col-8 xs-col-10  dosIMG">
-
               <br></br> <p>Nombre: Sabrina</p>
-              <br></br><p>Apellido: juarez</p>
+              <br></br>
+              <p>Apellido: juarez</p>
             </div>
           </Row>
         </div>
@@ -58,11 +61,9 @@ const PerfilUsuario = () => {
             </tbody>
           </Table>
         </div>
-
       </Container>
-
     </>
-  )
-}
+  );
+};
 
 export default PerfilUsuario;

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 import axiosInstance from "../util/axiosInstance";
-import moment from 'moment';
-import 'moment/locale/es'
+import moment from "moment";
+import "moment/locale/es";
 
 import "./style.css";
 
@@ -21,16 +21,13 @@ const TurnosPanel = () => {
   useEffect(() => {
     traerTurnos();
   }, []);
- 
-  const ModificarFecha = (fecha)=> {
-  
-    return  moment(fecha).format('l ');
-   }
-// const ModificarHora = (hora) =>{
-//   return moment(hora).format('LT')
-// }
 
-
+  const ModificarFecha = (fecha) => {
+    return moment(fecha).format("l ");
+  };
+  // const ModificarHora = (hora) =>{
+  //   return moment(hora).format('LT')
+  // }
 
   return (
     <>

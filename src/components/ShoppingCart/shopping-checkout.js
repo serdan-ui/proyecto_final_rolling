@@ -13,24 +13,19 @@ import "./styles.css";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 
-;
-
-const ShoppingCheckout = ({authen, setAuthen, usuario ,userId }) => {
-
+const ShoppingCheckout = ({ authen, setAuthen, usuario, userId }) => {
   //Carrito
   const [carrito, setCarrito] = useState([]);
 
-//funcion traer carrito 
-const fetchCarrito = async (user) => {
-  const id = user;
-  const response = await axiosInstance.get(`/cart/${id}`);
- if(response.data.carrito[0]===undefined){
-   
- }else{
- return setCarrito(response.data.carrito[0].productos);
- }
-};
-
+  //funcion traer carrito
+  const fetchCarrito = async (user) => {
+    const id = user;
+    const response = await axiosInstance.get(`/cart/${id}`);
+    if (response.data.carrito[0] === undefined) {
+    } else {
+      return setCarrito(response.data.carrito[0].productos);
+    }
+  };
 
   //Para resumen-compra
   const [subtotal, setSubtotal] = useState(() => {
@@ -47,7 +42,8 @@ const fetchCarrito = async (user) => {
   const CalcularSubtotal = () => {
     let subtotal = 0;
     carrito.map(
-      (producto) => (subtotal += producto.productoId.precio * producto.cantidadProducto)
+      (producto) =>
+        (subtotal += producto.productoId.precio * producto.cantidadProducto)
     );
     setSubtotal(subtotal);
     setValorImpuestos(subtotal * 0.21);
@@ -55,13 +51,11 @@ const fetchCarrito = async (user) => {
 
   useEffect(() => {
     CalcularSubtotal();
-  }, [carrito])
+  }, [carrito]);
 
-useEffect(() => {
-  fetchCarrito(userId)
-  
-}, [userId])
-
+  useEffect(() => {
+    fetchCarrito(userId);
+  }, [userId]);
 
   //Slider
   const sliderSettings = {
@@ -87,7 +81,7 @@ useEffect(() => {
 
   return (
     <Fragment>
-      <HeaderStatic authen={authen} setAuthen={setAuthen}  usuario={usuario} />
+      <HeaderStatic authen={authen} setAuthen={setAuthen} usuario={usuario} />
 
       <Container className="shopping-detail-container rounded mt-5 mb-5">
         <Row className="shopping-detail-panel d-sm-flex flex-md-row flex-column-reverse">
@@ -104,7 +98,7 @@ useEffect(() => {
                 sliderAnterior={SliderAnterior}
                 setValorEnvio={setValorEnvio}
               />
-              <PaymentDetail sliderAnterior={SliderAnterior}/>
+              <PaymentDetail sliderAnterior={SliderAnterior} />
             </Slider>
           </Col>
 

@@ -21,7 +21,9 @@ const ProductCard = ({
 
     setCarrito(
       carrito.map((producto) =>
-        producto._id === _id ? { ...producto, cantidad: nuevaCantidad } : producto
+        producto._id === _id
+          ? { ...producto, cantidad: nuevaCantidad }
+          : producto
       )
     );
   };

@@ -20,7 +20,9 @@ function CuponModal({ setDescuento, subtotal }) {
     cupones.map((cupon) =>
       cupon.codigo === parseInt(cuponIngresado.codigo) &&
       cupon.pin === parseInt(cuponIngresado.pin)
-        ? setCuponValido(true) || setDescuento((cupon.descuento * subtotal) / 100) || setMostrarModal(false)
+        ? setCuponValido(true) ||
+          setDescuento((cupon.descuento * subtotal) / 100) ||
+          setMostrarModal(false)
         : setCuponValido(false)
     );
   }, [validandoCupon]);
@@ -37,7 +39,6 @@ function CuponModal({ setDescuento, subtotal }) {
     console.log(datos);
     setCuponIngresado(datos);
   };
-
 
   return (
     <Fragment>
@@ -57,7 +58,7 @@ function CuponModal({ setDescuento, subtotal }) {
         aria-labelledby="contained-modal-title-vcenter"
         centered
         show={mostrarModal}
-        onHide={() => setMostrarModal(false)}   
+        onHide={() => setMostrarModal(false)}
       >
         <Modal.Header closeButton={validandoCupon ? false : true}>
           <Modal.Title id="contained-modal-title-vcenter" className="mt-3">

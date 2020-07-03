@@ -8,27 +8,24 @@ import {
   Container,
   CardColumns,
   Dropdown,
-  
 } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
 import axiosInstance from "../util/axiosInstance";
 
-import { Spinner} from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import swal from "sweetalert";
 import Swal from "sweetalert2";
 
-
-const Mostrador = ({ setProducts, products ,userId ,fetchCarrito}) => {
-
-  const [loader, setloader] = useState(false)
+const Mostrador = ({ setProducts, products, userId, fetchCarrito }) => {
+  const [loader, setloader] = useState(false);
 
   //funcion para loader de productos
   const Onloader = () => {
-    setloader(true)
-  }
+    setloader(true);
+  };
   const Offloader = () => {
-    setloader(false)
-  }
+    setloader(false);
+  };
 
   //Traer productos de base de datos
 
@@ -48,16 +45,15 @@ const Mostrador = ({ setProducts, products ,userId ,fetchCarrito}) => {
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {
-    console.log(imagen[0])
+    console.log(imagen[0]);
     swal({
       title: nombre,
       imageUrl: imagen[0],
       titleText: descripcion,
-      text:<img src={imagen[0]}></img>,
-      fontsize:0.5,
+      text: <img src={imagen[0]}></img>,
+      fontsize: 0.5,
       text: ` $ ${precio}`,
       imageHeight: 200,
-      
     });
   };
 
@@ -73,30 +69,31 @@ const Mostrador = ({ setProducts, products ,userId ,fetchCarrito}) => {
   //   filtrarCategorias(productos,categoria)
   // }
 
-
   //funcion para agregar productos al carrito
 
-const postCart = async(contenido) => {
-  const {usuarioID, productoID , cantidad } = contenido;
-  Onloader()
-  const response = await axiosInstance.post("/cart",{usuarioID,productoID,cantidad})
-  fetchCarrito(userId)
-  Offloader()
-  swal({
-    icon: "success",
-    title: "Producto agregado correctamente",
-    timer: 2000,
-  });
-  }
+  const postCart = async (contenido) => {
+    const { usuarioID, productoID, cantidad } = contenido;
+    Onloader();
+    const response = await axiosInstance.post("/cart", {
+      usuarioID,
+      productoID,
+      cantidad,
+    });
+    fetchCarrito(userId);
+    Offloader();
+    swal({
+      icon: "success",
+      title: "Producto agregado correctamente",
+      timer: 2000,
+    });
+  };
   //funcion del onclick del boton agregar
   const addCart = (_id) => {
     const usuarioID = userId;
     const productoID = _id;
- 
-    postCart({usuarioID,productoID});
-    
-    }
 
+    postCart({ usuarioID, productoID });
+  };
 
   return (
     <>
@@ -153,12 +150,19 @@ const postCart = async(contenido) => {
                     variant="top"
                     src={producto.imagen[0]}
                     rounded
-                    style={{ height: "250px" ,cursor:"pointer"}}
-                    onClick={()=>mostrarImg(producto)}
+                    style={{ height: "250px", cursor: "pointer" }}
+                    onClick={() => mostrarImg(producto)}
                   />
-                  <Card.Body onClick={()=>mostrarImg(producto)} style={{cursor:"pointer"}}>
-                    <Card.Title className="font-weight-light text-uppercase" >{producto.nombre}</Card.Title>
-                    <Card.Text className="font-weight-bold">${producto.precio}</Card.Text>
+                  <Card.Body
+                    onClick={() => mostrarImg(producto)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <Card.Title className="font-weight-light text-uppercase">
+                      {producto.nombre}
+                    </Card.Title>
+                    <Card.Text className="font-weight-bold">
+                      ${producto.precio}
+                    </Card.Text>
                   </Card.Body>
                   <Card.Footer>
                     <Row className="rowroto">
@@ -178,20 +182,23 @@ const postCart = async(contenido) => {
                         </Button>
                       </Col>
                       <Col className="p-0">
-                        {!loader ? (<Button
-                          variant="success"
-                          className="btnroto"
-                          style={{
-                            border: "2px solid #19ED18",
-                            fontSize: "0.9rem",
-                            backgroundColor: "#19ED18",
-                            color: "black",
-                          }}
-                          onClick={() => addCart(producto._id)}
-                        >
-                          <FaCartPlus /> Agregar
-                        </Button>) : (<Spinner animation="border" />)}
-                        
+                        {!loader ? (
+                          <Button
+                            variant="success"
+                            className="btnroto"
+                            style={{
+                              border: "2px solid #19ED18",
+                              fontSize: "0.9rem",
+                              backgroundColor: "#19ED18",
+                              color: "black",
+                            }}
+                            onClick={() => addCart(producto._id)}
+                          >
+                            <FaCartPlus /> Agregar
+                          </Button>
+                        ) : (
+                          <Spinner animation="border" />
+                        )}
                       </Col>
                     </Row>
                   </Card.Footer>
