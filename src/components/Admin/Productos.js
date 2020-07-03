@@ -7,9 +7,9 @@ import {DeleteOutlined, EditOutlined} from '@ant-design/icons'
 import axiosInstance from '../util/axiosInstance';
 
 const columns = [
-    { title: 'Nombre', dataIndex: 'nombre', key: 'nombre' },
-    { title: 'Stock', dataIndex: 'stock', key: 'stock' },
-    { title: 'Precio', dataIndex: 'precio', key: 'precio' },
+{ title: 'Nombre', dataIndex: 'nombre', key: 'nombre', render: text => <strong>{text}</strong>},
+    { title: 'Stock', dataIndex: 'stock', key: 'stock', render: text => <strong>{text}</strong> },
+    { title: 'Precio', dataIndex: 'precio', key: 'precio', render: text => <strong>{text}</strong>},
     {
         title: 'Accion',
         dataIndex: '',
@@ -42,10 +42,12 @@ const Productos = () => {
     <p className="titulo_product_main">Productos</p>
      
      <Container>
-     <Table
+     <Table 
+     
+     bordered
       columns={columns}
       expandable={{
-        expandedRowRender: record => <p style={{ margin: 0 }}>{record.descripcion}</p>,
+        expandedRowRender: record => <p style={{ margin: 0, color:"black"}}>{record.descripcion}</p>,
         rowExpandable: record => record.nombre !== 'Not Expandable',
       }}
       dataSource={productos}
