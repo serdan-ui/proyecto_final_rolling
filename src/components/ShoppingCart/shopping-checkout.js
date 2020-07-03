@@ -10,6 +10,8 @@ import PaymentDetail from "./PaymentDetail/payment-detail";
 import axiosInstance from "../util/axiosInstance";
 
 import "./styles.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 ;
 

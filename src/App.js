@@ -18,6 +18,7 @@ import Usuarios from "./components/Admin/Usuarios"
 import PagoExitoso from "./components/PaginaDePago/PagoExitoso"
 import PagoRechazado from "./components/PaginaDePago/PagoRechazado"
 import PagoPendiente from "./components/PaginaDePago/PagoPendiente"
+import PerfilUsuario from "./components/PerfilUsuario/PerfilUsuario"
 
 import "./App.css";
 
@@ -99,6 +100,9 @@ const autenticar = async () => {
         </Route>
         <Route exact path="/pagoPendiente">
           <PagoPendiente/>
+        </Route>
+        <Route exact path="/perfil">
+          <PerfilUsuario/>
         </Route>
         <Route>
           <Error404 />
