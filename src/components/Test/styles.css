@@ -13,7 +13,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background: radial-gradient(transparent 60%, rgb(0, 0, 0));
+    background: radial-gradient(transparent 30%, rgb(0, 0, 0));
     /* background-color: rgba(54, 30, 88, 0.5); */
     background-color: rgba(104, 85, 129, 0.4);
 }
