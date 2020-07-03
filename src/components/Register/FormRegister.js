@@ -82,7 +82,7 @@ const FormRegister = () => {
         <Form.Group as={Row}>
           <Col>
             <FormControl
-              placeholder="Nombre"
+              placeholder="Usuario"
               className="form-control"
               autoComplete="off"
               name="username"

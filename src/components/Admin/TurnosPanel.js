@@ -47,7 +47,7 @@ const TurnosPanel = () => {
               }}
             >
               <Card.Body>
-                <Card.Title>Nombre: {turnoPersona.usuario} </Card.Title>
+                <Card.Title>Nombre: {turnoPersona.usuario.username} </Card.Title>
                 <Card.Text>
                   <ul>
                     <li> Tipo de consulta: {turnoPersona.marca} </li>

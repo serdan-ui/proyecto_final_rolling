@@ -8,8 +8,8 @@ const Ventas = () => {
   const traerVentas = async () => {
     try {
       const response = await axiosInstance.get("/venta");
-      setVentas(response.data.ventas);
-      console.log(response.data.ventas);
+      setVentas(response.data);
+      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -29,6 +29,7 @@ const Ventas = () => {
             <th>#</th>
             <th>Nombre</th>
             <th>Nombre producto</th>
+            <th>Cantidad</th>
             <th>Total V</th>
           </tr>
         </thead>
@@ -36,8 +37,9 @@ const Ventas = () => {
           {ventas.map((vendido, index) => (
             <tr>
               <td>{index}</td>
-              <td>{vendido.username}</td>
-              <td>{vendido.productos.nombre}</td>
+              <td>{vendido.nombre}</td>
+              <td>{vendido.productos[0].nombre}</td>
+              <td>{vendido.productos[0].cantidad}</td>
               <td>{vendido.total}</td>
             </tr>
           ))}
