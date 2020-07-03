@@ -1,7 +1,8 @@
 import React from 'react'
 import { Button, Card, Col, Row, Container } from 'react-bootstrap'
 import {useHistory} from "react-router-dom"
-
+import moment from 'moment';
+import 'moment/locale/es'
 const PagoExitoso = () => {
   let history = useHistory()
 
