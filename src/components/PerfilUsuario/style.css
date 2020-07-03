@@ -24,7 +24,8 @@
 .contenedorImgPer{
   margin: auto;
   height: 350px;
-  width: 500px;
+  min-width: 500px;
+  width: auto;
 }
 .comprasRe{
   color: white;
