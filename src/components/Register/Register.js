@@ -5,10 +5,12 @@ import FormRegister from "./FormRegister"
 import "./styles.css"
 
 const Register = () => {
-    return ( <Container >
+    return ( 
+    
+    <Container >
         <Row>
             <Col>
-            <FormRegister />
+            <FormRegister  />
             </Col>
         </Row>
     </Container> );

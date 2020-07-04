@@ -10,11 +10,9 @@ import {
 } from "react-bootstrap";
 import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import Fab from "@material-ui/core/Fab";
-import swal from "sweetalert"
+import swal from "sweetalert";
 
-import {
-  useHistory
-} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import axiosInstance from "../util/axiosInstance";
 
@@ -33,18 +31,13 @@ const LoginConteiner = ({ setAuthen }) => {
       console.log(newUser);
       try {
         const response = await axiosInstance.post("/login", newUser);
-        console.log(response);
-
         localStorage.setItem("Token", response.data.token);
         history.push("/main");
       } catch (error) {
-        swal ( "Error" ,  "Usuario o contraseña incorrecta." ,  "error" )
+        swal("Error", "Usuario o contraseña incorrecta.", "error");
       }
     }
-       
-    
-    
-   
+
     e.target.reset();
   };
 

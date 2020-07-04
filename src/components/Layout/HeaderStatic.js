@@ -10,7 +10,7 @@ const HeaderStatic = ({ authen, setAuthen, usuario }) => {
   const cerrarSes = () => {
     localStorage.removeItem("Token");
     setAuthen(null);
-    history.push("/");
+    history.push("/main");
   };
 
   return (
@@ -59,9 +59,12 @@ const HeaderStatic = ({ authen, setAuthen, usuario }) => {
         </Nav.Item>
         {authen ? (
            <Nav.Item>
-           <Link to="/perfil" className="btnNav_header">
-             Perfil
-           </Link>
+            {usuario.role ==="user"? <Link to="/perfil" className="btnNav_header">
+              Perfil
+              </Link> : null}
+            {usuario.role ==="admin" ?   <Link to="/admin" className="btnNav_header">
+              Admin
+            </Link> : null} 
          </Nav.Item>
         ) : null}
         <Nav.Item>

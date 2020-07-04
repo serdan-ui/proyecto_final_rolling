@@ -13,15 +13,13 @@ const Header = ({
   usuario,
   setCarrito,
   userId,
-  setProducts,
   fetchCarrito,
-  autenticar,
 }) => {
   let history = useHistory();
   const cerrarSes = () => {
     localStorage.removeItem("Token");
     setAuthen(null);
-    history.push("/");
+    history.push("/main");
   };
 
   // if (userId === undefined) {
@@ -77,13 +75,14 @@ const Header = ({
           )}
         </Col>
       </Row>
-
-      <BtnCart
-        products={products}
-        setCarrito={setCarrito}
-        userId={userId}
-        fetchCarrito={fetchCarrito}
-      />
+      {authen ? (
+        <BtnCart
+          products={products}
+          setCarrito={setCarrito}
+          userId={userId}
+          fetchCarrito={fetchCarrito}
+        />
+      ) : null}
 
       <Nav className="justify-content-center nav_header">
         <Nav.Item className="nav_header">
@@ -93,9 +92,12 @@ const Header = ({
         </Nav.Item>
         {authen ? (
           <Nav.Item>
-            <Link to="/perfil" className="btnNav_header">
+           {usuario.role ==="user"? <Link to="/perfil" className="btnNav_header">
               Perfil
-            </Link>
+              </Link> : null}
+            {usuario.role ==="admin" ?   <Link to="/admin" className="btnNav_header">
+              Admin
+            </Link> : null} 
           </Nav.Item>
         ) : null}
         <Nav.Item>

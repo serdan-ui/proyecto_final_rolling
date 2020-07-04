@@ -4,7 +4,6 @@ import Login from "./components/Login/Login";
 import Main from "./components/Main/Main";
 import PageService from "./components/PageService/PageService";
 import ShoppingCheckout from "./components/ShoppingCart/shopping-checkout";
-import Register from "./components/Register/Register";
 import Error404 from "./components/Error404/Error404";
 import Turn from "./components/Turn/Turn";
 import Admin from "./components/Admin/Admin";
@@ -16,8 +15,13 @@ import Drag from "./components/Admin/Drag";
 import Usuarios from "./components/Admin/Usuarios";
 import Payment from "./components/PaginaDePago/Payment";
 import PerfilUsuario from "./components/PerfilUsuario/PerfilUsuario";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import PrivateRoute from "./components/routes/PrivateRoute";
+import RestrictedRoutes from "./components/routes/RestrictedRoutes";
+import PrivateAdmin from "./components/routes/PrivateAdmin";
+
 
 function App() {
   const token = localStorage.getItem("Token");
@@ -51,12 +55,10 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        <RestrictedRoutes exact path="/">
           <Login />
-        </Route>
-        <Route exact path="/register">
-          <Register />
-        </Route>
+        </RestrictedRoutes>
+        
         <Route exact path="/main">
           <Main
             authen={authen}
@@ -69,7 +71,7 @@ function App() {
             autenticar={autenticar}
           />
         </Route>
-        <Route
+        <PrivateRoute
           exact
           path="/shopping-checkout"
           render={(props) => (
@@ -91,42 +93,27 @@ function App() {
             usuario={usuario}
           />
         </Route>
-        <Route exact path="/turn">
+        <PrivateRoute exact path="/turn">
           <Turn
             authen={authen}
             setAuthen={setAuthen}
             usuario={usuario}
             userId={userId}
           />
-        </Route>
-        <Route exact path="/admin">
+        </PrivateRoute>
+        <PrivateAdmin exact path="/admin">
           <Admin />
-        </Route>
-        <Route exact path="/AdminAgregar">
-          <AgregProd />
-        </Route>
-        <Route exact path="/grafico">
-          <Graficos />
-        </Route>
-        <Route exact path="/drag">
-          <Drag />
-        </Route>
-        <Route exact path="/TurnosPanel">
-          <TurnosPanel />
-        </Route>
-        <Route exact path="/usuarios">
-          <Usuarios />
-        </Route>
+        </PrivateAdmin>
         <Route  path="/pago/:id">
           <Payment />
         </Route>
-        <Route exact path="/perfil">
+        <PrivateRoute exact path="/perfil">
           <PerfilUsuario 
            authen={authen}
             setAuthen={setAuthen}
             usuario={usuario}
             />
-        </Route>
+        </PrivateRoute>
         <Route>
           <Error404 />
         </Route>
