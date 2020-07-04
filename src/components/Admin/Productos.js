@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Col, Card, Container, Row, CardColumns } from "react-bootstrap";
+import { Col, Card, Container, Row, Button, Modal } from "react-bootstrap";
 import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 import { Table } from "antd";
@@ -30,9 +30,9 @@ const columns = [
     dataIndex: "",
     key: "x",
     render: () => (
-      <a>
+      <a onClick={()=>editarProd()}>
         <EditOutlined />
-        Edit
+        Editar
       </a>
     ),
   },
@@ -42,7 +42,7 @@ const columns = [
     render: () => (
       <a>
         <DeleteOutlined />
-        Delete
+        Eliminar
       </a>
     ),
   },
@@ -60,12 +60,31 @@ const Productos = () => {
     traerProducto();
   }, []);
 
+    const editarProd = () =>{
+      <Modal.Dialog>
+  <Modal.Header closeButton>
+    <Modal.Title>Modal title</Modal.Title>
+  </Modal.Header>
+
+  <Modal.Body>
+    <p>Modal body text goes here.</p>
+  </Modal.Body>
+
+  <Modal.Footer>
+    <Button variant="secondary">Close</Button>
+    <Button variant="primary">Save changes</Button>
+  </Modal.Footer>
+</Modal.Dialog>
+    }
+
+
   return (
     <>
       <p className="titulo_product_main">Productos</p>
 
       <Container>
-        <Table
+        <Table 
+          editarProd={editarProd}
           bordered
           columns={columns}
           expandable={{

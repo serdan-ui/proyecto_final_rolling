@@ -29,6 +29,10 @@ const TurnosPanel = () => {
   //   return moment(hora).format('LT')
   // }
 
+    const eliminarTurno = async(_id) => {
+      await axiosInstance.delete(`/turno/${_id}`)
+      traerTurnos();
+    }
   return (
     <>
       <div className="container text-center ">
@@ -55,7 +59,7 @@ const TurnosPanel = () => {
                     <li>Hora: {turnoPersona.hora}</li>
                   </ul>
                 </Card.Text>
-                <Button variant="success">Eliminar Turno</Button>
+                <Button variant="success" onClick={()=>eliminarTurno(turnoPersona._id)}>Eliminar Turno</Button>
               </Card.Body>
             </Card>
           ))}
