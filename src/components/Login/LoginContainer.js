@@ -28,7 +28,7 @@ const LoginConteiner = ({ setAuthen }) => {
         username,
         password,
       };
-      console.log(newUser);
+      
       try {
         const response = await axiosInstance.post("/login", newUser);
         localStorage.setItem("Token", response.data.token);

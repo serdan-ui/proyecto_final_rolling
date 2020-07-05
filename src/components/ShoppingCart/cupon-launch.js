@@ -40,7 +40,7 @@ function CuponModal({ setDescuento, subtotal, setDetalleCupon,detalleCupon,hayCu
   }, [validandoCupon]);
 
   const onSubmit = (datos) => {
-    console.log(datos);
+    
     setCuponIngresado(datos);
   };
 

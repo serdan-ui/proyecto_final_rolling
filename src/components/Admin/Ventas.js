@@ -9,15 +9,15 @@ const Ventas = () => {
     try {
       const response = await axiosInstance.get("/venta");
       setVentas(response.data);
-      console.log(response.data);
+  
     } catch (error) {
-      console.log(error);
+      
     }
   };
   useEffect(() => {
     traerVentas();
   }, []);
-  console.log(ventas);
+ 
   return (
     <>
       <br />

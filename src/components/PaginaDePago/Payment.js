@@ -41,13 +41,13 @@ const Payment = () => {
   }, []);
 
   return (
-    <>
-      <Container>
+    
+      <div className=" fondooexit">
         {estadoPago === "exitoso" ? <PagoExitoso fecha={fecha} venta={venta} /> : null}
         {estadoPago === "rechazado" ? <PagoRechazado /> : null}
         {estadoPago === "" ? <PagoPendiente /> : null}
-      </Container>
-    </>
+      </div>
+    
   );
 };
 

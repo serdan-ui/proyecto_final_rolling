@@ -17,10 +17,10 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
       try {
         const response = await axiosInstance.get(`/venta/${usuario._id}`);
         setVentas(response.data);
-        console.log(response.data);
+       
         
       } catch (error) {
-        console.log(error);
+        
       }
     }
     
@@ -28,7 +28,7 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
   useEffect(() => {
     traerVentas();
   }, [usuario]);
-  console.log(ventas);
+
   
   const Fecha = () => {
     return moment().format("Do [de] MMMM [del] YYYY, h:mm a");

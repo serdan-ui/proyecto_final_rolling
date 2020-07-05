@@ -11,9 +11,8 @@ import {
 } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
 import axiosInstance from "../util/axiosInstance";
-
+import swal from "sweetalert"
 import { Spinner } from "react-bootstrap";
-import swal from "sweetalert";
 import Swal from "sweetalert2";
 import zIndex from "@material-ui/core/styles/zIndex";
 
@@ -44,18 +43,18 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
 
   // Funcion mostrar Imagen derecha
   const mostrarImg = ({ nombre, id, precio, descripcion, imagen }) => {
-    console.log(imagen[0]);
-    swal({
+    
+    Swal.fire({
       title: nombre,
       imageUrl: imagen[0],
       titleText: descripcion,
-      text: <img src={imagen[0]}></img>,
-      fontsize: 0.5,
       text: ` $ ${precio}`,
-      imageHeight: 200,
-    });
-  };
+      imageHeight: 300,
+      imageAlt: 'A tall image'
+    })
 
+  };
+    
   //funcion para filtrar categorio
   const filtrarCategorias = (producto) => {
     if (categorias === "teclados") {

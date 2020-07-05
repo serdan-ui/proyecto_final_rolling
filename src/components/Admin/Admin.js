@@ -17,7 +17,7 @@ const Admin = () => {
   const [cuerpo, setCuerpo] = useState({});
 
   const cambiar = (e) => {
-    console.log(e.target.firstChild.data);
+
     setCuerpo(e.target.firstChild.data);
   };
 

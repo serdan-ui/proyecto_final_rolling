@@ -43,7 +43,7 @@ function App() {
       setUsuario(response.data.user);
       cargarUserId(response.data.user);
     } catch (error) {
-      console.log(error);
+     
     }
   };
 

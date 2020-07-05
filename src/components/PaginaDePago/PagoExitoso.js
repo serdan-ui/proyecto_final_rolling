@@ -43,7 +43,7 @@ const PagoExitoso = ({fecha,venta}) => {
             <Col xl={12} lg={12} md={12} >
  <Card className="text-center m-5 cardmadreExit">
    <Card.Header className="card-exit">
-     <h5 className="text-dark"> Su compra es</h5>
+     <h5 className="text-white"> Su compra es</h5>
    </Card.Header>
             {venta.productos.map(producto=>(
  
@@ -63,7 +63,7 @@ const PagoExitoso = ({fecha,venta}) => {
    
             
             ))}
-           <Card.Footer className="card-exit text-dark ">El Total de su compra es :${venta.total}</Card.Footer>
+           <Card.Footer className="card-exit text-white ">El Total de su compra es :$  {venta.total}</Card.Footer>
  </Card>
 </Col>
           </Row>

@@ -52,7 +52,7 @@ const claseBotones =  () => {
 }
 //funcion para eliminar los productos del carrito
 const deleteCart = async(_id) =>{
-  console.log(_id)
+
   Onloader()
 const response = await axiosInstance.delete(`/cart/${_id}`,{ data:{
   usuarioId:userId
