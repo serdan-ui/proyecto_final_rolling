@@ -1,34 +1,52 @@
-import React from 'react';
-import { Col, Row, Container, Table } from 'react-bootstrap';
-import "./style.css"
+import React, {useState, useEffect} from "react";
+import { Col, Row, Container, Table, Button } from "react-bootstrap";
+import { useHistory } from "react-router-dom";
+import axiosInstance from "../util/axiosInstance";
 import HeaderStatic from '../Layout/HeaderStatic';
-
+ 
 import "./style.css";
 
-
 const PerfilUsuario = ({authen, setAuthen, usuario}) => {
+  let history = useHistory();
+  const [ventas, setVentas] = useState([]);
+
+  // const traerVentas = async () => {
+  //   try {
+  //     const response = await axiosInstance.get(`/venta/${usuario/_id}`);
+  //     setVentas(response.data);
+  //     console.log(response.data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   traerVentas();
+  // }, []);
+  // console.log(ventas);
   return (
-    <> 
-    <HeaderStatic
+    <>
+     <HeaderStatic
      authen={authen}
      setAuthen={setAuthen}
      usuario={usuario}
     />
       <Container fluid className="padrePerfil">
-         
+        <Button className="btnVolverPerf" onClick={() => history.push("/main")}>
+          Volver
+        </Button>
         <h2 className="text-center text-white comprasRe"> Mi Perfil</h2>
         <div className="contenedorImgPer">
           <Row className="perfilUsuario">
-            <div className="xl-col-4 lg-col-4 xs-col-10 ">
+            <div className="xl-col-4 lg-col-4 xs-col-10 unoIMG">
               <img
                 src="https://image.freepik.com/vector-gratis/perfil-avatar-mujer-icono-redondo_24640-14042.jpg"
                 className="imgperfil"
               ></img>
             </div>
-            <div className="xl-col-8 lg-col-8 xs-col-10 mt-5">
-
-                <p>Nombre: {usuario.username}</p>
-               <p>Email: {usuario.email}</p>
+            <div className="xl-col-8 lg-col-8 xs-col-10  dosIMG">
+              <br></br> <p>Nombre: {usuario.username}</p>
+              <br></br>
+              <p>Apellido: {usuario.email}</p>
             </div>
           </Row>
         </div>
@@ -46,7 +64,7 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
             <tbody>
               <tr>
                 <td>1</td>
-                <td>Mark</td>
+                <td></td>
                 <td>Otto</td>
                 <td>@mdo</td>
               </tr>
