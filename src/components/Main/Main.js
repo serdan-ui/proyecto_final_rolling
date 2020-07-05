@@ -3,6 +3,7 @@ import Carrousel from "./Carrousel";
 import Mostrador from "./Mostrador";
 import Fotter from "../Layout/Fotter";
 import Header from "../Layout/Header";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 // stilos de register
 import "./styles.css";
@@ -34,6 +35,14 @@ const Main = ({
   }, []);
   return (
     <>
+    <ScrollUpButton 
+             StopPosition = { 0 }
+             ShowAtPosition = { 100 }
+            
+             AnimationDuration = { 500 }
+          
+            style={{zIndex:"1", background:"#19ed18"}}
+      />
       <Header
         products={products}
         authen={authen}
