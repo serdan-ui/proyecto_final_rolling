@@ -31,25 +31,33 @@ const Login = () => {
         <div className="back-login-color"></div>
       </div>
 
-      <Row className="login-panel d-flex flex-column flex-md-row shadow">
+      <Row className="login-panel  d-flex flex-column justify-content-center align-items-center flex-md-row shadow">
         <Col className="login-graphic d-flex align-items-center justify-content-center">
-          <Row className="d-flex flex-column justify-content-center align-items-center">
-            <Col className="d-flex justify-content-center align-items-center mb-4">
-              <Image src={Loguito} height="140" />
+          <Row className=" h-100 w-100 d-flex flex-column justify-content-center align-items-center">
+            <Col className=" d-flex justify-content-center align-items-end">
+              <Image id="LoginLogo" src={Loguito} height="140" />
             </Col>
-            <Col className="d-flex justify-content-center align-items-center mb-5">
-              <h1 className="graphic-font">GAMING STORE</h1>
+            <Col className="d-flex justify-content-center align-items-start">
+              <h1
+                id="LoginTitle"
+                className="graphic-font text-center text-justify"
+              >
+                GAMING STORE
+              </h1>
             </Col>
           </Row>
         </Col>
-        <Col className="login-contenedor">
-          <div className="botones">
-            <Button type="button" className="toggle" onClick={register}>
-              {login ? "Registrarse" : "Iniciar Sesion"}
-            </Button>
-          </div>
-
-          {login ? <LoginContainer /> : <Register />}
+        <Col className=" login-contenedor  shadow d-flex align-items-start align-items-sm-center justify-content-center">
+          <Row className="mb-5 d-flex flex-column justify-content-center w-100 ">
+            <Col xs="auto" className="mb-2 mt-3">
+              {login ? <LoginContainer /> : <Register />}
+            </Col>
+            <Col xs="auto" className="mt-5 d-flex justify-content-center">
+              <Button type="button" id="BtnRegistro" className="toggle shadow" onClick={register}>
+                {login ? "Registrarse" : "Iniciar Sesion"}
+              </Button>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>

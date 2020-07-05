@@ -6,13 +6,13 @@ import {
   Container,
   OverlayTrigger,
   Tooltip,
+  Row
 } from "react-bootstrap";
 import { FaFacebookSquare, FaGoogle } from "react-icons/fa";
 import Fab from "@material-ui/core/Fab";
-import {
-  useHistory
-} from "react-router-dom";
 import swal from "sweetalert";
+
+import { useHistory } from "react-router-dom";
 
 import axiosInstance from "../util/axiosInstance";
 
@@ -36,20 +36,17 @@ const LoginConteiner = ({ setAuthen }) => {
         localStorage.setItem("Token", response.data.token);
         history.push("/main");
       } catch (error) {
-        swal ( "Error" ,  "Usuario o contraseña incorrecta." ,  "error" )
+        swal("Error", "Usuario o contraseña incorrecta.", "error");
       }
     }
-       
-    
-    
-   
+
     e.target.reset();
   };
 
   return (
-    <Container className="form-login">
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <h3 className="text-center text-white">Iniciar sesion</h3>
+    <Container className="form-login mt-2">
+      <Form  onSubmit={handleSubmit(onSubmit)}>
+        <h3 className="text-center text-white">Iniciar Sesión</h3>
 
         <br></br>
         <Form.Control
@@ -100,7 +97,7 @@ const LoginConteiner = ({ setAuthen }) => {
           </span>
         </Form.Group>
 
-        <Form.Group className="btn-redes">
+        <Form.Group className="btn-redes mb-4">
           <OverlayTrigger
             placement="bottom"
             overlay={<Tooltip id={`tooltip-$'bottom'`}>Ingresar con</Tooltip>}
@@ -118,10 +115,11 @@ const LoginConteiner = ({ setAuthen }) => {
             </Fab>
           </OverlayTrigger>{" "}
         </Form.Group>
-
-        <Button className="btn-lg btn-block btn-env" type="submit">
-          Enviar
-        </Button>
+        <Row className="d-flex justify-content-center mb-3">
+          <Button id="BtnLogin" className="btn-lg btn-block btn-login-iniciar w-50 font-weight-bolder shadow" type="submit">
+            INGRESAR
+          </Button>
+        </Row>
       </Form>
     </Container>
   );
