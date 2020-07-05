@@ -6,6 +6,7 @@ import FormBuy from "./FormBuy";
 import FormComercial from "./FormComercial";
 import axiosInstance from "../util/axiosInstance";
 import { useHistory } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const FormTurn = (userId) => {
   let history = useHistory();
@@ -13,7 +14,19 @@ const FormTurn = (userId) => {
   const [data, setData] = useState(null);
 
   const enviarTurno = async (Turno) => {
-    const response = await axiosInstance.post("/turno", Turno);
+    try {
+      const response = await axiosInstance.post("/turno", Turno);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: response.data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (error) {
+      
+    }
+ 
   };
 
   const { register, handleSubmit, control, reset, errors } = useForm();
