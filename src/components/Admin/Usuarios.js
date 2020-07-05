@@ -8,7 +8,7 @@ const Usuarios = () => {
   const traerUsuario = async () => {
     const response = await axiosInstance.get("/personas");
     setPersonas(response.data.user);
-    console.log(response.data.user);
+   
   };
   useEffect(() => {
     traerUsuario();
@@ -35,10 +35,10 @@ const Usuarios = () => {
                   <td>{usuario.username}</td>
                   <td>{usuario.email}</td>
                   <td>
-                    {usuario.turn === undefined ? (
+                    {usuario.turno === undefined ? (
                       <p>no tiene</p>
                     ) : (
-                      usuario.turn
+                      usuario.turno.length
                     )}
                   </td>
                 </tr>

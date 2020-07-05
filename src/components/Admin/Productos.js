@@ -1,89 +1,93 @@
 import React, { useState, useEffect } from "react";
-import { Col, Card, Container, Row, Button, Modal } from "react-bootstrap";
-import ReactDOM from "react-dom";
+import { Container, Row, Button, Modal } from "react-bootstrap";
 import "antd/dist/antd.css";
 import { Table } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
 import axiosInstance from "../util/axiosInstance";
-
-const columns = [
-  {
-    title: "Nombre",
-    dataIndex: "nombre",
-    key: "nombre",
-    render: (text) => <strong>{text}</strong>,
-  },
-  {
-    title: "Stock",
-    dataIndex: "stock",
-    key: "stock",
-    render: (text) => <strong>{text}</strong>,
-  },
-  {
-    title: "Precio",
-    dataIndex: "precio",
-    key: "precio",
-    render: (text) => <strong>{text}</strong>,
-  },
-  {
-    title: "Accion",
-    dataIndex: "",
-    key: "x",
-    render: () => (
-      <a >
-        <EditOutlined />
-        Editar
-      </a>
-    ),
-  },
-  {
-    dataIndex: "",
-    key: "x",
-    render: () => (
-      <a>
-        <DeleteOutlined />
-        Eliminar
-      </a>
-    ),
-  },
-];
+import Modalsito from "./modal";
+import Swal from "sweetalert2";
 
 const Productos = () => {
+  const [show, setShow] = useState(false);
+  const [datos, setDatos] = useState({});
+  //funcion para cargar el modal
+  const cargarDatos = (data) => {
+    setDatos(data);
+    setShow(true);
+  };
+  //funcion para eliminar un producto
+  const borrarTurno = async (_id) => {
+    try {
+      const response = await axiosInstance.delete(`/producto/${_id}`);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: response.data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      traerProducto();
+    } catch (error) {}
+  };
+
+  const columns = [
+    {
+      title: "Nombre",
+      dataIndex: "nombre",
+      key: "nombre",
+      render: (text) => <strong>{text}</strong>,
+    },
+    {
+      title: "Stock",
+      dataIndex: "stock",
+      key: "stock",
+      render: (text) => <strong>{text}</strong>,
+    },
+    {
+      title: "Precio",
+      dataIndex: "precio",
+      key: "precio",
+      render: (text) => <strong>{text}</strong>,
+    },
+    {
+      title: "Accion",
+      dataIndex: "",
+      key: "x",
+      render: (data) => (
+        <a onClick={() => cargarDatos(data)}>
+          <EditOutlined />
+          Editar
+        </a>
+      ),
+    },
+    {
+      dataIndex: "",
+      key: "x",
+      render: (data) => (
+        <a onClick={() => borrarTurno(data._id)}>
+          <DeleteOutlined />
+          Eliminar
+        </a>
+      ),
+    },
+  ];
   const [productos, setProductos] = useState([]);
 
   const traerProducto = async () => {
     const response = await axiosInstance.get("/producto");
     setProductos(response.data.productos);
-    console.log(response);
+   
   };
   useEffect(() => {
     traerProducto();
   }, []);
-
-//     const editarProd = () =>{
-//       <Modal.Dialog>
-//   <Modal.Header closeButton>
-//     <Modal.Title>Modal title</Modal.Title>
-//   </Modal.Header>
-
-//   <Modal.Body>
-//     <p>Modal body text goes here.</p>
-//   </Modal.Body>
-
-//   <Modal.Footer>
-//     <Button variant="secondary">Close</Button>
-//     <Button variant="primary">Save changes</Button>
-//   </Modal.Footer>
-// </Modal.Dialog>
-//     }
-
 
   return (
     <>
       <p className="titulo_product_main">Productos</p>
 
       <Container>
-        <Table 
+        <Table
           // editarProd={editarProd}
           bordered
           columns={columns}
@@ -95,6 +99,7 @@ const Productos = () => {
           }}
           dataSource={productos}
         />
+        <Modalsito traerProducto={traerProducto} show={show} datos={datos} onHide={() => setShow(false)} />
       </Container>
     </>
   );
