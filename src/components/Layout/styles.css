@@ -87,6 +87,10 @@ background-color: rgba(99, 53, 160, 0.4) !important;
   /* font-weight: bolder !important; */
   color: #ffffff !important;
 }
+.btnUsername-collapse{
+  font-size: 2rem;
+  color: white !important;
+}
 
 .btnDropdown-username{
   background-color: rgba(97, 56, 56,0.0) !important;
@@ -156,12 +160,14 @@ background-color: rgba(99, 53, 160, 0.4) !important;
   width: 80px;
   height: 70px;
   font-weight: bold !important ;
-  position: absolute;
-/*   z-index: 10000; */
-  right: -8px !important;
-  background:rgba(107, 49, 182, 0.4) !important;
+  position: fixed;
+  right: 8px; 
+  background:rgba(107, 49, 182, 0.6) !important;
   border:rgba(133, 61, 228, 0.7) !important;
   color: whitesmoke;
+}
+.btnCart_header:hover {
+  background:rgba(107, 49, 182, 0.8) !important;
 }
 .icons_header_cart{
   font-size: 30px;

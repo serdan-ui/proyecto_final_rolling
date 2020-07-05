@@ -62,24 +62,28 @@ const Header = ({
               <Nav className="d-flex flex-lg-row justify-content-center align-items-center navbar-desplegable">
                 {authen ? (
                   <div className="btnLogin-collapse w-100">
-                  <Nav
-                    className="btnNav_header btnUsername d-flex justify-content-center w-100"
-                  >
-                    <Row className="d-block  align-self-center ">
-                      <Col
-                        xs="auto"
-                        className="d-flex justify-content-center btnNav_usernameFont"
+                    <NavDropdown
+                      title={usuario.username}
+                      id="collasible-nav-dropdown"
+                      className="d-flex btnUsername-collapse btnUsername btnNav_header w-100 flex-column align-items-center"
+                    >
+                      <NavDropdown.Item className="w-100">
+                        Perfil
+                      </NavDropdown.Item>
+                      <NavDropdown.Item
+                        className="w-100"
+                        href="/shopping-checkout"
                       >
-                        {usuario.username}
-                      </Col>
-                      <Col
-                        xs="auto"
-                        className="d-flex justify-content-center btnNav_secondFont"
+                        Ir al Carrito
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item
+                        className="font-weight-bolder dropDown-cerrarSesion"
+                        onClick={cerrarSes}
                       >
-                        usuario
-                      </Col>
-                    </Row>
-                  </Nav>
+                        Cerrar Sesión
+                      </NavDropdown.Item>
+                    </NavDropdown>
                   </div>
                 ) : (
                   <Button
@@ -186,10 +190,13 @@ const Header = ({
                     </Col>
                   </Row>
                   <Dropdown.Menu id="DropDown-username">
-                    <Dropdown.Item className="dropDown-font" href="#/action-1">
+                    <Dropdown.Item className="dropDown-font">
                       Perfil
                     </Dropdown.Item>
-                    <Dropdown.Item className="dropDown-font" href="/shopping-checkout">
+                    <Dropdown.Item
+                      className="dropDown-font"
+                      href="/shopping-checkout"
+                    >
                       Ir al Carrito
                     </Dropdown.Item>
                     <Dropdown.Divider />
