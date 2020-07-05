@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, ListGroup, Badge, Row, Col ,Spinner} from "react-bootstrap";
 import { FaCartPlus, FaRegWindowClose } from "react-icons/fa";
 import axiosInstance from "../util/axiosInstance";
@@ -28,9 +28,9 @@ let productoId;
   };
 
   let clase;
-  {
+  
     cartOpen ? (clase = "btnCartOpen") : (clase = "cuerpoCart");
-  }
+  
   
 
   //funcion para poner en el selet el stock de cada producto

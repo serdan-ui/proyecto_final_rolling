@@ -7,12 +7,10 @@ import {
   Row,
   Col,
   Card,
-  Form,
   Button,
   Image,
 } from "react-bootstrap";
 import {
-  FaShopware,
   FaTabletAlt,
   FaLaptop,
   FaDesktop,

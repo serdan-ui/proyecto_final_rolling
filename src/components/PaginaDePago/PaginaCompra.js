@@ -14,6 +14,7 @@ const PaginaCompra = () => {
 
               <Card.Body className="imgeexit">
                 <img
+                alt="foto"
                   src="https://thumbs.gfycat.com/ConstantThornyGalapagospenguin-small.gif"
                   style={{ height: "200px" }}
                 ></img>
@@ -41,7 +42,7 @@ const PaginaCompra = () => {
                 className="col-11"
               >
                 <Row style={{marginLeft:"0px",marginRight:"0px"}}>
-                  <Col xs={4}><img src="a"/></Col>
+                  <Col xs={4}><img alt="foto" src="a"/></Col>
                   <Col xs={3}>Nombre:<p>asdasdsa</p></Col>
                   <Col xs={2}>Cant: <p>12</p></Col>
                   <Col xs={3}>Precio: $<p>1500</p></Col>

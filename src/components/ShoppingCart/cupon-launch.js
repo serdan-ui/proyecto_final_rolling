@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect, useRef } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import cupones from "./1 DB/cupones";
 import { Modal, Button, Form, Col, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";

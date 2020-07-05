@@ -18,7 +18,7 @@ const ListTurn = (userId) => {
 
   const fetchTurnos = async () => {
     //_id usuario
-    if (userId.userId.userId != undefined) {
+    if (userId.userId.userId !== undefined) {
       const _id = userId.userId.userId;
 
       const response = await axiosInstance.get(`/turno/${_id}`);

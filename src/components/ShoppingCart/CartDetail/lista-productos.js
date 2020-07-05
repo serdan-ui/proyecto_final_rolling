@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, {  Fragment } from "react";
 import ProductCard from "./product-card";
 import "./styles.css";
 
