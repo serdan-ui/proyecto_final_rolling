@@ -3,26 +3,37 @@ import { Col, Row, Container, Table, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import axiosInstance from "../util/axiosInstance";
 import HeaderStatic from '../Layout/HeaderStatic';
- 
+import moment from "moment";
+import "moment/locale/es";
+
 import "./style.css";
 
 const PerfilUsuario = ({authen, setAuthen, usuario}) => {
   let history = useHistory();
   const [ventas, setVentas] = useState([]);
 
-  // const traerVentas = async () => {
-  //   try {
-  //     const response = await axiosInstance.get(`/venta/${usuario/_id}`);
-  //     setVentas(response.data);
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  // useEffect(() => {
-  //   traerVentas();
-  // }, []);
-  // console.log(ventas);
+  const traerVentas = async () => {
+    if (usuario._id) {
+      try {
+        const response = await axiosInstance.get(`/venta/${usuario._id}`);
+        setVentas(response.data);
+        console.log(response.data);
+        
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    
+  };
+  useEffect(() => {
+    traerVentas();
+  }, [usuario]);
+  console.log(ventas);
+  
+  const Fecha = () => {
+    return moment().format("Do [de] MMMM [del] YYYY, h:mm a");
+  };
+
   return (
     <>
      <HeaderStatic
@@ -31,9 +42,7 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
      usuario={usuario}
     />
       <Container fluid className="padrePerfil">
-        <Button className="btnVolverPerf" onClick={() => history.push("/main")}>
-          Volver
-        </Button>
+       <br/>
         <h2 className="text-center text-white comprasRe"> Mi Perfil</h2>
         <div className="contenedorImgPer">
           <Row className="perfilUsuario">
@@ -55,30 +64,25 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
           <Table striped bordered hover variant="dark">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Nombre producto</th>
+               
+               <th>Fecha</th>
+                <th>Productos</th>
                 <th>Cantidad</th>
                 <th>Total</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td></td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colSpan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
+            {ventas.map((venta, index) =>(
+               <tr>
+                <td>{Fecha(venta.creado)}</td>
+            <td>{venta.productos.map((p)=><>•{p.nombre} <br/></>)}</td>
+            <td>{venta.productos.map((p)=><>{p.cantidad} <br/></>)}</td>
+              <td>{venta.total}</td>
+             </tr>
+
+            ))}
+             
+              
             </tbody>
           </Table>
         </div>
