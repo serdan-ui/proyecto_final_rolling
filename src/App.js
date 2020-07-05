@@ -15,12 +15,12 @@ import Drag from "./components/Admin/Drag";
 import Usuarios from "./components/Admin/Usuarios";
 import Payment from "./components/PaginaDePago/Payment";
 import PerfilUsuario from "./components/PerfilUsuario/PerfilUsuario";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import PrivateRoute from "./components/routes/PrivateRoute";
 import RestrictedRoutes from "./components/routes/RestrictedRoutes";
 import PrivateAdmin from "./components/routes/PrivateAdmin";
+import PaginaCompra from "./components/PaginaDePago/PaginaCompra";
 
 function App() {
   const token = localStorage.getItem("Token");
@@ -101,6 +101,9 @@ function App() {
         </PrivateAdmin>
         <Route path="/pago/:id">
           <Payment />
+        </Route>
+        <Route path="/Compra">
+          <PaginaCompra />
         </Route>
         <PrivateRoute exact path="/perfil">
           <PerfilUsuario
