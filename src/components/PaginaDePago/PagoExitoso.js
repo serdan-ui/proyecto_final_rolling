@@ -19,7 +19,7 @@ const PagoExitoso = ({fecha}) => {
   return (<>
 
     <div className="container-fluid fondooexit">
-      <div>
+      
 
         <Container className="cartaexit">
           <Row>
@@ -43,10 +43,8 @@ const PagoExitoso = ({fecha}) => {
           </Row>
         </Container>
       </div>
-    </div>
-
-  </>
-  )
-}
+    </>
+  );
+};
 
 export default PagoExitoso;

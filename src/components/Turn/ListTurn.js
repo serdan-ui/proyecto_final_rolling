@@ -1,21 +1,19 @@
-import React , {useState, useEffect} from 'react';
-import {Table, Container,Tooltip  , OverlayTrigger } from "react-bootstrap"
-import InfoTwoToneIcon from '@material-ui/icons/InfoTwoTone';
-import MydModalWithGrid from './modalInfoTurno';
-import axiosInstance from '../util/axiosInstance';
-import moment from 'moment';
-import 'moment/locale/es'
-
+import React, { useState, useEffect } from "react";
+import { Table, Container, Tooltip, OverlayTrigger } from "react-bootstrap";
+import InfoTwoToneIcon from "@material-ui/icons/InfoTwoTone";
+import MydModalWithGrid from "./modalInfoTurno";
+import axiosInstance from "../util/axiosInstance";
+import moment from "moment";
+import "moment/locale/es";
 
 const ListTurn = (userId) => {
 const [turnos , setTurnos] = useState([])
 const [data, setData] = useState({})
 const [modalShow, setModalShow] = useState(false);
 
-const ModificarFecha = (fecha)=> {
-  
- return  moment(fecha).format('dddd Do [de] MMMM [del] YYYY ');
-}
+  const ModificarFecha = (fecha) => {
+    return moment(fecha).format("dddd Do [de] MMMM [del] YYYY ");
+  };
 
 const fetchTurnos = async() => {
 //_id usuario
@@ -40,11 +38,11 @@ useEffect(() => {
   }
 }, [userId])
 
-const borrarTurno=  async(_id)=>{
- const response= await axiosInstance.delete(`/turno/${_id}`);
- console.log(response.data);
- fetchTurnos();
-}
+  const borrarTurno = async (_id) => {
+    const response = await axiosInstance.delete(`/turno/${_id}`);
+    console.log(response.data);
+    fetchTurnos();
+  };
 
 //cargar datos en el modal
 const cargarData = (data) =>{
@@ -68,15 +66,28 @@ const cargarData = (data) =>{
                 <th>Hora</th>
                 <th>Motivo</th>
                 <th>Descripcion y mas ...</th>
-                <th >Cancelar Turno<OverlayTrigger 
-             
-                 placement="top"
-                 overlay={
-                   <Tooltip id={`tooltip-top`}>
-                    <strong>Los turnos solo se pueden cancelar 24hs antes</strong>.
-                   </Tooltip>
-                 }
-                ><InfoTwoToneIcon  style={{marginLeft:"0.7rem" , fontSize:"1.2rem", opacity:"0.8"}} /></OverlayTrigger></th>
+                <th>
+                  Cancelar Turno
+                  <OverlayTrigger
+                    placement="top"
+                    overlay={
+                      <Tooltip id={`tooltip-top`}>
+                        <strong>
+                          Los turnos solo se pueden cancelar 24hs antes
+                        </strong>
+                        .
+                      </Tooltip>
+                    }
+                  >
+                    <InfoTwoToneIcon
+                      style={{
+                        marginLeft: "0.7rem",
+                        fontSize: "1.2rem",
+                        opacity: "0.8",
+                      }}
+                    />
+                  </OverlayTrigger>
+                </th>
               </tr>
             </thead>
             <tbody style={{color:"#30cd68"}}>
@@ -101,7 +112,7 @@ const cargarData = (data) =>{
           )}
         
     </Container>
-     );
-}
- 
+  );
+};
+
 export default ListTurn;

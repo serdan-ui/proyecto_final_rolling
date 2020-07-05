@@ -3,15 +3,15 @@ import { Carousel, Container } from "react-bootstrap";
 
 const Carrousel = () => {
   return (
-    <Container fluid >
-      <Carousel >
+    <Container fluid>
+      <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
             src="/image/celucarrousel.jpg"
             alt="First slide"
             style={{
-              maxHeight:"80vh"
+              maxHeight: "80vh",
             }}
           />
         </Carousel.Item>
@@ -21,7 +21,7 @@ const Carrousel = () => {
             src="/image/tecladocarrousel.jpg"
             alt="Third slide"
             style={{
-              maxHeight:"80vh"
+              maxHeight: "80vh",
             }}
           />
         </Carousel.Item>
@@ -31,7 +31,7 @@ const Carrousel = () => {
             src="/image/serviciotecnico.jpg"
             alt="Third slide"
             style={{
-              maxHeight:"80vh"
+              maxHeight: "80vh",
             }}
           />
         </Carousel.Item>
@@ -41,7 +41,7 @@ const Carrousel = () => {
             src="/image/tecnologia.jpg"
             alt="Four slide"
             style={{
-              maxHeight:"80vh"
+              maxHeight: "80vh",
             }}
           />
         </Carousel.Item>

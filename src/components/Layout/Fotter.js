@@ -9,7 +9,10 @@ import "./styles.css";
 const Fotter = () => {
   return (
     <Container fluid className="container_footer">
-      <Row className="footer_scheme d-flex flex-column" style={{padding:"0px", margin:"0px"}}>
+      <Row
+        className="footer_scheme d-flex flex-column"
+        style={{ padding: "0px", margin: "0px" }}
+      >
         <Col>
           <Row>
             <Col className="footer_info">
@@ -105,7 +108,8 @@ const Fotter = () => {
 
         <Col className="footer_disclaimer d-flex justify-content-center">
           <div className="mt-3">
-         ZeroTech® ● General Paz 300 ● S.M Tucuman ● 4000 ● Tucuman ● Argentina ● www.zerotechstore.com
+            ZeroTech® ● General Paz 300 ● S.M Tucuman ● 4000 ● Tucuman ●
+            Argentina ● www.zerotechstore.com
           </div>
         </Col>
       </Row>

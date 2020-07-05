@@ -3,6 +3,7 @@ import { Col, Row, Container, Table } from 'react-bootstrap';
 import "./style.css"
 import HeaderStatic from '../Layout/HeaderStatic';
 
+import "./style.css";
 
 
 const PerfilUsuario = ({authen, setAuthen, usuario}) => {
@@ -18,9 +19,11 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
         <h2 className="text-center text-white comprasRe"> Mi Perfil</h2>
         <div className="contenedorImgPer">
           <Row className="perfilUsuario">
-            <div className="xl-col-4 lg-col-4 xs-col-10 ">
-              <img src="https://image.freepik.com/vector-gratis/perfil-avatar-mujer-icono-redondo_24640-14042.jpg" className="imgperfil"></img>
-
+            <div className="xl-col-4 lg-col-4 xs-col-10 unoIMG">
+              <img
+                src="https://image.freepik.com/vector-gratis/perfil-avatar-mujer-icono-redondo_24640-14042.jpg"
+                className="imgperfil"
+              ></img>
             </div>
             <div className="xl-col-8 lg-col-8 xs-col-10 mt-5">
 
@@ -61,11 +64,9 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
             </tbody>
           </Table>
         </div>
-
       </Container>
-
     </>
-  )
-}
+  );
+};
 
 export default PerfilUsuario;

@@ -20,6 +20,7 @@
 .card-exit{
     background-color: rgb(15, 15, 15);
     border: solid 1px rgb(28, 160, 28)!important;
+    color: white;
 }
 .cardmadreExit{
     border: solid 1px rgb(28, 160, 28)!important;
@@ -27,4 +28,7 @@
 .fondooexit{
     background-color:rgb(15, 15, 15); 
     height: 100vh;
+}
+.pendiente{
+    color: #33c4b0;
 }

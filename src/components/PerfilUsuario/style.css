@@ -26,7 +26,37 @@
   height: 350px;
   width: 500px;
 }
+.dosIMG{
+  margin: 40px !important;
+}
 .comprasRe{
   color: white;
   text-align: center;
   text-shadow: #CCC 1px 0 10px;}
+
+  .btnVolverPerf{
+    margin: 5px;
+    background-color: #060606 !important;
+    box-shadow: rgb(99, 9, 134) 1px 0 10px;
+    text-decoration: none;
+    border: none;
+  }
+  @media (min-width:320px) and (max-width: 540px){
+    .contenedorImgPer{
+      margin-left: 40px;
+      width: 0%;
+    }
+    .perfilUsuario{
+      width: 300px;
+      margin: auto;
+      height: 300px;
+    }
+    .dosIMG{
+      margin-top: 0px !important;
+      padding: 0px !important;
+      }
+    .imgperfil{
+      height: 100px;
+    }
+    
+  }

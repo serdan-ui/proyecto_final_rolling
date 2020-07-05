@@ -22,7 +22,6 @@ import PrivateRoute from "./components/routes/PrivateRoute";
 import RestrictedRoutes from "./components/routes/RestrictedRoutes";
 import PrivateAdmin from "./components/routes/PrivateAdmin";
 
-
 function App() {
   const token = localStorage.getItem("Token");
   const [authen, setAuthen] = useState(token);
@@ -58,7 +57,7 @@ function App() {
         <RestrictedRoutes exact path="/">
           <Login />
         </RestrictedRoutes>
-        
+
         <Route exact path="/main">
           <Main
             authen={authen}
@@ -71,20 +70,16 @@ function App() {
             autenticar={autenticar}
           />
         </Route>
-        <PrivateRoute
-          exact
-          path="/shopping-checkout"
-          render={(props) => (
-            <ShoppingCheckout
-              {...props}
-              authen={authen}
-              usuario={usuario}
-              carrito={carrito}
-              setAuthen={setAuthen}
-              userId={userId}
-            />
-          )}
-        />
+        <PrivateRoute exact path="/shopping-checkout">
+          <ShoppingCheckout
+            
+            authen={authen}
+            usuario={usuario}
+            carrito={carrito}
+            setAuthen={setAuthen}
+            userId={userId}
+          />
+        </PrivateRoute>
 
         <Route exact path="/service">
           <PageService
@@ -104,15 +99,15 @@ function App() {
         <PrivateAdmin exact path="/admin">
           <Admin />
         </PrivateAdmin>
-        <Route  path="/pago/:id">
+        <Route path="/pago/:id">
           <Payment />
         </Route>
         <PrivateRoute exact path="/perfil">
-          <PerfilUsuario 
-           authen={authen}
+          <PerfilUsuario
+            authen={authen}
             setAuthen={setAuthen}
             usuario={usuario}
-            />
+          />
         </PrivateRoute>
         <Route>
           <Error404 />

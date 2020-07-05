@@ -8,9 +8,12 @@ import Usuarios from "./Usuarios";
 import Ventas from "./Ventas";
 import { useHistory } from "react-router-dom";
 
+
+
+
+
 const Admin = () => {
   let history = useHistory();
-
   const [cuerpo, setCuerpo] = useState({});
 
   const cambiar = (e) => {

@@ -45,7 +45,7 @@ const FormRegister = () => {
         username,
         email,
         password,
-        role:'user'
+        role: "user",
       };
       try {
         const response = await axiosInstance.post("/register", newUser);
@@ -59,12 +59,11 @@ const FormRegister = () => {
             onOpen: (toast) => {
               toast.addEventListener("mouseenter", Swal.stopTimer);
               toast.addEventListener("mouseleave", Swal.resumeTimer);
-              },
+            },
           });
           swal({
             icon: "success",
             title: "Registro exitoso !!",
-            
           });
           
         }
@@ -72,12 +71,9 @@ const FormRegister = () => {
       } catch (error) {
         
         swal({
-          icon: 'error',
+          icon: "error",
           title: error.response.data.error,
-          
-          
-        }
-        )
+        });
       }
       
       e.target.reset();
@@ -91,7 +87,7 @@ const FormRegister = () => {
         <Form.Group as={Row}>
           <Col>
             <FormControl
-              placeholder="Nombre"
+              placeholder="Usuario"
               className="form-control"
               autoComplete="off"
               name="username"

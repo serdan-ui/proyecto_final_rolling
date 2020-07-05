@@ -22,19 +22,19 @@
 //           }
 //         },
 //       };
-//         return ( 
-//             <div className="drag">     
+//         return (
+//             <div className="drag">
 //             <Dragger {...props}>
 //         <p className="ant-upload-drag-icon text-white text-center" style={{fontSize:"30px"}}>
 //           <InboxOutlined />
 //         </p>
 //         <p className="ant-upload-text text-center">Clickear o arrastre imagen aca</p>
-        
+
 //       </Dragger>
 //       </div>
 
 //        );
 
 // }
- 
+
 // export default Drag;
