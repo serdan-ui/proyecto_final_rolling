@@ -11,10 +11,7 @@ body {
   min-height: 80vh;
 }
 
-.zero-disclaimer-carrousel{
-  position: absolute;
-/*   z-index: 3; */
-}
+
 
 .card-articulo {
   max-height: 350px;

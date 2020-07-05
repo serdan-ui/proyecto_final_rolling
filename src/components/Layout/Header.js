@@ -1,12 +1,26 @@
-import React, { useEffect } from "react";
-import { Container, Row, Col, Nav, Button, Image } from "react-bootstrap";
+import React, { Fragment, useEffect } from "react";
+import {
+  Container,
+  Row,
+  Col,
+  Nav,
+  Button,
+  Image,
+  Navbar,
+  NavDropdown,
+  Dropdown,
+  ButtonGroup,
+} from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import "./styles.css";
-import Loguito from "../Images/Zero-Images/Zero-Tech-Purple.svg";
-import { FaUser, FaShareSquare } from "react-icons/fa";
+import Loguito from "../Images/Zero-Images/Inset/Zero-Tech-White.svg";
 import BtnCart from "./BtnCart";
-import axiosInstance from "../util/axiosInstance";
-import HeaderStatic from "./HeaderStatic";
+import {
+  FaUser,
+  FaShareSquare,
+  FaUserAlt,
+  FaShoppingCart,
+} from "react-icons/fa";
 
 const Header = ({
   products,
@@ -16,6 +30,8 @@ const Header = ({
   setCarrito,
   userId,
   setProducts,
+  fetchCarrito,
+  autenticar,
 }) => {
   let history = useHistory();
   const cerrarSes = () => {
@@ -23,81 +39,189 @@ const Header = ({
     setAuthen(null);
     history.push("/");
   };
-  const TraerCart = () => {
-    useEffect(() => {
-      let user;
-      user = userId;
-      fetchCarrito(user);
-    }, []);
-  };
-  const fetchCarrito = async (user) => {
-    const id = user;
-    const response = await axiosInstance.get(`/cart/${id}`);
-    setProducts(response.data.carrito[0].Productos);
-  };
-  if (userId === undefined) {
-    return <HeaderStatic/>;
-  } else {
-    TraerCart();
-  }
+
+  useEffect(() => {
+    fetchCarrito(userId);
+    return () => {
+      //
+    };
+  }, [usuario]);
+
   return (
-    <Container fluid className="Container_Header">
-      <Row className="container_logo">
-        <Col xs={4} md={3} className="logo">
-          <Image src={Loguito} rounded className="logo_imagen_header" />
-          <br />
-          <br />
-        </Col>
-        <Col xs={7} md={9} className="login_registro_header">
-          {authen ? (
-            <>
-              <span>
-                <FaUser className="icons_header" />
-                Hola: {usuario.username}
-              </span>
+    <Fragment>
+      <Container fluid className="Container_Header">
+        <Navbar collapseOnSelect expand="lg" variant="dark">
+          <Container>
+            <Navbar.Brand href="/main" className="">
+              <Image fluid src={Loguito} className="logo_imagen_header" />
+            </Navbar.Brand>
 
-              <Button
-                className="btnLogin_header_logout mr-2"
-                style={{ border: "none" }}
-                onClick={cerrarSes}
-              >
-                {" "}
-                <FaShareSquare />
-              </Button>
-            </>
-          ) : (
-            <Button
-              className="btnLogin_header mr-2"
-              onClick={()=>{history.push("/")}}
-            >
-              {" "}
-              <FaUser className="icons_header" />
-              Iniciar sesion
-            </Button>
-          )}
-        </Col>
-      </Row>
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 
-      <BtnCart products={products} setCarrito={setCarrito} />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="d-flex flex-lg-row justify-content-center align-items-center navbar-desplegable">
+                {authen ? (
+                  <div className="btnLogin-collapse w-100">
+                  <Nav
+                    className="btnNav_header btnUsername d-flex justify-content-center w-100"
+                  >
+                    <Row className="d-block  align-self-center ">
+                      <Col
+                        xs="auto"
+                        className="d-flex justify-content-center btnNav_usernameFont"
+                      >
+                        {usuario.username}
+                      </Col>
+                      <Col
+                        xs="auto"
+                        className="d-flex justify-content-center btnNav_secondFont"
+                      >
+                        usuario
+                      </Col>
+                    </Row>
+                  </Nav>
+                  </div>
+                ) : (
+                  <Button
+                    className="btnLogin_header btnLogin-collapse shadow"
+                    onClick={() => {
+                      history.push("/");
+                    }}
+                  >
+                    INICIAR SESIÓN
+                  </Button>
+                )}
 
-      <Nav className="justify-content-center nav_header">
-        <Nav.Item className="nav_header">
-          <Link to="/main" className="btnNav_header">
-            Tienda
-          </Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link to="/service" className="btnNav_header">
-            Servicios
-          </Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Link to="/turn" className="btnNav_header">
-            Turno
-          </Link>
-        </Nav.Item>
-      </Nav>
-    </Container>
+                <Nav.Link
+                  href="/main"
+                  className="btnNav_header d-flex justify-content-center w-100"
+                >
+                  <Row className="d-block  align-self-center ">
+                    <Col
+                      xs="auto"
+                      className=" d-flex justify-content-center btnNav_mainFont "
+                    >
+                      TIENDA
+                    </Col>
+                    <Col
+                      xs="auto"
+                      className=" d-flex justify-content-center btnNav_secondFont "
+                    >
+                      tech store
+                    </Col>
+                  </Row>
+                </Nav.Link>
+
+                <Nav.Link
+                  href="/service"
+                  className="btnNav_header d-flex justify-content-center w-100"
+                >
+                  <Row className="d-block  align-self-center ">
+                    <Col
+                      xs="auto"
+                      className=" d-flex justify-content-center btnNav_mainFont"
+                    >
+                      SERVICIOS
+                    </Col>
+                    <Col
+                      xs="auto"
+                      className=" d-flex justify-content-center btnNav_secondFont"
+                    >
+                      contactar
+                    </Col>
+                  </Row>
+                </Nav.Link>
+
+                <Nav.Link
+                  href="/turn"
+                  className="btnNav_header d-flex justify-content-center w-100"
+                >
+                  <Row className="d-block  align-self-center ">
+                    <Col
+                      xs="auto"
+                      className=" d-flex justify-content-center btnNav_mainFont"
+                    >
+                      TURNO
+                    </Col>
+                    <Col
+                      xs="auto"
+                      className=" d-flex justify-content-center btnNav_secondFont"
+                    >
+                      asistencia
+                    </Col>
+                  </Row>
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+
+            <Nav className="btnLogin-out">
+              {authen ? (
+                <Dropdown
+                  as={ButtonGroup}
+                  className="btnNav_header btnUsername"
+                >
+                  <Row className="ml-3">
+                    <Col xs="auto" className="d-flex">
+                      <Row className="d-block  align-self-center">
+                        <Col
+                          xs="auto"
+                          className=" d-flex justify-content-center btnNav_usernameFont"
+                        >
+                          {usuario.username}
+                        </Col>
+                        <Col
+                          xs="auto"
+                          className=" d-flex justify-content-center btnNav_secondFont"
+                        >
+                          usuario
+                        </Col>
+                      </Row>
+                    </Col>
+                    <Col xs="auto" className="d-flex">
+                      <Dropdown.Toggle
+                        split
+                        id="dropdown-split-basic"
+                        className="btnDropdown-username"
+                      />
+                    </Col>
+                  </Row>
+                  <Dropdown.Menu id="DropDown-username">
+                    <Dropdown.Item className="dropDown-font" href="#/action-1">
+                      Perfil
+                    </Dropdown.Item>
+                    <Dropdown.Item className="dropDown-font" href="/shopping-checkout">
+                      Ir al Carrito
+                    </Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item
+                      className="font-weight-bolder dropDown-cerrarSesion"
+                      onClick={cerrarSes}
+                    >
+                      Cerrar Sesión
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              ) : (
+                <Button
+                  className="btnLogin_header btnLogin-out mr-3 shadow"
+                  onClick={() => {
+                    history.push("/");
+                  }}
+                >
+                  INICIAR SESIÓN
+                </Button>
+              )}
+            </Nav>
+          </Container>
+        </Navbar>
+        <BtnCart
+          products={products}
+          setCarrito={setCarrito}
+          userId={userId}
+          fetchCarrito={fetchCarrito}
+        />
+      </Container>
+    </Fragment>
   );
 };
 

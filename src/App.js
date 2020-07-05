@@ -3,13 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./components/Login/Login";
 import Main from "./components/Main/Main";
 import PageService from "./components/PageService/PageService";
-import Payment from "./components/Payment/Payment";
 import ShoppingCheckout from "./components/ShoppingCart/shopping-checkout"
 import Register from "./components/Register/Register";
 import Error404 from "./components/Error404/Error404";
 import Turn from "./components/Turn/Turn";
 import Admin from "./components/Admin/Admin";
-import MainTest from "./components/Test/Main-Test";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axiosInstance from './components/util/axiosInstance'
 import AgregProd from "./components/Admin/AgregProd";
@@ -58,11 +56,6 @@ const autenticar = async () => {
   return (
     <Router>
       <Switch>
-
-        <Route exact path="/main-test">
-          <MainTest />
-        </Route>
-
         <Route exact path="/">
           <Login />
         </Route>
@@ -70,15 +63,13 @@ const autenticar = async () => {
           <Register />
         </Route>
         <Route exact path="/main">
-          <Main authen={authen} setAuthen={setAuthen} usuario={usuario} setCarrito={setCarrito} userId={userId} products={products} setProducts={setProducts}/>
+          <Main authen={authen} setAuthen={setAuthen} usuario={usuario} setCarrito={setCarrito} userId={userId} products={products} setProducts={setProducts} autenticar={autenticar}/>
         </Route>
-        <Route exact path="/shopping-checkout" render={(props) => <ShoppingCheckout {...props} carrito={carrito} />} />
+
+        <Route exact path="/shopping-checkout" render={(props) => <ShoppingCheckout {...props} authen={authen} usuario={usuario} carrito={carrito}  setAuthen={setAuthen} userId={userId}/>} />
 
         <Route exact path="/service" >
           <PageService authen={authen} setAuthen={setAuthen} usuario={usuario} />
-        </Route>
-        <Route exact path="/payment">
-          <Payment authen={authen} setAuthen={setAuthen} />
         </Route>
         <Route exact path="/turn">
           <Turn authen={authen} setAuthen={setAuthen} usuario={usuario} userId={userId}/>

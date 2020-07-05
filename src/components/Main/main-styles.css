@@ -16,6 +16,7 @@
     background: radial-gradient(transparent 30%, rgb(0, 0, 0));
     /* background-color: rgba(54, 30, 88, 0.5); */
     background-color: rgba(104, 85, 129, 0.4);
+    /* background-color: #685581; */
 }
 .main-disclaimer-container{
     min-height: 41rem !important;
@@ -25,6 +26,7 @@
     padding-left: 4rem !important;
     margin-bottom: 8rem;
     background-color: rgba(33, 45, 65, 0.8);
+    /* background-color: #212d41; */
     clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
     transition: 0.3s;
 }
@@ -74,6 +76,7 @@
         margin-top: 4rem;
         padding-left: 20px !important;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        background-color: rgba(33, 45, 65, 0.4);
     }
     
 }

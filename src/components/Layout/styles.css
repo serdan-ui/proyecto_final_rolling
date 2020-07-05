@@ -1,6 +1,5 @@
 .Container_Header {
-  /* background-color: rgba(25, 28, 34, 0.8) !important; */
-  background-color: rgba(32, 45, 68, 0.5);
+  background-color: rgba(32, 45, 68, 0.4);
   border-bottom: solid 1px #171d2b;
   position: relative;
   z-index: 10;
@@ -11,9 +10,7 @@
   justify-content: space-between;
   flex: 1;
 }
-/* .containerCart{
-  overflow: scroll !important;
-} */
+
 .clase{
   overflow: scroll !important;
 }
@@ -49,14 +46,14 @@
 }
 .btnLogin_header {
   width: 10em !important;
-  background: rgba(99, 53, 160, 0.7) !important;
+  background: rgba(99, 53, 160, 0.7) !important  ;
   color: #f1f1f1!important;
   border: 0px solid #171f33  !important;
   font-weight: bolder !important;
   transition: 0.2s !important;
 }
 .btnLogin_header:hover {
-  background: rgb(129, 69, 207)!important;
+  background:rgba(133, 61, 228, 0.7)!important;
   box-shadow: 0px 0px 20px 0px rgba(126, 50, 226, 0.4) !important;
 }
 
@@ -71,7 +68,7 @@
 }
 .btnNav_header:hover {
 /*   background-color: rgba(33, 42, 61, 0.6) !important; */
-background-color: rgba(99, 53, 160, 0.4);
+background-color: rgba(99, 53, 160, 0.4) !important;
 }
 
 .btnNav_mainFont{
@@ -84,6 +81,47 @@ background-color: rgba(99, 53, 160, 0.4);
   font-size: smaller;
   font-weight: bolder;
   color: #998d8d;
+}
+.btnNav_usernameFont{
+  margin-top: 8px;
+  /* font-weight: bolder !important; */
+  color: #ffffff !important;
+}
+
+.btnDropdown-username{
+  background-color: rgba(97, 56, 56,0.0) !important;
+  border: rgba(97, 56, 56,0.0) !important;
+  width: 2.5rem;
+  border-radius: 0px !important;
+  background-color: rgba(102, 88, 119, 0.1) !important;
+}
+.btnDropdown-username:hover{
+  background-color: rgba(32, 45, 68, 0.5) !important;
+}
+.btnUsername:hover{
+  background-color: rgba(30, 50, 83, 0.5) !important;
+}
+#DropDown-username{
+  background-color: rgba(32, 45, 68, 0.8);
+  min-width: 8rem !important;
+}
+.dropDown-font{
+  transition: 0.2s;
+  color: white !important;
+}
+.dropDown-font:hover{
+  background-color: rgba(30, 50, 83, 0.7) !important;
+}
+.dropDown-cerrarSesion{
+  color: white !important;
+  font-size: 1.2rem !important;
+  background-color: rgba(73, 39, 117, 0.8) !important;
+  color: rgba(237, 224, 255, 1) !important;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+.dropDown-cerrarSesion:hover{
+  background-color: rgb(85, 46, 136) !important;
 }
 
 @media (max-width: 991px) {
@@ -112,6 +150,40 @@ background-color: rgba(99, 53, 160, 0.4);
   .btnLogin-collapse {
     display: none !important;
   }
+}
+
+.btnCart_header {
+  width: 80px;
+  height: 70px;
+  font-weight: bold !important ;
+  position: absolute;
+/*   z-index: 10000; */
+  right: -8px !important;
+  background:rgba(107, 49, 182, 0.4) !important;
+  border:rgba(133, 61, 228, 0.7) !important;
+  color: whitesmoke;
+}
+.icons_header_cart{
+  font-size: 30px;
+  margin-top: 8px;
+   color:rgba(255, 255, 255, 1)
+}
+.imgCartBtn{
+  height: 15vh;
+  width: 10vw;
+}
+
+.btnCartOpen{
+  border: none !important;
+  box-shadow: 1px 0px 5px 1px #19ED18;
+  position: fixed;
+  width: 500px;
+  min-height: 100px;
+  overflow: hidden;
+  background-color: #212121;
+  font-weight: bold !important ;
+/*   z-index: 100; */
+  right: 0px !important;
 }
 
 .btnLogin_header_logout{
@@ -153,42 +225,7 @@ background-color: rgba(99, 53, 160, 0.4);
 .columna-info {
   padding-left: 30px !important;
 }
-.btnCart_header {
-  width: 80px;
-  height: 70px;
-  font-weight: bold !important ;
-  position: fixed;
-/*   z-index: 10000; */
-  right: -8px !important;
-  background: #212121 !important;
-  border: 1px solid yellowgreen !important;
-  color: whitesmoke;
-  
-}
-.icons_header_cart{
-  font-size: 30px;
-  margin-top: 8px;
-   color:#18e317;
-}
-.imgCartBtn{
-  height: 15vh;
-  width: 10vw;
 
-}
-
-.btnCartOpen{
-  border: none !important;
-  box-shadow: 1px 0px 5px 1px #19ED18;
-  position: fixed;
-  width: 500px;
-  min-height: 100px;
-  overflow: hidden;
-  background-color: #212121;
-  font-weight: bold !important ;
-/*   z-index: 100; */
-  right: 0px !important;
- 
-}
 
 /*? FOOTER */
 
@@ -310,32 +347,9 @@ background-color: rgba(99, 53, 160, 0.4);
   display: none;
 }
 
-
-/* Media para 600px */
-@media (max-width: 600px) {
-  .btnLogin_header {
-    width: 130px;
-    font-size: 13px !important;
-  }
-  .btnCart_header {
-    line-height: 15px !important;
-    width: 70px;
-    height: 30px;
-    font-size: 14px !important;
-  }
-  .icons_header {
-    display: none;
-  }
-}
-
 @media (max-width: 340px) {
   .btnLogin_header {
     width: 130px;
-    font-size: 11px !important;
-  }
-  .btnCart_header {
-    width: 60px;
-    height: 30px;
     font-size: 11px !important;
   }
 }
