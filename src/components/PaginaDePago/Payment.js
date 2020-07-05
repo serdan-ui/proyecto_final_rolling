@@ -10,6 +10,7 @@ const Payment = () => {
   let { id } = useParams();
 
   const [estadoPago, setEstadoPago] = useState("");
+  const [venta, setVenta]= useState([])
   const [fecha, setFecha] = useState();
   //fucion de traer la compra con el id
   const traerCompra = async () => {
@@ -22,6 +23,7 @@ const Payment = () => {
       const fechaCompra = response.data.creado;
       if (estado === "exitoso") {
         setFecha(fechaCompra);
+        setVenta(response.data)
         return setEstadoPago(estado);
       }
     }
@@ -41,7 +43,7 @@ const Payment = () => {
   return (
     <>
       <Container>
-        {estadoPago === "exitoso" ? <PagoExitoso fecha={fecha} /> : null}
+        {estadoPago === "exitoso" ? <PagoExitoso fecha={fecha} venta={venta} /> : null}
         {estadoPago === "rechazado" ? <PagoRechazado /> : null}
         {estadoPago === "" ? <PagoPendiente /> : null}
       </Container>
