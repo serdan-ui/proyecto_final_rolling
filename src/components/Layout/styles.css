@@ -117,7 +117,7 @@
 }
 .btnCart_header {
   width: 80px;
-  height: 70px;
+  height: auto;
   font-weight: bold !important ;
   position: fixed;
   z-index: 2;

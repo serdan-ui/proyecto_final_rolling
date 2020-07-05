@@ -58,7 +58,7 @@ const cargarData = (data) =>{
         <Container >
           {turnos.msg ? <h4 className="text-white text-center pt-3 lg">{turnos.msg}</h4> : (
           <>
-          <Table striped bordered hover variant="dark" style={{backgroundColor:"#212121"}} >
+          <Table striped bordered hover variant="dark" style={{backgroundColor:"#212121"}} className="TablaTurno">
             <thead style={{color:"#19ed18"}}>
               <tr >
                 <th >Fecha</th>

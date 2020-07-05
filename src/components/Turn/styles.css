@@ -186,3 +186,8 @@ border:1px solid yellowgreen !important;
           width: 38vw !important;
       }
 }
+@media (min-width: 340px) and (max-width: 540px){
+  .TablaTurno{
+    width: 80vw !important;
+  }
+}
