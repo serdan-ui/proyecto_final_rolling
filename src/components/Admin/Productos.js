@@ -30,7 +30,7 @@ const columns = [
     dataIndex: "",
     key: "x",
     render: () => (
-      <a onClick={()=>editarProd()}>
+      <a >
         <EditOutlined />
         Editar
       </a>
@@ -60,22 +60,22 @@ const Productos = () => {
     traerProducto();
   }, []);
 
-    const editarProd = () =>{
-      <Modal.Dialog>
-  <Modal.Header closeButton>
-    <Modal.Title>Modal title</Modal.Title>
-  </Modal.Header>
+//     const editarProd = () =>{
+//       <Modal.Dialog>
+//   <Modal.Header closeButton>
+//     <Modal.Title>Modal title</Modal.Title>
+//   </Modal.Header>
 
-  <Modal.Body>
-    <p>Modal body text goes here.</p>
-  </Modal.Body>
+//   <Modal.Body>
+//     <p>Modal body text goes here.</p>
+//   </Modal.Body>
 
-  <Modal.Footer>
-    <Button variant="secondary">Close</Button>
-    <Button variant="primary">Save changes</Button>
-  </Modal.Footer>
-</Modal.Dialog>
-    }
+//   <Modal.Footer>
+//     <Button variant="secondary">Close</Button>
+//     <Button variant="primary">Save changes</Button>
+//   </Modal.Footer>
+// </Modal.Dialog>
+//     }
 
 
   return (
@@ -84,7 +84,7 @@ const Productos = () => {
 
       <Container>
         <Table 
-          editarProd={editarProd}
+          // editarProd={editarProd}
           bordered
           columns={columns}
           expandable={{
