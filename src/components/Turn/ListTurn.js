@@ -57,8 +57,8 @@ const cargarData = (data) =>{
     return ( 
         <Container >
           {turnos.msg ? <h4 className="text-white text-center pt-3 lg">{turnos.msg}</h4> : (
-          <>
-          <Table striped bordered hover variant="dark" style={{backgroundColor:"#212121"}} >
+          
+          <Table responsive="sm" responsive="md" responsive="lg"  striped bordered hover variant="dark" style={{backgroundColor:"#212121"}} >
             <thead style={{color:"#19ed18"}}>
               <tr >
                 <th >Fecha</th>
@@ -93,7 +93,7 @@ const cargarData = (data) =>{
               </tbody>
               <MydModalWithGrid show={modalShow}   onHide={() => setModalShow(false)} ModificarFecha={ModificarFecha} turno={data} />
               </Table>
-            </>
+            
         
           )}
         

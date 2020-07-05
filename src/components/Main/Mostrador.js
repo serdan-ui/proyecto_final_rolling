@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 import {
   Row,
   Col,
@@ -15,6 +15,7 @@ import axiosInstance from "../util/axiosInstance";
 import { Spinner } from "react-bootstrap";
 import swal from "sweetalert";
 import Swal from "sweetalert2";
+import zIndex from "@material-ui/core/styles/zIndex";
 
 const Mostrador = ({ authen, userId, fetchCarrito }) => {
   // Estados
@@ -95,9 +96,12 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
 
   return (
     <>
+       
       <p className="titulo_product_main">Productos</p>
       <Container fluid className="contenedor-mostrador">
+      
         <Row style={{ background: "#171717", margin: "0px" }}>
+       
           <Col sm={2} style={{ backgroundColor: "black" }}>
             <h3 style={{ color: "white" }}>Filtrar por: </h3>
             <br />
@@ -141,6 +145,10 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
             className="columnitax"
             style={{ backgroundColor: "black" }}
           >
+            
+
+          
+            
             <CardColumns className="cardColumns">
               {productos.map((producto) => (
                 <Card key={producto._id} sm={12} className="cardProduct">
