@@ -9,8 +9,8 @@ import 'moment/locale/es'
 
 const ListTurn = (userId) => {
 const [turnos , setTurnos] = useState([])
-
-
+const [data, setData] = useState({})
+const [modalShow, setModalShow] = useState(false);
 
 const ModificarFecha = (fecha)=> {
   
@@ -21,10 +21,9 @@ const fetchTurnos = async() => {
 //_id usuario
 if(userId.userId.userId!=undefined){
   const _id=userId.userId.userId
-  console.log(_id)
-  console.log(userId)
+  
   const response = await axiosInstance.get(`/turno/${_id}`);
-  console.log(response)
+  
   const {message,turnos } = response.data;
   if (message) {
     const msg=message
@@ -39,7 +38,7 @@ useEffect(() => {
   return () => {
     //
   }
-}, [])
+}, [userId])
 
 const borrarTurno=  async(_id)=>{
  const response= await axiosInstance.delete(`/turno/${_id}`);
@@ -47,11 +46,16 @@ const borrarTurno=  async(_id)=>{
  fetchTurnos();
 }
 
-  const [modalShow, setModalShow] = useState(false);
+//cargar datos en el modal
+const cargarData = (data) =>{
+  setModalShow(true);
+  setData(data)
+}
+
+
 
     return ( 
         <Container >
-          {console.log(turnos)}
           {turnos.msg ? <h4 className="text-white text-center pt-3 lg">{turnos.msg}</h4> : (
           <>
           <Table striped bordered hover variant="dark" style={{backgroundColor:"#212121"}} >
@@ -75,18 +79,20 @@ const borrarTurno=  async(_id)=>{
             <tbody style={{color:"#30cd68"}}>
               {turnos.map(turno=> (
               <>
+              
+
               <tr key={turno._id}>
               <td>{ModificarFecha(turno.fecha)}</td>
                 <td>{turno.hora}</td>
-                <td>Reparacion</td>
-                <td><button className="btnForm" onClick={() => setModalShow(true)}><span style={{color:"#19ed18", fontSize:"14px", padding:"0px"}}>Ver mas...</span></button></td>
+                <td>{turno.servicio}</td>
+                <td><button className="btnForm" onClick={() => cargarData(turno)}><span style={{color:"#19ed18", fontSize:"14px", padding:"0px"}}>Ver mas...</span></button></td>
                 <td><button className="btnFormCancel " onClick={()=>borrarTurno(turno._id)}><span style={{color:"#121212", fontSize:"14px", fontWeight:"800", padding:"0px"}}><b>Cancelar </b></span></button></td>
               </tr>
-              <MydModalWithGrid show={modalShow}   onHide={() => setModalShow(false)} nombre="sergio"/>
+             
               </>))}
               </tbody>
+              <MydModalWithGrid show={modalShow}   onHide={() => setModalShow(false)} ModificarFecha={ModificarFecha} turno={data} />
               </Table>
-              
             </>
         
           )}

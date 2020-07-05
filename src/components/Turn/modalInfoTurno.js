@@ -1,48 +1,67 @@
 import React from "react";
-import {Container ,Col , Modal , Row , Button} from "react-bootstrap"
+import { Container, Col, Modal, Row, Button } from "react-bootstrap";
 
-
-
-const  MydModalWithGrid= ( props) => {
-    return (
-        
-      <Modal {...props}  aria-labelledby=" contained-modal-title-vcenter " >
-        <Modal.Header closeButton className="modalInfoTurno" style={{borderTopLeftRadius:"0px",borderTopRightRadius:"0px", borderBottom:"1px solid yellowgreen"}}>
-          <Modal.Title id="contained-modal-title-vcenter" >
-            {props.nombre}
-          </Modal.Title>
-        </Modal.Header >
-        <Modal.Body className="show-grid modalInfoTurno" >
-          <Container>
-            <Row>
+const MydModalWithGrid = (props) => {
+  console.log(props);
+  return (
+    <Modal {...props} aria-labelledby=" contained-modal-title-vcenter ">
+      <Modal.Header
+        closeButton
+        className="modalInfoTurno"
+        style={{
+          borderTopLeftRadius: "0px",
+          borderTopRightRadius: "0px",
+          borderBottom: "1px solid yellowgreen",
+        }}
+      >
+        <Modal.Title id="contained-modal-title-vcenter">
+          {props.turno.servicio}
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body className="show-grid modalInfoTurno">
+        <Container>
+          <Row>
+            {props.turno.descripcion ? (
               <Col xs={12} md={8}>
-                .col-xs-12 .col-md-8
+                <p>Descripcion : {props.turno.descripcion}</p>
               </Col>
+            ) : null}
+
+            {props.turno.dispositivo ? (
               <Col xs={6} md={4}>
-                .col-xs-6 .col-md-4
+                <p>Dispositivo : {props.turno.dispositivo} </p>
               </Col>
-            </Row>
-  
-            <Row>
+            ) : null}
+          </Row>
+
+          <Row>
+            <Col xs={6} md={4}>
+              <p>Fecha: {props.ModificarFecha(props.turno.fecha)}</p>
+            </Col>
+            <Col xs={6} md={4}>
+              <p>Hora: {props.turno.hora}</p>
+            </Col>
+            {props.turno.marca ? (
               <Col xs={6} md={4}>
-                .col-xs-6 .col-md-4
+                <p>Marca: {props.turno.marca}</p>
               </Col>
-              <Col xs={6} md={4}>
-                .col-xs-6 .col-md-4
-              </Col>
-              <Col xs={6} md={4}>
-                .col-xs-6 .col-md-4
-              </Col>
-            </Row>
-          </Container>
-        </Modal.Body>
-        <Modal.Footer className="modalInfoTurno" style={{borderBottomLeftRadius:"0px", borderBottomRightRadius:"0px", borderTop:"1px solid yellowgreen"}}>
-          <Button variant="dark" onClick={props.onHide}>cerrar</Button>
-        </Modal.Footer>
-      </Modal>
-   
-    );
-  }
-  export default  MydModalWithGrid;
-  
-  
+            ) : null}
+          </Row>
+        </Container>
+      </Modal.Body>
+      <Modal.Footer
+        className="modalInfoTurno"
+        style={{
+          borderBottomLeftRadius: "0px",
+          borderBottomRightRadius: "0px",
+          borderTop: "1px solid yellowgreen",
+        }}
+      >
+        <Button variant="dark" onClick={props.onHide}>
+          cerrar
+        </Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+export default MydModalWithGrid;

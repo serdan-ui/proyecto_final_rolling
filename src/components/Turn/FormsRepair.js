@@ -1,22 +1,68 @@
 import React from "react";
-import {   Controller } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
+import InfoTwoToneIcon from "@material-ui/icons/InfoTwoTone";
+import { Tooltip, OverlayTrigger } from "react-bootstrap";
 
-const FormsRepair = ({register,control}) => {
-   
+const FormsRepair = ({ register, control, errors }) => {
   return (
     <>
       <label>Tipo de dispositivo a reparar</label>
-      <select name="dispositivo" ref={register} >
+      <select name="dispositivo" ref={register}>
         <option value="pc">pc</option>
         <option value="celular">celular</option>
         <option value="tablet">tablet</option>
         <option value="notebook">notebook</option>
       </select>
-      <label>Descripción del Problema</label>
-      <textarea name="descripcion" ref={register} />
+      <label>
+        Descripción del Problema
+        <OverlayTrigger
+          placement="top"
+          overlay={
+            <Tooltip id={`tooltip-top`}>
+              <strong>campo obligatorio</strong>.
+            </Tooltip>
+          }
+        >
+          <InfoTwoToneIcon
+            style={{ marginLeft: "0.7rem", fontSize: "1.2rem", opacity: "0.8" }}
+          />
+        </OverlayTrigger>
+      </label>
+      <textarea
+        name="descripcion"
+        ref={register({ required: true, maxLength: 50 })}
+      />
+       {errors.descripcion?.type === "required" &&
+       (
+        <span
+          style={{
+            color: "red",
+            fontSize: "0.8rem",
+            opacity: "0.6",
+            fontWeight: "bolder",
+            paddingBottom: "0",
+          }}
+        >
+          Campo obligatorio
+        </span>
+      )}
+      {errors.descripcion?.type === "maxLength" &&
+        (
+          <span
+            style={{
+              color: "red",
+              fontSize: "0.8rem",
+              opacity: "0.6",
+              fontWeight: "bolder",
+              paddingBottom: "0",
+            }}
+          >
+            Maximos caracateres 50.
+          </span>
+        )}
       <label>Elegir fecha</label>
-      <section >
+      <section>
         <Controller
           as={ReactDatePicker}
           control={control}
@@ -26,6 +72,7 @@ const FormsRepair = ({register,control}) => {
           placeholderText="Selecciona fecha"
           className="date"
           minDate={new Date()}
+          dateFormat="dd/MM/yyyy"
         />
       </section>
       <label>selecciona una hora</label>

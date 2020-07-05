@@ -3,61 +3,66 @@ import { useForm } from "react-hook-form";
 import FormsRepair from "./FormsRepair";
 import "react-datepicker/dist/react-datepicker.css";
 import FormBuy from "./FormBuy";
-import FormComercial from "./FormComercial"
+import FormComercial from "./FormComercial";
 import axiosInstance from "../util/axiosInstance";
 import { useHistory } from "react-router-dom";
 
 const FormTurn = (userId) => {
-  let history = useHistory()
-  const [forms, setForms] = useState(1);
+  let history = useHistory();
+  const [forms, setForms] = useState("reparacion");
   const [data, setData] = useState(null);
-  
-  const enviarTurno = async(Turno) => {
-    const response = await axiosInstance.post("/turno", Turno)
-    
-    console.log(response)
-   
-  }
 
-  const { register, handleSubmit, control ,reset} = useForm();
+  const enviarTurno = async (Turno) => {
+    const response = await axiosInstance.post("/turno", Turno);
+  };
+
+  const { register, handleSubmit, control, reset, errors } = useForm();
   const onSubmit = (data) => {
     setData(data);
-   const {fecha , hora , descripcion , servicio , precio, dispositivo , modelo ,estado} = data;
- const newTurno={
-   fecha,
-   hora,
-   servicio,
-  usuario:userId.userId.userId
- }
- enviarTurno(newTurno);
- 
-    reset()
+    const {
+      fecha,
+      hora,
+      descripcion,
+      servicio,
+      precio,
+      dispositivo,
+      marca,
+      estado,
+    } = data;
+    
+    const newTurno = {
+      fecha,
+      hora,
+      servicio,
+      descripcion,
+      precio,
+      dispositivo,
+      marca,
+      estado,
+      usuario: userId.userId.userId,
+    };
    
+    enviarTurno(newTurno);
+
+    reset();
   };
   const onChangeSelet = (e) => {
-    console.log(e.target.value);
+   
     let typeForm = e.target.value;
-    setForms(parseInt(typeForm));
+    setForms(typeForm);
   };
 
-  
-
-  const typeForms = ({register,control}) => {
-    if (forms === 1) {
-      return <FormsRepair 
-      register={register}
-      control={control}
-      />;
-    } else if (forms === 2) {
-      return <FormBuy 
-      register={register}
-      control={control}
-      />;
-    } else if (forms === 3) {
-      return <FormComercial
-      register={register}
-      control={control}
-      />
+  const typeForms = ({ register, control }) => {
+    if (forms === "reparacion") {
+      return (
+        <FormsRepair register={register} control={control} errors={errors} />
+      );
+    } else if (forms === "venta") {
+      return <FormBuy register={register} control={control} errors={errors} />;
+    } else if (forms === "comercial") {
+      return (
+        <FormComercial register={register} control={control} errors={errors} />
+      );
     }
   };
   return (
@@ -70,11 +75,11 @@ const FormTurn = (userId) => {
           onChangeSelet(e);
         }}
       >
-        <option value="1">Reparación</option>
-        <option value="2">Ventas</option>
-        <option value="3">Asesoramiento comercial</option>
+        <option value="reparacion">Reparación</option>
+        <option value="venta">Ventas</option>
+        <option value="comercial">Asesoramiento comercial</option>
       </select>
-      {typeForms({register,control})}
+      {typeForms({ register, control })}
       <input type="submit" />
     </form>
   );
