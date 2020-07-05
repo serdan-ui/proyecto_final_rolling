@@ -1,6 +1,7 @@
-import React, { Fragment, useEffect } from "react";
-import Header from "../Layout/Header";
+import React, { Fragment, useState, useEffect } from "react";
+import Carrousel from "./Carrousel";
 import Mostrador from "./Mostrador";
+import Header from "../Layout/Header";
 import Fotter from "../Layout/Fotter";
 import ZeroDisclaimer from "./ZeroDisclaimer";
 import { Container, Row, Col, Image } from "react-bootstrap";
@@ -8,6 +9,8 @@ import "./main-styles.css";
 
 import Loguito from "../Images/Zero-Images/Zero-Tech-Black.svg";
 
+// stilos de register REVISAR
+import "./styles.css";
 import axiosInstance from "../util/axiosInstance";
 
 const Main = ({
@@ -41,7 +44,6 @@ const Main = ({
           <div className="back-color"></div>
         </div>
 
-
         <Header
           products={products}
           authen={authen}
@@ -57,7 +59,12 @@ const Main = ({
         <Container fluid>
           <Row>
             <ZeroDisclaimer />
-            <Mostrador setProducts={setProducts} products={products} />
+            <Mostrador
+              setProducts={setProducts}
+              products={products}
+              userId={userId}
+              fetchCarrito={fetchCarrito}
+            />
           </Row>
         </Container>
         <Fotter />

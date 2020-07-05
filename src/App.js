@@ -18,7 +18,8 @@ import Usuarios from "./components/Admin/Usuarios"
 import PagoExitoso from "./components/PaginaDePago/PagoExitoso"
 import PagoRechazado from "./components/PaginaDePago/PagoRechazado"
 import PagoPendiente from "./components/PaginaDePago/PagoPendiente"
-
+import PerfilUsuario from "./components/PerfilUsuario/PerfilUsuario"
+import Modalsito from "./components/Admin/modal"
 import "./App.css";
 
 
@@ -65,7 +66,6 @@ const autenticar = async () => {
         <Route exact path="/main">
           <Main authen={authen} setAuthen={setAuthen} usuario={usuario} setCarrito={setCarrito} userId={userId} products={products} setProducts={setProducts} autenticar={autenticar}/>
         </Route>
-
         <Route exact path="/shopping-checkout" render={(props) => <ShoppingCheckout {...props} authen={authen} usuario={usuario} carrito={carrito}  setAuthen={setAuthen} userId={userId}/>} />
 
         <Route exact path="/service" >
@@ -100,6 +100,12 @@ const autenticar = async () => {
         </Route>
         <Route exact path="/pagoPendiente">
           <PagoPendiente/>
+        </Route>
+        <Route exact path="/perfil">
+          <PerfilUsuario/>
+        </Route>
+        <Route exact path="/modal">
+          <Modalsito/>
         </Route>
         <Route>
           <Error404 />

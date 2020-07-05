@@ -40,6 +40,13 @@ const Header = ({
     history.push("/");
   };
 
+  // if (userId === undefined) {
+  //   return <HeaderStatic/>;
+  // } else {
+  //   TraerCart();
+  // }
+
+  //se carga el carrito una vez que se actualia el usuario
   useEffect(() => {
     fetchCarrito(userId);
     return () => {
@@ -67,7 +74,7 @@ const Header = ({
                       id="collasible-nav-dropdown"
                       className="d-flex btnUsername-collapse btnUsername btnNav_header w-100 flex-column align-items-center"
                     >
-                      <NavDropdown.Item className="w-100">
+                      <NavDropdown.Item className="w-100" href="/perfil">
                         Perfil
                       </NavDropdown.Item>
                       <NavDropdown.Item
@@ -190,7 +197,7 @@ const Header = ({
                     </Col>
                   </Row>
                   <Dropdown.Menu id="DropDown-username">
-                    <Dropdown.Item className="dropDown-font">
+                    <Dropdown.Item className="dropDown-font" href="/perfil">
                       Perfil
                     </Dropdown.Item>
                     <Dropdown.Item

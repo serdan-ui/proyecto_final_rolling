@@ -10,10 +10,10 @@ import Footer from "../Layout/Fotter";
 // stilos de register
 import "./styles.css";
 
-const PageService = ({ authen, setAuthen ,usuario}) => {
+const PageService = ({ authen, setAuthen, usuario }) => {
   return (
     <>
-      <HeaderStatic authen={authen} setAuthen={setAuthen} usuario={usuario}/>
+      <HeaderStatic authen={authen} setAuthen={setAuthen} usuario={usuario} />
       <Container fluid className="bodyPadre">
         <Row>
           <Col xs={12} xl={6}>
@@ -30,7 +30,7 @@ const PageService = ({ authen, setAuthen ,usuario}) => {
               <Row>
                 <Col xs={12} className="nuestroServ">
                   {" "}
-                  <h4 className="textos text-center">
+                  <h4 className="textos text-center text-white">
                     {" "}
                     SOMOS SERVICIO OFICIAL de las principales marcas de audio y
                     video.
@@ -128,12 +128,7 @@ const PageService = ({ authen, setAuthen ,usuario}) => {
             {" "}
             <div className="persona roundedCircle " style={{ padding: "5px" }}>
               {" "}
-              <img
-                style={{ height: "150px" }}
-                src={Rochy}
-                className="imagen-pers"
-                alt="photo"
-              />{" "}
+              <img src={Rochy} className="imagen-pers" alt="photo" />{" "}
               <div className="nombre-imagen">
                 {" "}
                 <p>Rosario Scarlata</p>
@@ -145,12 +140,7 @@ const PageService = ({ authen, setAuthen ,usuario}) => {
             {" "}
             <div className="persona roundedCircle ">
               {" "}
-              <img
-              alt="photo"
-                style={{ height: "150px" }}
-                src={Sergio}
-                className="imagen-pers"
-              />
+              <img alt="photo" src={Sergio} className="imagen-pers" />
               <div className="nombre-imagen">
                 {" "}
                 <p>Sergio Rosales</p>
@@ -161,12 +151,7 @@ const PageService = ({ authen, setAuthen ,usuario}) => {
           <Col xs={12} xl={2}>
             {" "}
             <div className="persona roundedCircle ">
-              <img
-              alt="photo"
-                style={{ height: "150px" }}
-                src={Nicole}
-                className="imagen-pers"
-              />
+              <img alt="photo" src={Nicole} className="imagen-pers" />
               <div className="nombre-imagen">
                 {" "}
                 <p>Nicole Romero</p>
@@ -176,14 +161,9 @@ const PageService = ({ authen, setAuthen ,usuario}) => {
 
           <Col xs={12} xl={2}>
             {" "}
-            <div className="persona roundedCircle ">
+            <div className="persona  ">
               {" "}
-              <img
-              alt="photo"
-                style={{ height: "150px" }}
-                src={Mauricio}
-                className="imagen-pers"
-              />
+              <img alt="photo" src={Mauricio} className="imagen-pers" />
               <div className="nombre-imagen">
                 {" "}
                 <p>Mauicio Dranizareck</p>

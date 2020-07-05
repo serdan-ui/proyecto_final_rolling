@@ -37,8 +37,10 @@ body {
 }
 .volverApag h4 {
   margin-left: 50px;
+  color: azure  ;
 }
 .letraFriki {
+  color: aliceblue;
   font-family: "Press Start 2P", cursive;
 }
 .contenedor-boton {

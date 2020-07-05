@@ -1,78 +1,108 @@
-import React from 'react';
-import {Col, Card, Container, Row, CardColumns} from 'react-bootstrap'
-import ReactDOM from 'react-dom';
-import 'antd/dist/antd.css';
-import { Table } from 'antd';
-import {DeleteOutlined, EditOutlined} from '@ant-design/icons'
+import React, { useState, useEffect } from "react";
+import { Container, Row, Button, Modal } from "react-bootstrap";
+import "antd/dist/antd.css";
+import { Table } from "antd";
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import axiosInstance from "../util/axiosInstance";
+import Modalsito from "./modal";
+import Swal from "sweetalert2";
 
-const columns = [
-    { title: 'Name', dataIndex: 'name', key: 'name' },
-    { title: 'Age', dataIndex: 'age', key: 'age' },
-    { title: 'Address', dataIndex: 'address', key: 'address' },
-    {
-        title: 'Action',
-        dataIndex: '',
-        key: 'x',
-        render: () => <a ><EditOutlined />Edit</a>,
-      },
-    {
-      
-      dataIndex: '',
-      key: 'x',
-      render: () => <a ><DeleteOutlined />Delete</a>,
-    },
-  ];
-  const data = [
-    {
-      key: 1,
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      description: 'My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.',
-    },
-    {
-      key: 2,
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      description: 'My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.',
-    },
-    {
-      key: 3,
-      name: 'Not Expandable',
-      age: 29,
-      address: 'Jiangsu No. 1 Lake Park',
-      description: 'This not expandable',
-    },
-    {
-      key: 4,
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      description: 'My name is Joe Black, I am 32 years old, living in Sidney No. 1 Lake Park.',
-    },
-  ];
- 
 const Productos = () => {
-    return (<> 
-    <p className="titulo_product_main">Productos</p>
-     
-     <Container>
-     <Table
-      columns={columns}
-      expandable={{
-        expandedRowRender: record => <p style={{ margin: 0 }}>{record.description}</p>,
-        rowExpandable: record => record.name !== 'Not Expandable',
-      }}
-      dataSource={data}
-    />
-     </Container>
-      
-    
-    
-    
-    
-    </>);
-}
- 
+  const [show, setShow] = useState(false);
+  const [datos, setDatos] = useState({});
+  //funcion para cargar el modal
+  const cargarDatos = (data) => {
+    setDatos(data);
+    setShow(true);
+  };
+  //funcion para eliminar un producto
+  const borrarTurno = async (_id) => {
+    try {
+      const response = await axiosInstance.delete(`/producto/${_id}`);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: response.data.message,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      traerProducto();
+    } catch (error) {}
+  };
+
+  const columns = [
+    {
+      title: "Nombre",
+      dataIndex: "nombre",
+      key: "nombre",
+      render: (text) => <strong>{text}</strong>,
+    },
+    {
+      title: "Stock",
+      dataIndex: "stock",
+      key: "stock",
+      render: (text) => <strong>{text}</strong>,
+    },
+    {
+      title: "Precio",
+      dataIndex: "precio",
+      key: "precio",
+      render: (text) => <strong>{text}</strong>,
+    },
+    {
+      title: "Accion",
+      dataIndex: "",
+      key: "x",
+      render: (data) => (
+        <a onClick={() => cargarDatos(data)}>
+          <EditOutlined />
+          Editar
+        </a>
+      ),
+    },
+    {
+      dataIndex: "",
+      key: "x",
+      render: (data) => (
+        <a onClick={() => borrarTurno(data._id)}>
+          <DeleteOutlined />
+          Eliminar
+        </a>
+      ),
+    },
+  ];
+  const [productos, setProductos] = useState([]);
+
+  const traerProducto = async () => {
+    const response = await axiosInstance.get("/producto");
+    setProductos(response.data.productos);
+   
+  };
+  useEffect(() => {
+    traerProducto();
+  }, []);
+
+  return (
+    <>
+      <p className="titulo_product_main">Productos</p>
+
+      <Container>
+        <Table
+          // editarProd={editarProd}
+          bordered
+          columns={columns}
+          expandable={{
+            expandedRowRender: (record) => (
+              <p style={{ margin: 0, color: "black" }}>{record.descripcion}</p>
+            ),
+            rowExpandable: (record) => record.nombre !== "Not Expandable",
+          }}
+          dataSource={productos}
+        />
+        <Modalsito traerProducto={traerProducto} show={show} datos={datos} onHide={() => setShow(false)} />
+      </Container>
+    </>
+  );
+};
+
 export default Productos;

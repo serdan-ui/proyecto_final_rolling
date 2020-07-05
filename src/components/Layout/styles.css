@@ -14,6 +14,13 @@
 .clase{
   overflow: scroll !important;
 }
+ .containerCart{
+ overflow-x:hidden ;
+  overflow-y: auto;
+  min-height: 300px;
+  max-height: 500px;
+} 
+
 .logo {
   display: flex;
   flex-direction: row;
@@ -185,13 +192,14 @@ background-color: rgba(99, 53, 160, 0.4) !important;
   position: fixed;
   width: 500px;
   min-height: 100px;
-  overflow: hidden;
   background-color: #212121;
   font-weight: bold !important ;
 /*   z-index: 100; */
   right: 0px !important;
 }
-
+#padreContainer{
+  overflow-y: scroll !important;
+}
 .btnLogin_header_logout{
   background: #171717 !important;
   color: #19ED18!important;
@@ -350,7 +358,15 @@ background-color: rgba(99, 53, 160, 0.4) !important;
 
 }
 .cuerpoCart div.containerCart{
+ 
   display: none;
+}
+
+@media (min-width: 340px) and (max-width: 600px){
+  .btnCartOpen{
+    width: 90%;
+  
+  }
 }
 
 @media (max-width: 340px) {
