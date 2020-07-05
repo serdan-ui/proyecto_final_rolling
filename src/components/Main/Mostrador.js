@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
+import { CircleArrow as ScrollUpButton } from "react-scroll-up-button";
 import {
   Row,
   Col,
@@ -20,7 +20,7 @@ import zIndex from "@material-ui/core/styles/zIndex";
 const Mostrador = ({ authen, userId, fetchCarrito }) => {
   // Estados
   const [productos, setProductos] = useState([]);
-  const [categorias, setCategorias] = useState([]);
+  const [categorias, setCategorias] = useState("todos");
   const [loader, setloader] = useState(false);
 
   //funcion para loader de productos
@@ -56,17 +56,216 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
     });
   };
 
-  // const filtrarCategorias = ({productos,categoria}) => {
-  //   console.log(productos)
-  //     const newCategorias = productos.filter(element => element.tipo != categoria )
-  //     console.log(newCategorias)
+  //funcion para filtrar categorio
+  const filtrarCategorias = (producto) => {
+    if (categorias === "teclados") {
+      if (!producto.tipo) {
+        return (
+          <Card key={producto._id} sm={12} className="cardProduct">
+            <Card.Img
+              className={producto.stock == 0 ? "sinStock" : null}
+              variant="bottom"
+              src={producto.imagen[0]}
+              rounded
+              style={{ height: "250px", cursor: "pointer" }}
+              onClick={() => mostrarImg(producto)}
+            />
+            <Card.Body
+              onClick={() => mostrarImg(producto)}
+              style={{ cursor: "pointer" }}
+            >
+              <Card.Title className="font-weight-light text-uppercase">
+                {producto.nombre}
+              </Card.Title>
+              <Card.Text className="font-weight-bold">
+                ${producto.precio}
+              </Card.Text>
+            </Card.Body>
+            <Card.Footer>
+              <Row className="rowroto">
+                <Col xl={authen ? null : 12} className="p-0">
+                  <Button
+                    border="danger"
+                    className={authen ? null : "col-12"}
+                    style={{
+                      border: "3px solid #060606",
+                      color: "#19ED18",
+                      backgroundColor: "#060606",
+                      fontSize: "0.9rem",
+                    }}
+                    onClick={() => mostrarImg(producto)}
+                  >
+                    Ver mas
+                  </Button>
+                </Col>
 
-  //  }
-  //  const handleCategoria = (e) => {
-  //   const categoria = e
-  //   console.log(productos)
-  //   filtrarCategorias(productos,categoria)
-  // }
+                {authen ? (
+                  <Col className="p-0">
+                    {!loader ? (
+                      <Button
+                        disabled={producto.stock == 0 ? true : false}
+                        variant="success"
+                        className="btnroto"
+                        style={{
+                          border: "2px solid #19ED18",
+                          fontSize: "0.9rem",
+                          backgroundColor: "#19ED18",
+                          color: "black",
+                        }}
+                        onClick={() => addCart(producto._id)}
+                      >
+                        <FaCartPlus /> Agregar
+                      </Button>
+                    ) : (
+                      <Spinner animation="border" />
+                    )}
+                  </Col>
+                ) : null}
+              </Row>
+            </Card.Footer>
+          </Card>
+        );
+      }
+    }
+    if (categorias === "todos") {
+      return (
+        <Card key={producto._id} sm={12} className="cardProduct">
+          <Card.Img
+            className={producto.stock == 0 ? "sinStock" : null}
+            variant="bottom"
+            src={producto.imagen[0]}
+            rounded
+            style={{ height: "250px", cursor: "pointer" }}
+            onClick={() => mostrarImg(producto)}
+          />
+          <Card.Body
+            onClick={() => mostrarImg(producto)}
+            style={{ cursor: "pointer" }}
+          >
+            <Card.Title className="font-weight-light text-uppercase">
+              {producto.nombre}
+            </Card.Title>
+            <Card.Text className="font-weight-bold">
+              ${producto.precio}
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <Row className="rowroto">
+              <Col xl={authen ? null : 12} className="p-0">
+                <Button
+                  border="danger"
+                  className={authen ? null : "col-12"}
+                  style={{
+                    border: "3px solid #060606",
+                    color: "#19ED18",
+                    backgroundColor: "#060606",
+                    fontSize: "0.9rem",
+                  }}
+                  onClick={() => mostrarImg(producto)}
+                >
+                  Ver mas
+                </Button>
+              </Col>
+
+              {authen ? (
+                <Col className="p-0">
+                  {!loader ? (
+                    <Button
+                      disabled={producto.stock == 0 ? true : false}
+                      variant="success"
+                      className="btnroto"
+                      style={{
+                        border: "2px solid #19ED18",
+                        fontSize: "0.9rem",
+                        backgroundColor: "#19ED18",
+                        color: "black",
+                      }}
+                      onClick={() => addCart(producto._id)}
+                    >
+                      <FaCartPlus /> Agregar
+                    </Button>
+                  ) : (
+                    <Spinner animation="border" />
+                  )}
+                </Col>
+              ) : null}
+            </Row>
+          </Card.Footer>
+        </Card>
+      );
+    }
+    if (producto.tipo === categorias) {
+      return (
+        <Card key={producto._id} sm={12} className="cardProduct">
+          <Card.Img
+            className={producto.stock == 0 ? "sinStock" : null}
+            variant="bottom"
+            src={producto.imagen[0]}
+            rounded
+            style={{ height: "250px", cursor: "pointer" }}
+            onClick={() => mostrarImg(producto)}
+          />
+          <Card.Body
+            onClick={() => mostrarImg(producto)}
+            style={{ cursor: "pointer" }}
+          >
+            <Card.Title className="font-weight-light text-uppercase">
+              {producto.nombre}
+            </Card.Title>
+            <Card.Text className="font-weight-bold">
+              ${producto.precio}
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <Row className="rowroto">
+              <Col xl={authen ? null : 12} className="p-0">
+                <Button
+                  border="danger"
+                  className={authen ? null : "col-12"}
+                  style={{
+                    border: "3px solid #060606",
+                    color: "#19ED18",
+                    backgroundColor: "#060606",
+                    fontSize: "0.9rem",
+                  }}
+                  onClick={() => mostrarImg(producto)}
+                >
+                  Ver mas
+                </Button>
+              </Col>
+
+              {authen ? (
+                <Col className="p-0">
+                  {!loader ? (
+                    <Button
+                      disabled={producto.stock == 0 ? true : false}
+                      variant="success"
+                      className="btnroto"
+                      style={{
+                        border: "2px solid #19ED18",
+                        fontSize: "0.9rem",
+                        backgroundColor: "#19ED18",
+                        color: "black",
+                      }}
+                      onClick={() => addCart(producto._id)}
+                    >
+                      <FaCartPlus /> Agregar
+                    </Button>
+                  ) : (
+                    <Spinner animation="border" />
+                  )}
+                </Col>
+              ) : null}
+            </Row>
+          </Card.Footer>
+        </Card>
+      );
+    }
+  };
+
+  const onSelecetCategoria = (eventKey) => {
+    setCategorias(eventKey);
+  };
 
   //funcion para agregar productos al carrito
 
@@ -96,47 +295,28 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
 
   return (
     <>
-       
       <p className="titulo_product_main">Productos</p>
       <Container fluid className="contenedor-mostrador">
-      
         <Row style={{ background: "#171717", margin: "0px" }}>
-       
           <Col sm={2} style={{ backgroundColor: "black" }}>
             <h3 style={{ color: "white" }}>Filtrar por: </h3>
             <br />
-            <Dropdown>
+            <Dropdown onSelect={onSelecetCategoria}>
               <Dropdown.Toggle
                 id="dropdown-basic"
                 style={{ backgroundColor: "#212121" }}
               >
                 Categoria
               </Dropdown.Toggle>
-
               <Dropdown.Menu>
-                <Dropdown.Item eventKey="Auriculares">
+              <Dropdown.Item eventKey="todos">Todos</Dropdown.Item>
+                <Dropdown.Item eventKey="auriculares">
                   Auriculares
                 </Dropdown.Item>
-                <Dropdown.Item eventKey="Monitores">Monitores</Dropdown.Item>
-                <Dropdown.Item eventKey="Mouse">Mouse</Dropdown.Item>
-                <Dropdown.Item eventKey="Sillas">Sillas</Dropdown.Item>
-                <Dropdown.Item eventKey="Teclados">Teclados</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            <br />
-            <br />
-            <Dropdown>
-              <Dropdown.Toggle
-                id="dropdown-basic"
-                style={{ backgroundColor: "#212121", outlineColor: "black" }}
-              >
-                Precio
-              </Dropdown.Toggle>
-
-              <Dropdown.Menu>
-                <Dropdown.Item href="#/action-1">Menor a mayor</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Mayor a menor</Dropdown.Item>
+                <Dropdown.Item eventKey="monitores">Monitores</Dropdown.Item>
+                <Dropdown.Item eventKey="mouse">Mouse</Dropdown.Item>
+                <Dropdown.Item eventKey="sillas">Sillas</Dropdown.Item>
+                <Dropdown.Item eventKey="teclados">Teclados</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Col>
@@ -145,75 +325,9 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
             className="columnitax"
             style={{ backgroundColor: "black" }}
           >
-            
-
-          
-            
             <CardColumns className="cardColumns">
               {productos.map((producto) => (
-                <Card key={producto._id} sm={12} className="cardProduct">
-                  <Card.Img
-                    className={producto.stock == 0 ? "sinStock" : null}
-                    variant="bottom"
-                    src={producto.imagen[0]}
-                    rounded
-                    style={{ height: "250px", cursor: "pointer" }}
-                    onClick={() => mostrarImg(producto)}
-                  />
-                  <Card.Body
-                    onClick={() => mostrarImg(producto)}
-                    style={{ cursor: "pointer" }}
-                  >
-                    <Card.Title className="font-weight-light text-uppercase">
-                      {producto.nombre}
-                    </Card.Title>
-                    <Card.Text className="font-weight-bold">
-                      ${producto.precio}
-                    </Card.Text>
-                  </Card.Body>
-                  <Card.Footer>
-                    <Row className="rowroto">
-                      <Col xl={authen ? null : 12} className="p-0">
-                        <Button
-                          border="danger"
-                          className={authen ? null : "col-12"}
-                          style={{
-                            border: "3px solid #060606",
-                            color: "#19ED18",
-                            backgroundColor: "#060606",
-                            fontSize: "0.9rem",
-                          }}
-                          onClick={() => mostrarImg(producto)}
-                        >
-                          Ver mas
-                        </Button>
-                      </Col>
-
-                      {authen ? (
-                        <Col className="p-0">
-                          {!loader ? (
-                            <Button
-                              disabled={producto.stock == 0 ? true : false}
-                              variant="success"
-                              className="btnroto"
-                              style={{
-                                border: "2px solid #19ED18",
-                                fontSize: "0.9rem",
-                                backgroundColor: "#19ED18",
-                                color: "black",
-                              }}
-                              onClick={() => addCart(producto._id)}
-                            >
-                              <FaCartPlus /> Agregar
-                            </Button>
-                          ) : (
-                            <Spinner animation="border" />
-                          )}
-                        </Col>
-                      ) : null}
-                    </Row>
-                  </Card.Footer>
-                </Card>
+                <>{filtrarCategorias(producto)}</>
               ))}
             </CardColumns>
           </Col>
