@@ -13,7 +13,7 @@ const TurnosPanel = () => {
     try {
       const response = await axiosInstance.get("/turno");
       setTurnos(response.data.turnos);
-      console.log(response.data.turnos);
+      
     } catch (error) {
       console.log(error);
     }

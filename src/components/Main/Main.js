@@ -8,6 +8,7 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import "./main-styles.css";
 
 import Loguito from "../Images/Zero-Images/Zero-Tech-Black.svg";
+import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
 
 // stilos de register REVISAR
 import "./styles.css";
@@ -44,27 +45,36 @@ const Main = ({
           <div className="back-color"></div>
         </div>
 
+        <ScrollUpButton 
+             StopPosition = { 0 }
+             ShowAtPosition = { 100 }
+            
+             AnimationDuration = { 500 }
+          
+            style={{zIndex:"1", background:"#19ed18"}}
+      />
+
         <Header
-          products={products}
-          authen={authen}
-          setAuthen={setAuthen}
-          usuario={usuario}
-          setCarrito={setCarrito}
-          userId={userId}
-          setProducts={setProducts}
-          fetchCarrito={fetchCarrito}
-          autenticar={autenticar}
-        />
+        products={products}
+        authen={authen}
+        setAuthen={setAuthen}
+        usuario={usuario}
+        setCarrito={setCarrito}
+        userId={userId}
+        
+        fetchCarrito={fetchCarrito}
+      />
 
         <Container fluid>
           <Row>
             <ZeroDisclaimer />
             <Mostrador
-              setProducts={setProducts}
-              products={products}
-              userId={userId}
-              fetchCarrito={fetchCarrito}
-            />
+        setProducts={setProducts}
+        products={products}
+        userId={userId}
+        fetchCarrito={fetchCarrito}
+        authen={authen}
+      />
           </Row>
         </Container>
         <Fotter />

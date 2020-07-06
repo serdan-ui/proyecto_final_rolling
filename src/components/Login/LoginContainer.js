@@ -4,6 +4,7 @@ import {
   Form,
   Button,
   Container,
+  FormControl,
   OverlayTrigger,
   Tooltip,
   Row
@@ -28,11 +29,9 @@ const LoginConteiner = ({ setAuthen }) => {
         username,
         password,
       };
-      console.log(newUser);
+      
       try {
         const response = await axiosInstance.post("/login", newUser);
-        console.log(response);
-
         localStorage.setItem("Token", response.data.token);
         history.push("/main");
       } catch (error) {
@@ -49,7 +48,7 @@ const LoginConteiner = ({ setAuthen }) => {
         <h3 className="text-center text-white">Iniciar Sesión</h3>
 
         <br></br>
-        <Form.Control
+        <FormControl
           placeholder="Nombre"
           autoComplete="off"
           name="username"

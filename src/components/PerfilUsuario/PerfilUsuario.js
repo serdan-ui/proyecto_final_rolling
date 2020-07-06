@@ -1,18 +1,48 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Col, Row, Container, Table, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import axiosInstance from "../util/axiosInstance";
+import HeaderStatic from '../Layout/HeaderStatic';
+import moment from "moment";
+import "moment/locale/es";
 
 import "./style.css";
 
-const PerfilUsuario = () => {
+const PerfilUsuario = ({authen, setAuthen, usuario}) => {
   let history = useHistory();
+  const [ventas, setVentas] = useState([]);
+
+  const traerVentas = async () => {
+    if (usuario._id) {
+      try {
+        const response = await axiosInstance.get(`/venta/${usuario._id}`);
+        setVentas(response.data);
+       
+        
+      } catch (error) {
+        
+      }
+    }
+    
+  };
+  useEffect(() => {
+    traerVentas();
+  }, [usuario]);
+
+  
+  const Fecha = () => {
+    return moment().format("Do [de] MMMM [del] YYYY, h:mm a");
+  };
 
   return (
     <>
+     <HeaderStatic
+     authen={authen}
+     setAuthen={setAuthen}
+     usuario={usuario}
+    />
       <Container fluid className="padrePerfil">
-        <Button className="btnVolverPerf" onClick={() => history.push("/main")}>
-          Volver
-        </Button>
+       <br/>
         <h2 className="text-center text-white comprasRe"> Mi Perfil</h2>
         <div className="contenedorImgPer">
           <Row className="perfilUsuario  shadow">
@@ -23,9 +53,9 @@ const PerfilUsuario = () => {
               ></img>
             </div>
             <div className="xl-col-8 lg-col-8 xs-col-10  dosIMG">
-              <br></br> <p>Nombre: Sabrina</p>
+              <br></br> <p>Nombre: {usuario.username}</p>
               <br></br>
-              <p>Apellido: juarez</p>
+              <p>Apellido: {usuario.email}</p>
             </div>
           </Row>
         </div>
@@ -34,30 +64,25 @@ const PerfilUsuario = () => {
           <Table striped bordered hover variant="dark" className="shadow">
             <thead>
               <tr>
-                <th>#</th>
-                <th>Nombre producto</th>
+               
+               <th>Fecha</th>
+                <th>Productos</th>
                 <th>Cantidad</th>
                 <th>Total</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td colSpan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
+            {ventas.map((venta, index) =>(
+               <tr>
+                <td>{Fecha(venta.creado)}</td>
+            <td>{venta.productos.map((p)=><>•{p.nombre} <br/></>)}</td>
+            <td>{venta.productos.map((p)=><>{p.cantidad} <br/></>)}</td>
+              <td>{venta.total}</td>
+             </tr>
+
+            ))}
+             
+              
             </tbody>
           </Table>
         </div>

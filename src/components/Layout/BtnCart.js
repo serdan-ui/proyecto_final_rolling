@@ -12,7 +12,7 @@ import { FaCartPlus, FaRegWindowClose, FaRegTrashAlt } from "react-icons/fa";
 import axiosInstance from "../util/axiosInstance";
 import { useHistory } from "react-router-dom";
 
-const BtnCart = ({ products, setCarrito, userId, fetchCarrito }) => {
+const BtnCart = ({ products, setCarrito, userId, fetchCarrito, authen }) => {
   const [loaderCart, setloaderCart] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   let history = useHistory();
@@ -34,9 +34,8 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito }) => {
   };
 
   let clase;
-  {
-    cartOpen ? (clase = "btnCartOpen") : (clase = "cuerpoCart");
-  }
+
+  cartOpen ? (clase = "btnCartOpen") : (clase = "cuerpoCart");
 
   //funcion para poner en el selet el stock de cada producto
   const optionSelect = (stock) => {
@@ -57,7 +56,6 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito }) => {
   };
   //funcion para eliminar los productos del carrito
   const deleteCart = async (_id) => {
-    console.log(_id);
     Onloader();
     const response = await axiosInstance.delete(`/cart/${_id}`, {
       data: {
@@ -92,10 +90,12 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito }) => {
     <>
       <div className="padreContainer">
         <div className={clase}>
-          <Button className="btnCart_header mr-2" onClick={abreCarro}>
-            <FaCartPlus className="icons_header_cart" />
-            <Badge>{products.length}</Badge>
-          </Button>
+          {authen ? (
+            <Button className="btnCart_header mr-2" onClick={abreCarro}>
+              <FaCartPlus className="icons_header_cart" />
+              <Badge>{products.length}</Badge>
+            </Button>
+          ) : null}
 
           <Row className="d-flex flex-column">
             <Col className="" sm={4}>
@@ -108,21 +108,28 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito }) => {
               </Button>
             </Col>
             <Col className="d-flex justify-content-center" sm={12}>
-              <h4 className="cartClose">
-                Productos Seleccionados
-              </h4>
+              <h4 className="cartClose">Productos Seleccionados</h4>
             </Col>
           </Row>
           <div>
             <ListGroup className="containerCart">
-              <Row className="h-100 border">
-                <Col className="d-flex justify-content-center mt-2 mb-2 border-right font-weight-bolder" xs={4}>
+              <Row className=" border">
+                <Col
+                  className="d-flex justify-content-center mt-2 mb-2 border-right font-weight-bolder"
+                  xs={4}
+                >
                   Imagen
                 </Col>
-                <Col className="d-flex justify-content-center mt-2 mb-2 border-right font-weight-bolder" xs={4}>
+                <Col
+                  className="d-flex justify-content-center mt-2 mb-2 border-right font-weight-bolder"
+                  xs={4}
+                >
                   Nombre
                 </Col>
-                <Col className="d-flex justify-content-center mt-2 mb-2 font-weight-bolder" xs={4}>
+                <Col
+                  className="d-flex justify-content-center mt-2 mb-2 font-weight-bolder"
+                  xs={4}
+                >
                   Precio
                 </Col>
               </Row>
@@ -155,8 +162,11 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito }) => {
                         <Row className="h-100">
                           <Col xs="9" className=" h-100">
                             <Row className=" d-flex flex-column justify-content-center h-100">
-                              <Col className=" d-flex justify-content-center align-items-end font-weight-bold">${product.productoId.precio}</Col>
-                              <Col className="d-flex justify-content-center align-items-start mt-3">
+                              <Col className=" d-flex justify-content-center align-items-end ">
+                                ${product.productoId.precio}
+                              </Col>
+
+                              <Col className="d-flex justify-content-center align-items-center">
                                 <select
                                   onClick={() => tomarProducto(product)}
                                   onChange={handleCantidad}
@@ -188,9 +198,19 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito }) => {
                                   )}
                                 </select>
                               </Col>
+                              <Col className="border-top d-flex justify-content-center align-items-center font-weight-bold">
+                                <p>
+                                  $
+                                  {parseInt(product.cantidadProducto) *
+                                    parseInt(product.productoId.precio)}
+                                </p>
+                              </Col>
                             </Row>
                           </Col>
-                          <Col xs="1" className="d-flex align-items-start justify-content-center">
+                          <Col
+                            xs="1"
+                            className="d-flex align-items-start justify-content-center"
+                          >
                             <Button
                               onClick={() => deleteCart(product._id)}
                               className="close"

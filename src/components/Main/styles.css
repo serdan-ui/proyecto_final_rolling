@@ -33,6 +33,15 @@ body {
   background-color: #363636 !important;
   border: solid 2px rgb(60, 56, 85) !important;
 }
+.sinStock{
+  position: relative !important;
+  background-image:url(../Images/sinSrock.png);
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 30%;
+
+  
+}
 
 .mercadito-card {
   margin-left: 50px;

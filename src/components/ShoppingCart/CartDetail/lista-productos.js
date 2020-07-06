@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, {  Fragment } from "react";
 import ProductCard from "./product-card";
 import "./styles.css";
 
@@ -7,6 +7,8 @@ export const ListaProductos = ({
   calcularSubtotal,
   setCarrito,
   setCartValido,
+  fetchCarrito,
+  userId,
 }) => {
   return (
     <Fragment>
@@ -19,6 +21,8 @@ export const ListaProductos = ({
             setCarrito={setCarrito}
             calcularSubtotal={calcularSubtotal}
             setCartValido={setCartValido}
+            fetchCarrito={fetchCarrito}
+            userId={userId}
           />
         ))}
       </div>

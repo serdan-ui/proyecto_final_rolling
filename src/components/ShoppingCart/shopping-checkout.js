@@ -10,10 +10,34 @@ import PaymentDetail from "./PaymentDetail/payment-detail";
 import axiosInstance from "../util/axiosInstance";
 
 import "./styles.css";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const ShoppingCheckout = ({ authen, setAuthen, usuario, userId }) => {
+  //datos de checkout
+  const [detailCheckout, setDetailCheckout] = useState({
+    nombre: "",
+    apellido: "",
+    direccion_1: "",
+    direccion_2: "",
+    postal: "",
+    pais: "",
+    prov: "",
+    telefono: "",
+    cupon: "",
+    tarjeta: {
+      cvc: "",
+      expiracion: "",
+      nombre: "",
+      numero: "",
+    },
+    efectivo: "",
+    total: "",
+    subtotal: "",
+    carrito: "",
+    usuario: "",
+    tipoEnvio: "",
+  });
+
   //Carrito
   const [carrito, setCarrito] = useState([]);
 
@@ -23,6 +47,11 @@ const ShoppingCheckout = ({ authen, setAuthen, usuario, userId }) => {
     const response = await axiosInstance.get(`/cart/${id}`);
     if (response.data.carrito[0] === undefined) {
     } else {
+      setDetailCheckout({
+        ...detailCheckout,
+        carrito: response.data.carrito[0]._id,
+        usuario: userId,
+      });
       return setCarrito(response.data.carrito[0].productos);
     }
   };
@@ -37,7 +66,7 @@ const ShoppingCheckout = ({ authen, setAuthen, usuario, userId }) => {
   });
   const [valorEnvio, setValorEnvio] = useState(0);
   const [valorImpuestos, setValorImpuestos] = useState(subtotal * 0.21);
-  const [valorDescuento, setDescuento] = useState(0);
+  const [valorDescuento, setValorDescuento] = useState(0);
 
   const CalcularSubtotal = () => {
     let subtotal = 0;
@@ -83,37 +112,47 @@ const ShoppingCheckout = ({ authen, setAuthen, usuario, userId }) => {
     <Fragment>
       <Container fluid className="background-checkout">
       <HeaderStatic authen={authen} setAuthen={setAuthen} usuario={usuario} />
-      
-        <Container className="shopping-detail-container rounded mt-5 mb-5">
-          <Row className="shopping-detail-panel d-sm-flex flex-md-row flex-column-reverse">
-            <Col>
-              <Slider ref={SliderContainer} {...sliderSettings}>
-                <ShoppingCart
-                  carrito={carrito}
-                  setCarrito={setCarrito}
-                  calcularSubtotal={CalcularSubtotal}
-                  sliderSiguiente={SliderSiguiente}
-                />
-                <ShippingDetail
-                  sliderSiguiente={SliderSiguiente}
-                  sliderAnterior={SliderAnterior}
-                  setValorEnvio={setValorEnvio}
-                />
-                <PaymentDetail sliderAnterior={SliderAnterior} />
-              </Slider>
-            </Col>
 
-            <Col md="5" lg="4" className="mb-md-5">
-              <ResumenCompra
-                subtotal={subtotal}
-                valorEnvio={valorEnvio}
-                valorImpuestos={valorImpuestos}
-                setDescuento={setDescuento}
-                valorDescuento={valorDescuento}
+      <Container className="shopping-detail-container rounded mt-5 mb-5">
+        <Row className="shopping-detail-panel d-sm-flex flex-md-row flex-column-reverse">
+          <Col>
+            <Slider ref={SliderContainer} {...sliderSettings}>
+              <ShoppingCart
+                carrito={carrito}
+                setCarrito={setCarrito}
+                calcularSubtotal={CalcularSubtotal}
+                sliderSiguiente={SliderSiguiente}
+                fetchCarrito={fetchCarrito}
+                userId={userId}
               />
-            </Col>
-          </Row>
-        </Container>
+              <ShippingDetail
+                setDetailCheckout={setDetailCheckout}
+                detailCheckout={detailCheckout}
+                sliderSiguiente={SliderSiguiente}
+                sliderAnterior={SliderAnterior}
+                setValorEnvio={setValorEnvio}
+              />
+              <PaymentDetail
+                sliderAnterior={SliderAnterior}
+                setDetailCheckout={setDetailCheckout}
+                detailCheckout={detailCheckout}
+              />
+            </Slider>
+          </Col>
+
+          <Col md="5" lg="4" className="mb-md-5">
+            <ResumenCompra
+              setDetailCheckout={setDetailCheckout}
+              detailCheckout={detailCheckout}
+              subtotal={subtotal}
+              valorEnvio={valorEnvio}
+              valorImpuestos={valorImpuestos}
+              setDescuento={setValorDescuento}
+              valorDescuento={valorDescuento}
+            />
+          </Col>
+        </Row>
+      </Container>
 
       <Fotter />
       </Container>

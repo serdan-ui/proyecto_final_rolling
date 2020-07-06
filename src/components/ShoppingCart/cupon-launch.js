@@ -1,14 +1,13 @@
-import React, { useState, Fragment, useEffect, useRef } from "react";
-import cupones from "../1 DB/cupones";
+import React, { useState, Fragment, useEffect } from "react";
+import cupones from "./1 DB/cupones";
 import { Modal, Button, Form, Col, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import "./styles.css";
 
-function CuponModal({ setDescuento, subtotal }) {
+function CuponModal({ setDescuento, subtotal, setDetalleCupon,detalleCupon,hayCupon, setHayCupon }) {
   const [mostrarModal, setMostrarModal] = useState(false);
   const [validandoCupon, setValidandoCupon] = useState(false);
   const [cuponIngresado, setCuponIngresado] = useState({ codigo: "", pin: "" });
-  const [cuponValido, setCuponValido] = useState();
 
   const { register, errors, handleSubmit } = useForm();
 
@@ -17,13 +16,18 @@ function CuponModal({ setDescuento, subtotal }) {
   }
 
   useEffect(() => {
-    cupones.map((cupon) =>
+    hayCupon && setDescuento((detalleCupon.descuento * subtotal) / 100)
+  }, [subtotal])
+
+  useEffect(() => {
+    cupones.map((cupon, index) =>
       cupon.codigo === parseInt(cuponIngresado.codigo) &&
       cupon.pin === parseInt(cuponIngresado.pin)
-        ? setCuponValido(true) ||
+        ? setHayCupon(true) ||
+          setDetalleCupon(cupon) || cupones[index].usado === true ||
           setDescuento((cupon.descuento * subtotal) / 100) ||
           setMostrarModal(false)
-        : setCuponValido(false)
+        : setHayCupon(false)
     );
   }, [validandoCupon]);
 
@@ -36,14 +40,14 @@ function CuponModal({ setDescuento, subtotal }) {
   }, [validandoCupon]);
 
   const onSubmit = (datos) => {
-    console.log(datos);
+    
     setCuponIngresado(datos);
   };
 
   return (
     <Fragment>
       <Button
-        disabled={cuponValido}
+        disabled={hayCupon || subtotal === 0}
         variant="outline-danger"
         className="cupon shadow-sm"
         onClick={() => setMostrarModal(true)}
@@ -73,7 +77,7 @@ function CuponModal({ setDescuento, subtotal }) {
                   <h5>Ingresar Datos:</h5>
                 </Col>
                 <Col>
-                  <form>
+                  <Form>
                     <Row className="d-md-flex flex-md-row mr-sm-4 ml-sm-4">
                       <Col sm="8">
                         <Form.Control
@@ -126,7 +130,7 @@ function CuponModal({ setDescuento, subtotal }) {
                         )}
                       </Col>
                     </Row>
-                  </form>
+                  </Form>
                 </Col>
               </Row>
             </Col>

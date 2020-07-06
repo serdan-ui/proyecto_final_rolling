@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
-import { FaTrash } from "react-icons/fa";
-import CuponModal from "./CartDetail/cupon-modal";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { FaWindowClose } from "react-icons/fa";
+import CuponModal from "./cupon-launch";
+import CuponDetail from "./cupon-detail";
 import "./styles.css";
 
 const ResumenCompra = ({
@@ -10,7 +11,18 @@ const ResumenCompra = ({
   valorImpuestos,
   valorDescuento,
   setDescuento,
+  setDetailCheckout,
+  detailCheckout
 }) => {
+  const [detalleCupon, setDetalleCupon] = useState({
+    id: "",
+    codigo: "",
+    pin: "",
+    descuento: "",
+    expiracion: "",
+    usado: "",
+  });
+  const [hayCupon, setHayCupon] = useState(false);
   const [valorTotal, setValorTotal] = useState(
     (
       parseFloat(subtotal) +
@@ -19,15 +31,30 @@ const ResumenCompra = ({
     ).toFixed(2)
   );
 
+
+ useEffect(() => {
+
+   setDetailCheckout({...detailCheckout,
+    total:valorTotal,
+    subtotal:subtotal
+  })
+ }, [valorTotal])
+
+
   useEffect(() => {
     setValorTotal(
       (
         parseFloat(subtotal) +
         parseFloat(valorImpuestos) +
-        parseFloat(valorEnvio)
+        parseFloat(valorEnvio) -
+        valorDescuento
       ).toFixed(2)
     );
   }, [subtotal, valorImpuestos, valorEnvio, valorDescuento]);
+
+  useEffect(() => {
+    if (hayCupon === false) setDetalleCupon(null);
+  }, [hayCupon]);
 
   return (
     <Container>
@@ -37,7 +64,14 @@ const ResumenCompra = ({
         </Col>
         <Col className="mb-3 border-bottom">
           <div className="mt-3 mb-3 d-flex justify-content-center">
-            <CuponModal setDescuento={setDescuento} subtotal={subtotal} />
+            <CuponModal
+              setDescuento={setDescuento}
+              subtotal={subtotal}
+              setDetalleCupon={setDetalleCupon}
+              detalleCupon={detalleCupon}
+              hayCupon={hayCupon}
+              setHayCupon={setHayCupon}
+            />
           </div>
         </Col>
         <Col className="">
@@ -48,18 +82,13 @@ const ResumenCompra = ({
                   <h5>SUBTOTAL</h5>
                   <h5>${subtotal.toFixed(2)}</h5>
                 </Col>
-                {valorDescuento === 0 ? null : (
-                  <Col>
-                    <Card
-                      body
-                      className="card-descuento"
-                    >
-                      <Row className="d-flex justify-content-between">
-                        <Col xs="auto">Cupón</Col>
-                        <Col xs="auto">-${valorDescuento}</Col>
-                      </Row>
-                    </Card>
-                  </Col>
+                {hayCupon && (
+                  <CuponDetail
+                    valorDescuento={valorDescuento}
+                    detalleCupon={detalleCupon}
+                    setDescuento={setDescuento}
+                    setHayCupon={setHayCupon}
+                  />
                 )}
               </Row>
             </Col>

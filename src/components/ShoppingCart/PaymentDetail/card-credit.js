@@ -5,13 +5,26 @@ import Cards from "react-credit-cards";
 import "./styles.css";
 import "react-credit-cards/es/styles-compiled.css";
 
-const CreditCard = ({ onClick, seleccionado, register, errors }) => {
+const CreditCard = ({ onClick, seleccionado, register, errors , setDetailCheckout ,detailCheckout}) => {
   const [numero, setNumero] = useState("");
   const [nombre, setNombre] = useState("");
   const [expiracion, setExpiracion] = useState("");
   const [cvc, setCvc] = useState("");
   const [focus, setFocus] = useState("");
 
+
+  //funcion para cargar datos de la tarjeta
+const cargarDatosTarjeta = (e) => {
+  setNombre(e.target.value)
+  setDetailCheckout({...detailCheckout,
+    tarjeta:{
+      cvc:cvc,
+       expiracion:expiracion,
+      numero:numero,
+      nombre:e.target.value
+     },
+    efectivo:false})
+}
   return (
     <Fragment>
       <Card
@@ -34,6 +47,8 @@ const CreditCard = ({ onClick, seleccionado, register, errors }) => {
                     focused={focus}
                     name={nombre}
                     number={numero}
+                    setDetailCheckout={setDetailCheckout}
+                   detailCheckout={detailCheckout}
                   />
                 </div>
               </Col>
@@ -72,9 +87,9 @@ const CreditCard = ({ onClick, seleccionado, register, errors }) => {
                     <Row className="d-flex flex-column">
                       <Col className="mb-3 mt-2">
                         <Row className="">
-                          <Col xs="8" sm="6" md="6" lg="8">
+                          <Col xs="12" sm="6" md="6" lg="8">
                             <Form.Control
-                              className="d-flex justify-content-between small-placeholder"
+                              className="d-flex justify-content-between small-placeholder mt-2"
                               type="tel"
                               name="numero"
                               maxLength="16"
@@ -104,9 +119,9 @@ const CreditCard = ({ onClick, seleccionado, register, errors }) => {
                                 </span>
                               )}
                           </Col>
-                          <Col xs="2" sm="3" md="3" lg="2">
+                          <Col xs="4" sm="3" md="3" lg="2">
                             <Form.Control
-                              className="small-placeholder"
+                              className="small-placeholder mt-2"
                               type="tel"
                               name="expiracion"
                               maxLength="4"
@@ -136,9 +151,9 @@ const CreditCard = ({ onClick, seleccionado, register, errors }) => {
                                 </span>
                               )}
                           </Col>
-                          <Col xs="2" sm="3" md="3" lg="2">
+                          <Col xs="4" sm="3" md="3" lg="2">
                             <Form.Control
-                              className="small-placeholder"
+                              className="small-placeholder mt-2"
                               type="tel"
                               maxLength="3"
                               name="cvc"
@@ -175,7 +190,7 @@ const CreditCard = ({ onClick, seleccionado, register, errors }) => {
                           name="nombre"
                           placeholder="Nombre en la Tarjeta"
                           disabled={seleccionado ? false : true}
-                          onChange={(e) => setNombre(e.target.value)}
+                          onChange={(e) => cargarDatosTarjeta(e)}
                           onFocus={(e) => setFocus(e.target.name)}
                           ref={register({
                             required: true,

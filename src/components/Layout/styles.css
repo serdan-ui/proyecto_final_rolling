@@ -16,9 +16,8 @@
 }
  .containerCart{
   overflow-x: hidden;
-  overflow-y: auto;
-  min-height: 20rem !important;
-  max-height: 100%;
+  overflow-y: auto !important;
+  height: 400px !important;
   background-color: whitesmoke;
 } 
 
@@ -114,12 +113,12 @@ background-color: rgba(99, 53, 160, 0.4) !important;
   background-color: rgba(30, 50, 83, 0.5) !important;
 }
 #DropDown-username{
-  background-color: rgba(32, 45, 68, 1);
+  background-color: rgb(221, 221, 221);
   min-width: 8rem !important;
 }
 .dropDown-font{
   transition: 0.2s;
-  color: white !important;
+  color: rgb(26, 26, 26) !important;
 }
 .dropDown-font:hover{
   background-color: rgba(30, 50, 83, 0.7) !important;

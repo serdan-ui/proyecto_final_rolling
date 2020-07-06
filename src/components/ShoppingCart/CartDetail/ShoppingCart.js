@@ -2,23 +2,41 @@ import React, { useState, useEffect, Fragment } from "react";
 import ListaProductos from "./lista-productos";
 import { Col, Row, Container, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
-
+import { useHistory } from "react-router-dom";
 // stilos de register
 import "./styles.css";
+
 
 const ShoppingCart = ({
   carrito,
   setCarrito,
   calcularSubtotal,
   sliderSiguiente,
+  fetchCarrito,
+  userId
 }) => {
   const [cartValido, setCartValido] = useState(true);
-
+let history = useHistory()
   useEffect(() => {
+    console.log("useeefect")
+
     if (carrito.length === 0) {
-      setCartValido(false);
+     return  setCartValido(false);
     }
+
+    
   }, [carrito]);
+
+
+ 
+  //funcion validar carrito
+  const disableBoton = () =>{
+    if(carrito.length===0){
+      return true
+    }else{
+      return false
+    }
+  }
 
   const VolverATienda = () => {
     Swal.fire({
@@ -32,7 +50,8 @@ const ShoppingCart = ({
       confirmButtonText: "Llevame!",
     }).then((result) => {
       if (result.value) {
-        window.location.href = "main";
+        // window.location.href = "main";
+        history.push("/main")
       }
     });
   };
@@ -50,6 +69,8 @@ const ShoppingCart = ({
               setCarrito={setCarrito}
               calcularSubtotal={calcularSubtotal}
               setCartValido={setCartValido}
+              fetchCarrito={fetchCarrito}
+              userId={userId}
             />
           </Col>
           <Col className="mt-3 mb-4 d-flex align-items-center">
@@ -61,10 +82,10 @@ const ShoppingCart = ({
               Tienda!
             </Button>
             <Button
-              onClick={cartValido ? sliderSiguiente : null}
+              onClick={sliderSiguiente}
               className="w-25 d-flex justify-content-center"
               variant="secondary"
-              disabled={cartValido ? false : true}
+              disabled={disableBoton()}
               type="submit"
             >
               Siguiente
@@ -82,7 +103,7 @@ const ShoppingCart = ({
             <p>
               {carrito.length === 0
                 ? "Su carrito está vacío! Vuelva a la Tienda!"
-                : "Error!  Hay un problema con uno o mas productos de su carrito!"}
+                :  console.log(carrito.length)}
             </p>
           </span>
         )}

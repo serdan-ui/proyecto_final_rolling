@@ -29,15 +29,13 @@ const Header = ({
   usuario,
   setCarrito,
   userId,
-  setProducts,
   fetchCarrito,
-  autenticar,
 }) => {
   let history = useHistory();
   const cerrarSes = () => {
     localStorage.removeItem("Token");
     setAuthen(null);
-    history.push("/");
+    history.push("/main");
   };
 
   // if (userId === undefined) {
@@ -74,11 +72,19 @@ const Header = ({
                       id="collasible-nav-dropdown"
                       className="d-flex btnUsername-collapse btnUsername btnNav_header w-100 flex-column align-items-center"
                     >
-                      <NavDropdown.Item className="w-100" href="/perfil">
-                        Perfil
-                      </NavDropdown.Item>
+                      {usuario.role === "user" ? (
+                        <Dropdown.Item className="" href="/perfil">
+                          Perfil
+                        </Dropdown.Item>
+                      ) : null}
+
+                      {usuario.role === "admin" ? (
+                        <Dropdown.Item className="" href="/admin">
+                          Admin
+                        </Dropdown.Item>
+                      ) : null}
                       <NavDropdown.Item
-                        className="w-100"
+                        className="w-100 "
                         href="/shopping-checkout"
                       >
                         Ir al Carrito
@@ -143,25 +149,27 @@ const Header = ({
                   </Row>
                 </Nav.Link>
 
-                <Nav.Link
-                  href="/turn"
-                  className="btnNav_header d-flex justify-content-center w-100"
-                >
-                  <Row className="d-block  align-self-center ">
-                    <Col
-                      xs="auto"
-                      className=" d-flex justify-content-center btnNav_mainFont"
-                    >
-                      TURNO
-                    </Col>
-                    <Col
-                      xs="auto"
-                      className=" d-flex justify-content-center btnNav_secondFont"
-                    >
-                      asistencia
-                    </Col>
-                  </Row>
-                </Nav.Link>
+                {authen ? (
+                  <Nav.Link
+                    href="/turn"
+                    className="btnNav_header d-flex justify-content-center w-100"
+                  >
+                    <Row className="d-block  align-self-center ">
+                      <Col
+                        xs="auto"
+                        className=" d-flex justify-content-center btnNav_mainFont"
+                      >
+                        TURNO
+                      </Col>
+                      <Col
+                        xs="auto"
+                        className=" d-flex justify-content-center btnNav_secondFont"
+                      >
+                        asistencia
+                      </Col>
+                    </Row>
+                  </Nav.Link>
+                ) : null}
               </Nav>
             </Navbar.Collapse>
 
@@ -197,9 +205,18 @@ const Header = ({
                     </Col>
                   </Row>
                   <Dropdown.Menu id="DropDown-username">
-                    <Dropdown.Item className="dropDown-font" href="/perfil">
-                      Perfil
-                    </Dropdown.Item>
+                    {usuario.role === "user" ? (
+                      <Dropdown.Item className="dropDown-font" href="/perfil">
+                        Perfil
+                      </Dropdown.Item>
+                    ) : null}
+
+                    {usuario.role === "admin" ? (
+                      <Dropdown.Item className="dropDown-font" href="/admin">
+                        Admin
+                      </Dropdown.Item>
+                    ) : null}
+
                     <Dropdown.Item
                       className="dropDown-font"
                       href="/shopping-checkout"
@@ -229,6 +246,7 @@ const Header = ({
           </Container>
         </Navbar>
         <BtnCart
+          authen={authen}
           products={products}
           setCarrito={setCarrito}
           userId={userId}

@@ -16,7 +16,10 @@ import axiosInstance from "../util/axiosInstance";
 import Swal from "sweetalert2";
 import swal from "sweetalert";
 
+
+
 const FormRegister = () => {
+
   const { register, errors, handleSubmit } = useForm();
   const [password, setPassword] = useState();
   const [message, setMessage] = useState(false);
@@ -34,6 +37,7 @@ const FormRegister = () => {
   };
 
   const onSubmit = async (data, e) => {
+    
     const { username, email, password, passwordConfirm } = data;
 
     if (password === passwordConfirm) {
@@ -45,7 +49,6 @@ const FormRegister = () => {
       };
       try {
         const response = await axiosInstance.post("/register", newUser);
-        console.log(response);
         if (response) {
           const Toast = Swal.mixin({
             toast: true,
@@ -62,15 +65,17 @@ const FormRegister = () => {
             icon: "success",
             title: "Registro exitoso !!",
           });
+          
         }
+        
       } catch (error) {
-        console.log(error.response.data.error);
+        
         swal({
           icon: "error",
           title: error.response.data.error,
         });
       }
-
+      
       e.target.reset();
     }
   };

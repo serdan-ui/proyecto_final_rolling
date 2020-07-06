@@ -1,8 +1,8 @@
-import React from "react";
-import { Card, Row, Col, Button, Container } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
-import moment from "moment";
-import "moment/locale/es";
+import React from 'react'
+import { Card, Row, Col, Button, Container } from 'react-bootstrap'
+import {useHistory} from "react-router-dom";
+import moment from "moment"
+
 
 const Fecha = (hoy) => {
   return moment(hoy).format("Do [de] MMMM [del] YYYY, h:mm:ss a");

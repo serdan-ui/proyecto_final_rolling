@@ -1,24 +1,84 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row, Container, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import CreditCard from "./card-credit";
 import PaypalCard from "./card-paypal";
 import "./styles.css";
+import axiosInstance from "../../util/axiosInstance";
+import { useHistory } from "react-router-dom";
 
-const PaymentDetail = ({ sliderAnterior }) => {
+
+const PaymentDetail = ({ sliderAnterior, setDetailCheckout, detailCheckout }) => {
+
+let history= useHistory()
+
   const [metodoSeleccionado, setMetodoSeleccioando] = useState("");
   const [datosTarjeta, setDatosTarjeta] = useState();
+  const [validandoCompra, setValidandoCompra] = useState();
 
   const { register, errors, handleSubmit } = useForm();
 
-  const onSubmit = (datos) => {
-    if (metodoSeleccionado === "TarjetaCredito") {
-      setDatosTarjeta(datos);
-      console.log(datos);
-    } else if (metodoSeleccionado === "Paypal") {
-      console.log("paypal");
+  function simularCargando() {
+    return new Promise((resolve) => setTimeout(resolve, 4000));
+  }
+
+  useEffect(() => {
+    if (validandoCompra) {
+      simularCargando().then(() => {
+        setValidandoCompra(false);
+      });
     }
+  }, [validandoCompra]);
+
+
+  //funcion para enviar el formulario de compra
+  const Comprar = async(compra) => {
+    const response = await axiosInstance.post("/venta",compra);
+    const { _id, estadoVenta} = response.data;
+    console.log(_id)
+    console.log(estadoVenta)
+    
+if(estadoVenta=== "exitoso") {
+  if (_id) {
+    history.push(`/pago/${_id}`)
+   return
+  }
+    }   else if (estadoVenta=== "rechazado") {
+      history.push(`/pago/${estadoVenta}`)
+      return 
+    }
+  
+  }
+
+
+
+  //funcion si carga los datos de la tarjeta
+  const onSubmit = (datos) => {
+    console.log(detailCheckout);
+    Comprar(detailCheckout)
+
+    
   };
+
+
+  //funcion cargar efectivo
+  const cargarPagoEfectivo = () => {
+    setMetodoSeleccioando("Paypal")
+    setDetailCheckout({...detailCheckout,
+      tarjeta:{
+        cvc:"",
+        expiracion:"",
+        nombre:"",
+        numero:"",
+      },
+    efectivo:true})
+  }
+
+//funcion si elije efectivo
+const detailEfectivo = () =>{
+  console.log(detailCheckout)
+  Comprar(detailCheckout)
+}
 
   return (
     <Container>
@@ -36,11 +96,13 @@ const PaymentDetail = ({ sliderAnterior }) => {
             setDatosTarjeta={setDatosTarjeta}
             register={register}
             errors={errors}
+            setDetailCheckout={setDetailCheckout}
+              detailCheckout={detailCheckout}
           />
         </Col>
         <Col className="border-bottom mb-3 mt-3">
           <PaypalCard
-            onClick={() => setMetodoSeleccioando("Paypal")}
+            onClick={cargarPagoEfectivo}
             seleccionado={metodoSeleccionado === "Paypal" ? true : false}
           />
         </Col>
@@ -63,12 +125,19 @@ const PaymentDetail = ({ sliderAnterior }) => {
             </Button>
           ) : metodoSeleccionado === "Paypal" ? (
             <Button
-              onClick={() => console.log("paypal")}
-              className="mr-2"
+              onClick={() => detailEfectivo() || setValidandoCompra(true)}
+              className="mr-2 btn-cargando"
               variant="success"
               type="submit"
+              disabled={validandoCompra}
             >
-              Finalizar Compra
+              {validandoCompra ? (
+              <div className="spinner-border spinner-border-sm" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            ) : (
+              "Finalizar Compra"
+            )}
             </Button>
           ) : null}
 

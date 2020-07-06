@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Col, Modal, Row, Button } from "react-bootstrap";
 
 const MydModalWithGrid = (props) => {
+  console.log(props);
   return (
     <Modal {...props} aria-labelledby=" contained-modal-title-vcenter ">
       <Modal.Header
@@ -14,30 +15,37 @@ const MydModalWithGrid = (props) => {
         }}
       >
         <Modal.Title id="contained-modal-title-vcenter">
-          {props.nombre}
+          {props.turno.servicio}
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid modalInfoTurno">
         <Container>
           <Row>
-            <Col xs={12} md={8}>
-              .col-xs-12 .col-md-8
-            </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
-            </Col>
+            {props.turno.descripcion ? (
+              <Col xs={12} md={8}>
+                <p>Descripcion : {props.turno.descripcion}</p>
+              </Col>
+            ) : null}
+
+            {props.turno.dispositivo ? (
+              <Col xs={6} md={4}>
+                <p>Dispositivo : {props.turno.dispositivo} </p>
+              </Col>
+            ) : null}
           </Row>
 
           <Row>
             <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
+              <p>Fecha: {props.ModificarFecha(props.turno.fecha)}</p>
             </Col>
             <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
+              <p>Hora: {props.turno.hora}</p>
             </Col>
-            <Col xs={6} md={4}>
-              .col-xs-6 .col-md-4
-            </Col>
+            {props.turno.marca ? (
+              <Col xs={6} md={4}>
+                <p>Marca: {props.turno.marca}</p>
+              </Col>
+            ) : null}
           </Row>
         </Container>
       </Modal.Body>

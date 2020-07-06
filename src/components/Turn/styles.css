@@ -146,47 +146,53 @@ label {
   }
 }
 
-@media (min-width: 576px) and (max-width: 768px) {
-  .containerForm {
-    width: 80vw;
-  }
-  .containerForm select {
-    width: 70vw;
-    height: 5vh;
-  }
-  .containerForm input {
-    width: 70vw;
-    height: 5vh;
-  }
-  label {
-    width: 70vw;
-  }
-  .containerForm textarea {
-    width: 70vw;
-  }
-  .date {
-    width: 70vw !important;
-  }
+@media (min-width: 576px) and ( max-width : 768px){
+
+    .containerForm {
+        width: 80vw;
+      }
+      .containerForm select {
+          width: 70vw;
+          height: 5vh;
+      }
+      .containerForm input {
+        width: 70vw;
+        height: 5vh;
+      }
+      label{
+          width: 70vw;
+      }
+      .containerForm textarea {
+          width: 70vw;
+      }
+      .date {
+          width: 70vw !important;
+      }
 }
-@media (min-width: 768px) and (max-width: 1024px) {
-  .containerForm {
-    width: 42vw;
-  }
-  .containerForm select {
-    width: 38vw;
-    height: 5vh;
-  }
-  .containerForm input {
-    width: 38vw;
-    height: 5vh;
-  }
-  label {
-    width: 38vw;
-  }
-  .containerForm textarea {
-    width: 38vw;
-  }
-  .date {
-    width: 38vw !important;
+@media (min-width: 768px) and ( max-width : 1024px){
+    .containerForm {
+        width: 42vw;
+      }
+      .containerForm select {
+          width: 38vw;
+          height: 5vh;
+      }
+      .containerForm input {
+        width: 38vw;
+        height: 5vh;
+      }
+      label{
+          width: 38vw;
+      }
+      .containerForm textarea {
+          width: 38vw;
+      }
+      .date {
+          width: 38vw !important;
+      }
+}
+@media (min-width: 340px) and (max-width: 540px){
+  .TablaTurno{
+    width: 80vw !important;
   }
 }

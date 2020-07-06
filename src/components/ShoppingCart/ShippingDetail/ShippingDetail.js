@@ -5,30 +5,21 @@ import CardOpcion from "./card-opcionales";
 import { useForm } from "react-hook-form";
 import "./styles.css";
 
-const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio }) => {
+const ShippingDetail = ({ sliderSiguiente, sliderAnterior, setValorEnvio,setDetailCheckout ,detailCheckout}) => {
+
+  
   const { register, errors, handleSubmit } = useForm();
   const [metodoEnvio, setMetodoEnvio] = useState("EnvioGratis");
-  const [datosEnvio, setDatosEnvio] = useState({
-    nombre: "",
-    apellido: "",
-    direccion1: "",
-    direccion2: "",
-    pais: "",
-    ciudad: "",
-    postal: "",
-    telefono: "",
-    tipoEnvio: "",
-  });
 
   const onSubmit = (data) => {
     sliderSiguiente();
-    setDatosEnvio({
+    setDetailCheckout({...detailCheckout,
       nombre: data.nombre,
       apellido: data.apellido,
-      direccion1: data.direccion1,
-      direccion2: data.direccion2,
+      direccion_1: data.direccion1,
+      direccion_2: data.direccion2,
       pais: data.pais,
-      ciudad: data.pais,
+      prov: data.ciudad,
       postal: data.postal,
       telefono: data.telefono,
       tipoEnvio: metodoEnvio,
