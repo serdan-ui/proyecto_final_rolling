@@ -57,9 +57,9 @@ const ListTurn = (userId) => {
             bordered
             hover
             variant="dark"
-            style={{ backgroundColor: "#212121" }}
+            style={{ backgroundColor: "rgb(47, 44, 61)" }}
           >
-            <thead style={{ color: "#19ed18" }}>
+            <thead>
               <tr>
                 <th>Fecha</th>
                 <th>Hora</th>
@@ -89,7 +89,7 @@ const ListTurn = (userId) => {
                 </th>
               </tr>
             </thead>
-            <tbody style={{ color: "#30cd68" }}>
+            <tbody style={{ color: "#dedede" }}>
               {turnos.map((turno) => (
                 <>
                   <tr key={turno._id}>
@@ -103,7 +103,7 @@ const ListTurn = (userId) => {
                       >
                         <span
                           style={{
-                            color: "#19ed18",
+                            color: "#d9d9d9",
                             fontSize: "14px",
                             padding: "0px",
                           }}

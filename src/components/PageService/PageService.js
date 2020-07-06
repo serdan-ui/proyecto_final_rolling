@@ -20,7 +20,7 @@ const PageService = ({ authen, setAuthen, usuario }) => {
         </div>
         <HeaderStatic authen={authen} setAuthen={setAuthen} usuario={usuario} />
 
-        <Container className="main-container shadow p-3 mt-4 mb-4 d-flex flex-column justify-content-center">
+        <Container className="main-container-service shadow p-3 mt-4 mb-4 d-flex flex-column justify-content-center">
           <div className="w-100 d-flex justify-content-center mt-5">
           <Image fluid src={Loguito} className="w-50"/>
           </div>

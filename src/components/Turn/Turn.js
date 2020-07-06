@@ -7,6 +7,7 @@ import "./styles.css";
 const Turn = ({authen,setAuthen,usuario,userId}) => {
     return ( 
         <>
+
         <HeaderStatic 
         usuario={usuario}
          authen={authen}

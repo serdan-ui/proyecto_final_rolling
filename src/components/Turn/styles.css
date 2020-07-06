@@ -1,3 +1,5 @@
+
+
 .containerTurn {
   height: 100%;
   min-height: 100vh;
@@ -5,7 +7,10 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  background-color: black;
+  background-color: #171824;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3Crect stroke='%23171824' stroke-width='0.78' width='1' height='1' id='s'/%3E%3Cpattern id='a' width='3' height='3' patternUnits='userSpaceOnUse' patternTransform='rotate(42 1000 750) scale(10) translate(-900 -675)'%3E%3Cuse fill='%231c1d28' href='%23s' y='2'/%3E%3Cuse fill='%231c1d28' href='%23s' x='1' y='2'/%3E%3Cuse fill='%2320212d' href='%23s' x='2' y='2'/%3E%3Cuse fill='%2320212d' href='%23s'/%3E%3Cuse fill='%23252631' href='%23s' x='2'/%3E%3Cuse fill='%23252631' href='%23s' x='1' y='1'/%3E%3C/pattern%3E%3Cpattern id='b' width='7' height='11' patternUnits='userSpaceOnUse' patternTransform='rotate(42 1000 750) scale(10) translate(-900 -675)'%3E%3Cg fill='%232a2a36'%3E%3Cuse href='%23s'/%3E%3Cuse href='%23s' y='5' /%3E%3Cuse href='%23s' x='1' y='10'/%3E%3Cuse href='%23s' x='2' y='1'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='8'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='5' y='2'/%3E%3Cuse href='%23s' x='5' y='6'/%3E%3Cuse href='%23s' x='6' y='9'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='h' width='5' height='13' patternUnits='userSpaceOnUse' patternTransform='rotate(42 1000 750) scale(10) translate(-900 -675)'%3E%3Cg fill='%232a2a36'%3E%3Cuse href='%23s' y='5'/%3E%3Cuse href='%23s' y='8'/%3E%3Cuse href='%23s' x='1' y='1'/%3E%3Cuse href='%23s' x='1' y='9'/%3E%3Cuse href='%23s' x='1' y='12'/%3E%3Cuse href='%23s' x='2'/%3E%3Cuse href='%23s' x='2' y='4'/%3E%3Cuse href='%23s' x='3' y='2'/%3E%3Cuse href='%23s' x='3' y='6'/%3E%3Cuse href='%23s' x='3' y='11'/%3E%3Cuse href='%23s' x='4' y='3'/%3E%3Cuse href='%23s' x='4' y='7'/%3E%3Cuse href='%23s' x='4' y='10'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='c' width='17' height='13' patternUnits='userSpaceOnUse' patternTransform='rotate(42 1000 750) scale(10) translate(-900 -675)'%3E%3Cg fill='%232e2f3a'%3E%3Cuse href='%23s' y='11'/%3E%3Cuse href='%23s' x='2' y='9'/%3E%3Cuse href='%23s' x='5' y='12'/%3E%3Cuse href='%23s' x='9' y='4'/%3E%3Cuse href='%23s' x='12' y='1'/%3E%3Cuse href='%23s' x='16' y='6'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='d' width='19' height='17' patternUnits='userSpaceOnUse' patternTransform='rotate(42 1000 750) scale(10) translate(-900 -675)'%3E%3Cg fill='%23171824'%3E%3Cuse href='%23s' y='9'/%3E%3Cuse href='%23s' x='16' y='5'/%3E%3Cuse href='%23s' x='14' y='2'/%3E%3Cuse href='%23s' x='11' y='11'/%3E%3Cuse href='%23s' x='6' y='14'/%3E%3C/g%3E%3Cg fill='%2333343e'%3E%3Cuse href='%23s' x='3' y='13'/%3E%3Cuse href='%23s' x='9' y='7'/%3E%3Cuse href='%23s' x='13' y='10'/%3E%3Cuse href='%23s' x='15' y='4'/%3E%3Cuse href='%23s' x='18' y='1'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='e' width='47' height='53' patternUnits='userSpaceOnUse' patternTransform='rotate(42 1000 750) scale(10) translate(-900 -675)'%3E%3Cg fill='%23514780'%3E%3Cuse href='%23s' x='2' y='5'/%3E%3Cuse href='%23s' x='16' y='38'/%3E%3Cuse href='%23s' x='46' y='42'/%3E%3Cuse href='%23s' x='29' y='20'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='f' width='59' height='71' patternUnits='userSpaceOnUse' patternTransform='rotate(42 1000 750) scale(10) translate(-900 -675)'%3E%3Cg fill='%23514780'%3E%3Cuse href='%23s' x='33' y='13'/%3E%3Cuse href='%23s' x='27' y='54'/%3E%3Cuse href='%23s' x='55' y='55'/%3E%3C/g%3E%3C/pattern%3E%3Cpattern id='g' width='139' height='97' patternUnits='userSpaceOnUse' patternTransform='rotate(42 1000 750) scale(10) translate(-900 -675)'%3E%3Cg fill='%23514780'%3E%3Cuse href='%23s' x='11' y='8'/%3E%3Cuse href='%23s' x='51' y='13'/%3E%3Cuse href='%23s' x='17' y='73'/%3E%3Cuse href='%23s' x='99' y='57'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23b)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23h)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23c)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23d)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23e)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23f)' width='100%25' height='100%25'/%3E%3Crect fill='url(%23g)' width='100%25' height='100%25'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
 .btnForm {
   color: whitesmoke !important;
@@ -16,19 +21,19 @@
   box-shadow: 0px 0px 6px 0px #232323 !important;
 }
 
-.btnForm:active{
+.btnForm:active {
   background-color: #454545 !important;
-  
 }
-.btnFormCancel{
-  background-color: #f12121 ;
-  border: 3px groove #f02323 ;
-  border-radius: 6px ;
+.btnFormCancel {
+  background-color: #f12121;
+  border: 3px groove #f02323;
+  border-radius: 6px;
   outline: 0 !important;
-  box-shadow: 0px 0px 6px 0px #232323 ;
+  box-shadow: 0px 0px 6px 0px #232323;
 }
-.btnFormCancel:active{
-  background-color: rgb(235, 76, 76) ;
+.btnFormCancel:active {
+  background-color: rgb(235, 76, 76);
+  background-color: rgb(47, 44, 61);
 }
 .tilteList {
   display: flex;
@@ -56,7 +61,6 @@
   border-radius: 5px;
   box-shadow: 0px 0px 6px 2px #201e1e;
   margin-bottom: 5vh;
-  
 }
 .containerForm select {
   text-decoration: none;
@@ -64,7 +68,7 @@
   border-style: none;
   border-collapse: none;
   background-color: #303030;
-  border-bottom: 0.1px solid yellowgreen;
+  border-bottom: 0.1px solid rgb(50, 86, 116);
   margin-bottom: 10px;
   width: 20vw;
   color: whitesmoke;
@@ -79,8 +83,8 @@
   width: 20vw;
   margin-bottom: 10px;
   outline: none;
-  color: #888888;
-  border-bottom: 0.1px solid yellowgreen;
+  color: #cccccc;
+  border-bottom: 0.1px solid rgb(63, 70, 128);
 }
 .containerForm textarea {
   background-color: #303030;
@@ -88,101 +92,101 @@
   border-radius: 3px;
   width: 20vw;
   margin-bottom: 10px;
-  color: #888888;
+  color: #e0dfdf;
   outline: none;
-  border-bottom: 0.1px solid yellowgreen;
+  border-bottom: 0.1px solid rgb(63, 70, 128);
 }
 input[type="submit"] {
-  background: rgb(141, 196, 32);
+  background: rgb(91, 57, 155);
   border: none;
   border-radius: 4px;
-  color: #212122;
+  color: #d1d1d1;
   font-weight: bold;
+  transition: 0.2s;
 }
 input[type="submit"]:hover {
-  background-color: green;
+  background-color: rgb(135, 84, 170);
+  color: whitesmoke;
 }
 
 label {
   font-size: 13px;
   width: 20vw;
   text-align: start;
-  color: yellowgreen;
+  color: rgb(218, 218, 219);
 }
-.modalInfoTurno{
-  background-color: #121212;
-  color:yellowgreen ;
+.modalInfoTurno {
+  background-color: #252525;
+  color: rgb(235, 235, 235);
 }
-.modal-content{
-border:1px solid yellowgreen !important;
+.modal-content {
+  border: 1px solid rgb(91, 125, 141) !important;
 }
 
 @media (max-width: 576px) {
-  
   .containerForm {
     width: 80vw;
   }
   .containerForm select {
-      width: 70vw;
-      height: 5vh;
+    width: 70vw;
+    height: 5vh;
   }
   .containerForm input {
     width: 70vw;
     height: 5vh;
   }
-  label{
-      width: 70vw;
+  label {
+    width: 70vw;
   }
   .containerForm textarea {
-      width: 70vw;
+    width: 70vw;
   }
   .date {
-      width: 70vw !important;
+    width: 70vw !important;
   }
 }
 
-@media (min-width: 576px) and ( max-width : 768px){
-
-    .containerForm {
-        width: 80vw;
-      }
-      .containerForm select {
-          width: 70vw;
-          height: 5vh;
-      }
-      .containerForm input {
-        width: 70vw;
-        height: 5vh;
-      }
-      label{
-          width: 70vw;
-      }
-      .containerForm textarea {
-          width: 70vw;
-      }
-      .date {
-          width: 70vw !important;
-      }
+@media (min-width: 576px) and (max-width: 768px) {
+  .containerForm {
+    width: 80vw;
+  }
+  .containerForm select {
+    width: 70vw;
+    height: 5vh;
+  }
+  .containerForm input {
+    width: 70vw;
+    height: 5vh;
+  }
+  label {
+    width: 70vw;
+  }
+  .containerForm textarea {
+    width: 70vw;
+  }
+  .date {
+    width: 70vw !important;
+  }
 }
-@media (min-width: 768px) and ( max-width : 1024px){
-    .containerForm {
-        width: 42vw;
-      }
-      .containerForm select {
-          width: 38vw;
-          height: 5vh;
-      }
-      .containerForm input {
-        width: 38vw;
-        height: 5vh;
-      }
-      label{
-          width: 38vw;
-      }
-      .containerForm textarea {
-          width: 38vw;
-      }
-      .date {
-          width: 38vw !important;
-      }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .containerForm {
+    width: 42vw;
+  }
+  .containerForm select {
+    width: 38vw;
+    height: 5vh;
+  }
+  .containerForm input {
+    width: 38vw;
+    height: 5vh;
+  }
+  label {
+    width: 38vw;
+  }
+  .containerForm textarea {
+    width: 38vw;
+  }
+  .date {
+    width: 38vw !important;
+  }
 }

@@ -8,6 +8,10 @@ const BodyTurn = (userId) => {
 
   return (
     <Container fluid className="containerTurn">
+      <div className="img-turn-container">
+        <div className="back-turn-color"></div>
+      </div>
+
       <Row style={{ paddingRight: "0", marginRight: "0" }}>
         <Col className="tilteList">
           <Button
