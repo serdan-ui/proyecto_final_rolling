@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Button, ListGroup, Badge, Row, Col, Spinner } from "react-bootstrap";
-import { FaCartPlus, FaRegWindowClose } from "react-icons/fa";
+import {
+  Button,
+  ListGroup,
+  Badge,
+  Row,
+  Col,
+  Spinner,
+  Image,
+} from "react-bootstrap";
+import { FaCartPlus, FaRegWindowClose, FaRegTrashAlt } from "react-icons/fa";
 import axiosInstance from "../util/axiosInstance";
 import { useHistory } from "react-router-dom";
 
@@ -85,140 +93,126 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito }) => {
       <div className="padreContainer">
         <div className={clase}>
           <Button className="btnCart_header mr-2" onClick={abreCarro}>
-            {" "}
             <FaCartPlus className="icons_header_cart" />
             <Badge>{products.length}</Badge>
           </Button>
 
-          <Row>
-            <Col sm={4}>
+          <Row className="d-flex flex-column">
+            <Col className="" sm={4}>
               <Button
-                className="cartClose"
+                className="cartClose "
                 variant="dark"
                 onClick={cierroCarro}
               >
                 <FaRegWindowClose />
               </Button>
             </Col>
-            <Col sm={8}>
-              <h4 style={{ color: "white" }} className="cartClose">
-                Productos seleccionados
+            <Col className="d-flex justify-content-center" sm={12}>
+              <h4 className="cartClose">
+                Productos Seleccionados
               </h4>
             </Col>
           </Row>
           <div>
             <ListGroup className="containerCart">
-              <Row>
-                <ListGroup horizontal className="estilosTitulosbtn">
-                  <Col xs={5}>
-                    <ListGroup.Item className="estilosTitulosbtn">
-                      Imagen
-                    </ListGroup.Item>
-                  </Col>
-                  <Col xs={6}>
-                    <ListGroup.Item className="estilosTitulosbtn">
-                      Nombre
-                    </ListGroup.Item>
-                  </Col>
-                  <Col>
-                    <ListGroup.Item className="estilosTitulosbtn">
-                      Precio
-                    </ListGroup.Item>
-                  </Col>
-                </ListGroup>
+              <Row className="h-100 border">
+                <Col className="d-flex justify-content-center mt-2 mb-2 border-right font-weight-bolder" xs={4}>
+                  Imagen
+                </Col>
+                <Col className="d-flex justify-content-center mt-2 mb-2 border-right font-weight-bolder" xs={4}>
+                  Nombre
+                </Col>
+                <Col className="d-flex justify-content-center mt-2 mb-2 font-weight-bolder" xs={4}>
+                  Precio
+                </Col>
               </Row>
 
               {products.lenght === 0
                 ? null
                 : products.map((product) => (
-                    <Row style={{ borderTop: "0.5px solid greenyellow" }}>
-                      <ListGroup horizontal>
-                        <Col xs={4}>
-                          <ListGroup.Item className="productitoslistados">
-                            {!loaderCart ? (
-                              <img
-                                src={product.productoId.imagen[0]}
-                                className="imgCartBtn"
-                              />
-                            ) : (
-                              <Spinner animation="border" variant="light" />
-                            )}
-                          </ListGroup.Item>
-                        </Col>
-                        <Col xs={4}>
-                          <ListGroup.Item className="productitoslistados">
-                            {product.productoId.nombre}
-                          </ListGroup.Item>
-                        </Col>
-
-                        <Col>
-                          <ListGroup.Item className="productitoslistados m-1">
-                            {" "}
-                            ${product.productoId.precio}
-                          </ListGroup.Item>
-                          <Button
-                            variant="dark"
-                            text="white"
-                            onClick={() => deleteCart(product._id)}
-                          >
-                            Eliminar
-                          </Button>
-                          <select
-                            onClick={() => tomarProducto(product)}
-                            onChange={handleCantidad}
-                            className="custom-select custom-select-sm w-50 mt-1"
-                            id="cantidadProducto"
-                          >
-                            {optionSelect(product.productoId.stock) ? (
-                              optionSelect(product.productoId.stock).map(
-                                (opcion) => (
-                                  <>
-                                    {opcion == product.cantidadProducto ? (
-                                      <option value={opcion} selected>
-                                        {opcion}
-                                      </option>
-                                    ) : (
-                                      <option value={opcion}>{opcion}</option>
-                                    )}
-                                  </>
-                                )
-                              )
-                            ) : (
-                              <Spinner animation="border" variant="dark" />
-                            )}
-                          </select>
-                        </Col>
-                      </ListGroup>
+                    <Row className="mt-2 mb-2 rounded shadow cardProducto-Cart border-top">
+                      <Col
+                        className="d-flex justify-content-center align-items-center border-right"
+                        xs={4}
+                      >
+                        {!loaderCart ? (
+                          <Image
+                            fluid
+                            src={product.productoId.imagen[0]}
+                            className="imgCartBtn"
+                          />
+                        ) : (
+                          <Spinner animation="border" variant="dark" />
+                        )}
+                      </Col>
+                      <Col
+                        className="d-flex justify-content-center align-items-center text-center text-justify border-right"
+                        xs={4}
+                      >
+                        {product.productoId.nombre}
+                      </Col>
+                      <Col className="d-flex flex-column justify-content-center align-items-center">
+                        <Row className="h-100">
+                          <Col xs="9" className=" h-100">
+                            <Row className=" d-flex flex-column justify-content-center h-100">
+                              <Col className=" d-flex justify-content-center align-items-end font-weight-bold">${product.productoId.precio}</Col>
+                              <Col className="d-flex justify-content-center align-items-start mt-3">
+                                <select
+                                  onClick={() => tomarProducto(product)}
+                                  onChange={handleCantidad}
+                                  className="custom-select custom-select-sm w-100"
+                                  id="cantidadProducto"
+                                >
+                                  {optionSelect(product.productoId.stock) ? (
+                                    optionSelect(product.productoId.stock).map(
+                                      (opcion) => (
+                                        <>
+                                          {opcion ==
+                                          product.cantidadProducto ? (
+                                            <option value={opcion} selected>
+                                              {opcion}
+                                            </option>
+                                          ) : (
+                                            <option value={opcion}>
+                                              {opcion}
+                                            </option>
+                                          )}
+                                        </>
+                                      )
+                                    )
+                                  ) : (
+                                    <Spinner
+                                      animation="border"
+                                      variant="dark"
+                                    />
+                                  )}
+                                </select>
+                              </Col>
+                            </Row>
+                          </Col>
+                          <Col xs="1" className="d-flex align-items-start justify-content-center">
+                            <Button
+                              onClick={() => deleteCart(product._id)}
+                              className="close"
+                              aria-label="Close"
+                            >
+                              <FaRegTrashAlt className="trash-icono" />
+                            </Button>
+                          </Col>
+                        </Row>
+                      </Col>
                     </Row>
                   ))}
             </ListGroup>
 
             <Row style={{ display: claseBotones() }}>
               <Col>
-                <Button
-                  onClick={irCarrito}
-                  variant="success"
-                  block
-                  style={{
-                    border: "3px solid #060606",
-                    color: "#19ED18",
-                    backgroundColor: "#060606",
-                  }}
-                >
+                <Button onClick={irCarrito} variant="success" block>
                   Ir a carrito
                 </Button>
               </Col>
               <Col>
-                <Button
-                  variant="dark"
-                  onClick={cierroCarro}
-                  block
-                  style={{
-                    border: "none",
-                    color: "#19ED18",
-                    backgroundColor: "#212121",
-                  }}
-                >
+                <Button variant="dark" onClick={cierroCarro} block>
                   Seguir comprando{" "}
                 </Button>
               </Col>

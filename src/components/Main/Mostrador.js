@@ -8,6 +8,7 @@ import {
   Container,
   CardColumns,
   Dropdown,
+  Image,
 } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
 import axiosInstance from "../util/axiosInstance";
@@ -97,10 +98,71 @@ const Mostrador = ({ setProducts, products, userId, fetchCarrito }) => {
 
   return (
     <>
-      <Container fluid className="contenedor-mostrador">
-        <p className="titulo_product_main">Productos</p>
-        <Row>
-          <Col sm={2}>
+      <Container className="contenedor-mostrador">
+        {/* <p className="titulo_product_main">Productos</p> */}
+        <Row className="d-flex justify-content-center">
+          <Col sm={12}>
+            <CardColumns>
+              {productos.map((producto) => (
+                <Card key={producto._id} className="cardProduct shadow rounded">
+                  <Card.Img
+                    variant="top"
+                    src={producto.imagen[0]}
+                    rounded
+                    style={{ height: "250px", cursor: "pointer" }}
+                    onClick={() => mostrarImg(producto)}
+                    className="p-2"
+                  />
+                  <Card.Body
+                    onClick={() => mostrarImg(producto)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <Card.Title className="font-weight-light text-center text-justify text-uppercase text-truncate">
+                      {producto.nombre}
+                    </Card.Title>
+                    <Card.Text className="font-weight-bold text-center text-justify">
+                      ${producto.precio}
+                    </Card.Text>
+                  </Card.Body>
+                  <Card.Footer className="rounded">
+                    <Row className="rowroto">
+                      <Col className="d-flex justify-content-center">
+                        <Button
+                          className="btnroto btnVerMas"
+                          onClick={() => mostrarImg(producto)}
+                        >
+                          Ver mas
+                        </Button>
+                      </Col>
+                      <Col className="d-flex justify-content-center">
+                        {!loader ? (
+                          <Button
+                            variant="success"
+                            className="btnroto btnAgregar"
+                            onClick={() => addCart(producto._id)}
+                          >
+                            <FaCartPlus /> Agregar
+                          </Button>
+                        ) : (
+                          <Spinner animation="border" />
+                        )}
+                      </Col>
+                    </Row>
+                  </Card.Footer>
+                </Card>
+              ))}
+            </CardColumns>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
+};
+
+export default Mostrador;
+
+{
+  /* <Col sm={2}>
             <h3>Filtrar por: </h3>
             <br />
             <Dropdown>
@@ -127,14 +189,18 @@ const Mostrador = ({ setProducts, products, userId, fetchCarrito }) => {
                 <Dropdown.Item href="#/action-2">Mayor a menor</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
-          </Col>
-          <Col sm={8} className="columnitax">
-            <CardColumns className="cardColumns">
+          </Col> */
+}
+
+{
+  /* <Col sm={12}>
+            <CardColumns>
               {productos.map((producto) => (
                 <Card key={producto._id} sm={12} className="cardProduct">
                   <Card.Img
                     variant="top"
                     src={producto.imagen[0]}
+                    fluid
                     rounded
                     style={{ height: "250px", cursor: "pointer" }}
                     onClick={() => mostrarImg(producto)}
@@ -192,11 +258,5 @@ const Mostrador = ({ setProducts, products, userId, fetchCarrito }) => {
               ))}
             </CardColumns>
           </Col>
-          <Col sm={2}></Col>
-        </Row>
-      </Container>
-    </>
-  );
-};
-
-export default Mostrador;
+ */
+}

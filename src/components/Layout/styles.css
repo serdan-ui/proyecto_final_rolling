@@ -1,5 +1,5 @@
 .Container_Header {
-  background-color: rgba(32, 45, 68, 0.4);
+  background-color: rgba(32, 45, 68, 0.7);
   border-bottom: solid 1px #171d2b;
   position: relative;
   z-index: 10;
@@ -15,10 +15,11 @@
   overflow: scroll !important;
 }
  .containerCart{
- overflow-x:hidden ;
+  overflow-x: hidden;
   overflow-y: auto;
-  min-height: 300px;
-  max-height: 500px;
+  min-height: 20rem !important;
+  max-height: 100%;
+  background-color: whitesmoke;
 } 
 
 .logo {
@@ -46,7 +47,7 @@
   align-items: center;
 }
 .login_registro_header span{
-  color: whitesmoke;
+  color: rgb(223, 177, 177);
 }
 .login_registro_header button {
   height: 40px;
@@ -113,7 +114,7 @@ background-color: rgba(99, 53, 160, 0.4) !important;
   background-color: rgba(30, 50, 83, 0.5) !important;
 }
 #DropDown-username{
-  background-color: rgba(32, 45, 68, 0.8);
+  background-color: rgba(32, 45, 68, 1);
   min-width: 8rem !important;
 }
 .dropDown-font{
@@ -168,11 +169,14 @@ background-color: rgba(99, 53, 160, 0.4) !important;
   height: 70px;
   font-weight: bold !important ;
   position: fixed;
-  right: 8px; 
+  right: 10px; 
   background:rgba(107, 49, 182, 0.6) !important;
   border:rgba(133, 61, 228, 0.7) !important;
   color: whitesmoke;
 }
+
+
+
 .btnCart_header:hover {
   background:rgba(107, 49, 182, 0.8) !important;
 }
@@ -181,22 +185,40 @@ background-color: rgba(99, 53, 160, 0.4) !important;
   margin-top: 8px;
    color:rgba(255, 255, 255, 1)
 }
-.imgCartBtn{
-  height: 15vh;
-  width: 10vw;
+.cardProducto-Cart{
+  background-color: whitesmoke !important;
 }
 
 .btnCartOpen{
-  border: none !important;
-  box-shadow: 1px 0px 5px 1px #19ED18;
+  font-family: 'Montserrat', sans-serif;
+  border: solid 3px rgba(66, 32, 112, 0.8)  !important;
+  border-radius: 10px;
   position: fixed;
   width: 500px;
+  max-width: 120vh !important;
   min-height: 100px;
-  background-color: #212121;
-  font-weight: bold !important ;
-/*   z-index: 100; */
-  right: 0px !important;
+  background-color: whitesmoke;
+  right: 18px !important;
+  box-shadow: -8px 6px 59px 8px rgba(0,0,0,0.75);
 }
+
+.btnCart-Color{
+  background:rgba(107, 49, 182, 0.6) !important;
+  border:rgba(133, 61, 228, 0.7) !important;
+}
+
+@media (max-width: 414px) {
+  .btnCart_header {
+    right: -6px !important; 
+    margin-top: 550px;
+    background:rgba(107, 49, 182, 0.8) !important;
+  }
+  .btnCartOpen{
+    width: 98% !important;
+    right: 1px !important;
+  }
+}
+
 #padreContainer{
   overflow-y: scroll !important;
 }
@@ -211,8 +233,8 @@ background-color: rgba(99, 53, 160, 0.4) !important;
   color: #168516 !important;
 }
 .estilosTitulosbtn{
-  background-color: #212121 !important;
-  color: whitesmoke;
+  background-color: #cc2626 !important;
+  color: rgb(245, 245, 245);
   border: none;
 }
 .productitoslistados{
@@ -220,7 +242,6 @@ background-color: rgba(99, 53, 160, 0.4) !important;
   color: whitesmoke;
   border: none !important;
   padding: 0px !important;
-
 }
 
 .redesociales {
@@ -364,8 +385,7 @@ background-color: rgba(99, 53, 160, 0.4) !important;
 
 @media (min-width: 340px) and (max-width: 600px){
   .btnCartOpen{
-    width: 90%;
-  
+    width: 90%;  
   }
 }
 
