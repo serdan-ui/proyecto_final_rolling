@@ -165,7 +165,7 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito, authen }) => {
                               <Col className=" d-flex justify-content-center align-items-end ">
                                 ${product.productoId.precio}
                               </Col>
-
+                              {/* Que pasa carnal */}
                               <Col className="d-flex justify-content-center align-items-center">
                                 <select
                                   onClick={() => tomarProducto(product)}
