@@ -8,11 +8,12 @@ import { Container, Row, Col, Image } from "react-bootstrap";
 import "./main-styles.css";
 
 import Loguito from "../Images/Zero-Images/Zero-Tech-Black.svg";
-import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
+import { CircleArrow as ScrollUpButton } from "react-scroll-up-button";
 
 // stilos de register REVISAR
 import "./styles.css";
 import axiosInstance from "../util/axiosInstance";
+import NewsPanel from "./MainPanels/NewsPanel";
 
 const Main = ({
   authen,
@@ -45,36 +46,40 @@ const Main = ({
           <div className="back-color"></div>
         </div>
 
-        <ScrollUpButton 
-             StopPosition = { 0 }
-             ShowAtPosition = { 100 }
-            
-             AnimationDuration = { 500 }
-          
-            style={{zIndex:"1", background:"#19ed18"}}
-      />
+        <ScrollUpButton
+          StopPosition={0}
+          ShowAtPosition={100}
+          AnimationDuration={500}
+          style={{ zIndex: "1", background: "#19ed18" }}
+        />
 
         <Header
-        products={products}
-        authen={authen}
-        setAuthen={setAuthen}
-        usuario={usuario}
-        setCarrito={setCarrito}
-        userId={userId}
-        
-        fetchCarrito={fetchCarrito}
-      />
+          products={products}
+          authen={authen}
+          setAuthen={setAuthen}
+          usuario={usuario}
+          setCarrito={setCarrito}
+          userId={userId}
+          fetchCarrito={fetchCarrito}
+        />
 
         <Container fluid>
-          <Row>
-            <ZeroDisclaimer />
-            <Mostrador
-        setProducts={setProducts}
-        products={products}
-        userId={userId}
-        fetchCarrito={fetchCarrito}
-        authen={authen}
-      />
+          <Row className="d-flex flex-column">
+            <Col>
+              <ZeroDisclaimer />
+            </Col>
+            <Col id="NewsPanel" className="mb-5">
+              <NewsPanel />
+            </Col>
+            <Col>
+              <Mostrador
+                setProducts={setProducts}
+                products={products}
+                userId={userId}
+                fetchCarrito={fetchCarrito}
+                authen={authen}
+              />
+            </Col>
           </Row>
         </Container>
         <Fotter />
