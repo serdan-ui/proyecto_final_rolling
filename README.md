@@ -4,6 +4,13 @@
   </a>
 </p>
 
+<h3 align="center">Gaming Store</h3>
+
+<p align="center">
+  Un e-commerce con todo lo necesario para introducirse en el mundo de los videojuegos.
+  <br>
+</p>
+
 ## Available Scripts
 
 In the project directory, you can run:
