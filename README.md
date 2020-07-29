@@ -38,7 +38,7 @@ La web de ZeroTech fué construida con las siguientes librerías y framework:
 - [Sweet Alert 2](https://sweetalert2.github.io/)
 
 ## Nuestro Equipo!
-[![](https://avatars3.githubusercontent.com/u/17089396?v=4&s=80)](https://github.com/sergiorosales9) | [![](https://avatars3.githubusercontent.com/u/3198597?v=4&s=80)](https://github.com/maudrani) | [![](https://avatars1.githubusercontent.com/u/1343250?v=4&s=80)](https://github.com/ni-romero) | [![](https://avatars1.githubusercontent.com/u/1343250?v=4&s=80)](https://github.com/rochy-scarlata)
+[![]<img src="https://i.ibb.co/z7JnsPg/Zero-Tech-Purple.png" alt="logo" width="400" height="175">](https://github.com/sergiorosales9) | [![](https://avatars3.githubusercontent.com/u/3198597?v=4&s=80)](https://github.com/maudrani) | [![](https://avatars1.githubusercontent.com/u/1343250?v=4&s=80)](https://github.com/ni-romero) | [![](https://avatars1.githubusercontent.com/u/1343250?v=4&s=80)](https://github.com/rochy-scarlata)
 -|-|-|-
 [@sergiorosales9](https://github.com/sergiorosales9) | [@maudrani](https://github.com/maudrani) | [@ni-romero](https://github.com/ni-romero) | [@rochyscarlata](https://github.com/rochyscarlata)
 
