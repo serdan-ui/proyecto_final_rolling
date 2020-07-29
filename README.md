@@ -38,9 +38,9 @@ La web de ZeroTech fué construida con las siguientes librerías y framework:
 - [Sweet Alert 2](https://sweetalert2.github.io/)
 
 ## Nuestro Equipo!
-[![](https://avatars3.githubusercontent.com/u/17089396?v=4&s=80)](https://github.com/sergiorosales9) | [![](https://avatars3.githubusercontent.com/u/3198597?v=4&s=80)](https://github.com/maudrani) | [![](https://avatars1.githubusercontent.com/u/1343250?v=4&s=80)](https://github.com/ni-romero) | [![](https://avatars1.githubusercontent.com/u/1343250?v=4&s=80)](https://github.com/ni-romero) 
+[![](https://avatars3.githubusercontent.com/u/17089396?v=4&s=80)](https://github.com/sergiorosales9) | [![](https://avatars3.githubusercontent.com/u/3198597?v=4&s=80)](https://github.com/maudrani) | [![](https://avatars1.githubusercontent.com/u/1343250?v=4&s=80)](https://github.com/ni-romero) | [![](https://avatars1.githubusercontent.com/u/57714086?s=400&v=4)](https://github.com/rochyscarlata 
 -|-|-|-
-[@gverni](https://github.com/gverni) | [@zenflow](https://github.com/zenflow) | [@toverux](https://github.com/toverux) | [@toverux](https://github.com/toverux)
+[@sergiorosales9](https://github.com/sergiorosales9) | [@maudrani](https://github.com/maudrani) | [@ni-romero](https://github.com/ni-romero) | [@rochyscarlata](https://github.com/rochyscarlata)
 
 ## Estructura del Proyecto
 (se evitaron directorios repetitivos para evitar el largo de la estructura)
