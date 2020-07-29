@@ -1,5 +1,7 @@
 <p align="center">
-  <a href="https://ibb.co/LJ5kS9y"><img src="https://i.ibb.co/LJ5kS9y/Zero-Tech-Purple.png" alt="Zero-Tech-Purple" border="0"></a>
+  <a href="https://i.ibb.co/z7JnsPg/Zero-Tech-Purple.png">
+    <img src="https://i.ibb.co/z7JnsPg/Zero-Tech-Purple.png" alt="logo" width="200" height="165">
+  </a>
 </p>
 
 ## Available Scripts
