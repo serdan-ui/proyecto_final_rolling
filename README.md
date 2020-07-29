@@ -27,6 +27,7 @@ Es una web dedicada principalmente al Gaming, incluyendo ventas de componentes, 
 
 ### Listo! Ya tienes una previsualización de la web ZeroTech.
 
+---------------------------------
 
 ## Sobre su Desarrollo
 La web de ZeroTech fué construida con las siguientes librerías y framework:
@@ -37,10 +38,14 @@ La web de ZeroTech fué construida con las siguientes librerías y framework:
 - [React-Hook-Form](https://react-hook-form.com/)
 - [Sweet Alert 2](https://sweetalert2.github.io/)
 
+---------------------------------
+
 ## Nuestro Equipo!
 [<img src="https://avatars2.githubusercontent.com/u/57714207?s=400&u=6495783bf9e3d36aad8b0e7f1325a63faa924dde&v=4" alt="logo" width="80" height="80">](https://github.com/sergiorosales9) | [<img src="https://avatars2.githubusercontent.com/u/57714082?s=460&v=4" alt="logo" width="80" height="80">](https://github.com/maudrani) | [<img src="https://avatars2.githubusercontent.com/u/57714127?s=400&u=006ced43a33284718e42be90d998edd52e6e5f1d&v=4" alt="logo" width="80" height="80">](https://github.com/ni-romero) | [<img src="https://avatars1.githubusercontent.com/u/57714086?s=400&v=4" alt="logo" width="80" height="80">](https://github.com/rochyscarlata)
 -|-|-|-
 [@sergiorosales9](https://github.com/sergiorosales9) | [@maudrani](https://github.com/maudrani) | [@ni-romero](https://github.com/ni-romero) | [@rochyscarlata](https://github.com/rochyscarlata)
+
+---------------------------------
 
 ## Estructura del Proyecto
 (se evitaron directorios repetitivos para evitar el largo de la estructura)
