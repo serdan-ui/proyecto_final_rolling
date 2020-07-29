@@ -12,44 +12,41 @@ const ProductCard = ({
   calcularSubtotal,
   setCartValido,
   fetchCarrito,
-  userId
+  userId,
 }) => {
   const { _id, imagen, nombre, descripcion, precio } = producto.productoId;
   const { cantidadProducto } = producto;
 
-  const [loader, setloader] = useState(false)
+  const [loader, setloader] = useState(false);
 
   //funcion para loader de productos
   const Onloader = () => {
-    setloader(true)
-  }
+    setloader(true);
+  };
   const Offloader = () => {
-    setloader(false)
-  }
-
-  const addCart = (_id) => {
-    console.log("productoID" + _id)
-    const usuarioID = userId;
-    const productoID = _id;
-    postCart({ usuarioID, productoID })
-
-
+    setloader(false);
   };
 
+  const addCart = (_id) => {
+    console.log("productoID" + _id);
+    const usuarioID = userId;
+    const productoID = _id;
+    postCart({ usuarioID, productoID });
+  };
 
   //funcion para agregar productos al carrito
 
   const postCart = async (contenido) => {
     const { usuarioID, productoID, cantidad } = contenido;
-    Onloader()
-    const response = await axiosInstance.post("/cart", { usuarioID, productoID, cantidad })
-    fetchCarrito(userId)
-    Offloader()
-
-  }
-
-
-
+    Onloader();
+    const response = await axiosInstance.post("/cart", {
+      usuarioID,
+      productoID,
+      cantidad,
+    });
+    fetchCarrito(userId);
+    Offloader();
+  };
 
   //funcion para disminuir cantidad
   const CambiarCantidad = (_id) => {
@@ -57,8 +54,9 @@ const ProductCard = ({
 
     const usuarioID = userId;
     const productoID = _id;
-    postCart({ usuarioID, productoID, cantidad })
-  }
+    postCart({ usuarioID, productoID, cantidad });
+  };
+
   //funcion para eliminar un producto
   const EliminarProducto = (producto) => {
     Swal.fire({
@@ -70,24 +68,20 @@ const ProductCard = ({
       confirmButtonColor: "#E74C3C",
       cancelButtonColor: "#ABB2B8",
       confirmButtonText: "Eliminar",
-    }).then(async(result) => {
+    }).then(async (result) => {
       if (result.value) {
-        
-        console.log("usuarioId" + userId)
-        Onloader()
+        console.log("usuarioId" + userId);
+        Onloader();
         const response = await axiosInstance.delete(`/cart/${producto._id}`, {
           data: {
-            usuarioId: userId
-          }
-        })
-        fetchCarrito(userId)
-        Offloader()
+            usuarioId: userId,
+          },
+        });
+        fetchCarrito(userId);
+        Offloader();
       }
     });
   };
-
-  
-
 
   return (
     <Container className="mt-2 mb-3 product-card border">
@@ -107,10 +101,12 @@ const ProductCard = ({
                   <h4>{nombre}</h4>
                 </Col>
                 <Col>
-                {!loader ? (<Button onClick={() => EliminarProducto(producto)} className="close">
+                  <Button
+                    onClick={() => EliminarProducto(producto)}
+                    className="close"
+                  >
                     <FaRegTrashAlt className="trash-icono" />
-                  </Button>) : (<Spinner animation="border" variant="danger" />)}
-                  
+                  </Button>
                 </Col>
               </Row>
             </Col>
@@ -125,43 +121,55 @@ const ProductCard = ({
                 <Col xs="auto" className="d-flex justify-content-center">
                   <Row className="w-100">
                     <Col className="d-flex align-items-center justify-content-center">
-                      {!loader ? (<Button
-                        size="sm"
-                        variant="outline-info"
-                        onClick={() => addCart(_id)}
-                      >
-                        <FaPlus />
-                      </Button>) :
-                        (<Button
+                      {!loader ? (
+                        <Button
+                          size="sm"
+                          variant="outline-info"
+                          onClick={() => addCart(_id)}
+                        >
+                          <FaPlus />
+                        </Button>
+                      ) : (
+                        <Button
                           disabled
                           size="sm"
                           variant="outline-info"
                           onClick={() => addCart(_id)}
                         >
                           <FaPlus />
-                        </Button>)}
-
+                        </Button>
+                      )}
+                    </Col>
+                    <Col
+                      xs="auto"
+                      className="d-flex align-items-center justify-content-center"
+                    >
+                      {!loader ? (
+                        <h3>{cantidadProducto}</h3>
+                      ) : (
+                        <Spinner animation="border" variant="primary" />
+                      )}
                     </Col>
                     <Col className="d-flex align-items-center justify-content-center">
-                      {!loader ? (<h3>{cantidadProducto}</h3>) : <Spinner animation="border" variant="primary" />}
-                    </Col>
-                    <Col className="d-flex align-items-center justify-content-center">
-                      {!loader ? (<Button
-                        disabled={cantidadProducto === 1}
-                        size="sm"
-                        variant="outline-danger"
-                        onClick={() => CambiarCantidad(_id)}
-                      >
-                        <FaMinus />
-                      </Button>) : (<Button
-                        disabled
-                        size="sm"
-                        variant="outline-danger"
-                        onClick={() => CambiarCantidad(_id)}
-                      >
-                        <FaMinus />
-                      </Button>)}
-
+                      {!loader ? (
+                        <Button
+                          disabled={cantidadProducto === 1}
+                          size="sm"
+                          variant="outline-danger"
+                          onClick={() => CambiarCantidad(_id)}
+                        >
+                          <FaMinus />
+                        </Button>
+                      ) : (
+                        <Button
+                          disabled
+                          size="sm"
+                          variant="outline-danger"
+                          onClick={() => CambiarCantidad(_id)}
+                        >
+                          <FaMinus />
+                        </Button>
+                      )}
                     </Col>
                   </Row>
                 </Col>
