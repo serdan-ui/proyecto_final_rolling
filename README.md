@@ -4,12 +4,12 @@
   </a>
 </p>
 
-<h3 align="center">Gaming Store</h3>
+<h1 align="center">Gaming Store</h1>
 
-<p align="center">
+<h4 align="center">
   Un e-commerce con todo lo necesario para introducirse en el mundo de los videojuegos.
   <br>
-</p>
+</h4>
 
 ## Available Scripts
 
