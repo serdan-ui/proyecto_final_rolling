@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://i.ibb.co/z7JnsPg/Zero-Tech-Purple.png">
-    <img src="https://i.ibb.co/z7JnsPg/Zero-Tech-Purple.png" alt="logo" height="300">
+    <img src="https://i.ibb.co/z7JnsPg/Zero-Tech-Purple.png" alt="logo" height=300 >
   </a>
 </p>
 
