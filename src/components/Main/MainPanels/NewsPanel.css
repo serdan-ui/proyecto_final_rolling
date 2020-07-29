@@ -24,6 +24,12 @@
   background-color: rgba(55, 38, 82, 0.96) !important;
   border-color: rgba(52, 36, 77, 0.96) !important;
 }
+
+#BtnSiguiente-disabled {
+  background-color: rgba(55, 38, 82, 0.96) !important;
+  border-color: rgba(52, 36, 77, 0.96) !important;
+}
+
 #BtnSiguiente:hover {
   background-color: rgba(75, 56, 105, 0.96) !important;
   border-color: rgba(75, 57, 105, 0.96) !important;

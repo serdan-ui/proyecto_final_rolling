@@ -17,6 +17,18 @@ const NewsPanel = () => {
     Math.floor(Math.random() * 19)
   );
 
+  const [validandoCompra, setValidandoCompra] = useState();
+  function simularCargando() {
+    return new Promise((resolve) => setTimeout(resolve, 4000));
+  }
+  useEffect(() => {
+    if (validandoCompra) {
+      simularCargando().then(() => {
+        setValidandoCompra(false);
+      });
+    }
+  }, [validandoCompra]);
+
   const GenerarNumeroAleatorio = () => {
     setNumeroAleatorio(Math.floor(Math.random() * 19));
   };
@@ -164,12 +176,24 @@ const NewsPanel = () => {
                 <Row className="">
                   <Col className="d-flex justify-content-center">
                     <Button
-                      id="BtnSiguiente"
+                      id={validandoCompra?"BtnSiguiente-disabled":"BtnSiguiente"}
                       className="w-100 text-uppercase"
                       variant="dark"
-                      onClick={GenerarNumeroAleatorio}
+                      onClick={() =>
+                        GenerarNumeroAleatorio() || setValidandoCompra(true)
+                      }
+                      disabled={validandoCompra}
                     >
-                      Siguiente
+                      {validandoCompra ? (
+                        <div
+                          className="spinner-border spinner-border-sm"
+                          role="status"
+                        >
+                          <span className="sr-only">Loading...</span>
+                        </div>
+                      ) : (
+                        "Siguiente"
+                      )}
                     </Button>
                   </Col>
                   <Col className="d-flex justify-content-center">
