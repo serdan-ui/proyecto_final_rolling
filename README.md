@@ -38,12 +38,12 @@ La web de ZeroTech fué construida con las siguientes librerías y framework:
 - [Sweet Alert 2](https://sweetalert2.github.io/)
 
 ## Nuestro Equipo!
-[![](https://avatars3.githubusercontent.com/u/17089396?v=4&s=80)](https://github.com/sergiorosales9) [![](https://avatars3.githubusercontent.com/u/17089396?v=4&s=80)](https://github.com/maudrani) [![](https://avatars3.githubusercontent.com/u/17089396?v=4&s=80)](https://github.com/ni-romero) [![](https://avatars3.githubusercontent.com/u/17089396?v=4&s=80)](https://github.com/rochyscarlata)
+[![](https://avatars2.githubusercontent.com/u/57714207?s=400&u=6495783bf9e3d36aad8b0e7f1325a63faa924dde&v=4)](https://github.com/sergiorosales9) [![](https://avatars3.githubusercontent.com/u/17089396?v=4&s=80)](https://github.com/maudrani) [![](https://avatars3.githubusercontent.com/u/17089396?v=4&s=80)](https://github.com/ni-romero) [![](https://avatars3.githubusercontent.com/u/17089396?v=4&s=80)](https://github.com/rochyscarlata)
 
 ### Ramnificación del Proyecto
 (se evitaron directorios repetitivos para evitar el largo de la estructura)
 
-.
+```text
 ├── public
 │   ├── image
 │   │   ├── Products
@@ -153,7 +153,9 @@ La web de ZeroTech fué construida con las siguientes librerías y framework:
 │   ├── Mouse.jpg
 │   ├── serviceWorker.js
 │   └── setupTests.js
-
+```
 
 Esperamos disfrutes de la web!
+<br>
+<br>
 ZeroTech Team.
