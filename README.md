@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://i.ibb.co/z7JnsPg/Zero-Tech-Purple.png">
-    <img src="https://i.ibb.co/z7JnsPg/Zero-Tech-Purple.png" alt="logo" width="400" height="190">
+    <img src="https://i.ibb.co/z7JnsPg/Zero-Tech-Purple.png" alt="logo" width="400" height="175">
   </a>
 </p>
 
@@ -20,22 +20,14 @@ Es una web dedicada principalmente al Gaming, incluyendo ventas de componentes, 
 1 -  Comenzarémos por clonar ambos repositorios:
 - FrontEnd: https://github.com/sergiorosales9/proyecto_final_rolling
 - BackEnd: https://github.com/sergiorosales9/BackendProyectofinal
+ 
+2 - Luego usaremos el comando ### `npm install` por consola, para instalar todas las dependencias que el proyecto requiere.
 
-2 - Luego usaremos el comando:
-### `npm install`
-para instalar todas las dependencias que el proyecto requiere.
+3 - Ejecuta la web mediante el comando ### `npm start` (tanto en tu proyecto FrontEnd como en el BackEnd).
 
-## Table of contents
+Listo! Ya tienes una previsualización de la web ZeroTech.
 
-- [Quick start](#quick-start)
-- [Status](#status)
-- [What's included](#whats-included)
-- [Bugs and feature requests](#bugs-and-feature-requests)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [Community](#community)
-- [Versioning](#versioning)
-- [Creators](#creators)
-- [Thanks](#thanks)
-- [Copyright and license](#copyright-and-license)
 
+## Sobre su Desarrollo
+La web de ZeroTech fué construida con las siguientes librerías y framework:
+- [ReactJS](https://es.reactjs.org/)
