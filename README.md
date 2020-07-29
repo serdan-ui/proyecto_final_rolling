@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://v5.getbootstrap.com/">
-    <img src="https://v5.getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap logo" width="200" height="165">
+  <a href="https://github.com/sergiorosales9/proyecto_final_rolling">
+    <img src="https://ibb.co/LJ5kS9y" alt="logo" width="200" height="165">
   </a>
 </p>
 
