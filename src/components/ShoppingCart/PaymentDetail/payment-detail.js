@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row, Container, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import CreditCard from "./card-credit";
@@ -14,8 +14,22 @@ let history= useHistory()
 
   const [metodoSeleccionado, setMetodoSeleccioando] = useState("");
   const [datosTarjeta, setDatosTarjeta] = useState();
+  const [validandoCompra, setValidandoCompra] = useState();
 
   const { register, errors, handleSubmit } = useForm();
+
+  function simularCargando() {
+    return new Promise((resolve) => setTimeout(resolve, 4000));
+  }
+
+  useEffect(() => {
+    if (validandoCompra) {
+      simularCargando().then(() => {
+        setValidandoCompra(false);
+      });
+    }
+  }, [validandoCompra]);
+
 
   //funcion para enviar el formulario de compra
   const Comprar = async(compra) => {
@@ -111,12 +125,19 @@ const detailEfectivo = () =>{
             </Button>
           ) : metodoSeleccionado === "Paypal" ? (
             <Button
-              onClick={() => detailEfectivo()}
-              className="mr-2"
+              onClick={() => detailEfectivo() || setValidandoCompra(true)}
+              className="mr-2 btn-cargando"
               variant="success"
               type="submit"
+              disabled={validandoCompra}
             >
-              Finalizar Compra
+              {validandoCompra ? (
+              <div className="spinner-border spinner-border-sm" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
+            ) : (
+              "Finalizar Compra"
+            )}
             </Button>
           ) : null}
 

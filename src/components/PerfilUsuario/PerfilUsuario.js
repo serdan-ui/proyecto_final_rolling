@@ -45,7 +45,7 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
        <br/>
         <h2 className="text-center text-white comprasRe"> Mi Perfil</h2>
         <div className="contenedorImgPer">
-          <Row className="perfilUsuario">
+          <Row className="perfilUsuario  shadow">
             <div className="xl-col-4 lg-col-4 xs-col-10 unoIMG">
               <img
                 src="https://image.freepik.com/vector-gratis/perfil-avatar-mujer-icono-redondo_24640-14042.jpg"
@@ -61,7 +61,7 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
         </div>
         <div className="p-3">
           <h2 className="comprasRe">Compras realizadas</h2>
-          <Table striped bordered hover variant="dark">
+          <Table striped bordered hover variant="dark" className="shadow">
             <thead>
               <tr>
                

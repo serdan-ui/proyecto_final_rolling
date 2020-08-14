@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Form, Row, Container, Card } from "react-bootstrap";
-import paypalLogo from "../../assets/paypal-logo.svg";
+import rapipLogo from "../../assets/Rapipago.png";
 import "./styles.css";
 
 const PaypalCard = (props) => {
@@ -27,19 +27,18 @@ const PaypalCard = (props) => {
             <Card.Title>
               <Row className="d-flex flex-column">
                 <Col>
-                  <h5>Paypal</h5>
+                  <h5>RapiPago</h5>
                 </Col>
                 <Col>
                   <h6>
-                    Utilizar PayPal como forma de pago (requiere inicio de
-                    sesion)
+                    Utiliza el servicio de RapiPago para realizar la compra.
                   </h6>
                 </Col>
               </Row>
             </Card.Title>
           </Col>
           <Col className="d-flex align-items-start mt-2 ">
-            <Card.Img src={paypalLogo} height="45" />
+            <Card.Img src={rapipLogo} height="45" />
           </Col>
         </Row>
       </Container>

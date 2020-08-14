@@ -1,29 +1,37 @@
+body {
+  overflow-x: hidden;
+}
+
+.carrousel-container{
+  position: relative;
+}
+
+.carrousel-container img {
+  max-height: 80vh;
+  min-height: 80vh;
+}
+
+.cardProduct-img{
+  
+}
+
 .card-articulo {
   max-height: 350px;
 }
 .contenedor-mostrador {
   height: auto;
 }
-
-/* .cardProduct {
-border: 1px inset rgb(175, 90, 164) !important;
-border-image: linear-gradient(to right, #2387ca, #77B300) !important;
-border-image-slice: 1 !important;
-background-color: transparent !important;
-color: white;
-z-index: 1;
-} */
 .cardProduct {
   background-color: #212121 !important;
   color: whitesmoke;
-  box-shadow: 4px 4px 4px 4px #424242;
   position: relative;
   transition: 0.5s;
+  border: solid 2px rgb(27, 26, 36) !important;
 }
 
 .cardProduct:hover {
   background-color: #363636 !important;
-  width: 100.1% !important;
+  border: solid 2px rgb(60, 56, 85) !important;
 }
 .sinStock{
   position: relative !important;
@@ -57,13 +65,30 @@ z-index: 1;
   background-color: #212121 !important;
   color: whitesmoke;
 }
-.carrousel-container {
-  padding-right: 0px;
-  padding-left: 0px;
-}
+
 .container-fluid {
   padding-right: 0% !important;
   padding-left: 0% !important;
+}
+
+.btnVerMas{
+  background-color: rgb(31, 42, 58) !important;
+  border: solid 0px !important;
+}
+
+.btnVerMas:hover{
+  background-color: rgb(57, 76, 105) !important;
+  border: solid 0px !important;
+}
+
+.btnAgregar{
+  background-color: rgb(82, 70, 146) !important;
+  border: solid 0px !important;
+}
+
+.btnAgregar:hover{
+  background-color: rgb(104, 88, 190) !important;
+  border: solid 0px !important;
 }
 
 /* media querys */

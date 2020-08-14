@@ -226,12 +226,13 @@ const FormRegister = () => {
           </Col>
         </Form.Group>
         <Form.Group>
-          <Col>
+          <Col className="d-flex justify-content-center">
             <Button
+              id="BtnLogin"
               type="submit"
-              className="btn-lg  btn-dark btn-block btn-env"
+              className="btn-lg w-50  btn-block shadow"
             >
-              Enviar
+              CREAR
             </Button>
           </Col>
         </Form.Group>

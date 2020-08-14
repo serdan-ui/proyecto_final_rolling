@@ -1,8 +1,8 @@
-
 .Container_Header {
-  background: #171717;
-  padding: 0 !important;
-  
+  background-color: rgba(32, 45, 68, 0.7);
+  border-bottom: solid 1px #171d2b;
+  position: relative;
+  z-index: 10;
 }
 .container_logo {
   display: flex;
@@ -10,11 +10,15 @@
   justify-content: space-between;
   flex: 1;
 }
+
+.clase{
+  overflow: scroll !important;
+}
  .containerCart{
- overflow-x:hidden ;
-  overflow-y: auto;
-  min-height: 300px;
-  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  height: 400px !important;
+  background-color: whitesmoke;
 } 
 
 .logo {
@@ -27,12 +31,14 @@
   line-height: 70px;
   color: white;
   font-weight: bold;
-  width: 50pxpx !important;
+  width: 50px !important;
 }
+
 .logo_imagen_header {
-  margin-left: 20px;
-  width: 30vw;
+  max-height: 3rem !important;
+  transition: 0.3s;
 }
+
 .login_registro_header {
   display: flex;
   flex-direction: row;
@@ -40,19 +46,180 @@
   align-items: center;
 }
 .login_registro_header span{
-  color: whitesmoke;
+  color: rgb(223, 177, 177);
 }
 .login_registro_header button {
   height: 40px;
 }
 .btnLogin_header {
-  background: #171717 !important;
-  color: #19ED18!important;
-  border: 1px solid #19ED18 !important;
-  font-weight: bold !important;
+  width: 10em !important;
+  background: rgba(99, 53, 160, 0.7) !important  ;
+  color: #f1f1f1!important;
+  border: 0px solid #171f33  !important;
+  font-weight: bolder !important;
+  transition: 0.2s !important;
 }
 .btnLogin_header:hover {
-  background: rgb(4, 4, 68);
+  background:rgba(133, 61, 228, 0.7)!important;
+  box-shadow: 0px 0px 20px 0px rgba(126, 50, 226, 0.4) !important;
+}
+
+.btnNav_header {
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none !important;
+  height: 5rem !important;
+  min-width: 8rem !important;
+  margin-bottom: -8px !important;
+  margin-top: -8px !important;
+  transition: 0.4s;
+}
+.btnNav_header:hover {
+/*   background-color: rgba(33, 42, 61, 0.6) !important; */
+background-color: rgba(99, 53, 160, 0.4) !important;
+}
+
+.btnNav_mainFont{
+  margin-top: 8px;
+  font-weight: bolder !important;
+  color: #ffffff !important;
+}
+
+.btnNav_secondFont{
+  font-size: smaller;
+  font-weight: bolder;
+  color: #998d8d;
+}
+.btnNav_usernameFont{
+  margin-top: 8px;
+  /* font-weight: bolder !important; */
+  color: #ffffff !important;
+}
+.btnUsername-collapse{
+  font-size: 2rem;
+  color: white !important;
+}
+
+.btnDropdown-username{
+  background-color: rgba(97, 56, 56,0.0) !important;
+  border: rgba(97, 56, 56,0.0) !important;
+  width: 2.5rem;
+  border-radius: 0px !important;
+  background-color: rgba(102, 88, 119, 0.1) !important;
+}
+.btnDropdown-username:hover{
+  background-color: rgba(32, 45, 68, 0.5) !important;
+}
+.btnUsername:hover{
+  background-color: rgba(30, 50, 83, 0.5) !important;
+}
+#DropDown-username{
+  background-color: rgb(221, 221, 221);
+  min-width: 8rem !important;
+}
+.dropDown-font{
+  transition: 0.2s;
+  color: rgb(26, 26, 26) !important;
+}
+.dropDown-font:hover{
+  background-color: rgba(30, 50, 83, 0.7) !important;
+}
+.dropDown-cerrarSesion{
+  color: white !important;
+  font-size: 1.2rem !important;
+  background-color: rgba(73, 39, 117, 0.8) !important;
+  color: rgba(237, 224, 255, 1) !important;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+.dropDown-cerrarSesion:hover{
+  background-color: rgb(85, 46, 136) !important;
+}
+
+@media (max-width: 991px) {
+  
+  .navbar-desplegable {
+    border-top: solid 1px rgb(34, 43, 61);
+  }
+  .Container_Header{
+    background-color: rgba(22, 28, 41, 0.97) !important;
+  }
+  .btnLogin-out {
+    display: none !important;
+  }
+  .logo_imagen_header{
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    width: 7rem !important;
+  }
+  .btnNav_header {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+    height: 4rem !important;
+  }
+}
+@media (min-width: 992px) {
+  .btnLogin-collapse {
+    display: none !important;
+  }
+}
+
+.btnCart_header {
+  width: 80px;
+  height: 70px;
+  font-weight: bold !important ;
+  position: fixed;
+  right: 10px; 
+  background:rgba(107, 49, 182, 0.6) !important;
+  border:rgba(133, 61, 228, 0.7) !important;
+  color: whitesmoke;
+}
+
+
+
+.btnCart_header:hover {
+  background:rgba(107, 49, 182, 0.8) !important;
+}
+.icons_header_cart{
+  font-size: 30px;
+  margin-top: 8px;
+   color:rgba(255, 255, 255, 1)
+}
+.cardProducto-Cart{
+  background-color: whitesmoke !important;
+}
+
+.btnCartOpen{
+  font-family: 'Montserrat', sans-serif;
+  border: solid 3px rgba(66, 32, 112, 0.8)  !important;
+  border-radius: 10px;
+  position: fixed;
+  width: 500px;
+  max-width: 120vh !important;
+  min-height: 100px;
+  background-color: whitesmoke;
+  right: 18px !important;
+  box-shadow: -8px 6px 59px 8px rgba(0,0,0,0.75);
+}
+
+.btnCart-Color{
+  background:rgba(107, 49, 182, 0.6) !important;
+  border:rgba(133, 61, 228, 0.7) !important;
+}
+
+@media (max-width: 414px) {
+  .btnCart_header {
+    right: -6px !important; 
+    margin-top: 550px;
+    background:rgba(107, 49, 182, 0.8) !important;
+  }
+  .btnCartOpen{
+    width: 98% !important;
+    right: 1px !important;
+  }
+}
+
+#padreContainer{
+  overflow-y: scroll !important;
 }
 .btnLogin_header_logout{
   background: #171717 !important;
@@ -65,8 +232,8 @@
   color: #168516 !important;
 }
 .estilosTitulosbtn{
-  background-color: #212121 !important;
-  color: whitesmoke;
+  background-color: #cc2626 !important;
+  color: rgb(245, 245, 245);
   border: none;
 }
 .productitoslistados{
@@ -74,31 +241,8 @@
   color: whitesmoke;
   border: none !important;
   padding: 0px !important;
-
 }
 
-.nav_header {
-  border-top: 1px solid rgb(95, 233, 95);
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #212121;
-}
-
-.btnNav_header {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 6px 30px;
-  text-decoration: none !important;
-  border-left: 0.8px solid rgb(95, 233, 95);
-  border-right: 0.8px solid rgb(95, 233, 95);
-  border-top: none;
-}
-.btnNav_header:hover {
-  color: #19ED18;
-}
 .redesociales {
   color: aliceblue;
 }
@@ -115,207 +259,115 @@
 .columna-info {
   padding-left: 30px !important;
 }
-.btnCart_header {
-  width: 80px;
-  height: auto;
-  font-weight: bold !important ;
-  position: fixed;
-  z-index: 2;
-  right: -8px !important;
-  background: #212121 !important;
-  border: 1px solid yellowgreen !important;
-  color: whitesmoke;
-  
-}
-.icons_header_cart{
-  font-size: 30px;
-  margin-top: 8px;
-   color:#18e317;
-}
-.imgCartBtn{
-  height: 15vh;
-  width: 10vw;
 
-}
 
-.btnCartOpen{
-  border: none !important;
-  box-shadow: 1px 0px 5px 1px #19ED18;
-  position: fixed;
-  width: 500px;
-  min-height: 100px;
-  background-color: #212121;
-  font-weight: bold !important ;
-  z-index: 10;
-  right: 0px !important;
-  z-index: 16 ;
- 
-}
-#padreContainer{
-  overflow-y: scroll !important;
-
-}
 /*? FOOTER */
-
-
 
 .container_footer {
   position: relative;
-  bottom: 0px ;
-  background-color: #212121;
-  border-top: 2px groove #a19842;
+  z-index: 8;
+  overflow: hidden !important;
+  bottom: 0 ;
+  background-color: #111111 !important;
+  border-top: 1px solid #161c29;
+  box-shadow: 0px -5px 0px 0px rgba(24, 24, 24, 0.7);
 }
 
-.footer_disclaimer {
-  color: #9c9341;
-  min-height: 4rem;
-  border-top: 1px solid rgb(67, 68, 25);
+.footer-section {
+  font-family: 'Montserrat', sans-serif;
+  color: #7e7e7e;
+  min-height: 5rem !important;
 }
 
-.vl {
-  border-left: 1px solid rgb(67, 68, 25);
-  height: 200px;
-  margin-top: 40px;
-}
-
-.social-menu ul {
-  position: absolute;
-  top: 25%;
-  left: 50%;
-  padding: 0;
-  margin: 0;
-  transform: translate(-50%, 50%);
+.footer-menu-link-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+  cursor: pointer;
+  border-bottom: solid 1px #161c29;
 }
 
-.social-menu ul li{
-  list-style: none;
-  margin: 0 30px;
+.footer-menu-link-container:hover {
+  background-color: #161c29;
 }
 
-.social-menu ul li .media-icon{
-  height: 20px;
-  line-height: 60px;
-  transition: .6s;
-  margin-top: 10px;
-  color: #000000;
+.footer-menu-link-container:hover .footer-menu-list-link{
+  color: white !important;
 }
 
-.social-menu ul li a{
+.footer-menu-list-link{
+  min-height: 4rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none !important;
+  color: #7e7e7e !important;
+  font-weight: bolder;
+}
+
+.social-menu-a{
+  top: 20%;
   position: relative;
   display: block;
   width: 40px;
   height: 40px;
   border-radius: 50px;
-  background-color: rgb(177, 182, 47);
+  background-color: #7e7e7e;
   text-align: center;
+  transition: .3s;
+}
+
+.social-menu-a:hover {
+  transform: translate(0, -5px);
+}
+
+.media-icon{
+  height: 20px;
+  line-height: 60px;
   transition: .6s;
-  box-shadow: 0 5px 4px rgba(0,0,0,.5);
+  margin-top: 10px;
+  color: white !important;
 }
 
-.social-menu ul li a:hover {
-  transform: translate(0, -10px);
-}
-
-
-.footer_submenu {
-  margin-top: 20px;
-}
-
-.footer_submenu ul a{
-  margin-top: 3px;
-}
-
-.container_footer a {
-  
-  color: rgb(161, 165, 59) !important;
-}
-
-.container_footer h5 {
-  
-  color: rgb(167, 170, 63);
-}
-
-.social-menu ul li:nth-child(1) a:hover {
+.fb-icon:hover {
   background-color: #3a5797;
 }
 
-.social-menu ul li:nth-child(2) a:hover {
+.tw-icon:hover {
   background-color: #55acee;
 }
-.social-menu ul li:nth-child(3) a:hover {
+.insta-icon:hover {
   background-color: #e4405f;
+}
+
+.footer-disclaimer{
+  font-size: 0.7rem;
+}
+
+.footer-disclaimer-option{
+  text-decoration: none !important;
+  border-bottom: solid 0.1px #7e7e7e;
+  color: #7e7e7e !important;
+  font-size: 0.8rem;
+}
+
+
+@media (max-width: 766px) {
+  .footer-disclaimer-option{
+    font-size: 0.6rem;
+  }
 }
 
 
 @media (max-width: 938px) {
   .container_footer {
-    bottom: 0;
-    z-index: -1;
     overflow: hidden;
-    position: sticky; 
-    height: 40%;
-    display: flex;
-    align-items: center;
-  }
-
-  .vl{
-    border-left: 1px solid rgb(83, 85, 29);
-    height: 150px;
-    margin-top: 50px;
-  }
-
-  .social-menu ul {
-    display: flex;
-    flex-direction: column;
-    top: -40%;
-  }  
-  
-  .iframe-mapa {
-    height: 1px;
-    width: 1px;
-    visibility: hidden;
-  }
-
-  .f_submenu_2, .f_submenu_3 {
-    visibility: hidden;
-  }
-
-  .container_footer h5 {
-    margin-left: 60px;
-  }
+  } 
 }
 
-@media (max-width: 414px) {
-  .container_footer h5 {
-    margin-left: 60px;
-  }
-
-  .social-menu ul {
-    top: -10%;
-  }  
-
-  .social-menu ul li a {
-    display: flex;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    margin-bottom: 20px;
-  }
-
-  .media-icon {
-    margin: 6px 0;
-    align-self: center;
-    height: 75% !important;
-  }
-
-  .f_submenu_2, .f_submenu_3 {
-    visibility: hidden;
-  }
-}
 .btnCartOpen button.btnCart_header{
   display: none;
-  
 }     
 .cuerpoCart button.cartClose{
   display: none;
@@ -330,39 +382,15 @@
   display: none;
 }
 
-
-/* Media para 600px */
-@media (max-width: 600px) {
-  .btnLogin_header {
-    width: 130px;
-    font-size: 13px !important;
-  }
-  .btnCart_header {
-    line-height: 15px !important;
-    width: 70px;
-    height: 30px;
-    font-size: 14px !important;
-  }
-  .icons_header {
-    display: none;
-  }
-}
 @media (min-width: 340px) and (max-width: 600px){
   .btnCartOpen{
-    width: 90%;
-    
-
+    width: 90%;  
   }
 }
 
 @media (max-width: 340px) {
   .btnLogin_header {
     width: 130px;
-    font-size: 11px !important;
-  }
-  .btnCart_header {
-    width: 60px;
-    height: 30px;
     font-size: 11px !important;
   }
 }

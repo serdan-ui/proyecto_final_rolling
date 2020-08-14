@@ -110,6 +110,7 @@ const ShoppingCheckout = ({ authen, setAuthen, usuario, userId }) => {
 
   return (
     <Fragment>
+      <Container fluid className="background-checkout">
       <HeaderStatic authen={authen} setAuthen={setAuthen} usuario={usuario} />
 
       <Container className="shopping-detail-container rounded mt-5 mb-5">
@@ -154,6 +155,7 @@ const ShoppingCheckout = ({ authen, setAuthen, usuario, userId }) => {
       </Container>
 
       <Fotter />
+      </Container>
     </Fragment>
   );
 };
