@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import LoginContainer from "./LoginContainer";
-import Sidebar from "./Sidebar";
 import Register from "../Register/Register";
-import Doodles from "../Images/various-svg/Doodles.svg";
 import Loguito from "../Images/Zero-Images/Zero-Tech-Black.svg";
 
 // estilos del componente

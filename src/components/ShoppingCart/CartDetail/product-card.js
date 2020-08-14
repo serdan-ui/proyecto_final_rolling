@@ -75,7 +75,7 @@ const ProductCard = ({
         
         console.log("usuarioId" + userId)
         Onloader()
-        const response = await axiosInstance.delete(`/cart/${producto._id}`, {
+         await axiosInstance.delete(`/cart/${producto._id}`, {
           data: {
             usuarioId: userId
           }

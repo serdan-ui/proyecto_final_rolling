@@ -4,7 +4,7 @@ import Mostrador from "./Mostrador";
 import Header from "../Layout/Header";
 import Fotter from "../Layout/Fotter";
 import ZeroDisclaimer from "./ZeroDisclaimer";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import "./main-styles.css";
 
 import {CircleArrow as ScrollUpButton} from "react-scroll-up-button";
@@ -36,6 +36,7 @@ const Main = ({
 
   useEffect(() => {
     autenticar();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Fragment>

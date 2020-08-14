@@ -57,7 +57,7 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito, authen }) => {
   //funcion para eliminar los productos del carrito
   const deleteCart = async (_id) => {
     Onloader();
-    const response = await axiosInstance.delete(`/cart/${_id}`, {
+     await axiosInstance.delete(`/cart/${_id}`, {
       data: {
         usuarioId: userId,
       },
@@ -73,7 +73,7 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito, authen }) => {
   };
   const handleCantidad = async (e) => {
     const cantidad = e.target.value;
-    const response = await axiosInstance.post("/cart", {
+     await axiosInstance.post("/cart", {
       cantidad,
       usuarioID: userId,
       productoID: productoId,
@@ -177,7 +177,7 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito, authen }) => {
                                     optionSelect(product.productoId.stock).map(
                                       (opcion) => (
                                         <>
-                                          {opcion ==
+                                          {opcion ===
                                           product.cantidadProducto ? (
                                             <option value={opcion} selected>
                                               {opcion}

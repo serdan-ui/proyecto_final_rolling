@@ -58,6 +58,7 @@ const Admin = () => {
               <br />
               <ul style={{ marginLeft: "15px" }}>
                 <li>
+             {/*eslint-disable-next-line*/}
                   <a>
                     <i class="fa fa-bar-chart-o fa-2x"></i>
                     <span class="nav-text" onClick={(e) => cambiar(e)}>
