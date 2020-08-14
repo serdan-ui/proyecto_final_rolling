@@ -30,7 +30,9 @@ const PagoExitoso = ({fecha,venta}) => {
                 <Card.Header className="card-exit"><h5 className="text-white">¡ Pago exitoso !</h5></Card.Header>
 
                 <Card.Body className="imgeexit">
-                  <img src="https://thumbs.gfycat.com/ConstantThornyGalapagospenguin-small.gif"
+                  <img 
+                  alt="imagen"
+                  src="https://thumbs.gfycat.com/ConstantThornyGalapagospenguin-small.gif"
                     style={{ height: '200px' }}></img>
                   <Card.Text>
                     <h5>  <strong>¡Su pago fue procesado exitosamente!</strong></h5>

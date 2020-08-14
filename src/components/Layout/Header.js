@@ -11,16 +11,10 @@ import {
   Dropdown,
   ButtonGroup,
 } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import "./styles.css";
 import Loguito from "../Images/Zero-Images/Inset/Zero-Tech-White.svg";
 import BtnCart from "./BtnCart";
-import {
-  FaUser,
-  FaShareSquare,
-  FaUserAlt,
-  FaShoppingCart,
-} from "react-icons/fa";
 
 const Header = ({
   products,
@@ -50,6 +44,7 @@ const Header = ({
     return () => {
       //
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [usuario]);
 
   return (

@@ -16,7 +16,8 @@ function CuponModal({ setDescuento, subtotal, setDetalleCupon,detalleCupon,hayCu
   }
 
   useEffect(() => {
-    hayCupon && setDescuento((detalleCupon.descuento * subtotal) / 100)
+    hayCupon && setDescuento((detalleCupon.descuento * subtotal) / 100);
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subtotal])
 
   useEffect(() => {
@@ -29,6 +30,7 @@ function CuponModal({ setDescuento, subtotal, setDetalleCupon,detalleCupon,hayCu
           setMostrarModal(false)
         : setHayCupon(false)
     );
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [validandoCupon]);
 
   useEffect(() => {
@@ -37,6 +39,7 @@ function CuponModal({ setDescuento, subtotal, setDetalleCupon,detalleCupon,hayCu
         setValidandoCupon(false);
       });
     }
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [validandoCupon]);
 
   const onSubmit = (datos) => {

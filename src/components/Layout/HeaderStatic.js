@@ -11,10 +11,9 @@ import {
   Dropdown,
   ButtonGroup,
 } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import "./styles.css";
 import Loguito from "../Images/Zero-Images/Inset/Zero-Tech-White.svg";
-import { FaUser, FaShareSquare } from "react-icons/fa";
 
 const HeaderStatic = ({ authen, setAuthen, usuario }) => {
   let history = useHistory();

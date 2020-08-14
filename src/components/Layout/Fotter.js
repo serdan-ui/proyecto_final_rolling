@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Loguito from "../Images/Zero-Images/Zero-Tech-Grey.svg";
 import fbIcon2 from "../assets/icons/facebook2.svg";
 import twIcon from "../assets/icons/twitter.svg";
@@ -10,7 +10,6 @@ import {
   FaCcVisa,
   FaCcMastercard,
   FaCcAmex,
-  FaPaypal,
   FaCcPaypal,
 } from "react-icons/fa";
 import "./styles.css";

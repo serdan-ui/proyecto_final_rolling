@@ -34,9 +34,13 @@ const ListTurn = (userId) => {
   };
   useEffect(() => {
     fetchTurnos();
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+
     return () => {
       //
     };
+        //eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [userId]);
 
   const borrarTurno = async (_id) => {

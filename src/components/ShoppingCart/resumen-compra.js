@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import { FaWindowClose } from "react-icons/fa";
+import { Container, Row, Col,  } from "react-bootstrap";
 import CuponModal from "./cupon-launch";
 import CuponDetail from "./cupon-detail";
 import "./styles.css";
@@ -37,7 +36,9 @@ const ResumenCompra = ({
    setDetailCheckout({...detailCheckout,
     total:valorTotal,
     subtotal:subtotal
-  })
+  })   
+   //eslint-disable-next-line react-hooks/exhaustive-deps
+
  }, [valorTotal])
 
 

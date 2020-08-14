@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { CircleArrow as ScrollUpButton } from "react-scroll-up-button";
 import {
   Row,
   Col,
@@ -8,15 +7,13 @@ import {
   Container,
   CardColumns,
   Dropdown,
-  Image,
+
 } from "react-bootstrap";
 import { FaCartPlus } from "react-icons/fa";
 import axiosInstance from "../util/axiosInstance";
 import swal from "sweetalert";
 import { Spinner } from "react-bootstrap";
 import Swal from "sweetalert2";
-import zIndex from "@material-ui/core/styles/zIndex";
-
 const Mostrador = ({ authen, userId, fetchCarrito }) => {
   // Estados
   const [productos, setProductos] = useState([]);
@@ -61,7 +58,7 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
         return (
           <Card key={producto._id} sm={12} className="cardProduct">
             <Card.Img
-              className={producto.stock == 0 ? "sinStock" : null}
+              className={producto.stock === 0 ? "sinStock" : null}
               variant="bottom"
               src={producto.imagen[0]}
               rounded
@@ -96,7 +93,7 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
                   <Col className="p-0 d-flex justify-content-center">
                     {!loader ? (
                       <Button
-                        disabled={producto.stock == 0 ? true : false}
+                        disabled={producto.stock === 0 ? true : false}
                         variant="success"
                         className="btnAgregar"
                         
@@ -119,7 +116,7 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
       return (
         <Card key={producto._id} sm={12} className="cardProduct">
           <Card.Img
-            className={producto.stock == 0 ? "sinStock" : null}
+            className={producto.stock === 0 ? "sinStock" : null}
             variant="bottom"
             src={producto.imagen[0]}
             rounded
@@ -154,7 +151,7 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
                 <Col className="p-0 d-flex justify-content-center">
                   {!loader ? (
                     <Button
-                      disabled={producto.stock == 0 ? true : false}
+                      disabled={producto.stock === 0 ? true : false}
                       variant="success"
                       className="btnAgregar"
                       
@@ -176,7 +173,7 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
       return (
         <Card key={producto._id} sm={12} className="cardProduct">
           <Card.Img
-            className={producto.stock == 0 ? "sinStock" : null}
+            className={producto.stock === 0 ? "sinStock" : null}
             variant="bottom"
             src={producto.imagen[0]}
             rounded
@@ -211,7 +208,7 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
                 <Col className="p-0 d-flex justify-content-center">
                   {!loader ? (
                     <Button
-                      disabled={producto.stock == 0 ? true : false}
+                      disabled={producto.stock === 0 ? true : false}
                       variant="success"
                       className="btnAgregar"
                       
@@ -240,7 +237,7 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
   const postCart = async (contenido) => {
     const { usuarioID, productoID, cantidad } = contenido;
     Onloader();
-    const response = await axiosInstance.post("/cart", {
+     await axiosInstance.post("/cart", {
       usuarioID,
       productoID,
       cantidad,
@@ -314,38 +311,3 @@ const Mostrador = ({ authen, userId, fetchCarrito }) => {
 
 export default Mostrador;
 
-{
-  /* <Col sm={2}>
-            <h3>Filtrar por: </h3>
-            <br />
-            <Dropdown onSelect={onSelecetCategoria}>
-              <Dropdown.Toggle
-                id="dropdown-basic"
-                style={{ backgroundColor: "#212121" }}
-              >
-                Categoria
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-              <Dropdown.Item eventKey="todos">Todos</Dropdown.Item>
-                <Dropdown.Item eventKey="auriculares">
-                  Auriculares
-                </Dropdown.Item>
-                <Dropdown.Item eventKey="monitores">Monitores</Dropdown.Item>
-                <Dropdown.Item eventKey="mouse">Mouse</Dropdown.Item>
-                <Dropdown.Item eventKey="sillas">Sillas</Dropdown.Item>
-                <Dropdown.Item eventKey="teclados">Teclados</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Col> */
-}
-
-{
-  /* <Col sm={12}>
-            <CardColumns>
-              {productos.map((producto) => (
-                <>{filtrarCategorias(producto)}</>
-              ))}
-            </CardColumns>
-          </Col>
- */
-}

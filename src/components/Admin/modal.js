@@ -1,5 +1,5 @@
 import React from 'react';
-import {Modal, Form, Button, Col, Row, } from 'react-bootstrap'
+import {Modal } from 'react-bootstrap'
 import { useForm } from "react-hook-form";
 import axiosInstance from "../util/axiosInstance";
 import Swal from 'sweetalert2';

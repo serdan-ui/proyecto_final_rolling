@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Button, Modal } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "antd/dist/antd.css";
 import { Table } from "antd";
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
@@ -54,6 +54,7 @@ const Productos = () => {
       dataIndex: "",
       key: "x",
       render: (data) => (
+        //eslint-disable-next-line
         <a onClick={() => cargarDatos(data)}>
           <EditOutlined />
           Editar
@@ -64,6 +65,7 @@ const Productos = () => {
       dataIndex: "",
       key: "x",
       render: (data) => (
+       //eslint-disable-next-line
         <a onClick={() => borrarTurno(data._id)}>
           <DeleteOutlined />
           Eliminar
@@ -88,7 +90,7 @@ const Productos = () => {
 
       <Container>
         <Table
-          // editarProd={editarProd}
+          
           bordered
           columns={columns}
           expandable={{

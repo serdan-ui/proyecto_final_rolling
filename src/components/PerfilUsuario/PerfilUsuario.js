@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { Col, Row, Container, Table, Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
+import {  Row, Container, Table } from "react-bootstrap";
 import axiosInstance from "../util/axiosInstance";
 import HeaderStatic from '../Layout/HeaderStatic';
 import moment from "moment";
@@ -9,7 +8,6 @@ import "moment/locale/es";
 import "./style.css";
 
 const PerfilUsuario = ({authen, setAuthen, usuario}) => {
-  let history = useHistory();
   const [ventas, setVentas] = useState([]);
 
   const traerVentas = async () => {
@@ -27,6 +25,7 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
   };
   useEffect(() => {
     traerVentas();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [usuario]);
 
   
@@ -48,6 +47,7 @@ const PerfilUsuario = ({authen, setAuthen, usuario}) => {
           <Row className="perfilUsuario  shadow">
             <div className="xl-col-4 lg-col-4 xs-col-10 unoIMG">
               <img
+                alt="imagen"
                 src="https://image.freepik.com/vector-gratis/perfil-avatar-mujer-icono-redondo_24640-14042.jpg"
                 className="imgperfil"
               ></img>

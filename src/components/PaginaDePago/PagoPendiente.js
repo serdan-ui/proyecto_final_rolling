@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Container, Button } from "react-bootstrap";
+import { Col, Row, Container } from "react-bootstrap";
 import "./style.css";
 
 const PagoPendiente = () => {

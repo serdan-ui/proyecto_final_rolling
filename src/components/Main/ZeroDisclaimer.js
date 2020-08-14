@@ -2,7 +2,6 @@ import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import "./styles.css";
 
-import GamePad from "../Images/various-svg/Gamepad-White.svg";
 import Loguito from "../Images/Zero-Images/Inset/Zero-Tech-Dark-Blue.svg";
 
 const ZeroDisclaimer = () => {

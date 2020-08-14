@@ -24,6 +24,7 @@ const PagoRechazado = () => {
 
                   <Card.Body>
                     <img
+                      alt="imagen"
                       className="imgrech"
                       src="https://media3.giphy.com/media/jnDMB1WvLilqjtmsG0/giphy.gif"
                     ></img>

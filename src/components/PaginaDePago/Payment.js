@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Card, Col, Row, Container } from "react-bootstrap";
-import { useHistory, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import PagoPendiente from "./PagoPendiente";
 import PagoExitoso from "./PagoExitoso";
 import PagoRechazado from "./PagoRechazado";
@@ -38,6 +37,7 @@ const Payment = () => {
     return () => {
       //
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

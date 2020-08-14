@@ -42,7 +42,7 @@ const ProductCard = ({
   const postCart = async (contenido) => {
     const { usuarioID, productoID, cantidad } = contenido;
     Onloader()
-    const response = await axiosInstance.post("/cart", { usuarioID, productoID, cantidad })
+     await axiosInstance.post("/cart", { usuarioID, productoID, cantidad })
     fetchCarrito(userId)
     Offloader()
 

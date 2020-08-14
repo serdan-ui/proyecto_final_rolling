@@ -29,7 +29,7 @@ const FormRegister = () => {
   };
 
   const verificarPass = (e) => {
-    if (password != e.target.value) {
+    if (password !== e.target.value) {
       setMessage(true);
     } else {
       setMessage(false);
@@ -50,7 +50,7 @@ const FormRegister = () => {
       try {
         const response = await axiosInstance.post("/register", newUser);
         if (response) {
-          const Toast = Swal.mixin({
+          Swal.mixin({
             toast: true,
             position: "top-end",
             showConfirmButton: false,
