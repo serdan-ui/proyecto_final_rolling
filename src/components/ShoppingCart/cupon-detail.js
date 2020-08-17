@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Fragment, useState, useEffect } from "react";
 import cupones from "./1 DB/cupones";
 import Loguito from "../Images/Zero-Images/Zero-Black.svg";
@@ -45,6 +46,7 @@ const CuponDetail = ({
         );
       });
     }
+    //eslint-disable-next-line
   }, [validandoCupon]);
 
   return (

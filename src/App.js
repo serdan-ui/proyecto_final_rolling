@@ -44,8 +44,7 @@ function App() {
 
   useEffect(() => {
     autenticar();
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-
+    //eslint-disable-next-line
   }, [authen]);
 
   return (

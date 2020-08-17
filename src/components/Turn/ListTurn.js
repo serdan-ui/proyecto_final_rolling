@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react/jsx-no-duplicate-props */
+     
+import  {React, useState, useEffect } from "react";
 import { Table, Container, Tooltip, OverlayTrigger } from "react-bootstrap";
 import InfoTwoToneIcon from "@material-ui/icons/InfoTwoTone";
 import MydModalWithGrid from "./modalInfoTurno";
@@ -6,7 +8,7 @@ import axiosInstance from "../util/axiosInstance";
 import moment from "moment";
 import "moment/locale/es";
 import Swal from "sweetalert2";
-
+  
 const ListTurn = (userId) => {
   const [turnos, setTurnos] = useState([]);
   const [data, setData] = useState({});
@@ -32,15 +34,10 @@ const ListTurn = (userId) => {
       }
     }
   };
+ 
   useEffect(() => {
     fetchTurnos();
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-
-    return () => {
-      //
-    };
-        //eslint-disable-next-line react-hooks/exhaustive-deps
-
+  /* eslint-disable-next-line */
   }, [userId]);
 
   const borrarTurno = async (_id) => {
@@ -56,6 +53,7 @@ const ListTurn = (userId) => {
      });
     
      fetchTurnos();
+     /*eslint-disable-next-line react-hooks/exhaustive-deps*/
     } catch (error) {
       
     }

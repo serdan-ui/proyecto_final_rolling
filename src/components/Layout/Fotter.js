@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
+
 import React from "react";
 import { Container, Row, Col, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -76,6 +76,7 @@ const Fotter = () => {
           <Col className="d-flex justify-content-center">
             <Row className="social-menu footer-section d-flex justify-content-center align-items-center">
               <Col>
+               {/*eslint-disable-next-line*/}
                 <a href="#" className="social-menu-a fb-icon shadow">
                   <Image
                     src={fbIcon2}
@@ -86,11 +87,13 @@ const Fotter = () => {
                 </a>
               </Col>
               <Col>
+               {/*eslint-disable-next-line*/}
                 <a href="#" className="social-menu-a tw-icon shadow">
                   <Image src={twIcon} className="media-icon" rounded />
                 </a>
               </Col>
               <Col>
+               {/*eslint-disable-next-line*/}
                 <a href="#" className="social-menu-a insta-icon shadow">
                   <Image src={instaIcon} className="media-icon" rounded />
                 </a>
@@ -113,16 +116,19 @@ const Fotter = () => {
           <Col className="d-flex justify-content-center">
             <Row className="footer-section d-flex justify-content-around justify-content-center align-items-start mt-3 w-50">
               <Col className="d-flex justify-content-center">
+                 {/*eslint-disable-next-line*/}
                 <a className="footer-disclaimer-option" href="#">
                   Política de Privacidad
                 </a>
               </Col>
               <Col className="d-flex justify-content-center">
+                 {/*eslint-disable-next-line*/}
                 <a className="footer-disclaimer-option" href="#">
                   Términos de uso
                 </a>
               </Col>
               <Col className="d-flex justify-content-center">
+                 {/*eslint-disable-next-line*/}
                 <a className="footer-disclaimer-option" href="#">
                   Pólitica de cookies
                 </a>

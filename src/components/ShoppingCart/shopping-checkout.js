@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { Fragment, useState, useRef, useEffect } from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import Slider from "react-slick";
@@ -80,10 +81,12 @@ const ShoppingCheckout = ({ authen, setAuthen, usuario, userId }) => {
 
   useEffect(() => {
     CalcularSubtotal();
+     /*eslint-disable-next-line*/
   }, [carrito]);
 
   useEffect(() => {
     fetchCarrito(userId);
+     /*eslint-disable-next-line*/
   }, [userId]);
 
   //Slider

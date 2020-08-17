@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col,  } from "react-bootstrap";
 import CuponModal from "./cupon-launch";
@@ -37,8 +38,7 @@ const ResumenCompra = ({
     total:valorTotal,
     subtotal:subtotal
   })   
-   //eslint-disable-next-line react-hooks/exhaustive-deps
-
+   //eslint-disable-next-line
  }, [valorTotal])
 
 

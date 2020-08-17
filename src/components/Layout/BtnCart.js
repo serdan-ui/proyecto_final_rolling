@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import {
   Button,
@@ -47,11 +48,12 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito, authen }) => {
   };
 
   const claseBotones = () => {
-    let classBot;
+   
     if (cartOpen) {
       return;
     } else {
-      return (classBot = "none");
+      
+      return ("none");
     }
   };
   //funcion para eliminar los productos del carrito
@@ -137,7 +139,7 @@ const BtnCart = ({ products, setCarrito, userId, fetchCarrito, authen }) => {
               {products.lenght === 0
                 ? null
                 : products.map((product) => (
-                    <Row className="mt-2 mb-2 rounded shadow cardProducto-Cart border-top">
+                    <Row key={product.productoId} className="mt-2 mb-2 rounded shadow cardProducto-Cart border-top">
                       <Col
                         className="d-flex justify-content-center align-items-center border-right"
                         xs={4}

@@ -51,7 +51,7 @@ const Admin = () => {
           {" "}
           <div className="col-2 opciones">
             <br />
-            <nav class="main-menu">
+            <nav className="main-menu">
               <h2 style={{ color: "white", textAlign: "center" }}>
                 Zero Technology
               </h2>
@@ -60,15 +60,16 @@ const Admin = () => {
                 <li>
              {/*eslint-disable-next-line*/}
                   <a>
-                    <i class="fa fa-bar-chart-o fa-2x"></i>
-                    <span class="nav-text" onClick={(e) => cambiar(e)}>
+                    <i className="fa fa-bar-chart-o fa-2x"></i>
+                    <span className="nav-text" onClick={(e) => cambiar(e)}>
                       Graficos
                     </span>
                   </a>
                 </li>
-                <li class="has-subnav">
+                <li className="has-subnav">
+                   {/*eslint-disable-next-line*/}
                   <a>
-                    <i class="fa fa-users fa-2x"></i>
+                    <i className="fa fa-users fa-2x"></i>
                     <span
                       className="nav-text"
                       name="usuario"
@@ -79,45 +80,50 @@ const Admin = () => {
                     </span>
                   </a>
                 </li>
-                <li class="has-subnav">
+                <li className="has-subnav">
+                   {/*eslint-disable-next-line*/}
                   <a>
-                    <i class="fa fa-list fa-2x"></i>
-                    <span class="nav-text" onClick={(e) => cambiar(e)}>
+                    <i className="fa fa-list fa-2x"></i>
+                    <span className="nav-text" onClick={(e) => cambiar(e)}>
                       TurnosPanel
                     </span>
                   </a>
                 </li>
-                <li class="has-subnav">
+                <li className="has-subnav">
+                    {/*eslint-disable-next-line*/}
                   <a href="#">
-                    <i class="fa fa-folder-open fa-2x"></i>
-                    <span class="nav-text" onClick={(e) => cambiar(e)}>
+                    <i className="fa fa-folder-open fa-2x"></i>
+                    <span className="nav-text" onClick={(e) => cambiar(e)}>
                       Nuevo producto
                     </span>
                   </a>
                 </li>
-                <li class="has-subnav">
+                <li className="has-subnav">
+                   {/*eslint-disable-next-line*/}
                   <a href="#">
-                    <i class="fa fa-folder-open fa-2x"></i>
-                    <span class="nav-text" onClick={(e) => cambiar(e)}>
+                    <i className="fa fa-folder-open fa-2x"></i>
+                    <span className="nav-text" onClick={(e) => cambiar(e)}>
                       Productos
                     </span>
                   </a>
                 </li>
 
                 <li>
+                   {/*eslint-disable-next-line*/}
                   <a href="#">
-                    <i class="fa fa-clock fa-2x"></i>
-                    <span class="nav-text" onClick={(e) => cambiar(e)}>
+                    <i className="fa fa-clock fa-2x"></i>
+                    <span className="nav-text" onClick={(e) => cambiar(e)}>
                       Ventas
                     </span>
                   </a>
                 </li>
               </ul>
-              <ul class="logout" style={{ marginLeft: "15px" }}>
+              <ul className="logout" style={{ marginLeft: "15px" }}>
                 <li onClick={cerrarSes}>
+                   {/*eslint-disable-next-line*/}
                   <a>
-                  <i class="fa fa-power-off fa-2x"></i>
-                  <span class="nav-text">Logout</span>
+                  <i className="fa fa-power-off fa-2x"></i>
+                  <span className="nav-text">Logout</span>
                   </a>
                 </li>
               </ul>
