@@ -49,7 +49,7 @@ const FormRegister = () => {
       };
       try {
         const response = await axiosInstance.post("/register", newUser);
-        if (response) {
+        if (response.data.error===undefined) {
           Swal.mixin({
             toast: true,
             position: "top-end",
@@ -66,14 +66,19 @@ const FormRegister = () => {
             title: "Registro exitoso !!",
           });
           
+        }else{
+          swal({
+            icon: "error",
+            title: response.data.error,
+          });
         }
         
       } catch (error) {
-        
         swal({
           icon: "error",
-          title: error.response.data.error,
+          title: error,
         });
+       
       }
       
       e.target.reset();
